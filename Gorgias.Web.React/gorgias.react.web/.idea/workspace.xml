@@ -35,16 +35,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="0-WebSlider.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="0-WebSlider.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainSections/0-WebSlider.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="697">
-              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <marker date="1512547833012" expanded="true" signature="1127:1164" ph="..." />
                 <marker date="1512547833012" expanded="true" signature="1217:1235" ph="..." />
                 <marker date="1512547833012" expanded="true" signature="1281:1299" ph="..." />
+                <marker date="1512547833012" expanded="true" signature="1399:3369" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -53,12 +54,24 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="176" column="23" lean-forward="true" selection-start-line="141" selection-start-column="18" selection-end-line="176" selection-end-column="23" />
+            <state relative-caret-position="387">
+              <caret line="45" column="85" lean-forward="false" selection-start-line="45" selection-start-column="85" selection-end-line="45" selection-end-column="85" />
               <folding>
-                <marker date="1512544689997" expanded="true" signature="7487:7524" ph="..." />
-                <marker date="1512544689997" expanded="true" signature="7577:7595" ph="..." />
-                <marker date="1512544689997" expanded="true" signature="7641:7659" ph="..." />
+                <marker date="1512548292616" expanded="true" signature="7648:7685" ph="..." />
+                <marker date="1512548292616" expanded="true" signature="7738:7756" ph="..." />
+                <marker date="1512548292616" expanded="true" signature="7802:7820" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="1.2-TopStories.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Components/MainSections/1.2-TopStories.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="654">
+              <caret line="65" column="33" lean-forward="false" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+              <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -109,7 +122,6 @@
         <option value="$PROJECT_DIR$/src/Components/LoginSections/LoginForm3-resetPassword.js" />
         <option value="$PROJECT_DIR$/src/Components/TermsPageSections/1-PrivacyPolicy.js" />
         <option value="$PROJECT_DIR$/src/Components/ContentTerms.js" />
-        <option value="$PROJECT_DIR$/src/Components/MainSections/1.2-TopStories.js" />
         <option value="$PROJECT_DIR$/src/Components/MainSections/1-WhatIsGorgias.js" />
         <option value="$PROJECT_DIR$/src/Components/MainSections/2.1-CelebGrid.js" />
         <option value="$PROJECT_DIR$/src/Components/MainSections/2.1-CelebGrid-5-Dec.js" />
@@ -143,10 +155,11 @@
         <option value="$PROJECT_DIR$/src/Components/ContentAbout.js" />
         <option value="$PROJECT_DIR$/src/Components/AboutContainer.js" />
         <option value="$PROJECT_DIR$/src/Components/TermsContainer.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/Components/Header.js" />
         <option value="$PROJECT_DIR$/src/Components/Content.js" />
         <option value="$PROJECT_DIR$/src/Components/MainSections/0-WebSlider.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/src/Components/MainSections/1.2-TopStories.js" />
       </list>
     </option>
   </component>
@@ -373,12 +386,12 @@
       <option name="presentableId" value="Default" />
       <updated>1512534509437</updated>
       <workItem from="1512534510763" duration="8123000" />
-      <workItem from="1512547537061" duration="300000" />
+      <workItem from="1512547537061" duration="1530000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8423000" />
+    <option name="totallyTimeSpent" value="9653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -414,14 +427,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/registerServiceWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html" />
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -476,13 +481,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="62" lean-forward="false" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/MainSections/1.2-TopStories.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -736,7 +734,7 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -759,27 +757,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="176" column="23" lean-forward="true" selection-start-line="141" selection-start-column="18" selection-end-line="176" selection-end-column="23" />
-          <folding>
-            <marker date="1512544689997" expanded="true" signature="7487:7524" ph="..." />
-            <marker date="1512544689997" expanded="true" signature="7577:7595" ph="..." />
-            <marker date="1512544689997" expanded="true" signature="7641:7659" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/MainSections/0-WebSlider.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <marker date="1512547833012" expanded="true" signature="1127:1164" ph="..." />
             <marker date="1512547833012" expanded="true" signature="1217:1235" ph="..." />
             <marker date="1512547833012" expanded="true" signature="1281:1299" ph="..." />
+            <marker date="1512547833012" expanded="true" signature="1399:3369" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/plugins/OwlCarousel2-2.2.1/docs/assets/owlcarousel/owl.carousel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <marker date="1488310992000" expanded="true" signature="58470:58514" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/plugins/OwlCarousel2-2.2.1/dist/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="45" column="85" lean-forward="false" selection-start-line="45" selection-start-column="85" selection-end-line="45" selection-end-column="85" />
+          <folding>
+            <marker date="1512548292616" expanded="true" signature="7648:7685" ph="..." />
+            <marker date="1512548292616" expanded="true" signature="7738:7756" ph="..." />
+            <marker date="1512548292616" expanded="true" signature="7802:7820" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/MainSections/1.2-TopStories.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="654">
+          <caret line="65" column="33" lean-forward="false" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

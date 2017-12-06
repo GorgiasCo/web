@@ -1,5 +1,5 @@
 import React from 'react';
-
+import OwlCarousel from 'react-owl-carousel';
 
 export default class TopStories extends React.Component {
 
@@ -59,9 +59,20 @@ export default class TopStories extends React.Component {
               <div className="column mcb-column one column_slider ">
                 <div className="content_slider carousel">
 
-                  <ul className="content_slider_ulio tk">
-                    {this.state.items.map(item => this.renderStory(item))}
-                  </ul>
+                  <OwlCarousel
+                      className="owl-theme"
+                      autoWidth={true}
+                      loop={false}
+                      margin={10}
+                      nav={false}
+                      dots={false}
+                      autoplay={true}
+                      autoplayTimeout={1000}
+                      autoplayHoverPause={true}
+                  >
+                      {this.state.items.map(item => this.renderStory(item))}
+                  </OwlCarousel>
+
                   <a className="button button_js slider_prev" href="#"><span className="button_icon"><i className="icon-left-open-big"></i></span></a><a className="button button_js slider_next" href="#"><span className="button_icon"><i className="icon-right-open-big"></i></span></a>
                   <div className="slider_pagination"></div>
                 </div>
@@ -74,3 +85,8 @@ export default class TopStories extends React.Component {
     );
   }
 }
+//
+//
+// <ul className="content_slider_ulio tk">
+//     {this.state.items.map(item => this.renderStory(item))}
+// </ul>
