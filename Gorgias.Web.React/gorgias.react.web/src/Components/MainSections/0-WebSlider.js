@@ -85,7 +85,7 @@ export default class FeaturedSlider extends React.Component {
                     data-bgposition="center"
                     data-bgrepeat="no-repeat"
                     slideProperties={{
-                        'data-transition': "fade",
+                        'data-transition': "slideup",
                         'data-slotamount': "7",
                         'data-masterspeed': "1000"
                     }}
@@ -133,7 +133,7 @@ export default class FeaturedSlider extends React.Component {
                     data-bgposition="center"
                     data-bgrepeat="no-repeat"
                     slideProperties={{
-                        'data-transition': "fade",
+                        'data-transition': "slidingoverlayleft",
                         'data-slotamount': "7",
                         'data-masterspeed': "1000"
                     }}
