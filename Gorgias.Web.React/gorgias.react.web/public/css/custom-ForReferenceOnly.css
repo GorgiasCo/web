@@ -320,12 +320,12 @@ Start of  Content
 	/*color:rgba(255,255,255,0.25);*/
   color: white;
 	font-family: 'Poiret One', cursive;
-	font-size:12px;
+	font-size:16px;
 	font-style:normal;
 	font-weight:600;
 	letter-spacing:1px;
 	line-height:15px;
-	padding:8px 15px;
+	padding:13px 35px;
 	text-align:left;
 	text-decoration:none;
   transition: all 0.3s;
@@ -340,7 +340,7 @@ Start of  Content
 	border-width:2px;
 	/*color:rgba(255,255,255,1.00);*/
   color:#ff5998;
-  font-size:13px;
+  font-size:17px;
   font-weight:bolder;
 	text-decoration:none;
 }
@@ -368,7 +368,7 @@ Start of  Content
   font-size: 18px;
   color:white;
 }
-/*----------list descriptions--------*/
+
 .tklist .desc {
   background-color: white;
   /*padding: 10px 20px;*/
@@ -392,32 +392,6 @@ Start of  Content
     font-size: smaller;
   }
 }
-/*Nexus 5x, 6p & iPhone 6plus*/
-@media screen and (min-width:401px) , screen and (max-width: 760px) {
-  .tklist .desc {
-    background-color: white;
-    /*padding: 10px 20px;*/
-    line-height: 1.6;
-    /*padding: 20px 35px 20px 20px;*/
-    padding: 4% 10% 4% 4%;
-    height: 90px; /*was 100px*/
-    text-align: left;
-    font-size:8px;
-  }
-}
-/*ipad iphone 4 & 5*/
-@media only screen and (max-width: 400px) {
-  .tklist .desc {
-    background-color: white;
-    /*padding: 10px 20px;*/
-    line-height: 1.6;
-    /*padding: 20px 35px 20px 20px;*/
-    padding: 4% 10% 4% 4%;
-    height: 85px; /*was 100px*/
-    text-align: left;
-    font-size:8px;
-  }
-}
 
 @media only screen and (max-width: 330px) {
   .tklist .desc {
@@ -429,47 +403,6 @@ Start of  Content
     height: 85px; /*was 100px*/
     text-align: left;
     font-size:8px;
-  }
-}
-/*ipad*/
-@media only screen and (width: 768px) {
-  .tklist .desc {
-    background-color: white;
-    /*padding: 10px 20px;*/
-    line-height: 1.6;
-    /*padding: 20px 35px 20px 20px;*/
-    padding: 4% 10% 4% 4%;
-    height: 105px; /*was 100px*/
-    text-align: left;
-    font-size: smaller;
-  }
-}
-
-/*ipad pro & laptops*/
-@media only screen and (min-width: 768px) {
-  .tklist .desc {
-    background-color: white;
-    /*padding: 10px 20px;*/
-    line-height: 1.6;
-    /*padding: 20px 35px 20px 20px;*/
-    padding: 4% 10% 4% 4%;
-    height: 110px; /*was 100px*/
-    text-align: left;
-    font-size: 10px;
-  }
-}
-
-/*desktop*/
-@media only screen and (min-width:1025px) {
-  .tklist .desc {
-    background-color: white;
-    /*padding: 10px 20px;*/
-    line-height: 1.6;
-    /*padding: 20px 35px 20px 20px;*/
-    padding: 4% 10% 4% 4%;
-    height: 115px; /*was 100px*/
-    text-align: left;
-    font-size: 12px;
   }
 }
 
@@ -490,15 +423,13 @@ Start of  Content
 @media only screen and (min-width:400px) , screen and (max-width:766px) {
       .tklist {
         /*width:250px!important;*/
-        padding: 0 8px;
-        list-style: none;
+        padding: 0 15px;
       }
 }
 @media only screen and (max-width:320px) {
       .tklist {
         /*width:235px!important;*/
         padding: 0 5px;
-        list-style: none;
       }
 }
 
@@ -520,14 +451,14 @@ img.tk.fit3 {
   display: block
 }
 
-@media screen and (min-width: 401px) , screen and (max-width:760px) {
+@media only screen and (min-width: 400px) , screen and (max-width:767px) {
   img.tk.fit2 {
     /*border: 5px solid maroon;*/
     /*width: 10em;*/
     /*width: 250px;*/
     width: 100%;
     /*height: 10em !important;*/
-    height: 225px !important;
+    height: 200px !important;
     -o-object-fit: contain;
     object-fit: cover;
     display: block;
@@ -568,33 +499,7 @@ img.tk.fit3 {
   }
 }
 
-/*ipad */
-@media only screen and (width:768px) {
-  img.tk.fit2 {
 
-    width: 100%;
-    height: 265px !important;
-    -o-object-fit: contain;
-    object-fit: cover;
-    display: block;
-    margin-bottom: 0px !important;
-  }
-}
-
-/*ipad pro & laptops*/
-@media only screen and (min-width:768px) {
-  img.tk.fit2 {
-
-    width: 100%;
-    height: 270px !important;
-    -o-object-fit: contain;
-    object-fit: cover;
-    display: block;
-    margin-bottom: 0px !important;
-  }
-}
-
-/*desktop*/
 @media only screen and (min-width:1025px) {
   img.tk.fit2 {
     /*border: 5px solid maroon;*/

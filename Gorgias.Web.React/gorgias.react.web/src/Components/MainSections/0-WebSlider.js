@@ -29,7 +29,7 @@ const config = {
             h_align: "center",
             v_align: "center",
             h_offset: 0,
-            v_offset: 210,
+            v_offset: 50,
             // h_align: "right",
             // v_align: "bottom",
             // h_offset: 80,
