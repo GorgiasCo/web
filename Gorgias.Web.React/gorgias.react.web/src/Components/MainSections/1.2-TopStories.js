@@ -28,13 +28,13 @@ export default class TopStories extends React.Component {
 
   renderStory(story){
     return (
-      <li key={story.AlbumID} className="floatr tklist content_slider_li" style={{width:200 + "px", float:"left",}}>
+      <li key={story.AlbumID} className="floatr tklist content_slider_li" style={{float:"left",}}>
         <div>
           <img width="287" height="339" className="tk fit2" src={story.cdnAlbumCover} alt=""/>
         </div>
         <div className="desc">
           <p>{story.AlbumName}</p>
-          <p className="tkBottom-p-font">24</p>
+          {/*<p className="tkBottom-p-font">24</p>*/}
         </div>
         <div className="full-card-overlay">
           <div className="tk tp-caption Photography-Button rev-btn ">OPEN IN APP</div>
@@ -61,14 +61,56 @@ export default class TopStories extends React.Component {
 
                   <OwlCarousel
                       className="owl-theme"
-                      autoWidth={true}
+                      autoWidth={false}
                       loop={false}
                       margin={10}
                       nav={false}
                       dots={false}
-                      autoplay={true}
+                      autoplay={false}
                       autoplayTimeout={1000}
                       autoplayHoverPause={true}
+                      responsiveClass= {false}
+                responsive= {{
+                  0: {
+                    items: 2,
+                    nav: false,
+                    margin:0,
+                    center:true,
+
+                  },
+                  400: {
+                    items: 2,
+                    nav: false,
+                    margin:0,
+                    center:true,
+
+                  },
+                  600: {
+                    items: 3,
+                    nav: false
+                  },
+                  1000: {
+                    items: 4,
+                    nav: false,
+                    loop: false,
+                    margin: 5,
+
+                  },
+
+                  1440:{
+                    items: 5,
+                    nav: false,
+                    loop: false,
+                    margin: 5,
+                  },
+
+                  2560:{
+                    items: 8,
+                    nav: false,
+                    loop: false,
+                    margin: 5,
+                  }
+                }}
                   >
                       {this.state.items.map(item => this.renderStory(item))}
                   </OwlCarousel>

@@ -5000,7 +5000,7 @@ html, body {
 		height: 35px;
 		text-align: center;
 		position: absolute;
-		top: 28px;
+		top: 16px; /*orignally was 28*/
 		right: 10px;
 		-webkit-border-radius: 3px;
 		border-radius: 3px;
@@ -5702,7 +5702,7 @@ body {
 	}
 	#Header a.responsive-menu-toggle {
 		position: absolute !important;
-		top: 20px !important;
+		top: 8px !important; /*originally was 20px*/
 		right: 5px !important;
 		z-index: 10;
 		margin: 0;

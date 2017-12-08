@@ -10,7 +10,7 @@ export default class CelebGrid extends React.Component {
       isLoading: true,
       bgColor:"red",
       showLoadMoreBtn:true,
-      color_black:true 
+      color_black:true
     };
 
     this.handleLoadMore = this.handleLoadMore.bind(this);
@@ -272,18 +272,18 @@ toggleIndustries(){
                                               Filter by
                                           </li>
 
-                                          <li className="categories" onClick={this.toggleCategories.bind(this)}>
+                                          {/*<li className="categories" onClick={this.toggleCategories.bind(this)}>
                                               <a className="open"><i className="icon-tag"></i>Categories<i className="icon-down-dir"></i></a>
-                                          </li>
+                                          </li>*/}
                                           <li className="tags" onClick={this.toggleCountries.bind(this)} style={{backgroundColor:this.state.bgColor}}>
                                               <a className="open"><i className="icon-docs"></i>Countries<i className="icon-down-dir"></i></a>
                                           </li>
                                           <li className="authors" onClick={this.toggleProfileTypes.bind(this)}>
                                               <a className="open"><i className="icon-user"></i>ProfileType<i className="icon-down-dir"></i></a>
                                           </li>
-                                          <li className="industries" onClick={this.toggleIndustries.bind(this)}>
+                                          {/*<li className="industries" onClick={this.toggleIndustries.bind(this)}>
                                               <a className="open"><i className="icon-tag"></i>Industries<i className="icon-down-dir"></i></a>
-                                          </li>
+                                          </li>*/}
                                       </ul>
 
                                       <div className="filters_wrapper" style={{display:"block"}}>
