@@ -26,24 +26,25 @@ export default class Footer extends React.Component {
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
                                 <h4 className="tkFont1" style={{fontWeight: 'bold'}}><a
-                                    href="Gorgias-About.html">Site</a></h4>
+                                    href="Gorgias-About.html">Site</a>
+                                </h4>
+
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                   <NavLink to={"/login"} activeClassName={"activee"}><span>Login</span></NavLink>
                                 </p>
-                                <p className="tkFont1" style={{fontWeight: 'bold'}}><a href="#">Gorgias Wow</a></p>
-                                <p className="tkFont1" style={{fontWeight: 'bold'}}>
-                                    <NavLink to={"/downloadApp"}
-                                             activeClassName={"activee"}><span>DownloadApp</span></NavLink>
-                                </p>
 
+                                <p className="tkFont1" style={{fontWeight: 'bold'}}><a href="#">Gorgias Wow</a></p>
+
+                                <p className="tkFont1" style={{fontWeight: 'bold'}}>
+                                    <NavLink to={"/downloadApp"} activeClassName={"activee"}><span>DownloadApp</span></NavLink>
+                                </p>
 
                             </aside>
                         </div>
 
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
-                                <h4 className="tkFont1" style={{fontWeight: 'bold'}}><a target="_blank"
-                                                                                        href="Gorgias-About.html#download">About</a>
+                                <h4 className="tkFont1" style={{fontWeight: 'bold'}}><a target="_blank" href="Gorgias-About.html#download">About</a>
                                 </h4>
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                     <NavLink to={"/about"} activeClassName={"activee"}><span>Company</span></NavLink>
