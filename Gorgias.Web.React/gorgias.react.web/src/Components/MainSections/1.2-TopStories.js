@@ -34,7 +34,7 @@ export default class TopStories extends React.Component {
         </div>
         <div className="desc">
           <p>{story.AlbumName}</p>
-          <p className="tkBottom-p-font">24</p>
+          {/*<p className="tkBottom-p-font">24</p>*/}
         </div>
         <div className="full-card-overlay">
           <div className="tk tp-caption Photography-Button rev-btn ">OPEN IN APP</div>
@@ -73,14 +73,14 @@ export default class TopStories extends React.Component {
                 responsive= {{
                   0: {
                     items: 2,
-                    nav: true,
+                    nav: false,
                     margin:0,
                     center:true,
 
                   },
                   400: {
                     items: 2,
-                    nav: true,
+                    nav: false,
                     margin:0,
                     center:true,
 
@@ -99,6 +99,13 @@ export default class TopStories extends React.Component {
 
                   1440:{
                     items: 5,
+                    nav: false,
+                    loop: false,
+                    margin: 5,
+                  },
+
+                  2560:{
+                    items: 8,
                     nav: false,
                     loop: false,
                     margin: 5,

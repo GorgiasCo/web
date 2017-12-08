@@ -78,7 +78,7 @@ export default class FeaturedSlider extends React.Component {
     render() {
         return (
 
-
+            <div id="Featured">
             <RevSlider config={config} className="rev_slider_wrapper fullscreen-container" data-alias="scroll-effect76" style={{backgroundColor:"#ff0080",padding:"0", zIndex:"19!important"}}>
                 <Slide
                     src="https://gorgiasasia.blob.core.windows.net/images/webcover-4125?timestamp=676"
@@ -240,6 +240,7 @@ export default class FeaturedSlider extends React.Component {
                     </Caption>
                 </Slide>
             </RevSlider>
+            </div>
 
         )
     }

@@ -374,7 +374,7 @@ Start of  Content
   /*padding: 10px 20px;*/
   line-height: 1.6;
   /*padding: 20px 35px 20px 20px;*/
-  padding: 4% 10% 4% 4%;
+  padding: 4% 10% 4% 10%;
   height: 100px; /*was 100px*/
   text-align: left;
   font-size: smaller; /*16px*/
@@ -386,7 +386,7 @@ Start of  Content
     /*padding: 10px 20px;*/
     line-height: 1.6;
     /*padding: 20px 35px 20px 20px;*/
-    padding: 4% 10% 4% 4%;
+    padding: 4% 10% 4% 10%;
     height: 105px; /*was 100px*/
     text-align: left;
     font-size: smaller;
@@ -399,7 +399,7 @@ Start of  Content
     /*padding: 10px 20px;*/
     line-height: 1.6;
     /*padding: 20px 35px 20px 20px;*/
-    padding: 4% 10% 4% 4%;
+    padding: 4% 10% 4% 10%;
     height: 90px; /*was 100px*/
     text-align: left;
     font-size:8px;
@@ -412,7 +412,7 @@ Start of  Content
     /*padding: 10px 20px;*/
     line-height: 1.6;
     /*padding: 20px 35px 20px 20px;*/
-    padding: 4% 10% 4% 4%;
+    padding: 4% 10% 4% 10%;
     height: 85px; /*was 100px*/
     text-align: left;
     font-size:8px;
@@ -425,7 +425,7 @@ Start of  Content
     /*padding: 10px 20px;*/
     line-height: 1.6;
     /*padding: 20px 35px 20px 20px;*/
-    padding: 4% 10% 4% 4%;
+    padding: 4% 10% 4% 10%;
     height: 85px; /*was 100px*/
     text-align: left;
     font-size:8px;
@@ -438,7 +438,7 @@ Start of  Content
     /*padding: 10px 20px;*/
     line-height: 1.6;
     /*padding: 20px 35px 20px 20px;*/
-    padding: 4% 10% 4% 4%;
+    padding: 4% 10% 4% 10%;
     height: 105px; /*was 100px*/
     text-align: left;
     font-size: smaller;
@@ -452,7 +452,7 @@ Start of  Content
     /*padding: 10px 20px;*/
     line-height: 1.6;
     /*padding: 20px 35px 20px 20px;*/
-    padding: 4% 10% 4% 4%;
+    padding: 4% 10% 4% 10%;
     height: 110px; /*was 100px*/
     text-align: left;
     font-size: 10px;
@@ -466,7 +466,7 @@ Start of  Content
     /*padding: 10px 20px;*/
     line-height: 1.6;
     /*padding: 20px 35px 20px 20px;*/
-    padding: 4% 10% 4% 4%;
+    padding: 4% 10% 4% 10%;
     height: 115px; /*was 100px*/
     text-align: left;
     font-size: 12px;
@@ -633,6 +633,16 @@ img.tk.fit3 {
   font-size: 36px;
 }
 
+
+#Filters .filters_buttons li a {
+    cursor:pointer;
+}
+
+#Filters .filters_wrapper ul li a {
+
+    cursor: pointer;
+}
+
 /*------------for grid responsiveness---------------*/
 
 /*Nexus 5x, 6p & iPhone 6plus*/
@@ -696,6 +706,8 @@ img.tk.fit3 {
      object-fit: cover;
    }
 }
+
+/*----end of grid thumbs ----/
 
 /*========================= 6.0 Section Why Gorgias=========================*/
 
