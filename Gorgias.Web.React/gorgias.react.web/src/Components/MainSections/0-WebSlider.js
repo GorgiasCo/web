@@ -107,7 +107,7 @@ export default class FeaturedSlider extends React.Component {
                         data-responsive_offset="on" data-speed="900" data-easing="Power4.easeOut"
                         style={{zIndex:5, whiteSpace: "nowrap",color:"#999999",padding: "0px 10px",color:"rgba(255, 255, 255, 0.5)",letterSpacing:"2px"}}
                       >
-                      Miki C SZE
+                      Miki C SZEe
                     </Caption>
 
                     <Caption

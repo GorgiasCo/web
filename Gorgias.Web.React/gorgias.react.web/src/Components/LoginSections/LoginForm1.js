@@ -3,11 +3,11 @@ import React from 'react';
 export default class LoginForm1 extends React.Component {
   render (){
     return (
-        <div className="content_wrapper clearfix">
+        <div className="content_wrapper clearfix" style={{height: 100+"vh", backgroundImage:"url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/0kjHIH6/glamorous-sparkling-sequins-in-a-silver-border-frame-with-flare-lights-and-particles-background_vs9pjap6l__F0000.png)", backgroundRepeat:"no-repeat", backgroundPosition:"center top", backgroundSize:"cover",position:"sticky"}}>
             <div className="sections_group">
               <div className="entry-content">
                 {/*login*/}
-                <div className="section dark" id="featured" style={{height: 100+"vh", backgroundImage:"url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/0kjHIH6/glamorous-sparkling-sequins-in-a-silver-border-frame-with-flare-lights-and-particles-background_vs9pjap6l__F0000.png)", backgroundRepeat:"no-repeat", backgroundPosition:"center top", backgroundSize:"cover",position:"sticky"}}>
+                <div className="section dark" id="featured" >
                     <div className="section_wrapper clearfix">
                       <div className="items_group clearfix" style={{height: 100+"vh"}}>
                          <div id="tk-modal-form" style={{color: "#de0083"}}>

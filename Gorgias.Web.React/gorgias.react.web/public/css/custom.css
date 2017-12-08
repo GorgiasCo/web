@@ -228,7 +228,7 @@ Start of  Content
 @media only screen and (width:320px) {
   #Header a.responsive-menu-toggle {
     position: absolute !important;
-    top: 8px !important; /*originally was 20px*/
+    top: 10% !important; /*originally was 20px*/
     right: 5px !important;
     z-index: 10;
     margin: 0;
@@ -238,7 +238,7 @@ Start of  Content
 @media only screen and (width:326px) {
   #Header a.responsive-menu-toggle {
     position: absolute !important;
-    top: 8px !important; /*originally was 20px*/
+    top: 15% !important; /*originally was 20px*/
     right: 5px !important;
     z-index: 10;
     margin: 0;
