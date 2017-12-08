@@ -20,11 +20,10 @@ export default class ContentAbout extends Component {
 
                             <AboutHeadingCover/>
                             <AboutUs/>
-                            <OurStory/>
                             <MissionVision/>
                             <ImageBanner/>
                             <TextTilesPanels/>
-                            <Teams/>
+                            
                             <AppDownloadBanner/>
 
                         </div>

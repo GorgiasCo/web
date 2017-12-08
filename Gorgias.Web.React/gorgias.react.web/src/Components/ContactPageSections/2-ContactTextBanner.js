@@ -5,7 +5,7 @@ export default class ContactTextBanner extends React.Component {
     render() {
         return (
             <div className="section tkSection-padding bg-color-1">
-                <div className="section_wrapper clearfix tkSection-padding">
+                <div className="section_wrapper clearfix">
                     <div className="items_group clearfix">
                         <div className="column one column_column ">
                             <div className="column_attr align_center">

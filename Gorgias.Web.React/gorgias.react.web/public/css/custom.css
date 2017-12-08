@@ -715,7 +715,8 @@ img.tk.fit3 {
     background-color: white;
     padding: 8%;
     border-radius: 2px;
-    box-shadow: 5px 5px 20px 0px #555
+    box-shadow: 5px 5px 20px 0px #555;
+    font-size: smaller
 }
 
 

@@ -10,15 +10,13 @@ export default class Locations extends React.Component {
                         <div className="mcb-wrap-inner">
                             <div className="column mcb-column one-second column_column" style={{
                                 float: "none",
-                                marginTop: 30 + "px",
+                                marginTop: 0 + "px",
                                 marginLeft: "auto",
                                 marginRight: "auto",
                                 textAlign: "center"
                             }}>
                                 <div className="column_attr clearfix">
                                     <h2 className="tkFont1" style={{color: "white"}}>Our Places</h2>
-                                    <hr className="no_line" style={{margin: 0 + " auto " + 30 + "px"}}/>
-
                                 </div>
                             </div>
                         </div>
@@ -32,15 +30,15 @@ export default class Locations extends React.Component {
                                     <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
                                     <h4 className="tkFont-Bold tkFont-Theme">Address 1</h4>
                                     <hr />
-                                    <ul className="no-bullets">
-                                        <li>No.8 Jalan Kerinchi, The Vertical</li>
-                                        <li>Bangsar South City, 59200</li>
-                                        <li>Malaysia</li>
-                                        <li>Tel: +6018 713 7322</li>
-                                        <li>Mon – Fri: 8am - 7pm</li>
-                                        <li>Sat, Sun & PH: Closed</li>
-                                        <li><a href="#">email@gorgias.com</a></li>
-                                    </ul>
+                                      <div className="no-bullets" style={{lineHeight:"20px"}}>
+                                          <p>No.8 Jalan Kerinchi, The Vertical<br/>
+                                          Bangsar South City, 59200<br/>
+                                          Malaysia<br/>
+                                          Tel: +6018 713 7322<br/>
+                                          Mon – Fri: 8am - 7pm<br/>
+                                          Sat, Sun & PH: Closed<br/><br/>
+                                          <a href="#">email@gorgias.com</a></p>
+                                      </div>
                                 </div>
                             </div>
 
@@ -50,15 +48,15 @@ export default class Locations extends React.Component {
                                     <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
                                     <h4 className="tkFont-Bold tkFont-Theme">Address 2</h4>
                                     <hr />
-                                    <ul className="no-bullets">
-                                        <li>No.8 Jalan Kerinchi, The Vertical</li>
-                                        <li>Bangsar South City, 59200</li>
-                                        <li>Malaysia</li>
-                                        <li>Tel: +6018 713 7322</li>
-                                        <li>Mon – Fri: 8am - 7pm</li>
-                                        <li>Sat, Sun & PH: Closed</li>
-                                        <li><a href="#">email@gorgias.com</a></li>
-                                    </ul>
+                                    <div className="no-bullets" style={{lineHeight:"20px"}}>
+                                        <p>No.8 Jalan Kerinchi, The Vertical<br/>
+                                        Bangsar South City, 59200<br/>
+                                        Malaysia<br/>
+                                        Tel: +6018 713 7322<br/>
+                                        Mon – Fri: 8am - 7pm<br/>
+                                        Sat, Sun & PH: Closed<br/><br/>
+                                        <a href="#">email@gorgias.com</a></p>
+                                    </div>
                                 </div>
                             </div>
 
@@ -68,15 +66,15 @@ export default class Locations extends React.Component {
                                     <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
                                     <h4 className="tkFont-Bold tkFont-Theme">Address 3</h4>
                                     <hr />
-                                    <ul className="no-bullets">
-                                        <li>No.8 Jalan Kerinchi, The Vertical</li>
-                                        <li>Bangsar South City, 59200</li>
-                                        <li>Malaysia</li>
-                                        <li>Tel: +6018 713 7322</li>
-                                        <li>Mon – Fri: 8am - 7pm</li>
-                                        <li>Sat, Sun & PH: Closed</li>
-                                        <li><a href="#">email@gorgias.com</a></li>
-                                    </ul>
+                                      <div className="no-bullets" style={{lineHeight:"20px"}}>
+                                          <p>No.8 Jalan Kerinchi, The Vertical<br/>
+                                          Bangsar South City, 59200<br/>
+                                          Malaysia<br/>
+                                          Tel: +6018 713 7322<br/>
+                                          Mon – Fri: 8am - 7pm<br/>
+                                          Sat, Sun & PH: Closed<br/><br/>
+                                          <a href="#">email@gorgias.com</a></p>
+                                      </div>
                                 </div>
                             </div>
 
@@ -86,15 +84,15 @@ export default class Locations extends React.Component {
                                     <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
                                     <h4 className="tkFont-Bold tkFont-Theme">Address 4</h4>
                                     <hr />
-                                    <ul className="no-bullets">
-                                        <li>No.8 Jalan Kerinchi, The Vertical</li>
-                                        <li>Bangsar South City, 59200</li>
-                                        <li>Malaysia</li>
-                                        <li>Tel: +6018 713 7322</li>
-                                        <li>Mon – Fri: 8am - 7pm</li>
-                                        <li>Sat, Sun & PH: Closed</li>
-                                        <li><a href="#">email@gorgias.com</a></li>
-                                    </ul>
+                                      <div className="no-bullets" style={{lineHeight:"20px"}}>
+                                          <p>No.8 Jalan Kerinchi, The Vertical<br/>
+                                          Bangsar South City, 59200<br/>
+                                          Malaysia<br/>
+                                          Tel: +6018 713 7322<br/>
+                                          Mon – Fri: 8am - 7pm<br/>
+                                          Sat, Sun & PH: Closed<br/><br/>
+                                          <a href="#">email@gorgias.com</a></p>
+                                      </div>
                                 </div>
                             </div>
 

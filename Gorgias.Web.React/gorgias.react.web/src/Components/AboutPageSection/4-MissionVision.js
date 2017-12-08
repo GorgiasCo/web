@@ -6,7 +6,7 @@ export default class MissionVision extends React.Component {
         return (
             <div className="section mcb-section" style={{
                 paddingTop: 50 + "px",
-                paddingBottom: 50 + "px",
+                paddingBottom: 0 + "px",
                 backgroundColor: "whitesmoke",
                 backgroundImage: "none",
                 backgroundRepeat: "no-repeat",
@@ -17,56 +17,10 @@ export default class MissionVision extends React.Component {
                     <div className="wrap mcb-wrap one  valign-top clearfix" style={{margin: 0 + "px auto"}}>
                         <div className="mcb-wrap-inner">
 
-                            <div className="column mcb-column one-third column_column ">
-                                <div className="animate " data-anim-type="fadeInUpLarge">
-                                    <div className="column_attr clearfix align_center tkPanels"
-                                         style={{height: 250 + "px"}}>
-                                        <h4>Our Mission</h4>
-                                        <div
-                                            className="image_frame image_item no_link scale-with-grid alignnone no_border">
-                                            <div className="image_wrapper"><img className="scale-with-grid"
-                                                                                src="images/home_surveyor_sep2.png"
-                                                                                alt="home_surveyor_sep2" width="24"
-                                                                                height="2"/>
-                                            </div>
-                                        </div>
-                                        <hr className="no_line" style={{margin: 0 + " auto " + 30 + "px"}}/>
-                                        <p>
-                                            To bring up and make Gorgias® an establish brand, a well known business, a
-                                            biggest mobile app platform with the most advance technology of advertising.
-                                            GORGIAS®, BrandSO and BA platform will expand to others countries in Asia.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div className="column mcb-column one-third column_column ">
-                                <div className="animate " data-anim-type="fadeInUp">
-                                    <div className="column_attr clearfix align_center tkPanels"
-                                         style={{height: 250 + "px"}}>
-                                        <h4>Our Vision</h4>
-                                        <div
-                                            className="image_frame image_item no_link scale-with-grid alignnone no_border">
-                                            <div className="image_wrapper"><img className="scale-with-grid"
-                                                                                src="images/home_surveyor_sep2.png"
-                                                                                alt="home_surveyor_sep2" width="24"
-                                                                                height="2"/>
-                                            </div>
-                                        </div>
-                                        <hr className="no_line" style={{margin: 0 + " auto " + 30 + "px"}}/>
-                                        <p>
-                                            To become the biggest celebrities, proffessional and brands platform in Asia
-                                            and even around the globe.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="column mcb-column one-third column_column ">
+                            <div className="column mcb-column one-third column_column" style={{margin: 2+"% "+ 1+"%"}}>
                                 <div className="column_attr clearfix align_center"
                                      style={{padding: 0 + " " + 10 + "% " + 0 + " " + 10 + "%"}}>
-                                    <div className="animate " data-anim-type="fadeInRightLarge">
+                                    <div className="animate " data-anim-type="fadeInLeftLarge">
                                         <div className="tklist content_slider_li_1">
 
                                             <div class="tkPanels" style={{padding: "0"}}>
@@ -86,6 +40,38 @@ export default class MissionVision extends React.Component {
                                     </div>
                                 </div>
                             </div>
+
+                            <div className="column mcb-column one-third column_column" style={{margin: 2+"% "+ 1+"%"}}>
+                                <div className="animate " data-anim-type="fadeInUpLarge">
+                                    <div className="column_attr clearfix align_center tkPanels"
+                                         style={{height: 250 + "px"}}>
+                                        <hr className="no_line" style={{margin: 0 + " auto " + 30 + "px"}}/>
+                                        <h4>Our Mission</h4>
+                                        <br/>
+                                        <p>
+                                            To bring up and make Gorgias® an establish brand, a well known business, a
+                                            biggest mobile app platform with the most advance technology of advertising.
+                                            GORGIAS®, BrandSO and BA platform will expand to others countries in Asia.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="column mcb-column one-third column_column" style={{margin: 2+"% "+ 1+"%"+ 1+"%"+ 1+"%"}}>
+                                <div className="animate " data-anim-type="fadeInUp">
+                                    <div className="column_attr clearfix align_center tkPanels"
+                                         style={{height: 250 + "px"}}>
+                                        <hr className="no_line" style={{margin: 0 + " auto " + 30 + "px"}}/>
+                                        <h4>Our Vision</h4>
+                                        <br/>
+                                        <p>
+                                            To become the biggest celebrities, proffessional and brands platform in Asia
+                                            and even around the globe.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
 
                         </div>
                     </div>

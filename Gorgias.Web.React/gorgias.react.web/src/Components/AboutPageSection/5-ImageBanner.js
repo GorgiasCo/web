@@ -5,8 +5,8 @@ export default class ImageBanner extends React.Component {
     render() {
         return (
             <div className="section mcb-section full-width no-margin-h no-margin-v equal-height-wrap" style={{
-                paddingTop: 0 + "px",
-                paddingBottom: 20 + "px",
+                paddingTop: 50 + "px",
+                paddingBottom: 0 + "px",
                 height: 200 + "px",
                 backgroundColor: "whitesmoke"
             }}>

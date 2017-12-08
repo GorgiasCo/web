@@ -46,7 +46,7 @@ export default class Header extends React.Component {
                               <div className="logo">
 
                                     <NavLink exact to={"/"} activeStyle={{textDecoration:"none"}}>
-                                      <h3 style={{color:"white",marginTop: 30+"px"}}>Gorgias</h3>
+                                      <h3 style={{color:"white",marginTop: 10+"px"}}>Gorgias</h3>
                                     </NavLink>
 
                               </div>
