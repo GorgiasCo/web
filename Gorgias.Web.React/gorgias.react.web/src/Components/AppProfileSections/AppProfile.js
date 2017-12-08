@@ -18,7 +18,7 @@ export default class AppProfile extends React.Component {
             <div className="content_wrapper clearfix">
                 <div className="sections_group">
                     <div className="entry-content tk-background-ImgFit"
-                         style={{backgroundImage: "url(https://gorgiasasia.blob.core.windows.net/images/webcover-1109?timestamp=403)"}}>
+                         style={{backgroundImage: "url(https://gorgiasasia.blob.core.windows.net/images/webcover-1109?timestamp=403)",position:"sticky"}}>
                         {/*login*/}
                         <div className="section dark" id="featured" style={{
                             height: 100 + "vh",

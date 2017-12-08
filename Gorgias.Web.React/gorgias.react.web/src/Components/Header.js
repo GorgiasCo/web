@@ -16,6 +16,13 @@ import HomeContainer from './HomeContainer';
 
 export default class Header extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      MainNav:true
+    };
+  }
+
   componentDidMount(){
     $('a[href*="#"]:not([href="#"])').click(function() {
       if (window.location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
@@ -32,6 +39,9 @@ export default class Header extends React.Component {
       }
     });
   }
+
+
+
 
   render (){
     return (
@@ -52,6 +62,8 @@ export default class Header extends React.Component {
                               </div>
                               <div className="menu_wrapper">
                                   <nav id="menu" className="menu-main-menu-container">
+
+                                    {this.state.MainNav ?
                                       <ul id="menu-main-menu" className="menu tk">
                                           <li >
                                             <a href="#Featured"><span>Featured</span></a>
@@ -70,7 +82,8 @@ export default class Header extends React.Component {
                                             <a href="#download"><span>Download</span></a>
                                           </li>
                                       </ul>
-                                  </nav><a className="responsive-menu-toggle" href="#"><i className="icon-menu-fine"></i></a>
+                                      :null}
+                                  </nav><a className="responsive-menu-toggle" href=""><i className="icon-menu-fine"></i></a>
                               </div>
                               <div className="secondary_menu_wrapper"></div>
                               <div className="banner_wrapper"></div>
