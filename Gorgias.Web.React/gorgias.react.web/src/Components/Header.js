@@ -83,7 +83,7 @@ export default class Header extends React.Component {
                                           </li>
                                       </ul>
                                       :null}
-                                  </nav><a className="responsive-menu-toggle" href="#"><i className="icon-menu-fine"></i></a>
+                                  </nav><a className="responsive-menu-toggle" href=""><i className="icon-menu-fine"></i></a>
                               </div>
                               <div className="secondary_menu_wrapper"></div>
                               <div className="banner_wrapper"></div>

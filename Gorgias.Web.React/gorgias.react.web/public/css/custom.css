@@ -222,6 +222,30 @@ Start of  Content
 }
 */
 
+/*for iphone fix (hamburger icon)*/
+
+
+@media only screen and (width:320px) {
+  #Header a.responsive-menu-toggle {
+    position: absolute !important;
+    top: 8px !important; /*originally was 20px*/
+    right: 5px !important;
+    z-index: 10;
+    margin: 0;
+  }
+}
+
+@media only screen and (width:326px) {
+  #Header a.responsive-menu-toggle {
+    position: absolute !important;
+    top: 8px !important; /*originally was 20px*/
+    right: 5px !important;
+    z-index: 10;
+    margin: 0;
+  }
+}
+
+
 /*======end of tk's menu bar=======*/
 
 
