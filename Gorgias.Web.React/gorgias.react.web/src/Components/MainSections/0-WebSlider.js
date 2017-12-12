@@ -160,14 +160,58 @@ export default class FeaturedSlider extends React.Component {
                         'data-masterspeed': "1000"
                     }}>
                     <Caption
-                        class="tp-caption skewfromrightshort fadeout"
-                        data-x="85"
-                        data-y="224"
-                        data-speed="500"
-                        data-start="1200"
-                        data-easing="Power4.easeOut"
+                       class="tp-caption Photography-Subline tp-resizeme"
+                       data-x="['left','left','center','center']" data-hoffset="['110','80','0','0']"
+                       data-y="['center','top','top','top']"
+                       data-voffset="['-90','330','400','310']" data-fontsize="['60','60','60','30']"
+                       data-lineheight="['75','30','30','26']" data-width="none" data-height="none"
+                       data-whitespace="nowrap"
+                       data-transform_idle="o:1;"
+                       data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                       data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+
+                        data-start="500" data-splitin="none" data-splitout="none" data-basealign="slide"
+                        data-responsive_offset="on" data-speed="900" data-easing="Power4.easeOut"
+                        style={{zIndex:5, whiteSpace: "nowrap",color:"#999999",padding: "0px 10px",color:"rgba(255, 255, 255, 0.5)",letterSpacing:"2px"}}
+                      >
+                      Ruby 狄妃
+                    </Caption>
+
+                    <Caption
+                       class="tp-caption Photography-Subline tp-resizeme"
+                       data-x="['left','left','center','center']" data-hoffset="['110','80','0','0']"
+                       data-y="['center','top','top','top']"
+                       data-voffset="['-40','390','475','375']" data-fontsize="['20','20','20','17']"
+                       data-lineheight="['30','30','30','26']" data-width="none" data-height="none"
+                       data-whitespace="nowrap"
+                       data-transform_idle="o:1;"
+                       data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                       data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+
+                       data-start="750" data-splitin="none" data-splitout="none" data-basealign="slide"
+                       data-responsive_offset="on" data-speed="900" data-easing="Power4.easeOut"
+                       style={{zIndex:6, whiteSpace: "nowrap",color:"#999999",padding: "0px 10px",backgroundColor:"rgba(238, 238, 238, 0.7)"}}
                     >
-                        fourth fourth fourth fourth
+                        ACTRESS / SINGER
+                    </Caption>
+                    <Caption
+                        class="tp-caption Photography-Subline tp-resizeme"
+                        data-x="['left','left','center','center']"
+                        data-hoffset="['110','80','0','6']"
+                        data-y="['center','top','center','bottom']"
+                        data-voffset="['90','480','150','130']" data-fontsize="['20','20','20','0']"
+                        data-lineheight="['30','30','30','26']"
+                        data-width="['490','492','500','400']" data-height="['auto']"
+                        data-whitespace="normal"
+                        data-transform_idle="o:1;"
+                        data-transform_in="x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
+                        data-transform_out="x:[-100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;"
+                        data-start="1000" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="on"
+                        data-speed="500"
+                        data-easing="Power4.easeOut"
+                        style={{zIndex:7, minWidth:"490px", maxWidth: "490px",whiteSpace: "normal", fontSize:"14px",}}
+                    >
+                        马来西亚艺人 - 演员，歌手，主持人 好萊塢國際電影展2017最佳女配角 美国景深国际电影節競賽2017卓越女配角..
                     </Caption>
                 </Slide>
 
