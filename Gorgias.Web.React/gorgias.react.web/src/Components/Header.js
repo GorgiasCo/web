@@ -19,7 +19,6 @@ export default class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      MainNav:true,
       isMainPage: true,
       typeOfNavBar: 0,
     };
@@ -27,10 +26,11 @@ export default class Header extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState)
-{
-  console.log(window.location, 'i am here ;)');
-return true;
-}
+      {
+        console.log(window.location, 'i am here ;)');
+      return true;
+      }
+
   componentWillReceiveProps(nextProps) {
     //console.log(this.props.location, 'i am here ;)');
   }
@@ -62,7 +62,7 @@ return true;
             break;
           case "/contact":
             this.setState({typeOfNavBar: 2, isMainPage: false})
-          break;
+            break;
           default:
           this.setState({isMainPage: false})
           break;
@@ -72,43 +72,39 @@ return true;
 
   prepareNavBar(){
     switch(this.state.typeOfNavBar) {
-    case 1:
-        return(
-          <ul id="menu-main-menu" className="menu tk">
-              <li onClick={console.log("clickey")} >
-                <a href="#Featured" className="close" ><span>;)</span></a>
-              </li>
-              <li>
-                <a href="#download" className="close"><span>Download</span></a>
-              </li>
-          </ul>
-        )
-        break;
-    case 2:
-    return(
-      <ul id="menu-main-menu" className="menu tk">
-          <li onClick={console.log("clickey")} >
-            <a href="#Featured" className="close" ><span>;)</span></a>
-          </li>
-      </ul>
-    );
-            break;
-    default:
-    return(
-      <ul id="menu-main-menu" className="menu tk">
-          <li onClick={console.log("clickey")} >
-            <a href="#Featured" className="close" ><span>;) all</span></a>
-          </li>
-      </ul>
-    )}
+          case 1:
+              return(
+                <ul id="menu-main-menu" className="menu tk">
+                  <li>
+                    <a href="#About" className="close"><span>About Us</span></a>
+                  </li>
+                  <li>
+                    <a href="#download" className="close"><span>Download App</span></a>
+                  </li>
+                </ul>
+              )
+              break;
+
+          case 2:
+              return(
+                <ul id="menu-main-menu" className="menu tk">
+                    <li>
+                      <a href="#Location" className="close" ><span>Locations</span></a>
+                    </li>
+                    <li>
+                      <a href="#download" className="close" ><span>Download App</span></a>
+                    </li>
+                </ul>
+              );
+              break;
+
+          default:
+              return(
+                <ul id="menu-main-menu" className="menu tk">
+                  <li></li>
+                </ul>
+              )}
   }
-
-
-  toggleMainNav(){
-    this.setState({MainNav:!this.state.MainNav});
-    console.log("toggleMainNav is clicked");
-  }
-
 
   render (){
     return (
@@ -122,7 +118,7 @@ return true;
                           <div className="top_bar_left clearfix">
                               <div className="logo">
 
-                                    <NavLink onClick={this.toggleMainNav.bind(this)} exact to={"/"} activeStyle={{textDecoration:"none"}}>
+                                    <NavLink exact to={"/"} activeStyle={{textDecoration:"none"}}>
                                       <h3 style={{color:"white",marginTop: 10+"px"}}>Gorgias</h3>
                                     </NavLink>
 
@@ -132,12 +128,12 @@ return true;
 
                                     {this.state.isMainPage ?
                                       <ul id="menu-main-menu" className="menu tk">
-                                          <li onClick={console.log("clickey")} >
+                                          <li>
                                             <a href="#Featured" className="close" ><span>{this.props.homeLink}</span></a>
                                           </li>
 
                                           <li>
-                                            <a  onClick={console.log("clickey from nav!!")} href="#Stories" className="close"><span>Storiess</span></a>
+                                            <a href="#Stories" className="close"><span>Storiess</span></a>
                                           </li>
                                           <li>
                                             <a href="#OurGorgias" className="close"><span>OurGorgias</span></a>

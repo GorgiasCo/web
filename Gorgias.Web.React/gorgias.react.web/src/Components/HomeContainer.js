@@ -5,13 +5,7 @@ import Footer from './Footer';
 
 export default class HomeContainer extends Component {
 
-    constructor(){
-      super()
-      this.state={
-        homeLink:"Homee",
-        MainNav:true
-      };
-    }
+
 
     componentWillMount() {
         //To ensure page is begining at top ;)
@@ -29,9 +23,9 @@ export default class HomeContainer extends Component {
         return (
 
             <div id="Wrapper">
-                <Header homeLink={this.state.homeLink}/>
+                <Header/>
                 <Content/>
-                <Footer changeLink={this.onChangeLinkName.bind(this)}/>
+                <Footer/>
             </div>
         );
     }
