@@ -10,7 +10,7 @@ import {
     StaticRouter, // for server rendering
     Route,
     Link,
-    // browserHistory
+    browserHistory
     // etc.
 } from 'react-router-dom'
 
@@ -35,4 +35,3 @@ export default class MainPage extends Component {
         )
     }
 }
-

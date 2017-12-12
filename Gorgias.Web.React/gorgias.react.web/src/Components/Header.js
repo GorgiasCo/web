@@ -19,9 +19,20 @@ export default class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      MainNav:true
+      MainNav:true,
+      isMainPage: true,
+      typeOfNavBar: 0,
     };
 
+  }
+
+  shouldComponentUpdate(nextProps, nextState)
+{
+  console.log(window.location, 'i am here ;)');
+return true;
+}
+  componentWillReceiveProps(nextProps) {
+    //console.log(this.props.location, 'i am here ;)');
   }
 
   componentDidMount(){
@@ -41,8 +52,59 @@ export default class Header extends React.Component {
     });
   }
 
-  toggleMainNav(){
+  componentWillMount(){
+    console.log(window.location.pathname, 'i am here ;)', 'componentWillMount');
+      if(window.location.pathname != "/"){
+        // this.setState({isMainPage: false});
+        switch(window.location.pathname){
+          case "/about":
+            this.setState({typeOfNavBar: 1, isMainPage: false})
+            break;
+          case "/contact":
+            this.setState({typeOfNavBar: 2, isMainPage: false})
+          break;
+          default:
+          this.setState({isMainPage: false})
+          break;
+        }
+      }
+  }
 
+  prepareNavBar(){
+    switch(this.state.typeOfNavBar) {
+    case 1:
+        return(
+          <ul id="menu-main-menu" className="menu tk">
+              <li onClick={console.log("clickey")} >
+                <a href="#Featured" className="close" ><span>;)</span></a>
+              </li>
+              <li>
+                <a href="#download" className="close"><span>Download</span></a>
+              </li>
+          </ul>
+        )
+        break;
+    case 2:
+    return(
+      <ul id="menu-main-menu" className="menu tk">
+          <li onClick={console.log("clickey")} >
+            <a href="#Featured" className="close" ><span>;)</span></a>
+          </li>
+      </ul>
+    );
+            break;
+    default:
+    return(
+      <ul id="menu-main-menu" className="menu tk">
+          <li onClick={console.log("clickey")} >
+            <a href="#Featured" className="close" ><span>;) all</span></a>
+          </li>
+      </ul>
+    )}
+  }
+
+
+  toggleMainNav(){
     this.setState({MainNav:!this.state.MainNav});
     console.log("toggleMainNav is clicked");
   }
@@ -68,7 +130,7 @@ export default class Header extends React.Component {
                               <div className="menu_wrapper">
                                   <nav id="menu" className="menu-main-menu-container">
 
-                                    {this.state.MainNav ?
+                                    {this.state.isMainPage ?
                                       <ul id="menu-main-menu" className="menu tk">
                                           <li onClick={console.log("clickey")} >
                                             <a href="#Featured" className="close" ><span>{this.props.homeLink}</span></a>
@@ -87,7 +149,7 @@ export default class Header extends React.Component {
                                             <a href="#download" className="close"><span>Download</span></a>
                                           </li>
                                       </ul>
-                                      :null}
+                                      :this.prepareNavBar()}
                                   </nav><a className="responsive-menu-toggle" href="#"><i className="icon-menu-fine"></i></a>
                               </div>
                               <div className="secondary_menu_wrapper"></div>
