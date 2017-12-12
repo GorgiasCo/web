@@ -27,8 +27,7 @@ export default class Footer extends React.Component {
                     <div className="container">
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
-                                <h4 className="tkFont1" style={{fontWeight: 'bold'}}><a
-                                    href="Gorgias-About.html">Site</a>
+                                <h4 className="tkFont1" style={{fontWeight: 'bold'}}><a>Site</a>
                                 </h4>
 
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
@@ -47,7 +46,7 @@ export default class Footer extends React.Component {
 
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
-                                <h4 className="tkFont1" style={{fontWeight: 'bold'}}><a target="_blank" href="Gorgias-About.html#download">About</a>
+                                <h4 className="tkFont1" style={{fontWeight: 'bold'}}><a>About</a>
                                 </h4>
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                     <NavLink to={"/about"} activeClassName={"activee"}><span>Company</span></NavLink>
