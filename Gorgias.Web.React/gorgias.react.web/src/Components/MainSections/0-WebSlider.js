@@ -96,7 +96,7 @@ export default class FeaturedSlider extends React.Component {
                        class="tp-caption Photography-Subline tp-resizeme"
                        data-x="['left','left','center','center']" data-hoffset="['110','80','0','0']"
                        data-y="['center','top','top','top']"
-                       data-voffset="['-90','330','400','310']" data-fontsize="['60','60','60','30']"
+                       data-voffset="['-90','330','400','310']" data-fontsize="['60','60','60','60']"
                        data-lineheight="['75','30','30','26']" data-width="none" data-height="none"
                        data-whitespace="nowrap"
                        data-transform_idle="o:1;"
@@ -114,7 +114,7 @@ export default class FeaturedSlider extends React.Component {
                        class="tp-caption Photography-Subline tp-resizeme"
                        data-x="['left','left','center','center']" data-hoffset="['110','80','0','0']"
                        data-y="['center','top','top','top']"
-                       data-voffset="['-40','390','475','375']" data-fontsize="['20','20','20','17']"
+                       data-voffset="['-40','390','475','425']" data-fontsize="['20','20','20','25']"
                        data-lineheight="['30','30','30','26']" data-width="none" data-height="none"
                        data-whitespace="nowrap"
                        data-transform_idle="o:1;"
@@ -123,7 +123,7 @@ export default class FeaturedSlider extends React.Component {
 
                        data-start="750" data-splitin="none" data-splitout="none" data-basealign="slide"
                        data-responsive_offset="on" data-speed="900" data-easing="Power4.easeOut"
-                       style={{zIndex:6, whiteSpace: "nowrap",color:"#999999",padding: "0px 10px",backgroundColor:"rgba(238, 238, 238, 0.7)"}}
+                       style={{zIndex:6, whiteSpace: "nowrap",color:"#999999",padding: "2px 25px",backgroundColor:"rgba(238, 238, 238, 0.7)"}}
                     >
                         PHOTOGRAPHY
                     </Caption>
@@ -163,7 +163,7 @@ export default class FeaturedSlider extends React.Component {
                        class="tp-caption Photography-Subline tp-resizeme"
                        data-x="['left','left','center','center']" data-hoffset="['110','80','0','0']"
                        data-y="['center','top','top','top']"
-                       data-voffset="['-90','330','400','310']" data-fontsize="['60','60','60','30']"
+                       data-voffset="['-90','330','400','310']" data-fontsize="['60','60','60','60']"
                        data-lineheight="['75','30','30','26']" data-width="none" data-height="none"
                        data-whitespace="nowrap"
                        data-transform_idle="o:1;"
@@ -172,7 +172,7 @@ export default class FeaturedSlider extends React.Component {
 
                         data-start="500" data-splitin="none" data-splitout="none" data-basealign="slide"
                         data-responsive_offset="on" data-speed="900" data-easing="Power4.easeOut"
-                        style={{zIndex:5, whiteSpace: "nowrap",color:"#999999",padding: "0px 10px",color:"rgba(255, 255, 255, 0.5)",letterSpacing:"2px"}}
+                        style={{zIndex:5, whiteSpace: "nowrap",color:"#00000080",padding: "0px 10px",color:"rgba(255, 255, 255, 0.5)",letterSpacing:"2px"}}
                       >
                       Ruby 狄妃
                     </Caption>
@@ -181,7 +181,7 @@ export default class FeaturedSlider extends React.Component {
                        class="tp-caption Photography-Subline tp-resizeme"
                        data-x="['left','left','center','center']" data-hoffset="['110','80','0','0']"
                        data-y="['center','top','top','top']"
-                       data-voffset="['-40','390','475','375']" data-fontsize="['20','20','20','17']"
+                       data-voffset="['10','390','475','405']" data-fontsize="['20','20','20','20']"
                        data-lineheight="['30','30','30','26']" data-width="none" data-height="none"
                        data-whitespace="nowrap"
                        data-transform_idle="o:1;"
@@ -190,7 +190,7 @@ export default class FeaturedSlider extends React.Component {
 
                        data-start="750" data-splitin="none" data-splitout="none" data-basealign="slide"
                        data-responsive_offset="on" data-speed="900" data-easing="Power4.easeOut"
-                       style={{zIndex:6, whiteSpace: "nowrap",color:"#999999",padding: "0px 10px",backgroundColor:"rgba(238, 238, 238, 0.7)"}}
+                       style={{zIndex:6, whiteSpace: "nowrap",color:"#00000080",padding: "2px 25px",backgroundColor:"rgba(238, 238, 238, 0.7)"}}
                     >
                         ACTRESS / SINGER
                     </Caption>

@@ -65,7 +65,7 @@ export default class Footer extends React.Component {
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
                                 <h4 className="tkFont1" style={{fontWeight: 'bold'}}>Address</h4>
-                                <p>No.8 Jalan Kerinchi, The Vertical,
+                                <p style={{fontSize:"medium"}}>No.8 Jalan Kerinchi, The Vertical,
                                     <br/> Bangsar South City, 59200
                                     <br/> Malaysia
                                 </p>

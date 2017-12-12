@@ -347,7 +347,7 @@ export default class Header extends React.Component {
                                     {this.state.isMainPage ?
                                       <ul id="menu-main-menu" className="menu tk">
                                           <li>
-                                            <a href="#Featured" className="close" ><span>{this.props.homeLink}</span></a>
+                                            <a href="#Featured" className="close" ><span>Featured</span></a>
                                           </li>
 
                                           <li>
