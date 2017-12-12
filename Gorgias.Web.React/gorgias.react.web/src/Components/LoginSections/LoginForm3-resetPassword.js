@@ -15,22 +15,27 @@ export default class LoginForm1 extends React.Component {
                             <div id="tk-overlay-form">
                                <form>
 
-                                    <label className="login-label tkFont1 tkFont-Form">Email:</label>
-                                    <i className="icon-user inputIcons"></i>
-                                    <input type="email" style={{textAlign: "left"}} placeholder="Username or email" onfocus="this.placeholder=''" onblur="this.placeholder='Username or email'" required=""/>
+                                    <label className="login-label tkFont1 tkFont-Form">Great! Now Key in your new password</label>
 
-                                    <label className="login-label tkFont1 tkFont-Form">Password:</label>
-                                    <i className="icon-lock inputIcons"></i>
-                                    <input type="password" style={{textAlign:"left"}} ng-model="loginData.password" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'" required=""/>
+                                    <input type="email" style={{textAlign: "left", paddingLeft: "0px"}} placeholder="New password" onfocus="this.placeholder=''" onblur="this.placeholder='New password'" required=""/>
 
-                                    <div className="column one" style={{margin:0}}>
-                                        <input type="submit" value="Login" id="submit" className="tkFont-Bold" onClick="return check_values();"/>
+
+                                    <input type="password" style={{textAlign:"left", paddingLeft: "0px"}} ng-model="loginData.password" placeholder="Confirm new password" onfocus="this.placeholder=''" onblur="this.placeholder='Confirm new password'" required=""/>
+
+                                    <div style={{display:"flex"}}>
+                                      <div className="column one" style={{margin:"0 1% 0px"}}>
+                                          <input type="submit" value="Confirm" id="submit" onClick="return check_values();"/>
+
+                                      </div>
+                                      <div className="column one" style={{margin:" 0 1% 0px"}}>
+                                          <input type="submit" value="Cancel" id="submit" onClick="return check_values();"/>
+                                      </div>
                                     </div>
-                                    <a href="#" className="forget" ng-click="toggleLayout(2)">Forgot Password?</a>
-                                    {/*error messsage*/}
+
                                     <div className="login-action error-message ng-binding">
-                                        <span className="tkFontSmall" style={{color:"#ff0088"}}>The user name or password is incorrect.</span>
+                                        <span className="tkFontSmall" style={{color:"#ff0088"}}>The passwords did not match! Please try again.</span>
                                     </div>
+
                                 </form>
                             </div>
                           </div>

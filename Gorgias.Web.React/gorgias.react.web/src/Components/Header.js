@@ -21,6 +21,7 @@ export default class Header extends React.Component {
     this.state = {
       MainNav:true
     };
+
   }
 
   componentDidMount(){
@@ -40,7 +41,11 @@ export default class Header extends React.Component {
     });
   }
 
+  toggleMainNav(){
 
+    this.setState({MainNav:!this.state.MainNav});
+    console.log("toggleMainNav is clicked");
+  }
 
 
   render (){
@@ -55,7 +60,7 @@ export default class Header extends React.Component {
                           <div className="top_bar_left clearfix">
                               <div className="logo">
 
-                                    <NavLink exact to={"/"} activeStyle={{textDecoration:"none"}}>
+                                    <NavLink onClick={this.toggleMainNav.bind(this)} exact to={"/"} activeStyle={{textDecoration:"none"}}>
                                       <h3 style={{color:"white",marginTop: 10+"px"}}>Gorgias</h3>
                                     </NavLink>
 
@@ -65,25 +70,25 @@ export default class Header extends React.Component {
 
                                     {this.state.MainNav ?
                                       <ul id="menu-main-menu" className="menu tk">
-                                          <li >
-                                            <a href="#Featured"><span>Featured</span></a>
+                                          <li onClick={console.log("clickey")} >
+                                            <a href="#Featured" className="close" ><span>{this.props.homeLink}</span></a>
                                           </li>
 
                                           <li>
-                                            <a href="#Stories"><span>Stories</span></a>
+                                            <a  onClick={console.log("clickey from nav!!")} href="#Stories" className="close"><span>Storiess</span></a>
                                           </li>
                                           <li>
-                                            <a href="#OurGorgias"><span>OurGorgias</span></a>
+                                            <a href="#OurGorgias" className="close"><span>OurGorgias</span></a>
                                           </li>
                                           <li>
-                                            <a href="#Discover"><span>Discover</span></a>
+                                            <a href="#Discover" className="close"><span>Discover</span></a>
                                           </li>
                                           <li>
-                                            <a href="#download"><span>Download</span></a>
+                                            <a href="#download" className="close"><span>Download</span></a>
                                           </li>
                                       </ul>
                                       :null}
-                                  </nav><a className="responsive-menu-toggle" href=""><i className="icon-menu-fine"></i></a>
+                                  </nav><a className="responsive-menu-toggle" href="#"><i className="icon-menu-fine"></i></a>
                               </div>
                               <div className="secondary_menu_wrapper"></div>
                               <div className="banner_wrapper"></div>

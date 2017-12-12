@@ -11,11 +11,22 @@ import {
 
 export default class Footer extends React.Component {
 
+    constructor(props){
+      super()
+      this.state={
+        homeLink:"Changed Link"
+      }
+    }
+
     componentDidMount() {
         if ($('.footer-fixed #Footer, .footer-sliding #Footer').length) {
             var footerH = $('#Footer').height();
             $('#Content').css('margin-bottom', footerH + 'px');
         }
+    }
+
+    onChangeLink(){
+      this.props.changeLink(this.state.homeLink);
     }
 
     render() {
@@ -33,7 +44,9 @@ export default class Footer extends React.Component {
                                   <NavLink to={"/login"} activeClassName={"activee"}><span>Login</span></NavLink>
                                 </p>
 
-                                <p className="tkFont1" style={{fontWeight: 'bold'}}><a href="#">Gorgias Wow</a></p>
+                                <button onClick={this.onChangeLink.bind(this)}>Change Header link</button>
+
+                                {/*<p className="tkFont1" style={{fontWeight: 'bold'}}><a href="#">Gorgias Wow</a></p>*/}
 
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                     <NavLink to={"/downloadApp"} activeClassName={"activee"}><span>DownloadApp</span></NavLink>
@@ -51,7 +64,7 @@ export default class Footer extends React.Component {
                                 </p>
 
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
-                                    <NavLink to={"/contact"} activeClassName={"activee"}><span>Contact</span></NavLink>
+                                    <NavLink onClick={this.onChangeLink.bind(this)} to={"/contact"} activeClassName={"activee"}><span>Contact</span></NavLink>
                                 </p>
 
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>

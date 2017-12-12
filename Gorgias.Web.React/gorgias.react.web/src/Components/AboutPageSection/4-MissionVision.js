@@ -23,7 +23,7 @@ export default class MissionVision extends React.Component {
                                     <div className="animate " data-anim-type="fadeInLeftLarge">
                                         <div className="tklist content_slider_li_1">
 
-                                            <div class="tkPanels" style={{padding: "0"}}>
+                                            <div className="tkPanels" style={{padding: "0"}}>
                                                 <img width="287" height="339" className="tk fit3"
                                                      src="https://gorgiasasia.blob.core.windows.net/images/profile-2382.jpg?timestamp=403"
                                                      alt=""/>

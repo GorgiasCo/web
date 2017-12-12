@@ -15,22 +15,14 @@ export default class LoginForm1 extends React.Component {
                             <div id="tk-overlay-form">
                                <form>
 
-                                    <label className="login-label tkFont1 tkFont-Form">Email:</label>
-                                    <i className="icon-user inputIcons"></i>
-                                    <input type="email" style={{textAlign: "left"}} placeholder="Username or email" onfocus="this.placeholder=''" onblur="this.placeholder='Username or email'" required=""/>
+                                     <label className="login-label tkFont1 tkFont-Form">Key in your email to reset password</label>
+                                     <i className="icon-user inputIcons"></i>
+                                     <input type="email" style={{textAlign:"left"}} placeholder="Email" onfocus="this.placeholder=''" onblur="this.placeholder='Username or email'" required=""/>
 
-                                    <label className="login-label tkFont1 tkFont-Form">Password:</label>
-                                    <i className="icon-lock inputIcons"></i>
-                                    <input type="password" style={{textAlign:"left"}} ng-model="loginData.password" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'" required=""/>
+                                     <div className="column one" style={{margin:0}}>
+                                         <input type="submit" value="Reset" id="submit" className="tkFont-Bold" onClick="return check_values();"/>
+                                     </div>
 
-                                    <div className="column one" style={{margin:0}}>
-                                        <input type="submit" value="Login" id="submit" className="tkFont-Bold" onClick="return check_values();"/>
-                                    </div>
-                                    <a href="#" className="forget" ng-click="toggleLayout(2)">Forgot Password?</a>
-                                    {/*error messsage*/}
-                                    <div className="login-action error-message ng-binding">
-                                        <span className="tkFontSmall" style={{color:"#ff0088"}}>The user name or password is incorrect.</span>
-                                    </div>
                                 </form>
                             </div>
                           </div>
