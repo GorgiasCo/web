@@ -11,6 +11,13 @@ import {
 
 
 export default class DownloadAppContainer extends React.Component {
+
+    constructor(props) {
+        super(props);
+        console.log(this.props, 'willMount ;)');
+
+    }
+
     render() {
         return (
 
@@ -20,7 +27,7 @@ export default class DownloadAppContainer extends React.Component {
                     <NavLink exact to={"/"}><span>Back to Gorgias</span></NavLink>
                 </div>
 
-                <AppProfile/>
+                <AppProfile profileURL={this.props.match.params.id}/>
 
                 <footer id="Footer" className="clearfix"
                         style={{backgroundColor: "rgba(0,0,0,0.5)", position: "fixed"}}>
