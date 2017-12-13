@@ -1,5 +1,5 @@
 import React from 'react';
-
+import $ from 'jquery';
 
 export default class CelebGrid extends React.Component {
 
@@ -8,13 +8,67 @@ export default class CelebGrid extends React.Component {
     this.state = {
 
       isLoading: true,
-      bgColor:"red",
+      // bgColor:"red",
       showLoadMoreBtn:true,
       color_black:true
     };
 
     this.handleLoadMore = this.handleLoadMore.bind(this);
     console.log("Initial bgColor is ",this.state.bgColor);
+  }
+
+  componentDidMount(){
+    /* ---------------------------------------------------------------------------
+  	 * Isotope
+  	 * --------------------------------------------------------------------------- */
+  	// Isotope | Fiters
+  	function isotopeFilter(domEl, isoWrapper) {
+  		var filter = domEl.attr('data-rel');
+  		isoWrapper.isotope({
+  			filter: filter
+  		});
+  	}
+  	// Isotope | Fiters | Click
+  	$('.isotope-filters .filters_wrapper').find('li:not(.close) a').click(function(e) {
+  		e.preventDefault();
+  		var filters = $(this).closest('.isotope-filters');
+  		var parent = filters.attr('data-parent');
+  		if (parent) {
+  			parent = filters.closest('.' + parent);
+  			var isoWrapper = parent.find('.isotope').first()
+  		} else {
+  			var isoWrapper = $('.isotope');
+  		}
+  		filters.find('li').removeClass('current-cat');
+  		$(this).closest('li').addClass('current-cat');
+  		isotopeFilter($(this), isoWrapper);
+  	});
+  	// Isotope | Fiters | Reset
+  	$('.isotope-filters .filters_buttons').find('li.reset a').click(function(e) {
+  		e.preventDefault();
+  		$('.isotope-filters .filters_wrapper').find('li').removeClass('current-cat');
+  		isotopeFilter($(this), $('.isotope'));
+  	});
+  	// carouFredSel wrapper | Height
+
+  	// Equal Columns | Height
+  	//mfn_equalH();
+
+    /* ---------------------------------------------------------------------------
+  	 * Blog & Portfolio filters
+  	 * --------------------------------------------------------------------------- */
+  	$('.filters_buttons .open').click(function(e) {
+  		e.preventDefault();
+  		var type = $(this).closest('li').attr('class');
+  		$('.filters_wrapper').show(200);
+  		$('.filters_wrapper ul.' + type).show(200);
+  		$('.filters_wrapper ul:not(.' + type + ')').hide();
+  	});
+  	$('.filters_wrapper .close a').click(function(e) {
+  		e.preventDefault();
+  		$('.filters_wrapper').hide(200);
+  	});
+
   }
 
   componentWillMount(){
@@ -170,7 +224,7 @@ export default class CelebGrid extends React.Component {
     filteringData.CountryID = countryID > 0 ? countryID : null;
     this.prepareProfiles(filteringData);
     console.log("filtering country ;) ICE CREAM", countryID, filteringData);
-    this.setState({bgColor:"blue"})
+    // this.setState({bgColor:"blue"})
     console.log(this.state.bgColor, "this is the new bgColor!");
   }
 
@@ -234,15 +288,15 @@ toggleCountries(){
 
   let showCountriesTag=true
   let activate = true
-  let bgColorActive = activate ? "purple" : "white"
+  // let bgColorActive = activate ? "purple" : "white"
 
   this.setState({
                     showCountriesTag:!this.state.showCountriesTag,
                     activate:!this.state.activate,
-                    bgColor:bgColorActive,
+                    // bgColor:bgColorActive,
                     color_black:!this.state.color
                 });
-  console.log("The current color is",bgColorActive );
+  // console.log("The current color is",bgColorActive );
   console.log("The tag state is",showCountriesTag );
 }
 
@@ -266,11 +320,12 @@ toggleIndustries(){
                                   {/* Filter Area*/}
                                   <div id="Filters" className="isotope-filters" data-parent="column_filters" style={{margin: 30+"px",fontSize: 16+"px", marginLeft: "auto",marginRight: "auto", marginTop: 30+"px",marginBottom: 30+"px",width:"fit-content"}}>
 
-                                      {/*Grid filter Buttons*/}
-                                      <ul className="filters_buttons">
-                                          <li className="label">
+                                          <span className="label" style={{color:"#999c9e"}}>
                                               Filter by
-                                          </li>
+                                          </span>
+                                      {/*Grid filter Buttons*/}
+                                      <ul className="filters_buttons" style={{margin:"0px auto",fontSize:"16px",width:"fit-content", display:"flex"}}>
+
 
                                           {/*<li className="categories" onClick={this.toggleCategories.bind(this)}>
                                               <a className="open"><i className="icon-tag"></i>Categories<i className="icon-down-dir"></i></a>
@@ -319,15 +374,15 @@ toggleIndustries(){
                                           {
                                             this.state.showCountriesTag ?
                                             <ul className="tags">
+                                                <li className="close" onClick={this.toggleCountries.bind(this)} style={{float:"right"}}>
+                                                  <a><i className="icon-cancel"></i></a>
+                                                </li>
                                                 <li className="reset current-cat">
                                                     <a className="all" data-rel="*" onClick={() => this.handleCountryFilter(0)}>Show all</a>
                                                 </li>
 
                                                 {this.state.countries != null ? this.state.countries.map(country => this.renderCountry(country)) : null}
 
-                                                <li className="close" onClick={this.toggleCountries.bind(this)}>
-                                                    <a><i className="icon-cancel"></i></a>
-                                                </li>
                                             </ul>
                                             : null
                                           }
@@ -335,15 +390,16 @@ toggleIndustries(){
                                           {
                                             this.state.showProfileTypesTag ?
                                           <ul className="authors">
+                                              <li className="close"onClick={this.toggleProfileTypes.bind(this)} style={{float:"right"}}>
+                                                <a><i className="icon-cancel"></i></a>
+                                              </li>
+
                                               <li className="reset current-cat">
                                                   <a className="all" data-rel="*" >Show all</a>
                                               </li>
 
                                               {this.state.profileTypes != null ? this.state.profileTypes.map(profileType => this.renderProfileType(profileType)) : null}
 
-                                              <li className="close" onClick={this.toggleProfileTypes.bind(this)}>
-                                                  <a><i className="icon-cancel"></i></a>
-                                              </li>
                                           </ul>
                                           : null
                                           }

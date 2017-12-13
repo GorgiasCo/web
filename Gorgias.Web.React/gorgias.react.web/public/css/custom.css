@@ -658,7 +658,7 @@ img.tk.fit3 {
   font-size: 36px;
 }
 
-
+/*the filters section*/
 #Filters .filters_buttons li a {
     cursor:pointer;
 }
@@ -667,6 +667,40 @@ img.tk.fit3 {
 
     cursor: pointer;
 }
+
+
+/*mobile*/
+@media only screen and (max-width:767px){
+  .style-simple #Filters .filters_wrapper ul li.close a {
+  	color: inherit;
+  	/*padding: 14px 15px;*/
+  	padding: 0px 5px 5px 5px;
+  	background-color:transparent;
+
+
+  }
+
+  .style-simple #Filters .filters_wrapper ul {
+    overflow: visible;
+    display: inline-block;
+    border-bottom-width: 1px;
+    border-style: solid;
+    background-color: transparent;
+  }
+
+}
+
+/*tablet and above*/
+@media only screen and (min-width:768px){
+  .style-simple #Filters .filters_wrapper ul li.close a {
+  	color: inherit;
+  	padding: 14px 15px;
+  	/*padding: 0px 5px 5px 5px;
+  	background-color:transparent;*/
+
+  }
+}
+
 
 /*------------for grid responsiveness---------------*/
 

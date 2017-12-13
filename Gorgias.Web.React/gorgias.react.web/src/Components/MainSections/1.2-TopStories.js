@@ -33,7 +33,7 @@ export default class TopStories extends React.Component {
           <img width="287" height="339" className="tk fit2" src={story.cdnAlbumCover} alt=""/>
         </div>
         <div className="desc">
-          <p>{story.AlbumName}</p>
+          <p style={{fontSize:"12px"}}>{story.AlbumName}</p>
           {/*<p className="tkBottom-p-font">24</p>*/}
         </div>
         <div className="full-card-overlay">

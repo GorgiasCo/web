@@ -140,7 +140,7 @@ p a, p a:visited {
 img.scale-with-grid, #Content img {
 	max-width: 100%;
 	height: auto;
-	
+
 }
 .google-map img {
 	max-width: none !important;
@@ -10261,6 +10261,7 @@ div.dark_rounded #pp_full_res .pp_inline, div.dark_square #pp_full_res .pp_inlin
 	display: inline-block;
 	border-bottom-width: 1px;
 	border-style: solid;
+	background-color: #fff;
 }
 .style-simple #Filters .filters_wrapper ul li {
 	width: auto;
@@ -10285,6 +10286,8 @@ div.dark_rounded #pp_full_res .pp_inline, div.dark_square #pp_full_res .pp_inlin
 .style-simple #Filters .filters_wrapper ul li.close a {
 	color: inherit;
 	padding: 14px 15px;
+	/*padding: 0px 5px 5px 5px;
+	background-color:transparent;*/
 	width: auto;
 	border: 0 !important;
 }
