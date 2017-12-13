@@ -11,7 +11,7 @@ export default class LoginForm1 extends React.Component {
                     <div className="section_wrapper clearfix">
                       <div className="items_group clearfix" style={{height: 100+"vh"}}>
                          <div id="tk-modal-form" style={{color: "#de0083"}}>
-                           <div>{/*className="animate " data-anim-type="fadeIn"*/}
+                           <div className="animate " data-anim-type="fadeIn">
                             <div id="tk-overlay-form">
                                <form>
 

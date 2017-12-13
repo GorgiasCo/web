@@ -4,7 +4,7 @@ import React from 'react';
 export default class Locations extends React.Component {
     render() {
         return (
-            <div className="section mcb-section tkSection-padding bg-color-2">
+            <div id="Location" className="section mcb-section tkSection-padding bg-color-2">
                 <div className="section_wrapper mcb-section-inner">
                     <div className="wrap mcb-wrap one  valign-top clearfix">
                         <div className="mcb-wrap-inner">

@@ -11,12 +11,14 @@ import {
 
 export default class Footer extends React.Component {
 
+
     componentDidMount() {
         if ($('.footer-fixed #Footer, .footer-sliding #Footer').length) {
             var footerH = $('#Footer').height();
             $('#Content').css('margin-bottom', footerH + 'px');
         }
     }
+
 
     render() {
         return (
@@ -25,13 +27,13 @@ export default class Footer extends React.Component {
                     <div className="container">
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
-                                <h4 className="tkFont1" style={{fontWeight: 'bold'}}><a
-                                    href="Gorgias-About.html">Site</a>
+                                <h4 className="tkFont1" style={{fontWeight: 'bold'}}><a>Site</a>
                                 </h4>
 
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                   <NavLink to={"/login"} activeClassName={"activee"}><span>Login</span></NavLink>
                                 </p>
+
 
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}><a href="#">Gorgias Wow</a></p>
 
@@ -44,7 +46,7 @@ export default class Footer extends React.Component {
 
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
-                                <h4 className="tkFont1" style={{fontWeight: 'bold'}}><a target="_blank" href="Gorgias-About.html#download">About</a>
+                                <h4 className="tkFont1" style={{fontWeight: 'bold'}}><a>About</a>
                                 </h4>
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                     <NavLink to={"/about"} activeClassName={"activee"}><span>Company</span></NavLink>
@@ -63,7 +65,7 @@ export default class Footer extends React.Component {
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
                                 <h4 className="tkFont1" style={{fontWeight: 'bold'}}>Address</h4>
-                                <p>No.8 Jalan Kerinchi, The Vertical,
+                                <p style={{fontSize:"medium"}}>No.8 Jalan Kerinchi, The Vertical,
                                     <br/> Bangsar South City, 59200
                                     <br/> Malaysia
                                 </p>

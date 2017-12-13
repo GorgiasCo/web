@@ -5,6 +5,8 @@ import ContactWebCover from './ContactPageSections/1-ContactWebCover';
 import ContactTextBanner from './ContactPageSections/2-ContactTextBanner';
 import Locations from './ContactPageSections/3-Locations';
 import ContactForm from './ContactPageSections/4-ContactForm';
+import AppDownloadBanner from './AboutPageSection/8-AppDownloadBanner';
+
 
 export default class ContentContact extends React.Component {
     render() {
@@ -16,8 +18,9 @@ export default class ContentContact extends React.Component {
 
                             <ContactWebCover/>
                             <ContactTextBanner/>
-                            <Locations/>
                             <ContactForm/>
+                            <Locations/>
+                            <AppDownloadBanner/>
 
                         </div>
                     </div>

@@ -5,9 +5,18 @@ import Footer from './Footer';
 
 export default class HomeContainer extends Component {
 
+
+
     componentWillMount() {
         //To ensure page is begining at top ;)
         window.scrollTo(0, 0);
+    }
+
+    onChangeLinkName(newName){
+      this.setState({
+        homeLink:newName,
+        MainNav:false
+      });
     }
 
     render() {

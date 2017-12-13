@@ -10,7 +10,7 @@ export default class WhatIsGorgias extends React.Component {
                                   <div className="mcb-wrap-inner">
                                       <div className="column mcb-column one-second column_column" style={{float:"none",textAlign:"center",margin:30+"px" + " auto"}}>
                                           <div className="column_attr clearfix">
-                                              <h2 className="tkFont1">What is Gorgias Storyland!</h2>
+                                              <h2 className="tkFont1">What is Storyland!</h2>
                                               <hr className="no_line" style={{margin:0 +" auto " +30+"px"}}/>
                                               <p style={{color: "#999c9e"}}>
                                                   Curabitur sed iaculis dolor, non congue ligula. Maecenas imperdiet ante eget hendrerit posuere. Nunc urna libero, congue porta nibh a, semper feugiat sem. Sed auctor dui eleifend, scelerisque eros ut, pellentesque nibh.

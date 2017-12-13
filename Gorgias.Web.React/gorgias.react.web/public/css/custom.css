@@ -43,7 +43,7 @@ Start of  Content
 }
 
 .tkFont-Theme {
-  /*font-size: 18px;*/
+  font-size: 18px;
   /*font-family: 'Roboto', sans-serif;*/
   color: #ff0088;
   font-family: 'Poiret One', cursive;
@@ -228,7 +228,8 @@ Start of  Content
 @media screen and (min-width:300px) {
   #Header a.responsive-menu-toggle {
     position: absolute !important;
-    top: 0 !important; /*originally was 20px*/
+    top: 0px !important; /*originally was 20px*/
+     -webkit-top: 0px !important; /*safari*/
     right: 5px !important;
     z-index: 10;
     margin: 0;
