@@ -5,12 +5,15 @@
   "dependencies": {
     "jquery": "^3.2.1",
     "react": "^16.2.0",
+    "react-device-detect": "^0.1.0",
     "react-dom": "^16.2.0",
+    "react-meta-tags": "^0.3.0",
     "react-owl-carousel": "^2.2.0",
     "react-rev-slider": "^1.0.1",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "react-timeout": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

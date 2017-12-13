@@ -1,0 +1,349 @@
+html {
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+
+.center-box{
+position:absolute;
+top:0;
+right:0;
+bottom:0;
+left:0;
+z-index:99;
+margin:auto;
+height:400px;
+width:300px;
+border:1px solid #000;
+text-align:center;
+line-height:200px;
+background-color: white;
+}
+
+#tk-overlay-form {
+  max-height: calc(100% - 100px);
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  border-radius: 9px;
+  /*background-color: #292929;*/
+  background-color: rgba(32, 33, 34, 0.85);
+  padding: 24px;
+  box-shadow: 3px 3px 15px 4px rgba(0, 0, 0, 0.5);
+}
+
+#tk-overlay-form #submit {
+  width: 100%;
+  /*padding: 5% 17%;*/
+}
+
+#tk-modal-form .forget{
+	color: #aaa;
+  display: block;
+  text-align: center;
+	/*float: right;*/
+	font-size: x-small;
+	margin-bottom: 10px;
+}
+
+#tk-modal-form .tkFontSmall{
+	color: #aaa;
+  display: block;
+  text-align: center;
+	/*float: right;*/
+	font-size: x-small;
+	margin-bottom: 10px;
+}
+
+.tkFont-Form {
+  color:#f5f5f5;
+  font-weight: normal;
+  font-size: large;
+}
+
+#tk-overlay-form ::placeholder {
+
+    color: rgba(255, 255, 255, 0.5);
+
+}
+
+
+#tk-overlay-form input[type="email"],
+#tk-overlay-form input[type="password"]
+{
+  border: none;
+  border-bottom: 0.5px solid #fff;
+  background:transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: x-small;
+  transition: all 0.3s ;
+  padding-left: 25px;
+}
+
+#tk-overlay-form input[type="email"]:focus,
+#tk-overlay-form input[type="password"]:focus
+{
+  border-bottom: 0.5px solid #ff0088;
+  background:transparent !important;
+}
+
+#tk-overlay-form input[type="password"]:focus {
+  color: #ff0088;
+}
+
+#tk-overlay-form input[type="button"]:focus{
+  outline: none;
+  background-color: #B90350;
+}
+
+.inputIcons {
+  position: absolute;
+  margin-top: 3.5%;
+  color: #aaa;
+}
+
+@media only screen and (min-width:959px){
+      .inputIcons {
+          margin-top: 2.5%;
+      }
+}
+
+/*--contact form--*/
+
+#tk-contact-form ::placeholder {
+
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+#tk-contact-form input[type="email"],
+#tk-contact-form input[type="password"],
+#tk-contact-form input[type="date"],
+#tk-contact-form input[type="number"],
+#tk-contact-form input[type="search"],
+#tk-contact-form input[type="tel"],
+#tk-contact-form input[type="text"],
+#tk-contact-form input[type="url"],
+#tk-contact-form select,
+#tk-contact-form textarea
+
+{
+  border: none;
+  border-bottom: 0.5px solid #fff;
+  background:transparent;
+  outline: none;
+  /*height: 40px;*/
+  color: #fff;
+  font-size: small;
+  transition: all 0.3s ;
+  padding-left: 25px;
+}
+
+#tk-contact-form input[type="email"]:focus,
+#tk-contact-form input[type="password"]:focus
+#tk-contact-form input[type="date"]:focus,
+#tk-contact-form input[type="number"]:focus,
+#tk-contact-form input[type="search"]:focus,
+#tk-contact-form input[type="tel"]:focus,
+#tk-contact-form input[type="text"]:focus,
+#tk-contact-form input[type="url"]:focus,
+#tk-contact-form select:focus,
+#tk-contact-form textarea:focus
+{
+  border-bottom: 0.5px solid #ff0088;
+  transition: 0.6s;
+  background:#444 !important;
+}
+
+#tk-contact-form input[type="password"]:focus {
+  color: #ff0088;
+}
+
+#tk-contact-form input[type="button"]:focus{
+  outline: none;
+  background-color: #B90350;
+}
+
+.goBack {
+  padding: 4% 4%;
+  position: fixed;
+  z-index: 1;
+  color: #aaa
+}
+
+.goBack a {
+    color: #aaa;
+    text-align: center;
+    font-size: small;
+    margin-bottom: 10px;
+}
+
+.colorfulBtn {
+background-image: linear-gradient(120deg, #5c22ff 0%, #723493 100%);
+}
+
+
+#tk-overlay-form input[type="email"],
+#tk-overlay-form input[type="password"]
+{
+  border: none;
+  border-bottom: 0.5px solid #fff;
+  background:transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: x-small;
+  transition: all 0.3s ;
+}
+
+#tk-overlay-form input[type="email"]:focus,
+#tk-overlay-form input[type="password"]:focus
+{
+  border-bottom: 0.5px solid #ff0088;
+  background:transparent !important;
+}
+
+#tk-overlay-form input[type="password"]:focus {
+  color: #ff0088;
+}
+
+#tk-overlay-form input[type="button"]:focus{
+  outline: none;
+  background-color: #B90350;
+}
+
+
+/*=-=-=-=-=-=-=-=-=-=-=-  App Profile Page  -=-=-=-=-=-=-=-=-=-=-=-=-=--=*/
+
+.tk-AppAvatarImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 33%;
+  overflow: hidden;
+  position: relative;
+  top: calc(-20px/2);
+  left: calc(50% - 50px);
+  border: 2px solid #ff0088;
+}
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-uneeded-=-=-=-=-=-=-=--=-=-=-=-=-=--=-=--*/
+
+
+.loginBox {
+  position: absolute;;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width: 350px;
+  height:420px;
+  padding: 80px 40px;
+  box-sizing: border-box;
+  background: rgba(0,0,0,0.7);
+}
+
+.user {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: calc(-100px/2);
+  left: calc(50% - 50px);
+  border: 2px solid white;
+
+}
+
+h2 {
+  margin: 0;
+  padding: 0 0 20px;
+  color: #efed40;
+  text-align: center;
+}
+
+.loginBox p {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: #fff;
+}
+
+.loginBox input{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.loginBox input[type="text"],
+.loginBox input[type="password"]
+{
+  border: none;
+  border-bottom: 1px solid #fff;
+  background:transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.loginBox input[type="submit"]{
+  border: none;
+  outline: none;
+  height: 40px;
+  background:transparent;
+  color: #f5f5f5;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.loginBox input[type="submit"]:hover{
+
+  color: #fff;
+  background: #ff0088;
+  border: none;
+}
+
+.loginBox a {
+  color: #fff;
+  font-size: 14px;
+
+  text-decoration: none;
+}
+
+
+.loginBox a:hover {
+  text-decoration: underline;
+}
+
+
+/*-=-=-=-=-=-=-=-=-=-=-For responsive Fonts-=-=-=-=-=-=-=-=-=*/
+@media all and (min-width: 960px) {
+    body{
+        font-size: 18px;
+    }
+}
+
+@media all and (max-width: 959px) and (min-width: 600px) {
+    body{
+        font-size: 16px;
+    }
+}
+
+@media all and (max-width: 599px) and (min-width: 320px) {
+    body p{
+        font-size: medium;
+    }
+
+}
+
+
+/*=-=-=-=-=-=-=-=-=-=end of responsive font-=-=-=-=-=-=-=-=-*/

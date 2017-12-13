@@ -1,4 +1,7 @@
 import React from 'react';
+import MetaTags from 'react-meta-tags';
+import uuid from 'uuid/v1';
+import {BrowserView, isIOS, isAndroid, isMobile} from 'react-device-detect'
 
 export default class AppProfile extends React.Component {
 
@@ -9,23 +12,20 @@ export default class AppProfile extends React.Component {
             isLoading: true,
             profileData: {},
         }
+        console.log('hi avval' + new Date);
+    }
+
+    deepLinkRedirect = (url) => {
+        console.log('hi0' + new Date);
+        window.location = url;
     }
 
     componentWillMount() {
-        console.log(this.props.profileURL, 'willMount ;)', window.innerHeight ,window.navigator, window.matchMedia('(display-mode: standalone)').matches);
-
-        if(window.navigator.standalone != undefined){
-
-        }
-
-        if(window.navigator.standalone || window.innerHeight < 61 || window.matchMedia('(display-mode: standalone)').matches){
-            window.location = "https://itunes.apple.com/us/app/gorgias/id1193285323";
-        } else {
-
-        }
-
-
         this.prepareProfile(this.props.profileURL);
+    }
+
+    componentDidMount() {
+
     }
 
     prepareProfile = (profileURL) => {
@@ -36,21 +36,42 @@ export default class AppProfile extends React.Component {
                 return response.json();
             })
             .then(response => {
-                console.log(response);
-                if(window.matchMedia('(display-mode: standalone)').matches){
-                    submitTitle = "Standalone";
-                } else {
-                    submitTitle = "Next";
+                    console.log(response);
+                    if (window.navigator.standalone || window.innerHeight < 61 || window.matchMedia('(display-mode: standalone)').matches) {
+                        if (isMobile) {
+                            submitTitle = "Loading App...";
+                        } else {
+                            submitTitle = "Next";
+                        }
+                    }
+                    this.setState({
+                        profileData: response.Result,
+                        isLoading: false,
+                        isLanding: true,
+                        submitTitle: submitTitle,
+                    });
+                    return response.Result;
                 }
-                this.setState({
-                    profileData: response.Result,
-                    isLoading: false,
-                    isLanding: true,
-                    submitTitle: submitTitle,
-                });
-            });
+            )
+            .then(response => {
+                    console.log(response, '2nd then ;)',this.props.profileURL, 'willMount ;)', window.innerHeight, window.navigator, window.matchMedia('(display-mode: standalone)').matches);
+                    console.log(isMobile, isAndroid, isIOS);
+                    if (window.navigator.standalone || window.innerHeight < 61 || window.matchMedia('(display-mode: standalone)').matches) {
+                        if (isMobile) {
+                            let url = null;
+                            if (isAndroid) {
+                                url = "https://play.google.com/store/apps/details?id=com.gorgias.app";
+                                window.location = 'gorgias://app?profileid=' + response.ProfileID;
+                            } else {
+                                url = "https://itunes.apple.com/us/app/gorgias/id1193285323";
+                                window.location = "gorgias://profileid=" + response.ProfileID;
+                            }
+                            setTimeout(this.deepLinkRedirect.bind(this, url), 2000);
+                        }
+                    }
+                }
+            );
     }
-
 
     _handleClick() {
         this.setState({
@@ -63,10 +84,20 @@ export default class AppProfile extends React.Component {
         return (
             !isLoading ?
                 <div className="content_wrapper clearfix">
+                    <MetaTags>
+                        <title>{profileData.ProfileFullname}</title>
+                        <meta name="apple-mobile-web-app-title" content={profileData.ProfileFullname}/>
+                        <link rel="apple-touch-icon-precomposed" sizes="72x72"
+                              href={`https://gorgiasasia.blob.core.windows.net/icons/72-profile-${profileData.ProfileID}.png?timestamp=${uuid()}`}/>
+                        <link rel="apple-touch-icon-precomposed" sizes="114x114"
+                              href={`https://gorgiasasia.blob.core.windows.net/icons/114-profile-${profileData.ProfileID}.png?timestamp=${uuid()}`}/>
+                        <link rel="apple-touch-icon-precomposed" sizes="144x144"
+                              href={`https://gorgiasasia.blob.core.windows.net/icons/144-profile-${profileData.ProfileID}.png?timestamp=${uuid()}`}/>
+                    </MetaTags>
                     <div className="sections_group">
                         <div className="entry-content tk-background-ImgFit"
                              style={{
-                                 backgroundImage: `url(https://gorgiasasia.blob.core.windows.net/images/webcover-${profileData.ProfileID})`,
+                                 backgroundImage: `url(https://gorgiasasia.blob.core.windows.net/images/webcover-${profileData.ProfileID}?timestamp=${uuid()})`,
                                  position: "sticky"
                              }}>
                             <div className="section dark" id="featured" style={{
@@ -82,7 +113,7 @@ export default class AppProfile extends React.Component {
                                             <div className="" data-anim-type="fadeIn">
                                                 <div id="tk-overlay-form">
                                                     <img className="tk-AppAvatarImg"
-                                                         src={`https://gorgiasasia.blob.core.windows.net/images/profile-${profileData.ProfileID}.jpg`}
+                                                         src={`https://gorgiasasia.blob.core.windows.net/images/profile-${profileData.ProfileID}.jpg?timestamp=${uuid()}`}
                                                          width="33%"/>
                                                     <h3 style={{
                                                         textAlign: 'center',
