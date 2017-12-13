@@ -29,7 +29,7 @@ export default class MainPage extends Component {
                     <Route exact path="/about" component={AboutContainer}/>
                     <Route exact path="/terms" component={TermsContainer}/>
                     <Route exact path="/contact" component={ContactContainer}/>
-                    <Route exact path="/downloadApp" component={DownloadAppContainer}/>
+                    <Route exact path="/app/:id" component={DownloadAppContainer}/>
                 </div>
             </Router>
         )
