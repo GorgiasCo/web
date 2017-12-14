@@ -15,20 +15,19 @@ export default class DownloadAppContainer extends React.Component {
     constructor(props) {
         super(props);
         console.log(this.props, 'willMount ;)');
-
     }
 
     render() {
         return (
-
             <div>
                 <div className="goBack">
                     <i className="icon-left-thin"></i>
                     <NavLink exact to={"/"}><span>Back to Gorgias</span></NavLink>
                 </div>
-
-                <AppProfile profileURL={this.props.match.params.id}/>
-
+                {this.props.match.params.pid == undefined ?
+                    <AppProfile profileURL={this.props.match.params.id}/> :
+                    <AppProfile profileURL={this.props.match.params.id} profileID={this.props.match.params.pid}/>
+                }
                 <footer id="Footer" className="clearfix"
                         style={{backgroundColor: "rgba(0,0,0,0.5)", position: "fixed"}}>
                     <div className="footer_copy">
@@ -43,10 +42,7 @@ export default class DownloadAppContainer extends React.Component {
                         </div>
                     </div>
                 </footer>
-
             </div>
-
-
         );
     }
 }
