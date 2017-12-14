@@ -285,7 +285,7 @@ export default class CelebGrid extends React.Component {
 
     renderProfileType(profileTypeData) {
         return (
-            <li key={profileTypeData.ProfileTypeID} className={profileTypeData.ProfileTypeName}>
+            <li key={profileTypeData.ProfileTypeID} className={(this.state.filteringData.ProfileTypeID === profileTypeData.ProfileTypeID ? "current-cat" : "")}>
                 <a data-rel={".author-" + profileTypeData.ProfileTypeName}
                    onClick={() => this.handleProfileTypeFilter(profileTypeData.ProfileTypeID)}>{profileTypeData.ProfileTypeName}</a>
             </li>
@@ -359,7 +359,7 @@ export default class CelebGrid extends React.Component {
                                         {!this.props.isMainPage ?
                                             <div>
                                           <span className="label" style={{color: "#999c9e"}}>
-                                              Filter by
+                                              Filterrr by
                                           </span>
                                                 <ul className="filters_buttons" style={{
                                                     margin: "0px auto",
@@ -404,8 +404,9 @@ export default class CelebGrid extends React.Component {
                                                         {/*<li className="close"onClick={this.toggleProfileTypes.bind(this)} style={{float:"right"}}>*/}
                                                         {/*<a><i className="icon-cancel"></i></a>*/}
                                                         {/*</li>*/}
-                                                        <li className="reset current-cat">
-                                                            <a className="all" data-rel="*">Show all</a>
+                                                        <li className={"reset " + (this.state.filteringData.ProfileTypeID === null ? "current-cat" : "")}>
+                                                            <a className="all" data-rel="*"
+                                                               onClick={() => this.handleProfileTypeFilter(0)}>All</a>
                                                         </li>
 
                                                         {this.state.profileTypes != null ? this.state.profileTypes.map(profileType => this.renderProfileType(profileType)) : null}
