@@ -1,5 +1,5 @@
 import React from 'react';
-
+import $ from 'jquery';
 
 export default class CelebGrid extends React.Component {
 
@@ -8,16 +8,70 @@ export default class CelebGrid extends React.Component {
         this.state = {
 
             isLoading: true,
-            bgColor: "red",
-            showLoadMoreBtn: true,
-            color_black: true
+            // bgColor:"red",
+            showLoadMoreBtn:true,
+            color_black:true
         };
 
         this.handleLoadMore = this.handleLoadMore.bind(this);
-        console.log("Initial bgColor is ", this.state.bgColor);
+        console.log("Initial bgColor is ",this.state.bgColor);
     }
 
-    componentWillMount() {
+    componentDidMount(){
+        /* ---------------------------------------------------------------------------
+         * Isotope
+         * --------------------------------------------------------------------------- */
+        // Isotope | Fiters
+        function isotopeFilter(domEl, isoWrapper) {
+            var filter = domEl.attr('data-rel');
+            isoWrapper.isotope({
+                filter: filter
+            });
+        }
+        // Isotope | Fiters | Click
+        $('.isotope-filters .filters_wrapper').find('li:not(.close) a').click(function(e) {
+            e.preventDefault();
+            var filters = $(this).closest('.isotope-filters');
+            var parent = filters.attr('data-parent');
+            if (parent) {
+                parent = filters.closest('.' + parent);
+                var isoWrapper = parent.find('.isotope').first()
+            } else {
+                var isoWrapper = $('.isotope');
+            }
+            filters.find('li').removeClass('current-cat');
+            $(this).closest('li').addClass('current-cat');
+            isotopeFilter($(this), isoWrapper);
+        });
+        // Isotope | Fiters | Reset
+        $('.isotope-filters .filters_buttons').find('li.reset a').click(function(e) {
+            e.preventDefault();
+            $('.isotope-filters .filters_wrapper').find('li').removeClass('current-cat');
+            isotopeFilter($(this), $('.isotope'));
+        });
+        // carouFredSel wrapper | Height
+
+        // Equal Columns | Height
+        //mfn_equalH();
+
+        /* ---------------------------------------------------------------------------
+         * Blog & Portfolio filters
+         * --------------------------------------------------------------------------- */
+        $('.filters_buttons .open').click(function(e) {
+            e.preventDefault();
+            var type = $(this).closest('li').attr('class');
+            $('.filters_wrapper').show(200);
+            $('.filters_wrapper ul.' + type).show(200);
+            $('.filters_wrapper ul:not(.' + type + ')').hide();
+        });
+        $('.filters_wrapper .close a').click(function(e) {
+            e.preventDefault();
+            $('.filters_wrapper').hide(200);
+        });
+
+    }
+
+    componentWillMount(){
 
         /*POST method  for Profiles*/
 
@@ -25,16 +79,16 @@ export default class CelebGrid extends React.Component {
         var that = this;
 
         var bodyData = {
-            CountryID: null,
-            Industries: [],
-            ProfileTypeID: null,
-            ProfileID: null,
-            OrderType: 1,
-            Tags: [],
-            Location: null,
-            PageNumber: 1,
-            PageSize: 15,
-            SubscriptionTypeID: 3
+            CountryID : null,
+            Industries : [],
+            ProfileTypeID : null,
+            ProfileID : null,
+            OrderType : 1,
+            Tags : [],
+            Location : null,
+            PageNumber : 1,
+            PageSize : 15,
+            SubscriptionTypeID : 3
         }
 
         this.prepareProfiles(bodyData);
@@ -43,7 +97,7 @@ export default class CelebGrid extends React.Component {
         var urlMainEntities = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/MainEntities";
 
         fetch(urlMainEntities)
-            .then(function (response) {
+            .then(function(response) {
 
                 return response.json();
             })
@@ -59,16 +113,16 @@ export default class CelebGrid extends React.Component {
 
                 this.setState({
                     countries: dataMainEntities.Result.Country,
-                    profileTypes: dataMainEntities.Result.ProfileType,
-                    isLoading: false,
-                    industries: dataMainEntities.Result.Industry
+                    profileTypes:dataMainEntities.Result.ProfileType,
+                    isLoading:false,
+                    industries:dataMainEntities.Result.Industry
                 });
 
             });
 
     }
 
-    prepareProfiles(filteringData) {
+    prepareProfiles(filteringData){
         var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
         var that = this;
 
@@ -79,14 +133,14 @@ export default class CelebGrid extends React.Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(filteringData)
-        }).then(function (response) {
+        }).then(function(response) {
 
             return response.json();
         })
-            .then(function (data) {
+            .then(function(data) {
                 that.setState({
                     profiles: data.Result,
-                    isLoading: false,
+                    isLoading:false,
                     filteringData: filteringData
                 });
 
@@ -104,9 +158,9 @@ export default class CelebGrid extends React.Component {
 
         var bodyData = this.state.filteringData;
 
-        bodyData.PageNumber += 1;
+        bodyData.PageNumber += 1 ;
         // bodyData.PageNumber += 1;
-        console.log(bodyData, "body data");
+        console.log(bodyData,"body data");
 
         fetch(url, {
             method: 'POST',
@@ -115,7 +169,7 @@ export default class CelebGrid extends React.Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(bodyData)
-        }).then(function (response) {
+        }).then(function(response) {
 
             return response.json();
         })
@@ -133,18 +187,18 @@ export default class CelebGrid extends React.Component {
 
                 var arrayModulus = newResult.length % bodyData.PageNumber;
 
-                console.log(newResult.length / 100, 'length divide by 100');
+                console.log(newResult.length/100, 'length divide by 100');
                 console.log(arrayModulus, 'modulus');
 
                 // var arrayCheck = arrayCompare > 1 ? false : true
-                var arrayCheck = newResult.length / 100 < arrayModulus ? false : true
+                var arrayCheck = newResult.length/100 < arrayModulus ? false : true
                 // newResult.length == showLoadMoreBtn1 > 45 ? "false" : "true";
 
                 this.setState({
-                    profiles: newResult,
-                    isLoading: false,
+                    profiles:newResult,
+                    isLoading:false,
                     filteringData: bodyData,
-                    showLoadMoreBtn: arrayCheck
+                    showLoadMoreBtn:arrayCheck
                 });
 
                 console.log(this.state.profiles, '4');
@@ -152,7 +206,7 @@ export default class CelebGrid extends React.Component {
             });
     }
 
-    handleProfileTypeFilter(profileTypeID) {
+    handleProfileTypeFilter (profileTypeID) {
         //get filtering data from state
         var filteringData = this.state.filteringData;
 
@@ -162,7 +216,7 @@ export default class CelebGrid extends React.Component {
         console.log("filtering country ;) got it ?", profileTypeID, filteringData);
     }
 
-    handleCountryFilter(countryID) {
+    handleCountryFilter (countryID) {
         //get filtering data from state
         var filteringData = this.state.filteringData;
 
@@ -170,34 +224,30 @@ export default class CelebGrid extends React.Component {
         filteringData.CountryID = countryID > 0 ? countryID : null;
         this.prepareProfiles(filteringData);
         console.log("filtering country ;) ICE CREAM", countryID, filteringData);
-        this.setState({bgColor: "blue"})
+        // this.setState({bgColor:"blue"})
         console.log(this.state.bgColor, "this is the new bgColor!");
     }
 
-    handleIndustryFilter(industryID) {
+    handleIndustryFilter(industryID){
 
         var filteringData = this.state.filteringData;
 
-        filteringData.IndustryID = industryID > 0 ? industryID : null;
+        filteringData.IndustryID = industryID > 0 ? industryID :null;
         this.prepareProfiles(filteringData);
         console.log("filtering insdustries data", industryID, filteringData);
     }
 
-    renderProfile(profileData) {
+    renderProfile(profileData){
         return (
-            <div key={profileData.ProfileID}
-                 className="post-item isotope-item clearfix post-2277 post  format-standard has-post-thumbnail  category-lifestyle category-technology tag-Malaysia author-Female">
+            <div key={profileData.ProfileID} className="post-item isotope-item clearfix post-2277 post  format-standard has-post-thumbnail  category-lifestyle category-technology tag-Malaysia author-Female">
                 <div className="post-photo-wrapper scale-with-grid">
-                    <img width="800" height="800" src={profileData.ProfileImage}
-                         className="scale-with-grid wp-post-image fixed-grid" alt="home_journalist_blog7"/>
+                    <img width="800" height="800" src={profileData.ProfileImage} className="scale-with-grid wp-post-image fixed-grid" alt="home_journalist_blog7" />
                 </div>
                 <div className="post-desc-wrapper">
                     <div className="post-desc">
                         <div className="post-title">
-                            <h2 className="entry-title larger" style={{paddingBottom: 0}}>
-                                <a>{profileData.ProfileFullname}</a></h2>
-                            <h2 className="entry-title larger tkFontSecondaryName" style={{marginBottom: 0 + "px"}}>
-                                <a>{profileData.ProfileURL}</a></h2>
+                            <h2 className="entry-title larger" style={{paddingBottom:0}}><a>{profileData.ProfileFullname}</a></h2>
+                            <h2 className="entry-title larger tkFontSecondaryName" style={{marginBottom:0+"px"}}><a>{profileData.ProfileURL}</a></h2>
                         </div>
                     </div>
                 </div>
@@ -205,63 +255,64 @@ export default class CelebGrid extends React.Component {
         )
     }
 
-    renderCountry(countryData) {
+    renderCountry(countryData){
         return (
             <li key={countryData.CountryID} className={countryData.CountryName}>
-                <a data-rel={".tag-" + countryData.CountryName}
-                   onClick={() => this.handleCountryFilter(countryData.CountryID)}>{countryData.CountryName}</a>
+                <a data-rel={".tag-" + countryData.CountryName} onClick={() => this.handleCountryFilter(countryData.CountryID)} >{countryData.CountryName}</a>
             </li>
         )
     }
 
-    renderProfileType(profileTypeData) {
+    renderProfileType(profileTypeData){
         return (
             <li key={profileTypeData.ProfileTypeID} className={profileTypeData.ProfileTypeName}>
-                <a data-rel={".author-" + profileTypeData.ProfileTypeName}
-                   onClick={() => this.handleProfileTypeFilter(profileTypeData.ProfileTypeID)}>{profileTypeData.ProfileTypeName}</a>
+                <a data-rel={".author-" + profileTypeData.ProfileTypeName} onClick={() => this.handleProfileTypeFilter(profileTypeData.ProfileTypeID)}>{profileTypeData.ProfileTypeName}</a>
             </li>
         )
     }
 
-    renderIndustry(industriesData) {
+    renderIndustry(industriesData){
         return (
             <li key={industriesData.IndustryID} className={industriesData.IndustryName}>
-                <a data-rel={".industries-" + industriesData.IndustryName}
-                   onClick={() => this.handleIndustryFilter(industriesData.IndustryID)}>{industriesData.IndustryName}</a>
+                <a data-rel={".industries-" + industriesData.IndustryName} onClick={()=> this.handleIndustryFilter(industriesData.IndustryID)} >{industriesData.IndustryName}</a>
             </li>
         )
     }
 
 //for filtering buttons tabs
-    toggleCategories() {
-        this.setState({showCategoriesTag: !this.state.showCategoriesTag});
+    toggleCategories(){
+        this.setState({showCategoriesTag:!this.state.showCategoriesTag});
     }
 
-    toggleCountries() {
+    toggleCountries(){
 
-        let showCountriesTag = true
+        let showCountriesTag=true
         let activate = true
-        let bgColorActive = activate ? "purple" : "white"
+        // let bgColorActive = activate ? "purple" : "white"
 
         this.setState({
-            showCountriesTag: !this.state.showCountriesTag,
-            activate: !this.state.activate,
-            bgColor: bgColorActive,
-            color_black: !this.state.color
+            showCountriesTag:!this.state.showCountriesTag,
+            showProfileTypesTag:false,
+            activate:!this.state.activate,
+            // bgColor:bgColorActive,
+            color_black:!this.state.color
         });
-        console.log("The current color is", bgColorActive);
-        console.log("The tag state is", showCountriesTag);
+        // console.log("The current color is",bgColorActive );
+        console.log("The tag state is",showCountriesTag );
     }
 
-    toggleProfileTypes() {
-        this.setState({showProfileTypesTag: !this.state.showProfileTypesTag});
+    toggleProfileTypes(){
+        this.setState({
+            showProfileTypesTag:!this.state.showProfileTypesTag,
+            showCountriesTag:false
+        });
     }
 
-    toggleIndustries() {
-        this.setState({showIndustriesTag: !this.state.showIndustriesTag});
+    toggleIndustries(){
+        this.setState({showIndustriesTag:!this.state.showIndustriesTag});
     }
 
-    render() {
+    render (){
         console.log(this.state.profiles, 'render');
         return (
             !this.state.isLoading ?
@@ -271,40 +322,30 @@ export default class CelebGrid extends React.Component {
                             <div className="column one column_blog ">
                                 <div className="column_filters">
                                     {/* Filter Area*/}
-                                    <div id="Filters" className="isotope-filters" data-parent="column_filters" style={{
-                                        margin: 30 + "px",
-                                        fontSize: 16 + "px",
-                                        marginLeft: "auto",
-                                        marginRight: "auto",
-                                        marginTop: 30 + "px",
-                                        marginBottom: 30 + "px",
-                                        width: "fit-content"
-                                    }}>
+                                    <div id="Filters" className="isotope-filters" data-parent="column_filters" style={{margin: 30+"px",fontSize: 16+"px", marginLeft: "auto",marginRight: "auto", marginTop: 30+"px",marginBottom: 30+"px",width:"fit-content"}}>
 
+                                          <span className="label" style={{color:"#999c9e"}}>
+                                              Filter by
+                                          </span>
                                         {/*Grid filter Buttons*/}
-                                        <ul className="filters_buttons">
-                                            <li className="label">
-                                                Filter by
-                                            </li>
+                                        <ul className="filters_buttons" style={{margin:"0px auto",fontSize:"16px",width:"fit-content", display:"flex"}}>
+
 
                                             {/*<li className="categories" onClick={this.toggleCategories.bind(this)}>
                                              <a className="open"><i className="icon-tag"></i>Categories<i className="icon-down-dir"></i></a>
                                              </li>*/}
-                                            <li className="tags" onClick={this.toggleCountries.bind(this)}
-                                                style={{backgroundColor: this.state.bgColor}}>
-                                                <a className="open"><i className="icon-docs"></i>Countries<i
-                                                    className="icon-down-dir"></i></a>
+                                            <li className="tags" onClick={this.toggleCountries.bind(this)} style={{backgroundColor:this.state.bgColor}}>
+                                                <a className="open"><i className="icon-docs"></i>Countries<i className="icon-down-dir"></i></a>
                                             </li>
                                             <li className="authors" onClick={this.toggleProfileTypes.bind(this)}>
-                                                <a className="open"><i className="icon-user"></i>ProfileType<i
-                                                    className="icon-down-dir"></i></a>
+                                                <a className="open"><i className="icon-user"></i>ProfileType<i className="icon-down-dir"></i></a>
                                             </li>
                                             {/*<li className="industries" onClick={this.toggleIndustries.bind(this)}>
                                              <a className="open"><i className="icon-tag"></i>Industries<i className="icon-down-dir"></i></a>
                                              </li>*/}
                                         </ul>
 
-                                        <div className="filters_wrapper" style={{display: "block"}}>
+                                        <div className="filters_wrapper" style={{display:"block"}}>
 
                                             {
                                                 this.state.showCategoriesTag ?
@@ -327,8 +368,7 @@ export default class CelebGrid extends React.Component {
                                                         <li className="technology">
                                                             <a data-rel=".category-technology">Technology</a>
                                                         </li>
-                                                        <li className="close"
-                                                            onClick={this.toggleCategories.bind(this)}>
+                                                        <li className="close" onClick={this.toggleCategories.bind(this)}>
                                                             <a><i className="icon-cancel"></i></a>
                                                         </li>
                                                     </ul>
@@ -338,16 +378,15 @@ export default class CelebGrid extends React.Component {
                                             {
                                                 this.state.showCountriesTag ?
                                                     <ul className="tags">
+                                                        <li className="close" onClick={this.toggleCountries.bind(this)} style={{float:"right"}}>
+                                                            <a><i className="icon-cancel"></i></a>
+                                                        </li>
                                                         <li className="reset current-cat">
-                                                            <a className="all" data-rel="*"
-                                                               onClick={() => this.handleCountryFilter(0)}>Show all</a>
+                                                            <a className="all" data-rel="*" onClick={() => this.handleCountryFilter(0)}>Show all</a>
                                                         </li>
 
                                                         {this.state.countries != null ? this.state.countries.map(country => this.renderCountry(country)) : null}
 
-                                                        <li className="close" onClick={this.toggleCountries.bind(this)}>
-                                                            <a><i className="icon-cancel"></i></a>
-                                                        </li>
                                                     </ul>
                                                     : null
                                             }
@@ -355,16 +394,16 @@ export default class CelebGrid extends React.Component {
                                             {
                                                 this.state.showProfileTypesTag ?
                                                     <ul className="authors">
+                                                        <li className="close"onClick={this.toggleProfileTypes.bind(this)} style={{float:"right"}}>
+                                                            <a><i className="icon-cancel"></i></a>
+                                                        </li>
+
                                                         <li className="reset current-cat">
-                                                            <a className="all" data-rel="*">Show all</a>
+                                                            <a className="all" data-rel="*" >Show all</a>
                                                         </li>
 
                                                         {this.state.profileTypes != null ? this.state.profileTypes.map(profileType => this.renderProfileType(profileType)) : null}
 
-                                                        <li className="close"
-                                                            onClick={this.toggleProfileTypes.bind(this)}>
-                                                            <a><i className="icon-cancel"></i></a>
-                                                        </li>
                                                     </ul>
                                                     : null
                                             }
@@ -376,10 +415,9 @@ export default class CelebGrid extends React.Component {
                                                             <a className="all" data-rel="*">Show all</a>
                                                         </li>
 
-                                                        {this.state.industries.map(industries => this.renderIndustry(industries))}
+                                                        {this.state.industries.map(industries=>this.renderIndustry(industries))}
 
-                                                        <li className="close"
-                                                            onClick={this.toggleIndustries.bind(this)}>
+                                                        <li className="close" onClick={this.toggleIndustries.bind(this)}>
                                                             <a><i className="icon-cancel"></i></a>
                                                         </li>
                                                     </ul>
@@ -396,15 +434,11 @@ export default class CelebGrid extends React.Component {
 
                                         </div>
                                         {/*One full width row*/}
-                                        <div className="column one pager_wrapper pager_lm"
-                                             style={{paddingTop: 7 + "%"}}>
+                                        <div className="column one pager_wrapper pager_lm" style={{paddingTop: 7+"%"}}>
                                             {
                                                 this.state.showLoadMoreBtn ?
-                                                    <a className="pager_load_more button button_js"
-                                                       style={{borderRadius: 30 + "px", borderWidth: 1 + "px"}}>
-                                                        <span onClick={() => this.handleLoadMore()}
-                                                              className="button_label"
-                                                              style={{padding: 11 + "px " + 40 + "px"}}>Load more</span></a>
+                                                    <a className="pager_load_more button button_js" style={{borderRadius: 30+"px",borderWidth:1+"px"}}>
+                                                        <span onClick={() => this.handleLoadMore()} className="button_label" style={{padding:11+"px "+40+"px"}}>Load more</span></a>
                                                     : null
                                             }
                                         </div>
