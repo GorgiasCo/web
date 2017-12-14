@@ -18,6 +18,20 @@ export default class CelebGrid extends React.Component {
   }
 
   componentDidMount(){
+
+    $('.filters_buttons .open').click(function(e) {
+  		e.preventDefault();
+  		var type = $(this).closest('li').attr('class');
+  		$('.filters_wrapper').show(200);
+  		$('.filters_wrapper ul.' + type).show(200);
+  		$('.filters_wrapper ul:not(.' + type + ')').hide();
+  	});
+  	$('.filters_wrapper .close a').click(function(e) {
+  		e.preventDefault();
+  		$('.filters_wrapper').hide(200);
+  	});
+
+
     /* ---------------------------------------------------------------------------
   	 * Isotope
   	 * --------------------------------------------------------------------------- */
@@ -280,37 +294,37 @@ export default class CelebGrid extends React.Component {
   }
 
 //for filtering buttons tabs
-toggleCategories(){
-  this.setState({showCategoriesTag:!this.state.showCategoriesTag});
-}
-
-toggleCountries(){
-
-  let showCountriesTag=true
-  let activate = true
-  // let bgColorActive = activate ? "purple" : "white"
-
-  this.setState({
-                    showCountriesTag:!this.state.showCountriesTag,
-                    showProfileTypesTag:false,
-                    activate:!this.state.activate,
-                    // bgColor:bgColorActive,
-                    color_black:!this.state.color
-                });
-  // console.log("The current color is",bgColorActive );
-  console.log("The tag state is",showCountriesTag );
-}
-
-toggleProfileTypes(){
-  this.setState({
-                    showProfileTypesTag:!this.state.showProfileTypesTag,
-                    showCountriesTag:false
-               });
-}
-
-toggleIndustries(){
-  this.setState({showIndustriesTag:!this.state.showIndustriesTag});
-}
+// toggleCategories(){
+//   this.setState({showCategoriesTag:!this.state.showCategoriesTag});
+// }
+//
+// toggleCountries(){
+//
+//   let showCountriesTag=true
+//   let activate = true
+//   // let bgColorActive = activate ? "purple" : "white"
+//
+//   this.setState({
+//                     showCountriesTag:!this.state.showCountriesTag,
+//                     showProfileTypesTag:false,
+//                     activate:!this.state.activate,
+//                     // bgColor:bgColorActive,
+//                     color_black:!this.state.color
+//                 });
+//   // console.log("The current color is",bgColorActive );
+//   console.log("The tag state is",showCountriesTag );
+// }
+//
+// toggleProfileTypes(){
+//   this.setState({
+//                     showProfileTypesTag:!this.state.showProfileTypesTag,
+//                     showCountriesTag:false
+//                });
+// }
+//
+// toggleIndustries(){
+//   this.setState({showIndustriesTag:!this.state.showIndustriesTag});
+// }
 
   render (){
     console.log(this.state.profiles, 'render');
@@ -325,7 +339,7 @@ toggleIndustries(){
                                   <div id="Filters" className="isotope-filters" data-parent="column_filters" style={{margin: 30+"px",fontSize: 16+"px", marginLeft: "auto",marginRight: "auto", marginTop: 30+"px",marginBottom: 30+"px",width:"fit-content"}}>
 
                                           <span className="label" style={{color:"#999c9e"}}>
-                                              Filter by
+                                              Filterr by
                                           </span>
                                       {/*Grid filter Buttons*/}
                                       <ul className="filters_buttons" style={{margin:"0px auto",fontSize:"16px",width:"fit-content", display:"flex"}}>
@@ -334,10 +348,10 @@ toggleIndustries(){
                                           {/*<li className="categories" onClick={this.toggleCategories.bind(this)}>
                                               <a className="open"><i className="icon-tag"></i>Categories<i className="icon-down-dir"></i></a>
                                           </li>*/}
-                                          <li className="tags" onClick={this.toggleCountries.bind(this)} style={{backgroundColor:this.state.bgColor}}>
+                                          <li className="tags" style={{backgroundColor:this.state.bgColor}}>
                                               <a className="open"><i className="icon-docs"></i>Countries<i className="icon-down-dir"></i></a>
                                           </li>
-                                          <li className="authors" onClick={this.toggleProfileTypes.bind(this)}>
+                                          <li className="authors" >
                                               <a className="open"><i className="icon-user"></i>ProfileType<i className="icon-down-dir"></i></a>
                                           </li>
                                           {/*<li className="industries" onClick={this.toggleIndustries.bind(this)}>
@@ -347,38 +361,8 @@ toggleIndustries(){
 
                                       <div className="filters_wrapper" style={{display:"block"}}>
 
-                                          {
-                                            this.state.showCategoriesTag ?
-                                          <ul className="categories">
-                                              <li className="reset current-cat">
-                                                  <a className="all" data-rel="*">Show all</a>
-                                              </li>
-                                              <li className="hot-news">
-                                                  <a data-rel=".category-hot-news">Hot news</a>
-                                              </li>
-                                              <li className="lifestyle">
-                                                  <a data-rel=".category-lifestyle">Lifestyle</a>
-                                              </li>
-                                              <li className="news">
-                                                  <a data-rel=".category-news">News</a>
-                                              </li>
-                                              <li className="sport">
-                                                  <a data-rel=".category-sport">Sport</a>
-                                              </li>
-                                              <li className="technology">
-                                                  <a data-rel=".category-technology">Technology</a>
-                                              </li>
-                                              <li className="close" onClick={this.toggleCategories.bind(this)}>
-                                                  <a><i className="icon-cancel"></i></a>
-                                              </li>
-                                          </ul>
-                                           : null
-                                          }
-
-                                          {
-                                            this.state.showCountriesTag ?
                                             <ul className="tags">
-                                                <li className="close" onClick={this.toggleCountries.bind(this)} style={{float:"right"}}>
+                                                <li className="close"style={{float:"right"}}>
                                                   <a><i className="icon-cancel"></i></a>
                                                 </li>
                                                 <li className="reset current-cat">
@@ -388,13 +372,9 @@ toggleIndustries(){
                                                 {this.state.countries != null ? this.state.countries.map(country => this.renderCountry(country)) : null}
 
                                             </ul>
-                                            : null
-                                          }
 
-                                          {
-                                            this.state.showProfileTypesTag ?
                                           <ul className="authors">
-                                              <li className="close"onClick={this.toggleProfileTypes.bind(this)} style={{float:"right"}}>
+                                              <li className="close"style={{float:"right"}}>
                                                 <a><i className="icon-cancel"></i></a>
                                               </li>
 
@@ -405,24 +385,9 @@ toggleIndustries(){
                                               {this.state.profileTypes != null ? this.state.profileTypes.map(profileType => this.renderProfileType(profileType)) : null}
 
                                           </ul>
-                                          : null
-                                          }
 
-                                          {
-                                            this.state.showIndustriesTag ?
-                                          <ul className="industries">
-                                              <li className="reset current-cat">
-                                                  <a className="all" data-rel="*">Show all</a>
-                                              </li>
 
-                                              {this.state.industries.map(industries=>this.renderIndustry(industries))}
 
-                                              <li className="close" onClick={this.toggleIndustries.bind(this)}>
-                                                  <a><i className="icon-cancel"></i></a>
-                                              </li>
-                                          </ul>
-                                          : null
-                                          }
 
                                       </div>
                                   </div>
