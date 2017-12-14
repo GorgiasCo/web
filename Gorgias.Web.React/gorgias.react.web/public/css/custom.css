@@ -139,6 +139,15 @@ Start of  Content
 
 }
 
+/*--footer fonts---*/
+
+.tkFont1.footer-heading {
+
+  font-weight: bold;
+  font-size: x-large;
+}
+
+
 /*======end of tk's font=======*/
 
 /*================2.0 - Tk's Top menu bar==================*/
@@ -658,7 +667,7 @@ img.tk.fit3 {
   font-size: 36px;
 }
 
-
+/*the filters section*/
 #Filters .filters_buttons li a {
     cursor:pointer;
 }
@@ -667,6 +676,81 @@ img.tk.fit3 {
 
     cursor: pointer;
 }
+
+.style-simple #Filters .filters_wrapper ul li a:hover:after {
+    display: block;
+}
+
+
+/*mobile*/
+@media only screen and (max-width:767px){
+
+      .style-simple #Filters .filters_wrapper ul li.close {
+
+      margin-right: 2%;
+    }
+
+    .style-simple #Filters .filters_wrapper ul li.close a{
+
+    position: absolute;
+    }
+
+
+
+  .style-simple #Filters .filters_wrapper ul li.close a {
+  	color: inherit;
+  	/*padding: 14px 15px;*/
+  	padding: 0px 5px 5px 5px;
+  	background-color:transparent;
+
+
+  }
+
+  .style-simple #Filters .filters_wrapper ul {
+    overflow: visible;
+    display: inline-block;
+    border-bottom-width: 1px;
+    border-style: solid;
+    background-color: transparent;
+  }
+
+  .style-simple #Filters .filters_wrapper ul li a {
+      /* background: none;
+      border: 0; */
+      padding: 7px 8px;
+      /* position: relative; */
+      background-color: #fff;
+    margin: 3px 3px;
+    border: 2px solid #ccc;
+    border-top: 0px;
+    border-left: 0px;
+
+  }
+
+    .style-simple #Filters .filters_wrapper ul li a:hover, .style-simple #Filters .filters_wrapper ul li.current-cat a {
+      background: #444;
+      color: white;
+      border-width: 2px;
+      border-color: black;
+  }
+
+  .style-simple #Filters .filters_wrapper ul li a:hover:after {
+      display: none;
+  }
+
+}
+
+/*tablet and above*/
+@media only screen and (min-width:768px){
+  .style-simple #Filters .filters_wrapper ul li.close a {
+  	color: inherit;
+  	padding: 14px 15px;
+  	/*padding: 0px 5px 5px 5px;
+  	background-color:transparent;*/
+
+  }
+}
+
 
 /*------------for grid responsiveness---------------*/
 

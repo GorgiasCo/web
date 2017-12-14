@@ -27,9 +27,8 @@ export default class Footer extends React.Component {
                     <div className="container">
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
-                                <h4 className="tkFont1" style={{fontWeight: 'bold'}}><a>Site</a>
-                                </h4>
-
+                                <h4 className="tkFont1 footer-heading"><a>Site</a></h4>
+                                <hr/>
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                   <NavLink to={"/login"} activeClassName={"activee"}><span>Login</span></NavLink>
                                 </p>
@@ -46,8 +45,8 @@ export default class Footer extends React.Component {
 
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
-                                <h4 className="tkFont1" style={{fontWeight: 'bold'}}><a>About</a>
-                                </h4>
+                                <h4 className="tkFont1 footer-heading"><a>About</a></h4>
+                                <hr/>
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                     <NavLink to={"/about"} activeClassName={"activee"}><span>Company</span></NavLink>
                                 </p>
@@ -64,7 +63,8 @@ export default class Footer extends React.Component {
 
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
-                                <h4 className="tkFont1" style={{fontWeight: 'bold'}}>Address</h4>
+                                <h4 className="tkFont1 footer-heading">Address</h4>
+                                <hr/>
                                 <p style={{fontSize:"medium"}}>No.8 Jalan Kerinchi, The Vertical,
                                     <br/> Bangsar South City, 59200
                                     <br/> Malaysia
@@ -74,12 +74,12 @@ export default class Footer extends React.Component {
 
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
-                                <h4 className="tkFont1" style={{fontWeight: 'bold'}}>Contact with us</h4>
+                                <h4 className="tkFont1 footer-heading">Contact with us</h4>
+                                <hr/>
                                 <div className="textwidget">
                                     <div style={{marginright: '15%',}}>
                                         <ul>
-                                            <li style={{marginBottom: 10}}>
-                                            </li>
+                                            <li style={{marginBottom: 10}}></li>
                                             <li style={{marginbottom: 10}}>
                                                 <i style={{marginright: 10}} className="icon-email"></i><a href="#">noreply@envato.com</a>
                                             </li>
