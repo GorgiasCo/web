@@ -18,7 +18,7 @@ export default class Content extends React.Component {
                             <WhatIsGorgias/>
                             <TopStories/>
                             <WhoIsGorgias/>
-                            <CelebGrid/>
+                            <CelebGrid isMainPage={true}/>
                             <WhyBecomeGorgias/>
                             <AppDownload/>
                         </div>
