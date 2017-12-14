@@ -30,6 +30,7 @@ export default class MainPage extends Component {
                     <Route exact path="/terms" component={TermsContainer}/>
                     <Route exact path="/contact" component={ContactContainer}/>
                     <Route exact path="/app/:id" component={DownloadAppContainer}/>
+                    <Route exact path="/app/:id/:pid" component={DownloadAppContainer}/>
                 </div>
             </Router>
         )

@@ -18,8 +18,8 @@
       <file leaf-file-name="MainPage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="31" column="47" lean-forward="false" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+            <state relative-caret-position="306">
+              <caret line="32" column="52" lean-forward="false" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -28,45 +28,34 @@
       <file leaf-file-name="DownloadAppContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/DownloadAppContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+            <state relative-caret-position="266">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <marker date="1513154240458" expanded="true" signature="305:1648" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppProfile.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AppProfile.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/AppProfileSections/AppProfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="68" column="84" lean-forward="false" selection-start-line="68" selection-start-column="84" selection-end-line="68" selection-end-column="84" />
+            <state relative-caret-position="575">
+              <caret line="53" column="25" lean-forward="false" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <marker date="1513159037902" expanded="true" signature="4667:4712" ph="..." />
-                <marker date="1513159037902" expanded="true" signature="5081:7421" ph="..." />
-                <marker date="1513159037902" expanded="false" signature="5163:5172" ph="..." />
-                <marker date="1513159037902" expanded="false" signature="5257:5265" ph="..." />
-                <marker date="1513159037902" expanded="true" signature="5364:7374" ph="..." />
-                <marker date="1513159037902" expanded="true" signature="5439:7323" ph="..." />
-                <marker date="1513159037902" expanded="true" signature="5440:7270" ph="..." />
-                <marker date="1513159037902" expanded="true" signature="5525:5766" ph="..." />
-                <marker date="1513159037902" expanded="true" signature="5832:5898" ph="..." />
-                <marker date="1513159037902" expanded="true" signature="6395:6407" ph="..." />
-                <marker date="1513159037902" expanded="false" signature="6878:6887" ph="..." />
-                <marker date="1513159037902" expanded="true" signature="6891:7268" ph="..." />
+                <element signature="e#9954#14546#0" expanded="false" />
+                <marker date="1513229252233" expanded="true" signature="11553:11598" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2.1-CelebGrid.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="2.1-CelebGrid.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/MainSections/2.1-CelebGrid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="42" column="22" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state relative-caret-position="487">
+              <caret line="284" column="0" lean-forward="false" selection-start-line="284" selection-start-column="0" selection-end-line="304" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -85,7 +74,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
+            <state relative-caret-position="289">
               <caret line="17" column="69" lean-forward="false" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
               <folding />
             </state>
@@ -115,7 +104,6 @@
         <option value="$PROJECT_DIR$/src/Components/TermsPageSections/1-PrivacyPolicy.js" />
         <option value="$PROJECT_DIR$/src/Components/ContentTerms.js" />
         <option value="$PROJECT_DIR$/src/Components/MainSections/1-WhatIsGorgias.js" />
-        <option value="$PROJECT_DIR$/src/Components/MainSections/2.1-CelebGrid.js" />
         <option value="$PROJECT_DIR$/src/Components/MainSections/2.1-CelebGrid-5-Dec.js" />
         <option value="$PROJECT_DIR$/src/Components/MainSections/2.1-CelebGrid-bck1.js" />
         <option value="$PROJECT_DIR$/src/Components/MainSections/2.1-CelebGrid-old.js" />
@@ -149,10 +137,11 @@
         <option value="$PROJECT_DIR$/src/Components/Content.js" />
         <option value="$PROJECT_DIR$/src/Components/MainSections/0-WebSlider.js" />
         <option value="$PROJECT_DIR$/src/Components/MainSections/1.2-TopStories.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/Components/MainPage.js" />
         <option value="$PROJECT_DIR$/src/Components/DownloadAppContainer.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/Components/AppProfileSections/AppProfile.js" />
+        <option value="$PROJECT_DIR$/src/Components/MainSections/2.1-CelebGrid.js" />
       </list>
     </option>
   </component>
@@ -189,7 +178,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -294,6 +282,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -402,14 +391,16 @@
       <updated>1512534509437</updated>
       <workItem from="1512534510763" duration="8123000" />
       <workItem from="1512547537061" duration="2127000" />
+      <workItem from="1513221581162" duration="7561000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22786000" />
+    <option name="totallyTimeSpent" value="30599000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -418,26 +409,16 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32981783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32981783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32981783" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -722,10 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-          <folding>
-            <marker date="1513133871986" expanded="true" signature="359:404" ph="{...}" />
-            <marker date="1513133871986" expanded="true" signature="396:404" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -743,14 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-            <marker date="1513133872009" expanded="true" signature="11412:11443" ph="&lt;Caption/&gt;" />
-            <marker date="1513133872009" expanded="true" signature="11412:11468" ph="&lt;Slide/&gt;" />
-            <marker date="1513133872009" expanded="true" signature="11486:12418" ph="&lt;Slide/&gt;" />
-            <marker date="1513133872009" expanded="true" signature="11802:11983" ph="{&quot;data-transition&quot;: &quot;fadefromleft&quot;...}" />
-            <marker date="1513133872009" expanded="true" signature="12006:12393" ph="&lt;Caption/&gt;" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -772,9 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="81" column="29" lean-forward="true" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -782,15 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14">
           <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/MainPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="31" column="47" lean-forward="false" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -802,52 +759,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/MainSections/2.1-CelebGrid.js">
+    <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="42" column="22" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="289">
+          <caret line="17" column="69" lean-forward="false" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/MainPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="32" column="52" lean-forward="false" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/DownloadAppContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+        <state relative-caret-position="266">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <marker date="1513154240458" expanded="true" signature="305:1648" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="17" column="69" lean-forward="false" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/AppProfileSections/AppProfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="68" column="84" lean-forward="false" selection-start-line="68" selection-start-column="84" selection-end-line="68" selection-end-column="84" />
+        <state relative-caret-position="575">
+          <caret line="53" column="25" lean-forward="false" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <marker date="1513159037902" expanded="true" signature="4667:4712" ph="..." />
-            <marker date="1513159037902" expanded="true" signature="5081:7421" ph="..." />
-            <marker date="1513159037902" expanded="false" signature="5163:5172" ph="..." />
-            <marker date="1513159037902" expanded="false" signature="5257:5265" ph="..." />
-            <marker date="1513159037902" expanded="true" signature="5364:7374" ph="..." />
-            <marker date="1513159037902" expanded="true" signature="5439:7323" ph="..." />
-            <marker date="1513159037902" expanded="true" signature="5440:7270" ph="..." />
-            <marker date="1513159037902" expanded="true" signature="5525:5766" ph="..." />
-            <marker date="1513159037902" expanded="true" signature="5832:5898" ph="..." />
-            <marker date="1513159037902" expanded="true" signature="6395:6407" ph="..." />
-            <marker date="1513159037902" expanded="false" signature="6878:6887" ph="..." />
-            <marker date="1513159037902" expanded="true" signature="6891:7268" ph="..." />
+            <element signature="e#9954#14546#0" expanded="false" />
+            <marker date="1513229252233" expanded="true" signature="11553:11598" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/MainSections/2.1-CelebGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="284" column="0" lean-forward="false" selection-start-line="284" selection-start-column="0" selection-end-line="304" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
