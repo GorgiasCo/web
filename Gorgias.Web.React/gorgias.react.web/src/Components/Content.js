@@ -15,10 +15,15 @@ export default class Content extends React.Component {
                     <div className="sections_group">
                         <div className="entry-content">
                             <FeaturedSlider/>
-                            <WhatIsGorgias/>
+                            <WhatIsGorgias
+                                marginTop={0}
+                                title="What is Storyland!"
+                                body="Curabitur sed iaculis dolor, non congue ligula. Maecenas imperdiet ante eget
+                                        hendrerit posuere. Nunc urna libero, congue porta nibh a, semper feugiat sem.
+                                        Sed auctor dui eleifend, scelerisque eros ut, pellentesque nibh."/>
                             <TopStories/>
                             <WhoIsGorgias/>
-                            <CelebGrid/>
+                            <CelebGrid isMainPage={true}/>
                             <WhyBecomeGorgias/>
                             <AppDownload/>
                         </div>

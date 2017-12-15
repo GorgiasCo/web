@@ -1,5 +1,7 @@
 import React from 'react';
 import LoginForm1 from './LoginSections/LoginForm1';
+import ResetPassword from './LoginSections/LoginForm2-email';
+
 import AppProfile from './AppProfileSections/AppProfile';
 import {
   BrowserRouter as Router,
@@ -21,7 +23,7 @@ export default class LoginContent extends React.Component {
                 <NavLink exact to={"/"} activeStyle={{color:"red"}}><span>Back to Gorgias</span></NavLink>
               </div>
 
-              <LoginForm1/>
+              <ResetPassword/>
 
               <footer id="Footer" className="clearfix" style={{backgroundColor:"rgba(0,0,0,0.5)", position:"fixed"}}>
                 <div className="footer_copy">

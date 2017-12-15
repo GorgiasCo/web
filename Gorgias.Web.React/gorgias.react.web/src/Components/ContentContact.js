@@ -18,7 +18,7 @@ export default class ContentContact extends React.Component {
 
                             <ContactWebCover/>
                             <ContactTextBanner/>
-                            <ContactForm/>
+                            {/*<ContactForm/>*/}
                             <Locations/>
                             <AppDownloadBanner/>
 

@@ -5,6 +5,8 @@ import AboutContainer from './AboutContainer';
 import TermsContainer from './TermsContainer';
 import ContactContainer from './ContactContainer';
 import DownloadAppContainer from './DownloadAppContainer';
+import AppstoreContainer from './AppstoreContainer';
+
 import {
     BrowserRouter as Router,
     StaticRouter, // for server rendering
@@ -31,6 +33,7 @@ export default class MainPage extends Component {
                     <Route exact path="/contact" component={ContactContainer}/>
                     <Route exact path="/app/:id" component={DownloadAppContainer}/>
                     <Route exact path="/app/:id/:pid" component={DownloadAppContainer}/>
+                    <Route exact path="/store" component={AppstoreContainer}/>
                 </div>
             </Router>
         )
