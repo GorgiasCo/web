@@ -11,7 +11,6 @@ import {
 
 export default class Footer extends React.Component {
 
-
     componentDidMount() {
         if ($('.footer-fixed #Footer, .footer-sliding #Footer').length) {
             var footerH = $('#Footer').height();
@@ -19,12 +18,26 @@ export default class Footer extends React.Component {
         }
     }
 
-
     render() {
         return (
             <footer id="Footer" className="clearfix bg-color-4">
                 <div className="widgets_wrapper" style={{paddingTop: '50px',}}>
                     <div className="container">
+                        <div className="column one-fourth">
+                            <aside className="widget tkLinks">
+                                <h4 className="tkFont1 footer-heading"><a>About</a></h4>
+                                <hr/>
+                                <p className="tkFont1" style={{fontWeight: 'bold'}}>
+                                    <NavLink to={"/about"} activeClassName={"activee"}><span>Company</span></NavLink>
+                                </p>
+                                <p className="tkFont1" style={{fontWeight: 'bold'}}>
+                                    <NavLink to={"/contact"} activeClassName={"activee"}><span>Contact</span></NavLink>
+                                </p>
+                                <p className="tkFont1" style={{fontWeight: 'bold'}}>
+                                    <NavLink to={"/terms"} activeClassName={"activee"}><span>Terms</span></NavLink>
+                                </p>
+                            </aside>
+                        </div>
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
                                 <h4 className="tkFont1 footer-heading"><a>Site</a></h4>
@@ -42,28 +55,11 @@ export default class Footer extends React.Component {
                                 </p>
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                     <NavLink to={"/login"} activeClassName={"activee"}>
-                                        <span>Login</span>
+                                        <span>Forget Password</span>
                                     </NavLink>
                                 </p>
                             </aside>
                         </div>
-
-                        <div className="column one-fourth">
-                            <aside className="widget tkLinks">
-                                <h4 className="tkFont1 footer-heading"><a>About</a></h4>
-                                <hr/>
-                                <p className="tkFont1" style={{fontWeight: 'bold'}}>
-                                    <NavLink to={"/about"} activeClassName={"activee"}><span>Company</span></NavLink>
-                                </p>
-                                <p className="tkFont1" style={{fontWeight: 'bold'}}>
-                                    <NavLink to={"/contact"} activeClassName={"activee"}><span>Contact</span></NavLink>
-                                </p>
-                                <p className="tkFont1" style={{fontWeight: 'bold'}}>
-                                    <NavLink to={"/terms"} activeClassName={"activee"}><span>Terms</span></NavLink>
-                                </p>
-                            </aside>
-                        </div>
-
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
                                 <h4 className="tkFont1 footer-heading">Address</h4>
@@ -74,7 +70,6 @@ export default class Footer extends React.Component {
                                 </p>
                             </aside>
                         </div>
-
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
                                 <h4 className="tkFont1 footer-heading">Contact with us</h4>
