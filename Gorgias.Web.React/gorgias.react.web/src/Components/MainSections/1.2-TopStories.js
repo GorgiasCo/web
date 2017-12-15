@@ -22,7 +22,7 @@ export default class TopStories extends React.Component {
       })
       .then(function(data) {
         that.setState({ items: data.Result.Items, isLoading:false });
-        console.log(that.state.items);
+        console.log(that.state.items,"API for stories");
       });
   }
 
@@ -30,7 +30,7 @@ export default class TopStories extends React.Component {
     return (
       <li key={story.AlbumID} className="floatr tklist content_slider_li" style={{float:"left",}}>
         <div>
-          <img width="287" height="339" className="tk fit2" src={story.cdnAlbumCover} alt=""/>
+          <img width="287" height="339" className="tk fit2" src={story.cdnAlbumCover} alt={story.ProfileFullname}/>
         </div>
         <div className="desc">
           <p style={{fontSize:"12px"}}>{story.AlbumName}</p>
@@ -41,6 +41,7 @@ export default class TopStories extends React.Component {
 
         </div>
       </li>
+
     )
   }
 
@@ -74,7 +75,7 @@ export default class TopStories extends React.Component {
                   0: {
                     items: 2,
                     nav: false,
-                    margin:0,
+                    margin:10,
                     center:true,
 
                   },
@@ -93,7 +94,7 @@ export default class TopStories extends React.Component {
                     items: 4,
                     nav: false,
                     loop: false,
-                    margin: 5,
+                    margin: 15,
 
                   },
 
@@ -101,7 +102,7 @@ export default class TopStories extends React.Component {
                     items: 5,
                     nav: false,
                     loop: false,
-                    margin: 5,
+                    margin: 15,
                   },
 
                   2560:{

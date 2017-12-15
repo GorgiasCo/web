@@ -8,6 +8,7 @@ import ImageBanner from './AboutPageSection/5-ImageBanner';
 import TextTilesPanels from './AboutPageSection/6-TextTilesPanels';
 import Teams from './AboutPageSection/7-Teams';
 import AppDownloadBanner from './AboutPageSection/8-AppDownloadBanner';
+import AppDownload from './MainSections/4-AppDownload';
 
 
 export default class ContentAbout extends Component {
@@ -23,8 +24,9 @@ export default class ContentAbout extends Component {
                             <MissionVision/>
                             <ImageBanner/>
                             <TextTilesPanels/>
-                            
-                            <AppDownloadBanner/>
+
+                            {/*<AppDownloadBanner/>*/}
+                            <AppDownload/>
 
                         </div>
                     </div>

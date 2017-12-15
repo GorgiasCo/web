@@ -365,6 +365,7 @@ export default class CelebGrid extends React.Component {
                                                     margin: "0px auto",
                                                     fontSize: "16px",
                                                     width: "fit-content",
+                                                    width: "-webkit-fit-content", /*safari*/
                                                     display: "flex"
                                                 }}>
                                                     <li className="tags" onClick={this.toggleCountries.bind(this)}
