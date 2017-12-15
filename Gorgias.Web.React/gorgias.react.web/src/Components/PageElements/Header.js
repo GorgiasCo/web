@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom';
 
 import LoginContent from '../LoginSections/AccountContent';
-import HomeContainer from '../HomeContainer';
+import HomeContainer from '../Home/HomeContainer';
 
 
 

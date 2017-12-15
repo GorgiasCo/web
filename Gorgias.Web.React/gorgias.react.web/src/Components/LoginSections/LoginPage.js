@@ -1,5 +1,5 @@
 import React from 'react';
-import AccountContent from './LoginSections/AccountContent.js'
+import AccountContent from './AccountContent.js'
 
 
 export class LoginPage extends React.Component {

@@ -1,11 +1,11 @@
 import React from 'react';
-import WhatIsGorgias from './MainSections/1-WhatIsGorgias';
-import TopStories from './MainSections/1.2-TopStories';
-import WhyBecomeGorgias from './MainSections/3-WhyBecomeGorgias';
-import AppDownload from './MainSections/4-AppDownload';
-import WhoIsGorgias from './MainSections/2-WhoIsGorgias';
-import CelebGrid from './MainSections/2.1-CelebGrid';
-import FeaturedSlider from './MainSections/0-WebSlider';
+import WhatIsGorgias from '../MainSections/1-WhatIsGorgias';
+import TopStories from '../MainSections/1.2-TopStories';
+import WhyBecomeGorgias from '../MainSections/3-WhyBecomeGorgias';
+import AppDownload from '../MainSections/4-AppDownload';
+import WhoIsGorgias from '../MainSections/2-WhoIsGorgias';
+import CelebGrid from '../MainSections/2.1-CelebGrid';
+import FeaturedSlider from '../MainSections/0-WebSlider';
 
 export default class Content extends React.Component {
     render() {

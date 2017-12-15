@@ -292,7 +292,7 @@ function hashNav() {
 }
 
 	/* ---------------------------------------------------------------------------
-	 * One Page | Scroll Active
+	 * One PageElements | Scroll Active
 	 * --------------------------------------------------------------------------- */
 
 	function onePageActive(){
@@ -654,7 +654,7 @@ jQuery(document).ready(function() {
 	/* ---------------------------------------------------------------------------
 	 * Menu | OnePage - remove active
 	 * Works with .scroll class
-	 * Since 4.8 replaced with admin option: Page Options / One Page [function: onePageMenu()]
+	 * Since 4.8 replaced with admin option: PageElements Options / One PageElements [function: onePageMenu()]
 	 * --------------------------------------------------------------------------- */
 	function onePageScroll() {
 		if (!jQuery('body').hasClass('one-page')) {
@@ -672,7 +672,7 @@ jQuery(document).ready(function() {
 	onePageScroll();
 
 	/* ---------------------------------------------------------------------------
-	 * One Page | Menu with Active on Scroll
+	 * One PageElements | Menu with Active on Scroll
 	 * ---------------------------------------------------------------------------
 	function onePageMenu() {
 		if (jQuery('body').hasClass('one-page')) {
@@ -722,7 +722,7 @@ jQuery(document).ready(function() {
 	};
 	onePageMenu(); */
 	/* ---------------------------------------------------------------------------
-		 * Menu | One Page | Active on Scroll & Click
+		 * Menu | One PageElements | Active on Scroll & Click
 		 * --------------------------------------------------------------------------- */
 
 		function onePageMenu(){
