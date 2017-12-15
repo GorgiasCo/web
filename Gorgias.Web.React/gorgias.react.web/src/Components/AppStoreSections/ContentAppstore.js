@@ -1,6 +1,6 @@
 import React from 'react';
-import CelebGrid from './AppstoreSections/1.0-CelebGrid-Appstore';
-import WhoIsGorgias from "./MainSections/1-WhatIsGorgias";
+import CelebGrid from './1.0-CelebGrid-Appstore';
+import WhoIsGorgias from "../MainSections/1-WhatIsGorgias";
 
 export default class ContentAppstore extends React.Component {
     render() {

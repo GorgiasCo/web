@@ -2,7 +2,7 @@ import React from 'react';
 import ResetPassword from './ResetPassword';
 import ChangePassword from './ChangePassword';
 import Login from './Login';
-import MiniFooter from '../Page/MiniFooter';
+import MiniFooter from '../PageElements/MiniFooter';
 import {
     NavLink
 } from 'react-router-dom'

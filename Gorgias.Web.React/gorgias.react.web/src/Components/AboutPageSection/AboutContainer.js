@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from './Page/Header';
+import Header from '../PageElements/Header';
 import ContentAbout from './ContentAbout';
-import Footer from './Page/Footer';
+import Footer from '../PageElements/Footer';
 
 export default class AboutContainer extends Component {
 

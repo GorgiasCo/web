@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import HomeContainer from './HomeContainer';
-import LoginContent from './LoginSections/AccountContent';
-import AboutContainer from './AboutContainer';
-import TermsContainer from './TermsContainer';
-import ContactContainer from './ContactContainer';
-import DownloadAppContainer from './DownloadAppContainer';
-import AppstoreContainer from './AppstoreContainer';
+import HomeContainer from './Home/HomeContainer';
+import AccountContent from './LoginSections/AccountContent';
+import AboutContainer from './AboutPageSection/AboutContainer';
+import TermsContainer from './TermsPageSections/TermsContainer';
+import ContactContainer from './ContactPageSections/ContactContainer';
+import DownloadAppContainer from './AppStoreSections/DownloadAppContainer';
+import AppstoreContainer from './AppStoreSections/AppstoreContainer';
+import DefaultPage from './DefaultPage';
 
 import {
     BrowserRouter as Router,
@@ -26,16 +27,16 @@ export default class MainPage extends Component {
         return (
             <Router onUpdate={() => window.scrollTo(0, 0)}>
                 <div>
-                    <Route exact path="/" component={HomeContainer}/>
-                    <Route exact path="/login" component={()=> <LoginContent/>}/>
-                    <Route path="/account/reset/:id" component={()=> <LoginContent accountType="reset"/>}/>
-                    <Route exact path="/account/forget" component={()=> <LoginContent accountType="forget"/>}/>
-                    <Route exact path="/about" component={AboutContainer}/>
-                    <Route exact path="/terms" component={TermsContainer}/>
-                    <Route exact path="/contact" component={ContactContainer}/>
+                    <Route exact path="/" component={()=> <DefaultPage containerName="home" />}/>
+                    <Route exact path="/login" component={()=> <AccountContent/>}/>
+                    <Route path="/account/reset/:id" component={()=> <AccountContent accountType="reset"/>}/>
+                    <Route exact path="/account/forget" component={()=> <AccountContent accountType="forget"/>}/>
+                    <Route exact path="/about" component={()=> <DefaultPage containerName="about" />}/>
+                    <Route exact path="/terms" component={()=> <DefaultPage containerName="terms" />}/>
+                    <Route exact path="/contact" component={()=> <DefaultPage containerName="contact" />}/>
                     <Route exact path="/app/:id" component={DownloadAppContainer}/>
                     <Route exact path="/app/:id/:pid" component={DownloadAppContainer}/>
-                    <Route exact path="/store" component={AppstoreContainer}/>
+                    <Route exact path="/store" component={()=> <DefaultPage containerName="store" />}/>
                 </div>
             </Router>
         )

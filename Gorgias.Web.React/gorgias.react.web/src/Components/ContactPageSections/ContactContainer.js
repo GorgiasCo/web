@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './Page/Header';
+import Header from '../PageElements/Header';
 import ContentContact from './ContentContact';
-import Footer from './Page/Footer';
+import Footer from '../PageElements/Footer';
 
 export default class ContactContainer extends React.Component {
 
