@@ -1,12 +1,12 @@
 import React from 'react';
-import {LoginContent} from './LoginContent.js'
+import AccountContent from './LoginSections/AccountContent.js'
 
 
 export class LoginPage extends React.Component {
    render() {
       return(
         <div>
-            <LoginContent/>
+            <AccountContent accountType={this.props.accountType}/>
         </div>
       )
    }

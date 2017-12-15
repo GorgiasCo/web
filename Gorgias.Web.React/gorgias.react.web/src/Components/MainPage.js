@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import HomeContainer from './HomeContainer';
-import LoginContent from './LoginContent';
+import LoginContent from './LoginSections/AccountContent';
 import AboutContainer from './AboutContainer';
 import TermsContainer from './TermsContainer';
 import ContactContainer from './ContactContainer';
@@ -27,8 +27,9 @@ export default class MainPage extends Component {
             <Router onUpdate={() => window.scrollTo(0, 0)}>
                 <div>
                     <Route exact path="/" component={HomeContainer}/>
-                    <Route exact path="/login" component={LoginContent}/>
-                    <Route path="/login/account/reset/:id" component={LoginContent}/>
+                    <Route exact path="/login" component={()=> <LoginContent/>}/>
+                    <Route path="/account/reset/:id" component={()=> <LoginContent accountType="reset"/>}/>
+                    <Route exact path="/account/forget" component={()=> <LoginContent accountType="forget"/>}/>
                     <Route exact path="/about" component={AboutContainer}/>
                     <Route exact path="/terms" component={TermsContainer}/>
                     <Route exact path="/contact" component={ContactContainer}/>
