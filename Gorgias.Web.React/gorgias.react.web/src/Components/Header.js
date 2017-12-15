@@ -9,7 +9,7 @@ import {
   // etc.
 } from 'react-router-dom';
 
-import LoginContent from './LoginContent';
+import LoginContent from './LoginSections/AccountContent';
 import HomeContainer from './HomeContainer';
 
 

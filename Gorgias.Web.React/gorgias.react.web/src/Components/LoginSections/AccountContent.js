@@ -1,24 +1,36 @@
 import React from 'react';
-import ResetPassword from './LoginSections/ResetPassword';
-import ChangePassword from './LoginSections/ChangePassword';
-import Login from './LoginSections/Login';
+import ResetPassword from './ResetPassword';
+import ChangePassword from './ChangePassword';
+import Login from './Login';
 import {
     NavLink
 } from 'react-router-dom'
 
-export default class LoginContent extends React.Component {
+export default class AccountContent extends React.Component {
+
+    prepareAccountContent = () => {
+        switch (this.props.accountType) {
+            case "forget":
+                return <ResetPassword />;
+                break;
+            case "reset":
+                return <ChangePassword username={this.props.match.params.id}/>;
+                break;
+            default:
+                return <Login />;
+                break;
+        }
+    }
+
     render() {
         return (
-
             <div>
                 <div className="goBack">
                     <i className="icon-left-thin"></i>
                     <NavLink exact to={"/"} activeStyle={{color: "red"}}><span>Back to Gorgias</span></NavLink>
                 </div>
 
-                <Login/>
-                <ResetPassword/>
-                <ChangePassword username={this.props.match.params.id}/>
+                {this.prepareAccountContent()}
 
                 <footer id="Footer" className="clearfix"
                         style={{backgroundColor: "rgba(0,0,0,0.5)", position: "fixed"}}>
