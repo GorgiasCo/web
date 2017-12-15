@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Header from './Header';
+import Header from './Page/Header';
 import Content from './Content';
-import Footer from './Footer';
+import Footer from './Page/Footer';
 
 export default class HomeContainer extends Component {
 

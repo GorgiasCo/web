@@ -1,6 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
-
+import {
+    NavLink
+} from 'react-router-dom'
 export default class CelebGrid extends React.Component {
 
     constructor(props) {
@@ -86,7 +88,7 @@ export default class CelebGrid extends React.Component {
             PageNumber: 1,
             PageSize: 15,
             SubscriptionTypeID: 3,
-            IsPeople:this.props.isPeople,
+            IsPeople: this.props.isPeople,
         }
 
         this.prepareProfiles(bodyData);
@@ -122,12 +124,12 @@ export default class CelebGrid extends React.Component {
 
     prepareProfiles(filteringData) {
         var url = null;
-        if(!this.props.isMainPage){
+        if (!this.props.isMainPage) {
             url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
         } else {
             url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/Brand/";
         }
-        
+
         var that = this;
 
         fetch(url, {
@@ -144,7 +146,7 @@ export default class CelebGrid extends React.Component {
             .then(function (data) {
 
                 var canLoadMore = true;
-                if(data.Result.length < filteringData.PageSize){
+                if (data.Result.length < filteringData.PageSize) {
                     canLoadMore = false;
                 }
 
@@ -206,7 +208,7 @@ export default class CelebGrid extends React.Component {
                 // newResult.length == showLoadMoreBtn1 > 45 ? "false" : "true";
 
                 var canLoadMore = true;
-                if(data.Result.length < bodyData.PageSize){
+                if (data.Result.length < bodyData.PageSize) {
                     canLoadMore = false;
                 }
 
@@ -280,7 +282,8 @@ export default class CelebGrid extends React.Component {
 
     renderCountry(countryData) {
         return (
-            <li key={countryData.CountryID} className={(this.state.filteringData.CountryID === countryData.CountryID ? "current-cat" : "")}>
+            <li key={countryData.CountryID}
+                className={(this.state.filteringData.CountryID === countryData.CountryID ? "current-cat" : "")}>
                 <a data-rel={".tag-" + countryData.CountryName}
                    onClick={() => this.handleCountryFilter(countryData.CountryID)}>{countryData.CountryName}</a>
             </li>
@@ -447,14 +450,30 @@ export default class CelebGrid extends React.Component {
                                         {/*One full width row*/}
                                         <div className="column one pager_wrapper pager_lm"
                                              style={{paddingTop: 7 + "%"}}>
-                                            {
-                                                this.state.showLoadMoreBtn ?
-                                                    <a className="pager_load_more button button_js"
-                                                       style={{borderRadius: 30 + "px", borderWidth: 1 + "px"}}>
+                                            { !this.props.isMainPage &&
+                                            this.state.showLoadMoreBtn ?
+                                                <a className="pager_load_more button button_js"
+                                                   style={{borderRadius: 30 + "px", borderWidth: 1 + "px"}}>
                                                         <span onClick={() => this.handleLoadMore()}
                                                               className="button_label"
                                                               style={{padding: 11 + "px " + 40 + "px"}}>Load more</span></a>
-                                                    : null
+                                                : null
+                                            }
+                                            {  this.props.isMainPage ?
+                                                <NavLink exact to={"/store"}
+                                                         className="pager_load_more button button_js"
+                                                         style={{
+                                                             borderRadius: 30 + "px",
+                                                             borderWidth: 1 + "px",
+                                                         }}
+                                                         activeStyle={{color: "red"}}>
+                                                        <span
+                                                            className="button_label"
+                                                            style={{padding: 11 + "px " + 40 + "px"}}>
+                                                            More
+                                                        </span>
+                                                </NavLink>
+                                                : null
                                             }
                                         </div>
                                     </div>
