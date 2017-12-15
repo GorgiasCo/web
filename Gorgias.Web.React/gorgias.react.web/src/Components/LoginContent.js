@@ -1,5 +1,7 @@
 import React from 'react';
-import ResetPassword from './LoginSections/LoginForm2-email';
+import ResetPassword from './LoginSections/ResetPassword';
+import ChangePassword from './LoginSections/ChangePassword';
+import Login from './LoginSections/Login';
 import {
     NavLink
 } from 'react-router-dom'
@@ -14,7 +16,9 @@ export default class LoginContent extends React.Component {
                     <NavLink exact to={"/"} activeStyle={{color: "red"}}><span>Back to Gorgias</span></NavLink>
                 </div>
 
+                <Login/>
                 <ResetPassword/>
+                <ChangePassword username={this.props.match.params.id}/>
 
                 <footer id="Footer" className="clearfix"
                         style={{backgroundColor: "rgba(0,0,0,0.5)", position: "fixed"}}>
