@@ -28,7 +28,7 @@ export default class TopStories extends React.Component {
 
   renderStory(story){
     return (
-      <li key={story.AlbumID} className="floatr tklist content_slider_li" style={{float:"left",}}>
+      <li key={story.AlbumID} className="floatr tklist content_slider_li" style={{float:"left"}}>
         <div>
           <img width="287" height="339" className="tk fit2" src={story.cdnAlbumCover} alt=""/>
         </div>

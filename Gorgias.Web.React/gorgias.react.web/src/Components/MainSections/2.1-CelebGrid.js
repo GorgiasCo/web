@@ -75,9 +75,6 @@ export default class CelebGrid extends React.Component {
 
         /*POST method  for Profiles*/
 
-        var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
-        var that = this;
-
         var bodyData = {
             CountryID: null,
             Industries: [],
@@ -88,7 +85,8 @@ export default class CelebGrid extends React.Component {
             Location: null,
             PageNumber: 1,
             PageSize: 15,
-            SubscriptionTypeID: 3
+            SubscriptionTypeID: 3,
+            IsPeople:this.props.isPeople,
         }
 
         this.prepareProfiles(bodyData);
@@ -123,7 +121,13 @@ export default class CelebGrid extends React.Component {
     }
 
     prepareProfiles(filteringData) {
-        var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
+        var url = null;
+        if(!this.props.isMainPage){
+            url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
+        } else {
+            url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/Brand/";
+        }
+        
         var that = this;
 
         fetch(url, {

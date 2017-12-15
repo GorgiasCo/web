@@ -23,8 +23,10 @@ export default class Content extends React.Component {
                                         Sed auctor dui eleifend, scelerisque eros ut, pellentesque nibh."/>
                             <TopStories/>
                             <WhoIsGorgias/>
-                            <CelebGrid isMainPage={true}/>
+                            <CelebGrid isMainPage={true} isPeople={true}/>
                             <WhyBecomeGorgias/>
+                            <WhoIsGorgias/>
+                            <CelebGrid isMainPage={true} isPeople={false}/>
                             <AppDownload/>
                         </div>
                     </div>
