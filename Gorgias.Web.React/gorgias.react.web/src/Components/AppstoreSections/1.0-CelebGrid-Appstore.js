@@ -263,7 +263,7 @@ export default class CelebGrid extends React.Component {
                 <div className="post-desc-wrapper">
                     <div className="post-desc">
                         <div className="post-title">
-                            <h2 className="entry-title larger" style={{paddingBottom: 0}}>
+                            <h2 className="entry-title larger" style={{paddingBottom: 0, lineHeight:"115%"}}>
                                 <a>{profileData.ProfileFullname}</a></h2>
                             <h2 className="entry-title larger tkFontSecondaryName" style={{marginBottom: 0 + "px"}}>
                                 <a>{profileData.ProfileURL}</a></h2>
