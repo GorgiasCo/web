@@ -29,18 +29,31 @@ export default class TopStories extends React.Component {
   renderStory(story){
     return (
       <li key={story.AlbumID} className="floatr tklist content_slider_li" style={{float:"left"}}>
-        <div>
-          <img width="287" height="339" className="tk fit2" src={story.cdnAlbumCover} alt={story.ProfileFullname}/>
-        </div>
-        <div className="desc">
+
+        <img width="287" height="339" className="tk fit2" src={story.cdnAlbumCover} alt={story.ProfileFullname} style={{borderRadius:"9px"}}/>
+
+        <div className="desc2" style={{
+            position: "absolute",
+            bottom: "8px",
+            left: "16px",
+            color:"white",
+            zIndex:"1"
+          }}>
           <p style={{fontSize:"12px"}}>{story.AlbumName}</p>
           {/*<p className="tkBottom-p-font">24</p>*/}
         </div>
-        <div className="full-card-overlay">
+        <div className="full-card-overlay gradient" style={{borderRadius:"9px"}}>
           <div className="tk tp-caption Photography-Button rev-btn ">OPEN IN APP</div>
-
         </div>
       </li>
+
+      // <li>
+      //   <img src="https://gorgiascdn.azureedge.net/albums/hottest-album-1b14a562-1801-4494-a289-1b45303df32c.jpg"/>
+      //
+      //   <div>heyy there</div>
+      //
+      // </li>
+
 
     )
   }
@@ -48,7 +61,7 @@ export default class TopStories extends React.Component {
   render (){
     return (
       !this.state.isLoading ?
-      <div className="section mcb-section full-width tkSection-paddingBottom-only">
+      <div className="section mcb-section full-width tkSection-paddingBottom-only" style={{backgroundColor:"darkred"}}>
         <div className="section_wrapper mcb-section-inner">
           <div className="wrap mcb-wrap one  valign-top clearfix">
             <div className="mcb-wrap-inner">
@@ -82,14 +95,16 @@ export default class TopStories extends React.Component {
                   400: {
                     items: 2,
                     nav: false,
-                    margin:0,
+                    margin:10,
                     center:true,
 
                   },
                   600: {
                     items: 3,
-                    nav: false
+                    nav: false,
+                    margin: 15,
                   },
+
                   1000: {
                     items: 4,
                     nav: false,
@@ -98,8 +113,23 @@ export default class TopStories extends React.Component {
 
                   },
 
-                  1440:{
+                  1200: {
                     items: 5,
+                    nav: false,
+                    loop: false,
+                    margin: 15,
+
+                  },
+
+                  1366:{
+                    items: 5,
+                    nav: false,
+                    loop: false,
+                    margin: 15,
+                  },
+
+                  1920:{
+                    items: 6,
                     nav: false,
                     loop: false,
                     margin: 15,
@@ -109,7 +139,7 @@ export default class TopStories extends React.Component {
                     items: 8,
                     nav: false,
                     loop: false,
-                    margin: 5,
+                    margin: 15,
                   }
                 }}
                   >

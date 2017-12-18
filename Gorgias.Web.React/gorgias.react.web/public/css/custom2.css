@@ -348,3 +348,40 @@ h2 {
 
 
 /*=-=-=-=-=-=-=-=-=-=end of responsive font-=-=-=-=-=-=-=-=-*/
+
+
+/*------------for grid responsiveness guide---------------*/
+
+/*Nexus 5x, 6p & iPhone 6plus*/
+@media screen and (min-width:401px) , screen and (max-width: 760px) {
+
+}
+
+/*ipad iphone 4 & 5*/
+@media only screen and (max-width:400px){
+
+}
+
+@media only screen and (max-width:320px){
+
+}
+
+/*ipad */
+@media only screen and (width: 768px){
+
+}
+
+/*ipad pro & laptops*/
+@media only screen and (min-width:768px){
+
+}
+
+/*desktop*/
+@media only screen and (min-width:1025px){
+
+}
+
+/*to render ipad again*/
+@media only screen and (width: 768px){
+
+}
