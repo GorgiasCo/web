@@ -34,7 +34,7 @@ export default class TopStories extends React.Component {
 
         <div className="desc2" style={{
             position: "absolute",
-            bottom: "8px",
+            top:"70%",
             left: "16px",
             color:"white",
             zIndex:"1"
@@ -43,7 +43,8 @@ export default class TopStories extends React.Component {
           {/*<p className="tkBottom-p-font">24</p>*/}
         </div>
         <div className="full-card-overlay gradient" style={{borderRadius:"9px"}}>
-          <div className="tk tp-caption Photography-Button rev-btn ">OPEN IN APP</div>
+        {/* <div className="tk tp-caption Photography-Button rev-btn ">OPEN IN APP</div>*/}
+          <div className="customButton">OPEN IN APP</div>
         </div>
       </li>
 
@@ -61,7 +62,7 @@ export default class TopStories extends React.Component {
   render (){
     return (
       !this.state.isLoading ?
-      <div className="section mcb-section full-width tkSection-paddingBottom-only" style={{backgroundColor:"darkred"}}>
+      <div className="section mcb-section full-width tkSection-paddingBottom-only">
         <div className="section_wrapper mcb-section-inner">
           <div className="wrap mcb-wrap one  valign-top clearfix">
             <div className="mcb-wrap-inner">
