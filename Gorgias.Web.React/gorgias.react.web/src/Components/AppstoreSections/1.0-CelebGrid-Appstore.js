@@ -262,7 +262,7 @@ export default class CelebGrid extends React.Component {
                 </div>
                 <div className="post-desc-wrapper">
                     <div className="post-desc">
-                        <div className="post-title">
+                        <div className="post-title" style={{cursor:"default"}}>
                             <h2 className="entry-title larger" style={{paddingBottom: 0, lineHeight:"115%"}}>
                                 <a>{profileData.ProfileFullname}</a></h2>
                             <h2 className="entry-title larger tkFontSecondaryName" style={{marginBottom: 0 + "px"}}>
@@ -381,7 +381,7 @@ export default class CelebGrid extends React.Component {
                                                 </ul>
                                             </div> : null }
 
-                                        <div className="filters_wrapper" style={{display: "block"}}>
+                                        <div className="filters_wrapper tkFont tkFont-Bold" style={{display: "block"}}>
                                             {
                                                 this.props.isMainPage || this.state.showCountriesTag ?
                                                     <ul className="tags">

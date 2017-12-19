@@ -21,6 +21,10 @@ Start of  Content
 
 /*=======================1.0 Tk's fonts ======================*/
 
+.tkFont {
+  font-family: 'Poiret One', cursive;
+}
+
 .tkFont1 {
   color:white;
   font-family: 'Poiret One', cursive;
@@ -48,6 +52,7 @@ Start of  Content
   color: #ff0088;
   font-family: 'Poiret One', cursive;
 }
+
 
 
 /*media queries*/
@@ -171,9 +176,23 @@ Start of  Content
     z-index: 125;
 }
 
+/* #Top_bar .menu>li>a:hover {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+} */
+
+#Top_bar .menu.tk>li>a:hover {
+    text-decoration: none;
+    color: white;
+    /* font-weight: bold; */
+}
+
 #Top_bar .menu.tk>li:hover:after {
   height: 4px;
   transition: all 0.1s linear 0s;
+  -moz-transition: all 0.1s linear 0s;
+  -webkit-transition: all 0.1s linear 0s;
 }
 
 #Top_bar .menu.tk>li.active:after,.menu.tk> li:hover:after {
@@ -348,7 +367,7 @@ Start of  Content
   /*padding: 0 20px;
   padding-top: 5px;
   background-color: rgba(255, 0, 128, 0.5)*/
-      background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /*.floatr:hover  div:nth-last-child(2) {
@@ -358,14 +377,14 @@ Start of  Content
 }*/
 
 
-.tk.tp-caption.Photography-Button,.Photography-Button
+/* .tk.tp-caption.Photography-Button,.Photography-Button
 {
 	background-color:rgba(0,0,0,0);
 	border-color:rgba(255,255,255,0.25);
 	border-radius:30px 30px 30px 30px;
 	border-style:solid;
 	border-width:2px;
-	/*color:rgba(255,255,255,0.25);*/
+
   color: white;
 	font-family: 'Poiret One', cursive;
 	font-size:12px;
@@ -386,12 +405,55 @@ Start of  Content
 	border-radius:30px 30px 30px 30px;
 	border-style:solid;
 	border-width:2px;
-	/*color:rgba(255,255,255,1.00);*/
+
   color:#ff5998;
   font-size:13px;
   font-weight:bolder;
 	text-decoration:none;
+} */
+
+.customButton {
+  background-color:rgba(0,0,0,0);
+	border-color:rgba(255,255,255,0.25);
+	border-radius:30px 30px 30px 30px;
+	border-style:solid;
+	border-width:2px;
+	/*color:rgba(255,255,255,0.25);*/
+  color: white;
+	font-family: 'Poiret One', cursive;
+	font-size:12px;
+	font-style:normal;
+	font-weight:600;
+	letter-spacing:1px;
+	line-height:15px;
+	padding:8px 15px;
+	text-align:left;
+	text-decoration:none;
+  transition: all 0.3s;
+  opacity: 0;
 }
+
+.customButton:hover {
+  background-color:rgba(0,0,0,0);
+	border-color:rgb(255, 0, 128);
+	border-radius:30px 30px 30px 30px;
+	border-style:solid;
+	border-width:2px;
+	/*color:rgba(255,255,255,1.00);*/
+  color:#ff5998;
+  /* font-size:13px; */
+  font-weight:bolder;
+	text-decoration:none;
+  cursor: pointer;
+}
+
+.floatr:hover .full-card-overlay .customButton {
+
+  opacity: 1;
+  z-index: 2;
+
+}
+
 
 .tk_overlay_desc {
 
@@ -760,23 +822,24 @@ img.tk.fit3 {
   }
 
   .style-simple #Filters .filters_wrapper ul li a {
-      /* background: none;
-      border: 0; */
-      padding: 7px 8px;
-      /* position: relative; */
-      background-color: #fff;
+    padding: 7px 8px;
+    /* position: relative; */
+    background-color: transparent;
     margin: 3px 3px;
-    border: 2px solid #ccc;
-    border-top: 0px;
-    border-left: 0px;
+    border: 1px solid #ccc;
+    /* border-top: 0px; */
+    /* border-left: 0px; */
+
+    border-radius: 8px;
 
   }
 
-    .style-simple #Filters .filters_wrapper ul li a:hover, .style-simple #Filters .filters_wrapper ul li.current-cat a {
-      background: #444;
+  .style-simple #Filters .filters_wrapper ul li a:hover, .style-simple #Filters .filters_wrapper ul li.current-cat a {
+      /* background: #444;
       color: white;
-      border-width: 2px;
-      border-color: black;
+      border-width: 2px; */
+      border-color: #ff0088;
+      border-radius: 8px;
   }
 
   .style-simple #Filters .filters_wrapper ul li a:hover:after {

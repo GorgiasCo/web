@@ -64,7 +64,7 @@ export default class Footer extends React.Component {
                             <aside className="widget tkLinks">
                                 <h4 className="tkFont1 footer-heading">Address</h4>
                                 <hr/>
-                                <p style={{fontSize: "medium"}}>No.8 Jalan Kerinchi, The Vertical,
+                                <p className="tkFont1" style={{color:"#999",fontWeight:"bold"}}>No.8 Jalan Kerinchi, The Vertical,
                                     <br/> Bangsar South City, 59200
                                     <br/> Malaysia
                                 </p>
