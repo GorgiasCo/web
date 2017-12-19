@@ -358,9 +358,9 @@ export default class CelebGrid extends React.Component {
                                     }}>
                                         {!this.props.isMainPage ?
                                             <div>
-                                          <span className="label" style={{color: "#999c9e"}}>
+                                          {/*<span className="label" style={{color: "#999c9e"}}>
                                               Filterrr by
-                                          </span>
+                                          </span>*/}
                                                 <ul className="filters_buttons" style={{
                                                     margin: "0px auto",
                                                     fontSize: "16px",
