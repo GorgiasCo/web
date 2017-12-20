@@ -475,20 +475,43 @@ export default class CelebGrid extends React.Component {
                                                   <div className="animate " data-anim-type="fadeIn">
                                                       <div id="tk-overlay-form">
 
-                                                        <div className="column one-second column_our_team">
+                                                        <div className="column one-second column_our_team" style={{marginTop:"20px"}}>
                                                               <div className="team team_vertical" style={{width:"225px"}}>
-                                                                  <div className="image_frame no_link scale-with-grid">
-                                                                      <div className="image_wrapper"><img class="scale-with-grid" src="https://gorgiasasia.blob.core.windows.net/images/profile-4125.jpg" alt="Jennifer Lee"/>
+                                                                  <div className="image_frame no_link scale-with-grid" style={{
+                                                                    width: "100px",float:" left",
+                                                                    }}>
+                                                                      <div className="image_wrapper">
+                                                                        <img class="scale-with-grid" style={{
+                                                                            border: "2px solid #ff0088",
+                                                                            borderRadius: "32px",
+                                                                            maxWidth:" 90%"
+                                                                          }} src="https://gorgiasasia.blob.core.windows.net/images/profile-4125.jpg" alt="Jennifer Lee"/>
                                                                       </div>
                                                                   </div>
+
+                                                                  <div className="image_frame no_link scale-with-grid" style={{
+                                                                    width: "80px",float:" right",
+                                                                    }}>
+                                                                      <div className="image_wrapper">
+                                                                        <img class="scale-with-grid" src="http://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg" alt="Jennifer Lee"/>
+                                                                      </div>
+                                                                      <div><button type="button" style={{
+                                                                              padding: "7px 10px",
+                                                                              margin: "12px auto",
+                                                                              textAlign:  "center",
+                                                                              width: " 80px"}}
+                                                                          >Click Me!</button>
+                                                                      </div>
+                                                                  </div>
+
                                                                   <div className="desc_wrapper">
                                                                       <h4>Jennifer Lee</h4>
                                                                       <p className="subtitle">
-                                                                          Software Engineer
+                                                                          Actress
                                                                       </p>
                                                                       <hr className="hr_color"/>
-                                                                      <div className="desc">
-                                                                          Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor.
+                                                                      <div className="desc" style={{fontSize: "12px",lineHeight: "20px"}}>
+                                                                          Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor.This is hard.
                                                                       </div>
                                                                       <div className="links">
                                                                           <a href="mailto:noreply@envato.com" className="icon_bar icon_bar_small"><span className="t"><i className="icon-mail"></i></span><span class="b"><i className="icon-mail"></i></span></a><a target="_blank" href="http://facebook.com/" className="icon_bar icon_bar_small"><span className="t"><i class="icon-facebook"></i></span><span class="b"><i class="icon-facebook"></i></span></a><a target="_blank" href="http://twitter.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-twitter"></i></span><span class="b"><i class="icon-twitter"></i></span></a><a target="_blank" href="http://www.linkedin.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-linkedin"></i></span><span class="b"><i class="icon-linkedin"></i></span></a>
