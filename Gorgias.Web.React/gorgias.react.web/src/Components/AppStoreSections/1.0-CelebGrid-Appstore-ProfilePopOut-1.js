@@ -461,8 +461,8 @@ export default class CelebGrid extends React.Component {
                         </div>
                     </div>
 
-                    {/*test profile pop up --DELETE LATER*/}
-                    <div>Tesst pop up</div>
+                    {/*test profile pop up  --DELETE LATER*/}
+                    <div>Test pop up</div>
 
                       <div className="content_wrapper clearfix" style={{ }}>
                           <div className="sections_group">
