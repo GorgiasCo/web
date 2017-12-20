@@ -460,9 +460,112 @@ export default class CelebGrid extends React.Component {
                             </div>
                         </div>
                     </div>
+
+                    {/*test profile pop up*/}
+                    <div>Test pop up</div>
+
+                      <div className="content_wrapper clearfix" style={{ }}>
+                          <div className="sections_group">
+                              <div className="entry-content">
+                                  {/*login*/}
+                                  <div className="section dark" id="featured">
+                                      <div className="section_wrapper clearfix">
+                                          <div className="items_group clearfix" style={{height: 100 + "vh"}}>
+                                              <div id="tk-modal-form" style={{color: "#de0083"}}>
+                                                  <div className="animate " data-anim-type="fadeIn">
+                                                      <div id="tk-overlay-form">
+
+                                                        <div className="column one-second column_our_team">
+                                                              <div className="team team_vertical" style={{width:"225px"}}>
+                                                                  <div className="image_frame no_link scale-with-grid">
+                                                                      <div className="image_wrapper"><img class="scale-with-grid" src="https://gorgiasasia.blob.core.windows.net/images/profile-4125.jpg" alt="Jennifer Lee"/>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div className="desc_wrapper">
+                                                                      <h4>Jennifer Lee</h4>
+                                                                      <p className="subtitle">
+                                                                          Software Engineer
+                                                                      </p>
+                                                                      <hr className="hr_color"/>
+                                                                      <div className="desc">
+                                                                          Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor.
+                                                                      </div>
+                                                                      <div className="links">
+                                                                          <a href="mailto:noreply@envato.com" className="icon_bar icon_bar_small"><span className="t"><i className="icon-mail"></i></span><span class="b"><i className="icon-mail"></i></span></a><a target="_blank" href="http://facebook.com/" className="icon_bar icon_bar_small"><span className="t"><i class="icon-facebook"></i></span><span class="b"><i class="icon-facebook"></i></span></a><a target="_blank" href="http://twitter.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-twitter"></i></span><span class="b"><i class="icon-twitter"></i></span></a><a target="_blank" href="http://www.linkedin.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-linkedin"></i></span><span class="b"><i class="icon-linkedin"></i></span></a>
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+
+                                                          <div className="column one-second column_our_team">
+                                                                <div className="team team_vertical">
+
+                                                                    <div className="desc_wrapper">
+                                                                        <h4 class="tkFont-Bold tkFont-Theme" style={{float:"none", textAlign:"center", margin:"5px auto"}}>Galleries</h4>
+
+                                                                        <div className="myGrid">
+                                                                              <ul className="portfolio_grid tk">
+                                                                                  <li>
+                                                                                      <div className="">
+                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
+                                                                                      </div>
+                                                                                  </li>
+                                                                                  <li>
+                                                                                      <div className="">
+                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
+                                                                                      </div>
+                                                                                  </li>
+                                                                                  <li>
+                                                                                      <div className="">
+                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
+                                                                                      </div>
+                                                                                  </li>
+                                                                                  <li>
+                                                                                      <div className="">
+                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
+                                                                                      </div>
+                                                                                  </li>
+                                                                                  <li>
+                                                                                      <div className="">
+                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
+                                                                                      </div>
+                                                                                  </li>
+                                                                                  <li>
+                                                                                      <div className="">
+                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
+                                                                                      </div>
+                                                                                  </li>
+
+                                                                              </ul>
+
+                                                                        </div>
+
+
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>}
+
+
+
+
+
                 </div>
                 :
                 <h3>Loading</h3>
+
+
         );
     }
 }

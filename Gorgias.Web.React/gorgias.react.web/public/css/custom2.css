@@ -385,3 +385,18 @@ h2 {
 @media only screen and (width: 768px){
 
 }
+
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= Store Page =-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=--=*/
+
+ul.portfolio_grid.tk li {
+    float: left;
+    margin: 2%;
+    width: 40%!important;
+    padding: 0 1%;
+}
+
+
+
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= end of Store Page =-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=--=*/
+
+/
