@@ -50,7 +50,7 @@ export default class AppProfileInfo extends React.Component {
         const {isLoading} = this.state;
         return (
             !isLoading ?
-                  <div id="Location" className="section mcb-section tkSection-padding bg-color-2">
+                  <div id="AppProfileInfo" className="section mcb-section tkSection-padding bg-color-2">
                       <div className="section_wrapper mcb-section-inner">
                           <div className="wrap mcb-wrap one  valign-top clearfix">
                               <div className="mcb-wrap-inner">
@@ -72,20 +72,25 @@ export default class AppProfileInfo extends React.Component {
 
                                   <div className="column mcb-column one column_column"
                                        style={{margin: 1 + "%" + 1 + "%"}}>
-                                      <div className="column_attr tkPanels" style={{lineHeight: "normal"}}>
+                                      <div className="column_attr tkPanels">
 
-                                        <img className="tk-AppAvatarImg"
-                                             src="https://gorgiasasia.blob.core.windows.net/images/profile-4125.jpg?timestamp=2e1e6114-e604-11e7-a557-4fc1842ba146"
-                                             width="50" height="50"/>
 
-                                        <h3 style={{
-                                            textAlign: 'center',
-                                            color: "#ff0088",
-                                            marginBottom: 20 + "px"
-                                         }}>Twinko
-                                        </h3>
 
-                                        <h2 className="tkFont1" style={{color:"darkgrey"}}>Miki c Sze</h2>
+                                           <div className="column mcb-column one-second column_column" style={{float: "none", textAlign: "center",margin:"25px auto 0 auto"}}>
+
+                                             <img className="tk-AppAvatarImg" style={{left:"0"}}
+                                                  src="https://gorgiasasia.blob.core.windows.net/images/profile-4125.jpg?timestamp=2e1e6114-e604-11e7-a557-4fc1842ba146"
+                                                  width="50" height="50"/>
+
+                                             <h2 style={{color: "#ff0088"}}>Twinko</h2>
+
+                                             <h4 className="tkFont1" style={{color:"darkgrey", fontWeight:"bold"}}>Miki c Sze</h4>
+
+                                             <p>
+                                                An aspiring singer turned model. Contact me at ... I wish to be a unicorn one day :D
+                                             </p>
+                                           </div>
+
                                         <hr style={{margin: 0 + " auto " + 30 + "px"}}/>
 
                                           <OwlCarousel
@@ -132,7 +137,7 @@ export default class AppProfileInfo extends React.Component {
                                                   items: 3,
                                                   nav: false,
                                                   loop: false,
-                                                  margin: 35,
+                                                  margin: 15,
                                                   center:false,
 
                                                 },
@@ -178,10 +183,22 @@ export default class AppProfileInfo extends React.Component {
                                               <img width="287" height="339" className="tk fit2" src="https://gorgiasasia.blob.core.windows.net/images/profile-1133.jpg" alt="portfolio_1"/>
                                             </li>
 
-
                                         </OwlCarousel>
 
 
+                                        <div className="column mcb-column one-second column_column" style={{float: "none", textAlign: "center",margin:"0px auto"}}>
+
+                                          <p style={{marginTop:"20px"}}>
+                                            Scan the code!
+                                          </p>
+
+                                          <img className="tk-AppAvatarImg qrCode" style={{left:0}}
+                                                 src="http://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg"
+                                                 width="150" height="150"/>
+
+                                          <input type="submit" id="submit" value="GET APP" className="tkFont-Bold" style={{width:"100%"}}/>
+
+                                        </div>
 
                                       </div>
                                   </div>
