@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import OwlCarousel from 'react-owl-carousel';
 
 export default class CelebGrid extends React.Component {
 
@@ -473,102 +474,133 @@ export default class CelebGrid extends React.Component {
                                           <div className="items_group clearfix" style={{height: 100 + "vh"}}>
                                               <div id="tk-modal-form" style={{color: "#de0083"}}>
                                                   <div className="animate " data-anim-type="fadeIn">
-                                                      <div id="tk-overlay-form">
+                                                      <div id="tk-overlay-form" className="ver2" style={{maxHeight: "max-content"}}>
 
-                                                        <div className="column one-second column_our_team" style={{marginTop:"20px"}}>
-                                                              <div className="team team_vertical" style={{width:"225px"}}>
-                                                                  <div className="image_frame no_link scale-with-grid" style={{
-                                                                    width: "100px",float:" left",
-                                                                    }}>
-                                                                      <div className="image_wrapper">
-                                                                        <img class="scale-with-grid" style={{
-                                                                            border: "2px solid #ff0088",
-                                                                            borderRadius: "32px",
-                                                                            maxWidth:" 90%"
-                                                                          }} src="https://gorgiasasia.blob.core.windows.net/images/profile-4125.jpg" alt="Jennifer Lee"/>
-                                                                      </div>
-                                                                  </div>
 
-                                                                  <div className="image_frame no_link scale-with-grid" style={{
-                                                                    width: "80px",float:" right",
-                                                                    }}>
-                                                                      <div className="image_wrapper">
-                                                                        <img class="scale-with-grid" src="http://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg" alt="Jennifer Lee"/>
-                                                                      </div>
-                                                                      <div><button type="button" style={{
-                                                                              padding: "7px 10px",
-                                                                              margin: "12px auto",
-                                                                              textAlign:  "center",
-                                                                              width: " 80px"}}
-                                                                          >Click Me!</button>
-                                                                      </div>
-                                                                  </div>
 
-                                                                  <div className="desc_wrapper">
-                                                                      <h4>Jennifer Lee</h4>
-                                                                      <p className="subtitle">
-                                                                          Actress
-                                                                      </p>
-                                                                      <hr className="hr_color"/>
-                                                                      <div className="desc" style={{fontSize: "12px",lineHeight: "20px"}}>
-                                                                          Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor.This is hard.
-                                                                      </div>
-                                                                      <div className="links">
-                                                                          <a href="mailto:noreply@envato.com" className="icon_bar icon_bar_small"><span className="t"><i className="icon-mail"></i></span><span class="b"><i className="icon-mail"></i></span></a><a target="_blank" href="http://facebook.com/" className="icon_bar icon_bar_small"><span className="t"><i class="icon-facebook"></i></span><span class="b"><i class="icon-facebook"></i></span></a><a target="_blank" href="http://twitter.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-twitter"></i></span><span class="b"><i class="icon-twitter"></i></span></a><a target="_blank" href="http://www.linkedin.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-linkedin"></i></span><span class="b"><i class="icon-linkedin"></i></span></a>
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
-                                                          </div>
+                                                            <div id="Stories" className="section mcb-section tkSection-paddingTop-only" style={{minWidth:"220px"}}>
+                                                                <div className="section_wrapper mcb-section-inner" style={{marginTop: this.props.marginTop}}>
+                                                                    <div className="wrap mcb-wrap one  valign-top clearfix">
+                                                                        <div className="mcb-wrap-inner">
+                                                                            <div className="column mcb-column one-second column_column"style={{float: "none", textAlign: "center", margin: 30 + "px" + " auto"}}>
+                                                                                <div className="column_attr clearfix">
 
-                                                          <div className="column one-second column_our_team">
-                                                                <div className="team team_vertical">
+                                                                                    <img className="tk-AppAvatarImg" style={{left:"0"}}
+                                                                                         src="https://gorgiasasia.blob.core.windows.net/images/profile-4125.jpg?timestamp=2e1e6114-e604-11e7-a557-4fc1842ba146"
+                                                                                         width="50" height="50"/>
 
-                                                                    <div className="desc_wrapper">
-                                                                        <h4 class="tkFont-Bold tkFont-Theme" style={{float:"none", textAlign:"center", margin:"5px auto"}}>Galleries</h4>
+                                                                                    <h3 style={{
+                                                                                        textAlign: 'center',
+                                                                                        color: "#ff0088",
+                                                                                        marginBottom: 20 + "px"
+                                                                                     }}>Twinko
+                                                                                    </h3>
 
-                                                                        <div className="myGrid">
-                                                                              <ul className="portfolio_grid tk">
-                                                                                  <li>
-                                                                                      <div className="">
-                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
-                                                                                      </div>
-                                                                                  </li>
-                                                                                  <li>
-                                                                                      <div className="">
-                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
-                                                                                      </div>
-                                                                                  </li>
-                                                                                  <li>
-                                                                                      <div className="">
-                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
-                                                                                      </div>
-                                                                                  </li>
-                                                                                  <li>
-                                                                                      <div className="">
-                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
-                                                                                      </div>
-                                                                                  </li>
-                                                                                  <li>
-                                                                                      <div className="">
-                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
-                                                                                      </div>
-                                                                                  </li>
-                                                                                  <li>
-                                                                                      <div className="">
-                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
-                                                                                      </div>
-                                                                                  </li>
+                                                                                    <h2 className="tkFont1" style={{color:"darkgrey"}}>Miki c Sze</h2>
 
-                                                                              </ul>
+                                                                                    <hr className="no_line" style={{margin: 0 + " auto " + 30 + "px"}}/>
 
+                                                                                      <OwlCarousel
+                                                                                          className="owl-theme"
+                                                                                          autoWidth={false}
+                                                                                          loop={false}
+                                                                                          margin={10}
+                                                                                          nav={false}
+                                                                                          dots={false}
+                                                                                          autoplay={false}
+                                                                                          autoplayTimeout={1000}
+                                                                                          autoplayHoverPause={true}
+                                                                                          responsiveClass= {false}
+                                                                                          responsive= {{
+                                                                                            0: {
+                                                                                              items: 2,
+                                                                                              nav: false,
+                                                                                              margin:10,
+                                                                                              center:true,
+
+                                                                                            },
+                                                                                            400: {
+                                                                                              items: 2,
+                                                                                              nav: false,
+                                                                                              margin:10,
+                                                                                              center:true,
+
+                                                                                            },
+                                                                                            600: {
+                                                                                              items: 3,
+                                                                                              nav: false,
+                                                                                              margin: 15,
+                                                                                            },
+
+                                                                                            1000: {
+                                                                                              items: 3,
+                                                                                              nav: false,
+                                                                                              loop: false,
+                                                                                              margin: 15,
+
+                                                                                            },
+
+                                                                                            1200: {
+                                                                                              items: 2,
+                                                                                              nav: false,
+                                                                                              loop: false,
+                                                                                              margin: 15,
+                                                                                              center:true,
+
+                                                                                            },
+
+                                                                                            1366:{
+                                                                                              items: 4,
+                                                                                              nav: false,
+                                                                                              loop: false,
+                                                                                              margin: 15,
+                                                                                            },
+
+                                                                                            1920:{
+                                                                                              items: 4,
+                                                                                              nav: false,
+                                                                                              loop: false,
+                                                                                              margin: 15,
+                                                                                            },
+
+                                                                                            2560:{
+                                                                                              items: 3,
+                                                                                              nav: false,
+                                                                                              loop: false,
+                                                                                              margin: 15,
+                                                                                            }
+                                                                                          }}
+                                                                                      >
+                                                                                  	    <li className="tklist">
+                                                                                          <img width="287" height="339" className="tk fit2" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1"/>
+                                                                                        </li>
+                                                                                  	    <li className="tklist">
+                                                                                          <img width="287" height="339" className="tk fit2" src="https://gorgiasasia.blob.core.windows.net/images/profile-4125.jpg" alt="portfolio_1"/>
+                                                                                        </li>
+                                                                                  	    <li className="tklist">
+                                                                                          <img width="287" height="339" className="tk fit2" src="https://gorgiasasia.blob.core.windows.net/images/profile-1133.jpg" alt="portfolio_1"/>
+                                                                                        </li>
+                                                                                  	    <li className="tklist">
+                                                                                          <img width="287" height="339" className="tk fit2" src="https://gorgiasasia.blob.core.windows.net/images/profile-4125.jpg" alt="portfolio_1"/>
+                                                                                        </li>
+                                                                                  	    <li className="tklist">
+                                                                                          <img width="287" height="339" className="tk fit2" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1"/>
+                                                                                        </li>
+                                                                                  	    <li className="tklist">
+                                                                                          <img width="287" height="339" className="tk fit2" src="https://gorgiasasia.blob.core.windows.net/images/profile-1133.jpg" alt="portfolio_1"/>
+                                                                                        </li>
+
+
+                                                                                    </OwlCarousel>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
-
-
-
-
                                                                     </div>
                                                                 </div>
                                                             </div>
+
+
+
 
                                                       </div>
                                                   </div>

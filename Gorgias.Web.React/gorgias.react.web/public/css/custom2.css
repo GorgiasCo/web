@@ -388,13 +388,21 @@ h2 {
 
 /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= Store Page =-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=--=*/
 
-ul.portfolio_grid.tk li {
+/* ul.portfolio_grid.tk li {
     float: left;
     margin: 2%;
     width: 40%!important;
     padding: 0 1%;
-}
+} */
 
+
+#tk-overlay-form.ver2 {
+
+    border-radius: 3px;
+    /* background-color: #292929; */
+    background-color: #fff;
+    box-shadow: 2px 2px 14px 0px rgba(0, 0, 0, 0.5);
+}
 
 
 /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= end of Store Page =-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=--=*/
