@@ -6,6 +6,7 @@ import TermsContainer from './TermsPageSections/TermsContainer';
 import ContactContainer from './ContactPageSections/ContactContainer';
 import DownloadAppContainer from './AppStoreSections/DownloadAppContainer';
 import AppstoreContainer from './AppStoreSections/AppstoreContainer';
+import AppProfileInfoContainer from './AppStoreSections/AppProfileInfoContainer';
 import DefaultPage from './DefaultPage';
 
 import {
@@ -35,6 +36,7 @@ export default class MainPage extends Component {
                     <Route exact path="/terms" component={()=> <DefaultPage containerName="terms" />}/>
                     <Route exact path="/contact" component={()=> <DefaultPage containerName="contact" />}/>
                     <Route exact path="/app/:id" component={DownloadAppContainer}/>
+                    <Route exact path="/appstore/profile" component={AppProfileInfoContainer}/>
                     <Route exact path="/app/:id/:pid" component={DownloadAppContainer}/>
                     <Route exact path="/store" component={()=> <DefaultPage containerName="store" />}/>
                 </div>
