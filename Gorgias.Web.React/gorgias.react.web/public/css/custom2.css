@@ -6,7 +6,7 @@ background-size: cover;
 }
 
 
-.center-box{
+/* .center-box{
 position:absolute;
 top:0;
 right:0;
@@ -20,7 +20,7 @@ border:1px solid #000;
 text-align:center;
 line-height:200px;
 background-color: white;
-}
+} */
 
 #tk-overlay-form {
   max-height: calc(100% - 100px);
@@ -409,23 +409,166 @@ h2 {
 
 #AppProfileInfo .section_wrapper {
     max-width: 50%;
+  }
 }
 
 .tk-AppAvatarImg.qrCode {
     width: 100px;
     height: 100px;
-    border-radius: 0;
+    border-radius: 28%;
     overflow: hidden;
     position: relative;
     top: calc(-20px/2);
     left: calc(50% - 50px);
-    border: 2px solid #ff0088;
+    border: 7px solid #ff0088;
 }
 
 #AppProfileInfo #submit {
-  background-color: red!important;
+  background-color: #ff0088!important;
+  width: 80%;
 }
 
+
+/*Nexus 5x, 6p & iPhone 6, 7 plus*/
+@media screen and (min-width: 401px) , screen and (max-width:760px) {
+  #AppProfileInfo img.tk.fit2 {
+    /*border: 5px solid maroon;*/
+    /*width: 10em;*/
+    /*width: 250px;*/
+    width: 100%;
+    /*height: 10em !important;*/
+    height: 215px !important;
+    -o-object-fit: contain;
+    object-fit: cover;
+    display: block;
+    /*margin: 10px auto 10px auto;*/
+    margin-bottom: 0px !important;
+  }
+}
+
+/*desktop*/
+@media only screen and (min-width:1024px) {
+  #AppProfileInfo .tk.fit2 {
+    /*border: 5px solid maroon;*/
+    /*width: 10em;*/
+    /*width: 250px;*/
+    width: 100%;
+    /*height: 10em !important;*/
+    height: 300px !important;
+    -o-object-fit: contain;
+    object-fit: cover;
+    display: block;
+    /*margin: 10px auto 10px auto;*/
+    margin-bottom: 0px !important;
+  }
+}
+
+/* galaxy s5 & iphone 6, 7 */
+@media only screen and (max-width: 376px) {
+  #AppProfileInfo img.tk.fit2 {
+    /*border: 5px solid maroon;*/
+    /*width: 10em;*/
+    width: 235px;
+    width: -webkit-fill-available;
+    /*height: 10em !important;*/
+    height: 175px !important;
+    -o-object-fit: contain;
+    object-fit: cover;
+    display: block;
+    /*margin: 10px auto 10px auto;*/
+    margin-bottom: 0px !important;
+  }
+}
+/*iphone 4 & 5*/
+@media only screen and (max-width: 320px) {
+  #AppProfileInfo img.tk.fit2 {
+    /*border: 5px solid maroon;*/
+    /*width: 10em;*/
+    width: 235px;
+    width: -webkit-fill-available;
+    /*height: 10em !important;*/
+    height: 145px !important;
+    -o-object-fit: contain;
+    object-fit: cover;
+    display: block;
+    /*margin: 10px auto 10px auto;*/
+    margin-bottom: 0px !important;
+  }
+}
+
+/*to render ipad again*/
+@media only screen and (min-width:768px) {
+  #AppProfileInfo img.tk.fit2 {
+
+    width: 100%;
+    height: 145px !important;
+    -o-object-fit: contain;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 0px !important;
+  }
+
+  #AppProfileInfo .section_wrapper {
+      max-width: 50%;
+      margin-bottom: 3%;
+  }
+}
+
+/*ipad pro & laptops*/
+@media only screen and (min-width:1024px) {
+  #AppProfileInfo img.tk.fit2 {
+
+    width: 100%;
+    height: 225px !important;
+    -o-object-fit: contain;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 0px !important;
+  }
+}
+
+/*desktop*/
+@media only screen and (min-width:1440px) {
+  #AppProfileInfo img.tk.fit2 {
+    /*border: 5px solid maroon;*/
+    /*width: 10em;*/
+
+    width: 100%;
+    /*height: 10em !important;*/
+    height: 255px !important; /*400px*/
+    -o-object-fit: contain;
+    object-fit: cover;
+    display: block;
+    /*margin: 10px auto 10px auto;*/
+    margin-bottom: 0px !important;
+  }
+}
+
+
+table.Profile-Info-Table-banner {
+    border: 1px solid #ccc;
+    border-width: 1px 0px 1px 0px;
+}
+
+table.Profile-Info-Table-banner td {
+    border-color:#ccc;
+    border-bottom: 0;
+    width: 33.33%;
+    padding-bottom: 0px;
+    font-size: larger;
+    font-weight: bold;
+}
+table.Profile-Info-Table-banner tr.heading td {
+    color :#ff0088;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    font-size:smaller;
+    font-weight: normal;
+}
+
+/* table.Profile-Info-Table-banner tr:hover td {
+  color:#ff0088!important;
+} */
 /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= end of Store Page =-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=--=*/
 
 /

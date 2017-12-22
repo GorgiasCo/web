@@ -376,7 +376,7 @@ export default class CelebGrid extends React.Component {
                                                 }}>
                                                     <li className="tags" onClick={this.toggleCountries.bind(this)}
                                                         style={{backgroundColor: this.state.bgColor}}>
-                                                        <a className="open"><i className="icon-docs"></i>Countries<i
+                                                        <a className="open"><i className="icon-globe"></i>Countries<i
                                                             className="icon-down-dir"></i></a>
                                                     </li>
                                                     <li className="authors"

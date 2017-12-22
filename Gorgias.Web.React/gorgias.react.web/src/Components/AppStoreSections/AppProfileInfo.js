@@ -91,7 +91,21 @@ export default class AppProfileInfo extends React.Component {
                                              </p>
                                            </div>
 
-                                        <hr style={{margin: 0 + " auto " + 30 + "px"}}/>
+                                           <table className="Profile-Info-Table-banner">
+                                            <tr>
+                                               <td>143</td>
+                                               <td>16</td>
+                                               <td>144</td>
+                                             </tr>
+                                             <tr className="heading">
+                                               <td>Views</td>
+                                               <td>StayOn</td>
+                                               <td>React</td>
+                                             </tr>
+                                           </table>
+
+
+                                        {/* <hr style={{margin: 0 + " auto " + 30 + "px"}}/>*/}
 
                                           <OwlCarousel
                                               className="owl-theme"
@@ -126,7 +140,7 @@ export default class AppProfileInfo extends React.Component {
                                                 },
 
                                                 1000: {
-                                                  items: 4,
+                                                  items: 3,
                                                   nav: false,
                                                   loop: false,
                                                   margin: 15,
@@ -153,7 +167,8 @@ export default class AppProfileInfo extends React.Component {
                                                   items: 4,
                                                   nav: false,
                                                   loop: false,
-                                                  margin: 15,
+                                                  margin: 25,
+                                                  center:false,
                                                 },
 
                                                 2560:{
@@ -165,10 +180,10 @@ export default class AppProfileInfo extends React.Component {
                                               }}
                                           >
                                             <li className="tklist">
-                                              <img width="287" height="339" className="tk fit2" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1"/>
+                                              <img width="287" height="339" className="tk fit2" src="https://i.pinimg.com/564x/0f/1e/9f/0f1e9fb97a6d3b31cc53ba4edb33b2d2.jpg" alt="portfolio_1"/>
                                             </li>
                                             <li className="tklist">
-                                              <img width="287" height="339" className="tk fit2" src="https://gorgiasasia.blob.core.windows.net/images/profile-4125.jpg" alt="portfolio_1"/>
+                                              <img width="287" height="339" className="tk fit2" src="https://i.pinimg.com/originals/3e/72/6f/3e726f015975ebd9791a2eae433f4d17.jpg" alt="portfolio_1"/>
                                             </li>
                                             <li className="tklist">
                                               <img width="287" height="339" className="tk fit2" src="https://gorgiasasia.blob.core.windows.net/images/profile-1133.jpg" alt="portfolio_1"/>
