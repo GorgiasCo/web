@@ -91,7 +91,21 @@ export default class AppProfileInfo extends React.Component {
                                              </p>
                                            </div>
 
-                                        <hr style={{margin: 0 + " auto " + 30 + "px"}}/>
+                                           <table className="Profile-Info-Table-banner">
+                                            <tr>
+                                               <td>143</td>
+                                               <td>16</td>
+                                               <td>144</td>
+                                             </tr>
+                                             <tr className="heading">
+                                               <td>Views</td>
+                                               <td>StayOn</td>
+                                               <td>React</td>
+                                             </tr>
+                                           </table>
+
+
+                                        {/* <hr style={{margin: 0 + " auto " + 30 + "px"}}/>*/}
 
                                           <OwlCarousel
                                               className="owl-theme"
@@ -126,7 +140,7 @@ export default class AppProfileInfo extends React.Component {
                                                 },
 
                                                 1000: {
-                                                  items: 4,
+                                                  items: 3,
                                                   nav: false,
                                                   loop: false,
                                                   margin: 15,
@@ -153,7 +167,8 @@ export default class AppProfileInfo extends React.Component {
                                                   items: 4,
                                                   nav: false,
                                                   loop: false,
-                                                  margin: 15,
+                                                  margin: 25,
+                                                  center:false,
                                                 },
 
                                                 2560:{
