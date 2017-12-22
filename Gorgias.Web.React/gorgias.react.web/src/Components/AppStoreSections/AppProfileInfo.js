@@ -200,7 +200,8 @@ export default class AppProfileInfo extends React.Component {
 
                                         </OwlCarousel>
 
-
+                                        <br/>
+                                        <hr/>
                                         <div className="column mcb-column one-second column_column" style={{float: "none", textAlign: "center",margin:"0px auto"}}>
 
                                           <p style={{marginTop:"20px"}}>
