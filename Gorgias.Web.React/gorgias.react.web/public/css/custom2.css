@@ -6,7 +6,7 @@ background-size: cover;
 }
 
 
-.center-box{
+/* .center-box{
 position:absolute;
 top:0;
 right:0;
@@ -20,7 +20,7 @@ border:1px solid #000;
 text-align:center;
 line-height:200px;
 background-color: white;
-}
+} */
 
 #tk-overlay-form {
   max-height: calc(100% - 100px);
@@ -260,10 +260,10 @@ background-image: linear-gradient(120deg, #5c22ff 0%, #723493 100%);
 
 }
 
-h2 {
+#Content h2 {
   margin: 0;
   padding: 0 0 20px;
-  color: #efed40;
+  /* color: #efed40; */
   text-align: center;
 }
 
@@ -386,7 +386,7 @@ h2 {
 
 }
 
-/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= App Porfile Info Store Page =-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=--=*/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= ### App Porfile Info Store Page =-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=--=*/
 
 /* ul.portfolio_grid.tk li {
     float: left;
@@ -569,6 +569,4 @@ table.Profile-Info-Table-banner tr.heading td {
 /* table.Profile-Info-Table-banner tr:hover td {
   color:#ff0088!important;
 } */
-/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= end of Store Page =-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=--=*/
-
-/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= end of App Porfile Store Page =-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=--=*/
