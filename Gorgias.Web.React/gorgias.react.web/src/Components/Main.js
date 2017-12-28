@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import HomeContainer from './Home/HomeContainer';
 import AccountContent from './LoginSections/AccountContent';
+import ContentTest2 from './TestPageSections/ContentTest2';
 import AboutContainer from './AboutPageSection/AboutContainer';
 import TermsContainer from './TermsPageSections/TermsContainer';
 import ContactContainer from './ContactPageSections/ContactContainer';
@@ -39,6 +40,10 @@ export default class MainPage extends Component {
                     <Route exact path="/appstore/profile" component={AppProfileInfoContainer}/>
                     <Route exact path="/app/:id/:pid" component={DownloadAppContainer}/>
                     <Route exact path="/store" component={()=> <DefaultPage containerName="store" />}/>
+                    {/*test pages --by T.K*/}
+                    <Route exact path="/test" component={()=> <DefaultPage containerName="test" />}/>
+                    <Route exact path="/test2" component={()=> <ContentTest2 containerName="test2" />}/>
+
                 </div>
             </Router>
         )

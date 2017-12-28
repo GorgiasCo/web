@@ -9,6 +9,7 @@ import ContentAbout from './AboutPageSection/ContentAbout';
 import ContentAppstore from './AppStoreSections/ContentAppstore';
 import ContentContact from './ContactPageSections/ContentContact';
 import ContentTerms from './TermsPageSections/ContentTerms';
+import ContentTest from './TestPageSections/ContentTest';
 
 export default class DefaultPage extends Component {
 
@@ -44,6 +45,11 @@ export default class DefaultPage extends Component {
             case "contact":
                 return (
                     <ContentContact/>
+                )
+                break;
+            case "test":
+                return (
+                    <ContentTest/>
                 )
                 break;
             default:
