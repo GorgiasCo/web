@@ -1,8 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import {
-    NavLink
-} from 'react-router-dom'
+
 export default class CelebGrid extends React.Component {
 
     constructor(props) {
@@ -77,6 +75,9 @@ export default class CelebGrid extends React.Component {
 
         /*POST method  for Profiles*/
 
+        var url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
+        var that = this;
+
         var bodyData = {
             CountryID: null,
             Industries: [],
@@ -87,8 +88,7 @@ export default class CelebGrid extends React.Component {
             Location: null,
             PageNumber: 1,
             PageSize: 15,
-            SubscriptionTypeID: 3,
-            IsPeople: this.props.isPeople,
+            SubscriptionTypeID: 3
         }
 
         this.prepareProfiles(bodyData);
@@ -123,13 +123,7 @@ export default class CelebGrid extends React.Component {
     }
 
     prepareProfiles(filteringData) {
-        var url = null;
-        if (!this.props.isMainPage) {
-            url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
-        } else {
-            url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/Brand/";
-        }
-
+        var url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
         var that = this;
 
         fetch(url, {
@@ -146,7 +140,7 @@ export default class CelebGrid extends React.Component {
             .then(function (data) {
 
                 var canLoadMore = true;
-                if (data.Result.length < filteringData.PageSize) {
+                if(data.Result.length < filteringData.PageSize){
                     canLoadMore = false;
                 }
 
@@ -208,7 +202,7 @@ export default class CelebGrid extends React.Component {
                 // newResult.length == showLoadMoreBtn1 > 45 ? "false" : "true";
 
                 var canLoadMore = true;
-                if (data.Result.length < bodyData.PageSize) {
+                if(data.Result.length < bodyData.PageSize){
                     canLoadMore = false;
                 }
 
@@ -269,7 +263,7 @@ export default class CelebGrid extends React.Component {
                 <div className="post-desc-wrapper">
                     <div className="post-desc">
                         <div className="post-title" style={{cursor:"default"}}>
-                            <h2 className="entry-title larger" style={{paddingBottom: 0, lineHeight: "115%"}}>
+                            <h2 className="entry-title larger" style={{paddingBottom: 0, lineHeight:"115%"}}>
                                 <a>{profileData.ProfileFullname}</a></h2>
                             <h2 className="entry-title larger tkFontSecondaryName" style={{marginBottom: 0 + "px"}}>
                                 <a>{profileData.ProfileURL}</a></h2>
@@ -282,8 +276,7 @@ export default class CelebGrid extends React.Component {
 
     renderCountry(countryData) {
         return (
-            <li key={countryData.CountryID}
-                className={(this.state.filteringData.CountryID === countryData.CountryID ? "current-cat" : "")}>
+            <li key={countryData.CountryID} className={(this.state.filteringData.CountryID === countryData.CountryID ? "current-cat" : "")}>
                 <a data-rel={".tag-" + countryData.CountryName}
                    onClick={() => this.handleCountryFilter(countryData.CountryID)}>{countryData.CountryName}</a>
             </li>
@@ -292,7 +285,7 @@ export default class CelebGrid extends React.Component {
 
     renderProfileType(profileTypeData) {
         return (
-            <li key={profileTypeData.ProfileTypeID} className={profileTypeData.ProfileTypeName}>
+            <li key={profileTypeData.ProfileTypeID} className={(this.state.filteringData.ProfileTypeID === profileTypeData.ProfileTypeID ? "current-cat" : "")}>
                 <a data-rel={".author-" + profileTypeData.ProfileTypeName}
                    onClick={() => this.handleProfileTypeFilter(profileTypeData.ProfileTypeID)}>{profileTypeData.ProfileTypeName}</a>
             </li>
@@ -365,18 +358,19 @@ export default class CelebGrid extends React.Component {
                                     }}>
                                         {!this.props.isMainPage ?
                                             <div>
-                                          <span className="label" style={{color: "#999c9e"}}>
-                                              Filter by
-                                          </span>
+                                          {/*<span className="label" style={{color: "#999c9e"}}>
+                                              Filterrr by
+                                          </span>*/}
                                                 <ul className="filters_buttons" style={{
                                                     margin: "0px auto",
                                                     fontSize: "16px",
                                                     width: "fit-content",
+                                                    width: "-webkit-fit-content", /*safari*/
                                                     display: "flex"
                                                 }}>
                                                     <li className="tags" onClick={this.toggleCountries.bind(this)}
                                                         style={{backgroundColor: this.state.bgColor}}>
-                                                        <a className="open"><i className="icon-globe"></i>Countries<i
+                                                        <a className="open"><i className="icon-docs"></i>Countries<i
                                                             className="icon-down-dir"></i></a>
                                                     </li>
                                                     <li className="authors"
@@ -387,10 +381,10 @@ export default class CelebGrid extends React.Component {
                                                 </ul>
                                             </div> : null }
 
-                                        <div className="filters_wrapper" style={{display: "block"}}>
+                                        <div className="filters_wrapper tkFont tkFont-Bold" style={{display: "block"}}>
                                             {
                                                 this.props.isMainPage || this.state.showCountriesTag ?
-                                                    <ul className="tags tkFont tkFont-Bold">
+                                                    <ul className="tags">
                                                         {/*<li className="close" onClick={this.toggleCountries.bind(this)} style={{float:"right"}}>*/}
                                                         {/*<a><i className="icon-cancel"></i></a>*/}
                                                         {/*</li>*/}
@@ -411,8 +405,9 @@ export default class CelebGrid extends React.Component {
                                                         {/*<li className="close"onClick={this.toggleProfileTypes.bind(this)} style={{float:"right"}}>*/}
                                                         {/*<a><i className="icon-cancel"></i></a>*/}
                                                         {/*</li>*/}
-                                                        <li className="reset current-cat">
-                                                            <a className="all" data-rel="*">Show all</a>
+                                                        <li className={"reset " + (this.state.filteringData.ProfileTypeID === null ? "current-cat" : "")}>
+                                                            <a className="all" data-rel="*"
+                                                               onClick={() => this.handleProfileTypeFilter(0)}>All</a>
                                                         </li>
 
                                                         {this.state.profileTypes != null ? this.state.profileTypes.map(profileType => this.renderProfileType(profileType)) : null}
@@ -450,30 +445,14 @@ export default class CelebGrid extends React.Component {
                                         {/*One full width row*/}
                                         <div className="column one pager_wrapper pager_lm"
                                              style={{paddingTop: 7 + "%"}}>
-                                            { !this.props.isMainPage &&
-                                            this.state.showLoadMoreBtn ?
-                                                <a className="pager_load_more button button_js"
-                                                   style={{borderRadius: 30 + "px", borderWidth: 1 + "px"}}>
+                                            {
+                                                this.state.showLoadMoreBtn ?
+                                                    <a className="pager_load_more button button_js"
+                                                       style={{borderRadius: 30 + "px", borderWidth: 1 + "px"}}>
                                                         <span onClick={() => this.handleLoadMore()}
                                                               className="button_label"
                                                               style={{padding: 11 + "px " + 40 + "px"}}>Load more</span></a>
-                                                : null
-                                            }
-                                            {  this.props.isMainPage ?
-                                                <NavLink exact to={"/store"}
-                                                         className="pager_load_more button button_js"
-                                                         style={{
-                                                             borderRadius: 30 + "px",
-                                                             borderWidth: 1 + "px",
-                                                         }}
-                                                         activeStyle={{color: "red"}}>
-                                                        <span
-                                                            className="button_label"
-                                                            style={{padding: 11 + "px " + 40 + "px"}}>
-                                                            More
-                                                        </span>
-                                                </NavLink>
-                                                : null
+                                                    : null
                                             }
                                         </div>
                                     </div>
@@ -481,9 +460,135 @@ export default class CelebGrid extends React.Component {
                             </div>
                         </div>
                     </div>
+
+                    {/*test profile pop up  --DELETE LATER*/}
+                    <div>Test pop up</div>
+
+                      <div className="content_wrapper clearfix" style={{ }}>
+                          <div className="sections_group">
+                              <div className="entry-content">
+                                  {/*login*/}
+                                  <div className="section dark" id="featured">
+                                      <div className="section_wrapper clearfix">
+                                          <div className="items_group clearfix" style={{height: 100 + "vh"}}>
+                                              <div id="tk-modal-form" style={{color: "#de0083"}}>
+                                                  <div className="animate " data-anim-type="fadeIn">
+                                                      <div id="tk-overlay-form">
+
+                                                        <div className="column one-second column_our_team" style={{marginTop:"20px"}}>
+                                                              <div className="team team_vertical" style={{width:"225px"}}>
+                                                                  <div className="image_frame no_link scale-with-grid" style={{
+                                                                    width: "100px",float:" left",
+                                                                    }}>
+                                                                      <div className="image_wrapper">
+                                                                        <img class="scale-with-grid" style={{
+                                                                            border: "2px solid #ff0088",
+                                                                            borderRadius: "32px",
+                                                                            maxWidth:" 90%"
+                                                                          }} src="https://gorgiasasia.blob.core.windows.net/images/profile-4125.jpg" alt="Jennifer Lee"/>
+                                                                      </div>
+                                                                  </div>
+
+                                                                  <div className="image_frame no_link scale-with-grid" style={{
+                                                                    width: "80px",float:" right",
+                                                                    }}>
+                                                                      <div className="image_wrapper">
+                                                                        <img class="scale-with-grid" src="https://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg" alt="Jennifer Lee"/>
+                                                                      </div>
+                                                                      <div><button type="button" style={{
+                                                                              padding: "7px 10px",
+                                                                              margin: "12px auto",
+                                                                              textAlign:  "center",
+                                                                              width: " 80px"}}
+                                                                          >Click Me!</button>
+                                                                      </div>
+                                                                  </div>
+
+                                                                  <div className="desc_wrapper">
+                                                                      <h4>Jennifer Lee</h4>
+                                                                      <p className="subtitle">
+                                                                          Actress
+                                                                      </p>
+                                                                      <hr className="hr_color"/>
+                                                                      <div className="desc" style={{fontSize: "12px",lineHeight: "20px"}}>
+                                                                          Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor.This is hard.
+                                                                      </div>
+                                                                      <div className="links">
+                                                                          <a href="mailto:noreply@envato.com" className="icon_bar icon_bar_small"><span className="t"><i className="icon-mail"></i></span><span class="b"><i className="icon-mail"></i></span></a><a target="_blank" href="https://facebook.com/" className="icon_bar icon_bar_small"><span className="t"><i class="icon-facebook"></i></span><span class="b"><i class="icon-facebook"></i></span></a><a target="_blank" href="https://twitter.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-twitter"></i></span><span class="b"><i class="icon-twitter"></i></span></a><a target="_blank" href="https://www.linkedin.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-linkedin"></i></span><span class="b"><i class="icon-linkedin"></i></span></a>
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+
+                                                          <div className="column one-second column_our_team">
+                                                                <div className="team team_vertical">
+
+                                                                    <div className="desc_wrapper">
+                                                                        <h4 class="tkFont-Bold tkFont-Theme" style={{float:"none", textAlign:"center", margin:"5px auto"}}>Galleries</h4>
+
+                                                                        <div className="myGrid">
+                                                                              <ul className="portfolio_grid tk">
+                                                                                  <li>
+                                                                                      <div className="">
+                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
+                                                                                      </div>
+                                                                                  </li>
+                                                                                  <li>
+                                                                                      <div className="">
+                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
+                                                                                      </div>
+                                                                                  </li>
+                                                                                  <li>
+                                                                                      <div className="">
+                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
+                                                                                      </div>
+                                                                                  </li>
+                                                                                  <li>
+                                                                                      <div className="">
+                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
+                                                                                      </div>
+                                                                                  </li>
+                                                                                  <li>
+                                                                                      <div className="">
+                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
+                                                                                      </div>
+                                                                                  </li>
+                                                                                  <li>
+                                                                                      <div className="">
+                                                                                          <img width="100" height="100" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1" itemprop="image"/>
+                                                                                      </div>
+                                                                                  </li>
+
+                                                                              </ul>
+
+                                                                        </div>
+
+
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>}
+
+
+
+
+
                 </div>
                 :
                 <h3>Loading</h3>
+
+
         );
     }
 }

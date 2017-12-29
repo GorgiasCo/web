@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class ResetPassword extends React.Component {
 
-    baseForgetPasswordAPIURL = 'http://gorgiasapp-v3.azurewebsites.net/api/Account/Forget/';
+    baseForgetPasswordAPIURL = 'https://gorgiasapp-v3.azurewebsites.net/api/Account/Forget/';
 
     constructor(props) {
         super(props);

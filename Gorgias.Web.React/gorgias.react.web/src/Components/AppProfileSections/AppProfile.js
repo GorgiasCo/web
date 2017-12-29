@@ -69,7 +69,7 @@ export default class AppProfile extends React.Component {
     }
 
     prepareProfile = (profileURL) => {
-        var urlProfile = "http://gorgiasapp-v3.azurewebsites.net/api/Web/Profile/Low/App/" + profileURL;
+        var urlProfile = "https://gorgiasapp-v3.azurewebsites.net/api/Web/Profile/Low/App/" + profileURL;
         let submitTitle = "Standalone";
         fetch(urlProfile)
             .then(function (response) {

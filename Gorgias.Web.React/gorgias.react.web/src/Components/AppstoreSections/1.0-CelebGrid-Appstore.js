@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import OwlCarousel from 'react-owl-carousel';
 
 export default class CelebGrid extends React.Component {
 
@@ -75,7 +76,7 @@ export default class CelebGrid extends React.Component {
 
         /*POST method  for Profiles*/
 
-        var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
+        var url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
         var that = this;
 
         var bodyData = {
@@ -94,7 +95,7 @@ export default class CelebGrid extends React.Component {
         this.prepareProfiles(bodyData);
         /*GET method MAIN ENTITIES*/
 
-        var urlMainEntities = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/MainEntities";
+        var urlMainEntities = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/MainEntities";
 
         fetch(urlMainEntities)
             .then(function (response) {
@@ -123,7 +124,7 @@ export default class CelebGrid extends React.Component {
     }
 
     prepareProfiles(filteringData) {
-        var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
+        var url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
         var that = this;
 
         fetch(url, {
@@ -160,7 +161,7 @@ export default class CelebGrid extends React.Component {
 
     handleLoadMore() {
         console.log("im working");
-        var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
+        var url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
         var that = this;
 
         var bodyData = this.state.filteringData;
@@ -262,8 +263,8 @@ export default class CelebGrid extends React.Component {
                 </div>
                 <div className="post-desc-wrapper">
                     <div className="post-desc">
-                        <div className="post-title">
-                            <h2 className="entry-title larger" style={{paddingBottom: 0}}>
+                        <div className="post-title" style={{cursor:"default"}}>
+                            <h2 className="entry-title larger" style={{paddingBottom: 0, lineHeight:"115%"}}>
                                 <a>{profileData.ProfileFullname}</a></h2>
                             <h2 className="entry-title larger tkFontSecondaryName" style={{marginBottom: 0 + "px"}}>
                                 <a>{profileData.ProfileURL}</a></h2>
@@ -358,18 +359,19 @@ export default class CelebGrid extends React.Component {
                                     }}>
                                         {!this.props.isMainPage ?
                                             <div>
-                                          <span className="label" style={{color: "#999c9e"}}>
+                                          {/*<span className="label" style={{color: "#999c9e"}}>
                                               Filterrr by
-                                          </span>
+                                          </span>*/}
                                                 <ul className="filters_buttons" style={{
                                                     margin: "0px auto",
                                                     fontSize: "16px",
                                                     width: "fit-content",
+                                                    width: "-webkit-fit-content", /*safari*/
                                                     display: "flex"
                                                 }}>
                                                     <li className="tags" onClick={this.toggleCountries.bind(this)}
                                                         style={{backgroundColor: this.state.bgColor}}>
-                                                        <a className="open"><i className="icon-docs"></i>Countries<i
+                                                        <a className="open"><i className="icon-globe"></i>Countries<i
                                                             className="icon-down-dir"></i></a>
                                                     </li>
                                                     <li className="authors"
@@ -380,7 +382,7 @@ export default class CelebGrid extends React.Component {
                                                 </ul>
                                             </div> : null }
 
-                                        <div className="filters_wrapper" style={{display: "block"}}>
+                                        <div className="filters_wrapper tkFont tkFont-Bold" style={{display: "block"}}>
                                             {
                                                 this.props.isMainPage || this.state.showCountriesTag ?
                                                     <ul className="tags">
@@ -462,6 +464,8 @@ export default class CelebGrid extends React.Component {
                 </div>
                 :
                 <h3>Loading</h3>
+
+
         );
     }
 }

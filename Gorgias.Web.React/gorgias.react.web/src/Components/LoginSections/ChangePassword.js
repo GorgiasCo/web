@@ -3,7 +3,7 @@ import queryString from 'query-string';
 
 export default class ChangePassword extends React.Component {
 
-    baseResetPasswordAPIURL = 'http://gorgiasapp-v3.azurewebsites.net/api/account/ResetPassword/';
+    baseResetPasswordAPIURL = 'https://gorgiasapp-v3.azurewebsites.net/api/account/ResetPassword/';
 
     constructor(props) {
         super(props);

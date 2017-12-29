@@ -18,7 +18,7 @@ export default class CelebGrid extends React.Component {
 
     /*POST method  for Profiles*/
 
-    var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
+    var url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
     var that = this;
 
     var bodyData = {
@@ -37,7 +37,7 @@ export default class CelebGrid extends React.Component {
     this.prepareProfiles(bodyData);
     /*GET method MAIN ENTITIES*/
 
-    var urlMainEntities = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/MainEntities";
+    var urlMainEntities = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/MainEntities";
 
     fetch(urlMainEntities)
       .then(function(response) {
@@ -64,7 +64,7 @@ export default class CelebGrid extends React.Component {
 
   handleLoadMore() {
     console.log("im working");
-    var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
+    var url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
     var that = this;
 
     var bodyData = this.state.filteringData;
@@ -114,7 +114,7 @@ export default class CelebGrid extends React.Component {
   }
 
   prepareProfiles(filteringData){
-    var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
+    var url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
     var that = this;
 
     fetch(url, {

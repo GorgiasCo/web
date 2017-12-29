@@ -12,7 +12,7 @@ export default class TopStories extends React.Component {
   }
 
   componentWillMount(){
-    var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Stories/Latest/10/1";
+    var url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Stories/Latest/10/1";
     var that = this;
 
     fetch(url)
@@ -22,25 +22,40 @@ export default class TopStories extends React.Component {
       })
       .then(function(data) {
         that.setState({ items: data.Result.Items, isLoading:false });
-        console.log(that.state.items);
+        console.log(that.state.items,"API for stories");
       });
   }
 
   renderStory(story){
     return (
       <li key={story.AlbumID} className="floatr tklist content_slider_li" style={{float:"left"}}>
-        <div>
-          <img width="287" height="339" className="tk fit2" src={story.cdnAlbumCover} alt=""/>
-        </div>
-        <div className="desc">
+
+        <img width="287" height="339" className="tk fit2" src={story.cdnAlbumCover} alt={story.ProfileFullname} style={{borderRadius:"9px"}}/>
+
+        <div className="desc2" style={{
+            position: "absolute",
+            top:"70%",
+            left: "16px",
+            color:"white",
+            zIndex:"1"
+          }}>
           <p style={{fontSize:"12px"}}>{story.AlbumName}</p>
           {/*<p className="tkBottom-p-font">24</p>*/}
         </div>
-        <div className="full-card-overlay">
-          <div className="tk tp-caption Photography-Button rev-btn ">OPEN IN APP</div>
-
+        <div className="full-card-overlay gradient" style={{borderRadius:"9px"}}>
+        {/* <div className="tk tp-caption Photography-Button rev-btn ">OPEN IN APP</div>*/}
+          <div className="customButton">OPEN IN APP</div>
         </div>
       </li>
+
+      // <li>
+      //   <img src="https://gorgiascdn.azureedge.net/albums/hottest-album-1b14a562-1801-4494-a289-1b45303df32c.jpg"/>
+      //
+      //   <div>heyy there</div>
+      //
+      // </li>
+
+
     )
   }
 
@@ -74,41 +89,58 @@ export default class TopStories extends React.Component {
                   0: {
                     items: 2,
                     nav: false,
-                    margin:0,
+                    margin:10,
                     center:true,
 
                   },
                   400: {
                     items: 2,
                     nav: false,
-                    margin:0,
+                    margin:10,
                     center:true,
 
                   },
                   600: {
                     items: 3,
-                    nav: false
+                    nav: false,
+                    margin: 15,
                   },
+
                   1000: {
                     items: 4,
                     nav: false,
                     loop: false,
-                    margin: 5,
+                    margin: 15,
 
                   },
 
-                  1440:{
+                  1200: {
                     items: 5,
                     nav: false,
                     loop: false,
-                    margin: 5,
+                    margin: 15,
+
+                  },
+
+                  1366:{
+                    items: 5,
+                    nav: false,
+                    loop: false,
+                    margin: 15,
+                  },
+
+                  1920:{
+                    items: 6,
+                    nav: false,
+                    loop: false,
+                    margin: 15,
                   },
 
                   2560:{
                     items: 8,
                     nav: false,
                     loop: false,
-                    margin: 5,
+                    margin: 15,
                   }
                 }}
                   >
