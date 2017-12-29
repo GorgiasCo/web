@@ -75,7 +75,7 @@ export default class CelebGrid extends React.Component {
 
         /*POST method  for Profiles*/
 
-        var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
+        var url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
         var that = this;
 
         var bodyData = {
@@ -94,7 +94,7 @@ export default class CelebGrid extends React.Component {
         this.prepareProfiles(bodyData);
         /*GET method MAIN ENTITIES*/
 
-        var urlMainEntities = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/MainEntities";
+        var urlMainEntities = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/MainEntities";
 
         fetch(urlMainEntities)
             .then(function (response) {
@@ -123,7 +123,7 @@ export default class CelebGrid extends React.Component {
     }
 
     prepareProfiles(filteringData) {
-        var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
+        var url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
         var that = this;
 
         fetch(url, {
@@ -160,7 +160,7 @@ export default class CelebGrid extends React.Component {
 
     handleLoadMore() {
         console.log("im working");
-        var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
+        var url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
         var that = this;
 
         var bodyData = this.state.filteringData;
@@ -493,7 +493,7 @@ export default class CelebGrid extends React.Component {
                                                                     width: "80px",float:" right",
                                                                     }}>
                                                                       <div className="image_wrapper">
-                                                                        <img class="scale-with-grid" src="http://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg" alt="Jennifer Lee"/>
+                                                                        <img class="scale-with-grid" src="https://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg" alt="Jennifer Lee"/>
                                                                       </div>
                                                                       <div><button type="button" style={{
                                                                               padding: "7px 10px",
@@ -514,7 +514,7 @@ export default class CelebGrid extends React.Component {
                                                                           Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor.This is hard.
                                                                       </div>
                                                                       <div className="links">
-                                                                          <a href="mailto:noreply@envato.com" className="icon_bar icon_bar_small"><span className="t"><i className="icon-mail"></i></span><span class="b"><i className="icon-mail"></i></span></a><a target="_blank" href="http://facebook.com/" className="icon_bar icon_bar_small"><span className="t"><i class="icon-facebook"></i></span><span class="b"><i class="icon-facebook"></i></span></a><a target="_blank" href="http://twitter.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-twitter"></i></span><span class="b"><i class="icon-twitter"></i></span></a><a target="_blank" href="http://www.linkedin.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-linkedin"></i></span><span class="b"><i class="icon-linkedin"></i></span></a>
+                                                                          <a href="mailto:noreply@envato.com" className="icon_bar icon_bar_small"><span className="t"><i className="icon-mail"></i></span><span class="b"><i className="icon-mail"></i></span></a><a target="_blank" href="https://facebook.com/" className="icon_bar icon_bar_small"><span className="t"><i class="icon-facebook"></i></span><span class="b"><i class="icon-facebook"></i></span></a><a target="_blank" href="https://twitter.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-twitter"></i></span><span class="b"><i class="icon-twitter"></i></span></a><a target="_blank" href="https://www.linkedin.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-linkedin"></i></span><span class="b"><i class="icon-linkedin"></i></span></a>
                                                                       </div>
                                                                   </div>
                                                               </div>

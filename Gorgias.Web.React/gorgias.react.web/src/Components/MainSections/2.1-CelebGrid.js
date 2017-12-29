@@ -94,7 +94,7 @@ export default class CelebGrid extends React.Component {
         this.prepareProfiles(bodyData);
         /*GET method MAIN ENTITIES*/
 
-        var urlMainEntities = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/MainEntities";
+        var urlMainEntities = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/MainEntities";
 
         fetch(urlMainEntities)
             .then(function (response) {
@@ -125,9 +125,9 @@ export default class CelebGrid extends React.Component {
     prepareProfiles(filteringData) {
         var url = null;
         if (!this.props.isMainPage) {
-            url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
+            url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
         } else {
-            url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/Brand/";
+            url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/Brand/";
         }
 
         var that = this;
@@ -166,7 +166,7 @@ export default class CelebGrid extends React.Component {
 
     handleLoadMore() {
         console.log("im working");
-        var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
+        var url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Profiles/";
         var that = this;
 
         var bodyData = this.state.filteringData;

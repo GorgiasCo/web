@@ -6,7 +6,7 @@ export default class AboutHeadingCover extends React.Component {
         return (
             <div className="section mcb-section bg-color-2">
                 <div className="tk-background-ImgFit"
-                     style={{backgroundImage: "url(http://www.fisherstudios.co.uk/wp-content/uploads/2017/02/studio_05.jpg)"}}>
+                     style={{backgroundImage: "url(https://www.fisherstudios.co.uk/wp-content/uploads/2017/02/studio_05.jpg)"}}>
                     <div style={{background: "rgba(205, 205, 205, 0.35)"}}>
                         <div className="section_wrapper mcb-section-inner">
                             <div className="wrap mcb-wrap one  valign-top clearfix"

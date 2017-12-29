@@ -209,7 +209,7 @@ export default class AppProfileInfo extends React.Component {
                                           </p>
 
                                           <img className="tk-AppAvatarImg qrCode" style={{left:0}}
-                                                 src="http://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg"
+                                                 src="https://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg"
                                                  width="150" height="150"/>
 
                                           <input type="submit" id="submit" value="GET APP" className="tkFont-Bold" style={{width:"100%"}}/>

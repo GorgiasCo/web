@@ -12,7 +12,7 @@ export default class TopStories extends React.Component {
   }
 
   componentWillMount(){
-    var url = "http://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Stories/Latest/10/1";
+    var url = "https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Stories/Latest/10/1";
     var that = this;
 
     fetch(url)
