@@ -2,7 +2,7 @@
  * Created by yasser on 12/15/2017.
  */
 import React, {Component} from 'react';
-import Header from './PageElements/Header';
+import AdminHeader from './PageElements/AdminHeader';
 import Content from './Home/Content';
 import Footer from './PageElements/Footer';
 import ContentAbout from './AboutPageSection/ContentAbout';
@@ -11,7 +11,7 @@ import ContentContact from './ContactPageSections/ContentContact';
 import ContentTerms from './TermsPageSections/ContentTerms';
 import ContentTest from './TestPageSections/ContentTest';
 
-export default class DefaultPage extends Component {
+export default class DefaultAdminPage extends Component {
 
     componentWillMount() {
         //To ensure page is begining at top ;)
@@ -63,7 +63,7 @@ export default class DefaultPage extends Component {
     render() {
         return (
             <div id="Wrapper">
-                <Header/>
+                <AdminHeader/>
                 {this.prepareContainer()}
                 {this.props.hasFooter ?
                     <Footer/> : null }

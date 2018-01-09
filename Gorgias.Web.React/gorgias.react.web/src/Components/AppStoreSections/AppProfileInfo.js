@@ -52,21 +52,21 @@ export default class AppProfileInfo extends React.Component {
             !isLoading ?
                   <div id="AppProfileInfo" className="section mcb-section tkSection-padding bg-color-2">
                       <div className="section_wrapper mcb-section-inner">
-                          <div className="wrap mcb-wrap one  valign-top clearfix">
-                              <div className="mcb-wrap-inner">
-                                      <div className="column mcb-column one-second column_column" style={{
-                                          float: "none",
-                                          marginTop: 0 + "px",
-                                          marginLeft: "auto",
-                                          marginRight: "auto",
-                                          textAlign: "center"
-                                      }}>
-                                      <div className="column_attr clearfix">
-                                          <h2 className="tkFont1" style={{color: "white"}}>App Profile Info</h2>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
+                          {/*<div className="wrap mcb-wrap one  valign-top clearfix">*/}
+                              {/*<div className="mcb-wrap-inner">*/}
+                                      {/*<div className="column mcb-column one-second column_column" style={{*/}
+                                          {/*float: "none",*/}
+                                          {/*marginTop: 0 + "px",*/}
+                                          {/*marginLeft: "auto",*/}
+                                          {/*marginRight: "auto",*/}
+                                          {/*textAlign: "center"*/}
+                                      {/*}}>*/}
+                                      {/*<div className="column_attr clearfix">*/}
+                                          {/*<h2 className="tkFont1" style={{color: "white"}}>App Profile Info</h2>*/}
+                                      {/*</div>*/}
+                                  {/*</div>*/}
+                              {/*</div>*/}
+                          {/*</div>*/}
                           <div className="wrap mcb-wrap one  valign-top clearfix" style={{margin: 0 + "px auto"}}>
                               <div className="mcb-wrap-inner">
 
