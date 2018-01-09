@@ -8,6 +8,7 @@
     "react": "^16.2.0",
     "react-device-detect": "^0.1.0",
     "react-dom": "^16.2.0",
+    "react-dropzone": "^4.2.3",
     "react-meta-tags": "^0.3.0",
     "react-owl-carousel": "^2.2.0",
     "react-rev-slider": "^1.0.1",

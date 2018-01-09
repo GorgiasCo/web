@@ -7,6 +7,7 @@ import {
   NavLink
   // etc.
 } from 'react-router-dom';
+import Dropzone from 'react-dropzone'
 
 
 export default class ContentTest extends React.Component {
@@ -18,6 +19,7 @@ export default class ContentTest extends React.Component {
             isGoing: true,
             numberOfGuests: 2,
             fruit: null,
+            files: [],
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -26,12 +28,55 @@ export default class ContentTest extends React.Component {
 
     }
 
+    onDrop(files) {
+
+
+        var image  = new Image();
+
+        image.addEventListener('load', function () {
+            console.log(image.height, image.width, image.size);
+            if (image.width > 300) {
+                console.log('This image must be exactly 2500 pixels wide.');
+                this.setState({
+                    // files: [...files, files],
+                    files: [...this.state.files, ...files],
+                });
+            } else if (image.height !== 3000) {
+                console.log('This image must be exactly 3000 pixels wide.');
+            }
+
+            // display errors or do success thing
+            // if (errors.length >= 0) {
+            //     alert(errors.join(', '));
+            // } else {
+            //     alert('client side validations passed');
+            // }
+        }.bind(this));
+
+        files.forEach(file => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                const fileAsBinaryString = reader.result;
+                console.log(file, 'file ;)');
+
+
+                image.src = file.preview;
+
+                // do whatever you want with the file content
+            };
+            reader.onabort = () => console.log('file reading was aborted');
+            reader.onerror = () => console.log('file reading has failed');
+
+            reader.readAsBinaryString(file);
+        });
+    }
+
     handleChange(event) {
         this.setState({value: event.target.value});
     }
 
     handleSubmit(event) {
-        alert('Your favorite flavor is: ' + this.state.value);
+        alert('Your favorite flavor is: ' + this.state.fruit);
         console.log(this.state, 'state ;)');
         event.preventDefault();
         // alert(
@@ -52,6 +97,7 @@ export default class ContentTest extends React.Component {
     }
 
     render() {
+        console.log(this.state.files,'files state');
         return (
             <div id="Content" style={{backgroundColor: "#292929"}}>
                 <div className="content_wrapper clearfix">
@@ -66,7 +112,7 @@ export default class ContentTest extends React.Component {
                                                     <form onSubmit={this.handleSubmit}>
                                                         <label>
                                                             Pick your favorite La Croix flavor:
-                                                            <select name="fruit" value={this.state.value} onChange={this.handleInputChange}>
+                                                            <select name="fruit" value={this.state.fruit} onChange={this.handleInputChange}>
                                                                 <option value="grapefruit">Grapefruit</option>
                                                                 <option value="lime">Lime</option>
                                                                 <option value="coconut">Coconut</option>
@@ -99,6 +145,35 @@ export default class ContentTest extends React.Component {
                                                                 value={this.state.numberOfGuests}
                                                                 onChange={this.handleInputChange} />
                                                         </label>
+                                                        <section>
+                                                            <div className="dropzone">
+                                                                <Dropzone
+                                                                    multiple={true}
+                                                                    onDrop={this.onDrop.bind(this)}>
+                                                                    {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
+                                                                        if (isDragActive) {
+                                                                            return "This file is authorized";
+                                                                        }
+                                                                        if (isDragReject) {
+                                                                            return "This file is not authorized";
+                                                                        }
+                                                                        return acceptedFiles.length || rejectedFiles.length
+                                                                            ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`
+                                                                            : "Try dropping some files.";
+                                                                    }}
+                                                                    <p>Try dropping some files here, or click to select files to upload.</p>
+                                                                </Dropzone>
+                                                            </div>
+                                                            <aside>
+                                                                <h2>Dropped files</h2>
+                                                                <ul>
+                                                                    {
+                                                                        this.state.files.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+                                                                    }
+                                                                </ul>
+                                                                <div>{this.state.files.map((file) => <img src={file.preview} /> )}</div>
+                                                            </aside>
+                                                        </section>
                                                         <input type="submit" value="Submit" />
                                                     </form>
                                                 </div>
