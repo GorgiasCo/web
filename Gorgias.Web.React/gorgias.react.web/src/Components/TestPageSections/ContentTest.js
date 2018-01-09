@@ -9,8 +9,13 @@ import {
 } from 'react-router-dom';
 import Dropzone from 'react-dropzone'
 
+// import { createStore } from 'redux'
+// import todoApp from '../Actions/ToDo/Reducers';
 
-export default class ContentTest extends React.Component {
+import { connect } from 'react-redux';
+import * as todoActions from '../Actions/ToDo/Action';
+
+class ContentTest extends React.Component {
 
     constructor(props) {
         super(props);
@@ -61,6 +66,7 @@ export default class ContentTest extends React.Component {
 
 
                 image.src = file.preview;
+                this.props.addTodo(file.name);
 
                 // do whatever you want with the file content
             };
@@ -97,7 +103,7 @@ export default class ContentTest extends React.Component {
     }
 
     render() {
-        console.log(this.state.files,'files state');
+        console.log(this.props.books,'files state');
         return (
             <div id="Content" style={{backgroundColor: "#292929"}}>
                 <div className="content_wrapper clearfix">
@@ -190,6 +196,27 @@ export default class ContentTest extends React.Component {
     }
 }
 
+// ContentTest = connect()(ContentTest)
+// export default ContentTest;
+
+// Maps state from store to props
+const mapStateToProps = (state, ownProps) => {
+    return {
+        // You can now say this.props.books
+        books: state.todos
+    }
+};
+
+// Maps actions to props
+const mapDispatchToProps = (dispatch) => {
+    return {
+        // You can now say this.props.createBook
+        addTodo: book => dispatch(todoActions.addTodo(book))
+    }
+};
+
+// Use connect to put them together
+export default connect(mapStateToProps, mapDispatchToProps)(ContentTest);
 
 {/*<div  style={{backgroundColor: "#292929"}}>
  <h1>Tasst Page</h1>
