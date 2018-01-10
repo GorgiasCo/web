@@ -10,8 +10,9 @@ import ContentAppstore from './AppStoreSections/ContentAppstore';
 import ContentContact from './ContactPageSections/ContentContact';
 import ContentTerms from './TermsPageSections/ContentTerms';
 import ContentTest from './TestPageSections/ContentTest';
-
-export default class DefaultAdminPage extends Component {
+import { connect } from 'react-redux';
+import * as todoActions from '../Components/Actions/ToDo/Action';
+class DefaultAdminPage extends Component {
 
     componentWillMount() {
         //To ensure page is begining at top ;)
@@ -71,3 +72,22 @@ export default class DefaultAdminPage extends Component {
         );
     }
 }
+
+const mapStateToProps = (state, ownProps) => {
+    console.log(state, 'mapStateToProps default admin');
+    return {
+        // You can now say this.props.books
+        books: state.todoApp.todos
+    }
+};
+
+// Maps actions to props
+const mapDispatchToProps = (dispatch) => {
+    return {
+        // You can now say this.props.createBook
+        addTodo: book => dispatch(todoActions.addTodo(book))
+    }
+};
+
+// Use connect to put them together
+export default connect(mapStateToProps, mapDispatchToProps)(DefaultAdminPage);
