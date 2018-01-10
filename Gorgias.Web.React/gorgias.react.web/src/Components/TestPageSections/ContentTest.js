@@ -14,6 +14,10 @@ import Dropzone from 'react-dropzone'
 
 import { connect } from 'react-redux';
 import * as todoActions from '../Actions/ToDo/Action';
+import GoogleMapReact from 'google-map-react'
+
+const AnyReactComponent = ({ text }) => <div>{ text }</div>;
+
 
 class ContentTest extends React.Component {
 
@@ -23,8 +27,10 @@ class ContentTest extends React.Component {
             value: 'coconut',
             isGoing: true,
             numberOfGuests: 2,
-            fruit: null,
+            fruit: 'lime',
             files: [],
+            center: { lat: 40.7446790, lng: -73.9485420 },
+            zoom: 11
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -106,6 +112,7 @@ class ContentTest extends React.Component {
         console.log(this.props.books,'files state');
         return (
             <div id="Content" style={{backgroundColor: "#292929"}}>
+
                 <div className="content_wrapper clearfix">
                     <div className="sections_group">
                         <div className="entry-content">
@@ -115,6 +122,7 @@ class ContentTest extends React.Component {
                                         <div className="mcb-wrap-inner">
                                             <div className="column mcb-column one column_column">
                                                 <div className="column_attr clearfix">
+
                                                     <form onSubmit={this.handleSubmit}>
                                                         <label>
                                                             Pick your favorite La Croix flavor:
@@ -156,17 +164,6 @@ class ContentTest extends React.Component {
                                                                 <Dropzone
                                                                     multiple={true}
                                                                     onDrop={this.onDrop.bind(this)}>
-                                                                    {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
-                                                                        if (isDragActive) {
-                                                                            return "This file is authorized";
-                                                                        }
-                                                                        if (isDragReject) {
-                                                                            return "This file is not authorized";
-                                                                        }
-                                                                        return acceptedFiles.length || rejectedFiles.length
-                                                                            ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`
-                                                                            : "Try dropping some files.";
-                                                                    }}
                                                                     <p>Try dropping some files here, or click to select files to upload.</p>
                                                                 </Dropzone>
                                                             </div>
@@ -180,6 +177,17 @@ class ContentTest extends React.Component {
                                                                 <div>{this.state.files.map((file) => <img src={file.preview} /> )}</div>
                                                             </aside>
                                                         </section>
+                                                        <div style={{width:600,backgroundColor: "#000000", height:500}}>
+                                                            <GoogleMapReact
+                                                                defaultCenter={ this.state.center }
+                                                                defaultZoom={ this.state.zoom }>
+                                                                <AnyReactComponent
+                                                                    lat={ 40.7473310 }
+                                                                    lng={ -73.8517440 }
+                                                                    text={ 'Where Waldo?' }
+                                                                />
+                                                            </GoogleMapReact>
+                                                        </div>
                                                         <input type="submit" value="Submit" />
                                                     </form>
                                                 </div>
