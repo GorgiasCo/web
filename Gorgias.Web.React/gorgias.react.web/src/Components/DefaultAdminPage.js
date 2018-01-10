@@ -19,6 +19,13 @@ class DefaultAdminPage extends Component {
         window.scrollTo(0, 0);
     }
 
+    componentWillReceiveProps(nextProps){
+        if(this.props.books != nextProps.books){
+            console.log(nextProps.books,'changed');
+        }
+    }
+
+
     onChangeLinkName(newName) {
         this.setState({
             homeLink: newName,

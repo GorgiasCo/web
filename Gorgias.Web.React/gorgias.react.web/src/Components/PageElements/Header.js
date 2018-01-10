@@ -339,11 +339,11 @@ export default class Header extends React.Component {
         //this.prepareMenu();
         return (
             <div>
-                <div id="Side_slide" class="right dark">
-                    <div class="close-wrapper">
-                        <a href="#" class="close"><i class="icon-cancel-fine"></i></a>
+                <div id="Side_slide" className="right dark">
+                    <div className="close-wrapper">
+                        <a href="#" className="close"><i className="icon-cancel-fine"></i></a>
                     </div>
-                    <div class="menu_wrapper"></div>
+                    <div className="menu_wrapper"></div>
                 </div>
             <div id="Header_wrapper" className="bg-parallax" data-enllax-ratio="0.3">
 
