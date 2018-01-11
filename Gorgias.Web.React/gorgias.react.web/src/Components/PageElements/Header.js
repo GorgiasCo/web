@@ -11,9 +11,10 @@ import {
 
 import LoginContent from '../LoginSections/AccountContent';
 import HomeContainer from '../Home/HomeContainer';
+import { connect } from 'react-redux';
+import * as authenticationActions from '../Actions/authentication/action';
 
-
-export default class Header extends React.Component {
+class Header extends React.Component {
 
     constructor(props) {
         super(props);
@@ -23,6 +24,18 @@ export default class Header extends React.Component {
             prepareMenu: true,
         };
 
+        console.log(this.props.authentication, 'authentication header login');
+
+
+    }
+
+
+    authenticationLogin = () => {
+        this.props.authenticationLogin('yaser2us');
+    }
+
+    authenticationLogout = () => {
+        this.props.authenticationLogout();
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -309,6 +322,15 @@ export default class Header extends React.Component {
                         <li>
                             <a href="#download" className="close"><span>Download App</span></a>
                         </li>
+                        <li>
+                            {/*<a href="#Featured" className="close"><span>Featured</span></a>*/}
+                            {!this.props.authentication.payload ?
+                                <a onClick={this.authenticationLogin}
+                                   className="close"><span>Login</span></a> :
+                                <a onClick={this.authenticationLogout}
+                                   className="close"><span>Logout</span></a>
+                            }
+                        </li>
                     </ul>
                 )
                 break;
@@ -363,7 +385,13 @@ export default class Header extends React.Component {
                                             {this.state.isMainPage ?
                                                 <ul id="menu-main-menu" className="menu tk">
                                                     <li>
-                                                        <a href="#Featured" className="close"><span>Featured</span></a>
+                                                        {/*<a href="#Featured" className="close"><span>Featured</span></a>*/}
+                                                        {!this.props.authentication.payload ?
+                                                            <a onClick={this.authenticationLogin}
+                                                               className="close"><span>Login</span></a> :
+                                                            <a onClick={this.authenticationLogout}
+                                                               className="close"><span>Logout</span></a>
+                                                        }
                                                     </li>
 
                                                     <li>
@@ -394,3 +422,23 @@ export default class Header extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state, ownProps) => {
+    console.log(state, 'mapStateToProps header login default admin');
+    return {
+        // You can now say this.props.books
+        authentication: state.authentication.authentication
+    }
+};
+
+// Maps actions to props
+const mapDispatchToProps = (dispatch) => {
+    return {
+        // You can now say this.props.createBook
+        authenticationLogin: username => dispatch(authenticationActions.login(username)),
+        authenticationLogout: () => dispatch(authenticationActions.logout()),
+    }
+};
+
+// Use connect to put them together
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
