@@ -8,6 +8,8 @@
  * action types
  */
 
+import * as authenticationAction from '../authentication/action';
+
 export const GET_STORY = 'GET_STORY'
 export const FILTER_STORY = 'FILTER_STORY'
 export const LOADING = "LOADING"
@@ -53,14 +55,20 @@ export const loadingRepos = () => ({ type: LOADING });
 export const getStories = username => async dispatch => {
     try {
         dispatch(loadingRepos());
-        const url = `https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/MainEntities`;
-        const response = await fetch(url)
-        const responseBody = await response.json();
-        console.log(responseBody, username, 'in action');
-        dispatch(addRepos(responseBody.Result));
+        const url = `https://gorgiasapp-v3.azurewebsites.net/api/Addresses/10/1`;
+        const response = await fetch(url);
+        console.log(response, 'story', 'in action');
+        if(response.status !== 401){
+            const responseBody = await response.json();
+            console.log(responseBody, username, 'in action');
+            dispatch(addRepos(responseBody.Result));
+        } else {
+            throw "unAuthorized User ;)";
+        }
+        console.log(username, 'in action');
     } catch (error) {
-        console.log(error, username ,'in action');
-        dispatch(clearRepos());
+        console.log(error, username ,'in action error ;)');
+        dispatch(authenticationAction.logout());
     }
 }
 

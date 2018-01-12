@@ -17,6 +17,7 @@ import {browserHistory, BrowserRouter as Router, Route} from "react-router-dom";
 let defaultPage = DefaultPage;
 
 const ComposedComponent = AuthenticationProvider(DefaultPage);
+const DefaultAdminPageComponent = AuthenticationProvider(DefaultAdminPage);
 
 export default class MainPage extends Component {
 
@@ -32,7 +33,6 @@ export default class MainPage extends Component {
     componentWillMount() {
         this.setState({isLogin: false});
     }
-
 
     render() {
         return (
@@ -54,9 +54,9 @@ export default class MainPage extends Component {
                            component={() => <DefaultPage containerName="store" hasFooter={false}/>}/>
                     {/*test pages --by T.K*/}
                     <Route exact path="/test"
-                           component={() => <DefaultAdminPage containerName="test" hasFooter={true}/>}/>
+                           component={() => <DefaultAdminPageComponent containerName="test" hasFooter={true}/>}/>
                     <Route exact path="/test2"
-                           component={() => <DefaultAdminPage containerName="test2" hasFooter={true}/>}/>
+                           component={() => <DefaultAdminPageComponent containerName="test2" hasFooter={true}/>}/>
 
                 </div>
             </Router>

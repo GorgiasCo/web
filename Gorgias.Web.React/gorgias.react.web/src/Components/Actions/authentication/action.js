@@ -7,7 +7,7 @@
 /*
  * action types
  */
-
+import axios from 'axios'
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const LOADING = "LOADING"
@@ -50,16 +50,38 @@ export const loading = () => ({ type: LOADING, payload: false, });
 //     };
 // }
 
-export const authentication = username => async dispatch => {
+export const authentication = credential => async dispatch => {
     try {
         dispatch(loading());
         // const url = `https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/MainEntities`;
         // const response = await fetch(url)
         // const responseBody = await response.json();
-        console.log(username, 'in authentication action');
-        dispatch(login(true));
+        let languageCode = 'en';
+        let data = "grant_type=password&username=" + credential.username + "&password=" + credential.password;
+
+        axios({
+            method: 'post',
+            url: 'https://gorgiasapp-v3.azurewebsites.net/' + 'token',
+            data: data,
+            headers: {
+                'Content-type': 'application/x-www-form-urlencoded',
+                'Accept-Language': languageCode
+            }
+        })
+            .then(response => {
+                dispatch(login({data: response.data, authentication: true}));
+            })
+            .catch(error => {
+                if (error.status === 200) {
+                    dispatch(login({data: error.data, authentication: true}));
+                } else {
+                    console.log(error, 'loginError');
+                    dispatch(logout());
+                }
+            });
+        console.log(credential.username, 'in authentication action');
     } catch (error) {
-        console.log(error, username ,'in action');
+        console.log(error, credential.username ,'in action');
         dispatch(logout());
     }
 }

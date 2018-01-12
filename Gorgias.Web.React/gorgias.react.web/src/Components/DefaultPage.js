@@ -12,11 +12,15 @@ import ContentTerms from './TermsPageSections/ContentTerms';
 import ContentTest from './TestPageSections/ContentTest';
 import { connect } from 'react-redux';
 import * as todoActions from '../Components/Actions/ToDo/Action';
+import httpRequest from '../Components/Global/HTTP/httpRequest';
+
 class DefaultPage extends Component {
 
     componentWillMount() {
         //To ensure page is begining at top ;)
         window.scrollTo(0, 0);
+        httpRequest.getAll();
+
     }
 
     componentWillReceiveProps(nextProps){
