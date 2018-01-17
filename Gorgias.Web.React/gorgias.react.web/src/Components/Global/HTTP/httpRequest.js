@@ -1,7 +1,10 @@
 /**
  * Created by yasser on 1/12/2018.
  */
-import axios from 'axios';
+import axios from "axios";
+
+import * as authenticationAction from "../../Actions/authentication/action";
+
 const BASE_URL_V2 = 'https://gorgiasapp-v3.azurewebsites.net/api/';
 let languageCode = 'en';
 class HttpRequest {
@@ -348,7 +351,8 @@ class HttpRequest {
                 }
             }
         ).then(response => {
-                //console.log(response, 'axios');
+                console.log(response, 'axios');
+                authenticationAction.logout();
                 cbSuccess(response.data)
             }
         ).catch(error => {
@@ -369,8 +373,8 @@ class HttpRequest {
     getAll() {
         axios.all([this.getAxiosCategory(), this.getAxiosIndustry()])
             .then(axios.spread(function (acct, perms) {
-                console.log(acct.data,'getAll');
-                console.log(perms.data,'getAll');
+                console.log(acct.data, 'getAll');
+                console.log(perms.data, 'getAll');
             }));
     }
 
@@ -620,4 +624,16 @@ class HttpRequest {
 }
 
 let httpRequest = new HttpRequest();
+//
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         // You can now say this.props.createBook
+//         authenticationLogin: username => dispatch(authenticationActions.authentication(username)),
+//         authenticationLogout: () => dispatch(authenticationActions.logout()),
+//     }
+// };
+
+// Use connect to put them together
+//export default connect(mapDispatchToProps)(httpRequest);
+
 export default httpRequest;

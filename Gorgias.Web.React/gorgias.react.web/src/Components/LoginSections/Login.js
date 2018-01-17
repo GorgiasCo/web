@@ -1,7 +1,6 @@
 import React from "react";
-import axios from "axios";
-import { connect } from 'react-redux';
-import * as authenticationActions from '../Actions/authentication/action';
+import {connect} from "react-redux";
+import * as authenticationActions from "../Actions/authentication/action";
 
 class Login extends React.Component {
 
@@ -11,6 +10,7 @@ class Login extends React.Component {
             username: "",
             password: "",
         };
+        console.log(this.context, 'this.context login');
     }
 
     handleSubmit = (event) => {

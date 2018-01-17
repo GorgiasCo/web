@@ -18,6 +18,10 @@ let defaultPage = DefaultPage;
 
 const ComposedComponent = AuthenticationProvider(DefaultPage);
 const DefaultAdminPageComponent = AuthenticationProvider(DefaultAdminPage);
+const LoginComponent = AuthenticationProvider(AccountContent);
+const AdminTestComponent = AuthenticationProvider(DefaultAdminPage);
+const AdminTest2Component = AuthenticationProvider(DefaultAdminPage);
+
 
 export default class MainPage extends Component {
 
@@ -40,7 +44,7 @@ export default class MainPage extends Component {
                 <div>
                     {/*<Route exact path="/" component={AuthenticationProvider(DefaultPage)} data={{containerName:"contact", hasFooter:true}}/>*/}
                     <Route exact path="/" component={() => <ComposedComponent containerName=""  hasFooter={true} />}/>
-                    <Route exact path="/login" component={() => <AccountContent/>}/>
+                    <Route exact path="/login" component={LoginComponent}/>
                     <Route path="/account/reset/:id" component={() => <AccountContent accountType="reset"/>}/>
                     <Route exact path="/account/forget" component={() => <AccountContent accountType="forget"/>}/>
                     <Route exact path="/about" component={() => <DefaultPage containerName="about" hasFooter={true}/>}/>
@@ -54,9 +58,9 @@ export default class MainPage extends Component {
                            component={() => <DefaultPage containerName="store" hasFooter={false}/>}/>
                     {/*test pages --by T.K*/}
                     <Route exact path="/test"
-                           component={() => <DefaultAdminPageComponent containerName="test" hasFooter={true}/>}/>
+                           component={() => <AdminTestComponent containerName="test" hasFooter={true}/>}/>
                     <Route exact path="/test2"
-                           component={() => <DefaultAdminPageComponent containerName="test2" hasFooter={true}/>}/>
+                           component={() => <AdminTest2Component containerName="test2" hasFooter={true}/>}/>
 
                 </div>
             </Router>

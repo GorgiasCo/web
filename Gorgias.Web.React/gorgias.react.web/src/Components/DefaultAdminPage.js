@@ -20,7 +20,7 @@ class DefaultAdminPage extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        if(this.props.books != nextProps.books){
+        if(this.props.books !== nextProps.books){
             console.log(nextProps.books,'changed');
         }
     }
@@ -40,7 +40,7 @@ class DefaultAdminPage extends Component {
                     <ContentAbout/>
                 )
                 break;
-            case "store":
+            case "test2":
                 return (
                     <ContentAppstore/>
                 )

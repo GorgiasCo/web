@@ -15,6 +15,7 @@ import * as storyAction from '../Actions/story/action';
 import { connect } from 'react-redux';
 import * as todoActions from '../Actions/ToDo/Action';
 import GoogleMapReact from 'google-map-react'
+import httpRequest from '../Global/HTTP/httpRequest';
 
 const AnyReactComponent = ({ text }) => <div>{ text }</div>;
 
@@ -36,12 +37,17 @@ class ContentTest extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.props.storyAction(231);
 
     }
 
     componentDidMount(){
-        let x = this.props.storyAction();
-        console.log(x,'x');
+        console.log('x story action in component s');
+        httpRequest.getCountires((response)=>{
+            console.log(response,'country response');
+        }, (error) => {
+            console.log(error,'country error');
+        })
     }
 
     onDrop(files) {
@@ -236,10 +242,11 @@ const mapStateToProps = (state, ownProps) => {
 
 // Maps actions to props
 const mapDispatchToProps = (dispatch) => {
+    console.log(dispatch, 'new');
     return {
         // You can now say this.props.createBook
         addTodo: book => dispatch(todoActions.addTodo(book)),
-        storyAction: stories =>  dispatch(storyAction.getStories(123))
+        storyAction: stories =>  dispatch(storyAction.getValues())
     }
 };
 

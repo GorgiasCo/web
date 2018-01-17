@@ -21,9 +21,13 @@ export const login = payload => ({
     payload,
 });
 
-export const logout = () => ({ type: LOGOUT, payload: false, });
+export const authenticationInfo = () => ({
+    payload: login.payload
+})
 
-export const loading = () => ({ type: LOADING, payload: false, });
+export const logout = () => ({ type: LOGOUT, payload: {isAuthenticated: false}, });
+
+export const loading = () => ({ type: LOADING, payload: {isAuthenticated: false}, });
 
 /*
  * action creators
@@ -69,11 +73,16 @@ export const authentication = credential => async dispatch => {
             }
         })
             .then(response => {
-                dispatch(login({data: response.data, authentication: true}));
+                let loginData = {data: response.data, isAuthenticated: true};
+                console.log(response.data,'after login data');
+                localStorage.setItem('token', response.data.access_token);
+                dispatch(login(loginData));
             })
             .catch(error => {
                 if (error.status === 200) {
-                    dispatch(login({data: error.data, authentication: true}));
+                    let loginData = {data: error.data, isAuthenticated: true};
+                    localStorage.setItem('token', error.data.access_token);
+                    dispatch(login(loginData));
                 } else {
                     console.log(error, 'loginError');
                     dispatch(logout());
@@ -81,7 +90,7 @@ export const authentication = credential => async dispatch => {
             });
         console.log(credential.username, 'in authentication action');
     } catch (error) {
-        console.log(error, credential.username ,'in action');
+        console.log(error, credential.username ,'logout in action');
         dispatch(logout());
     }
 }

@@ -1,15 +1,14 @@
-import React, {Component} from 'react';
-import logo from './logo.svg';
-import MainPage from './Components/Main';
-import './App.css';
-import {Provider} from 'react-redux'
-import {createStore,applyMiddleware} from 'redux'
-import todoApp from './Components/Actions/ToDo/Reducers';
-import mainReducer from './Components/Actions/index';
-import { persistStore, persistCombineReducers } from 'redux-persist'
-import storage from 'redux-persist/lib/storage' // default: localStorage if web, AsyncStorage if react-native
-import { PersistGate } from 'redux-persist/es/integration/react'
-import thunk from 'redux-thunk';
+import React, {Component} from "react";
+import MainPage from "./Components/Main";
+import "./App.css";
+import {Provider} from "react-redux";
+import {applyMiddleware, createStore} from "redux";
+import mainReducer from "./Components/Actions/index";
+import {persistCombineReducers, persistStore} from "redux-persist";
+import storage from "redux-persist/lib/storage"; // default: localStorage if web, AsyncStorage if react-native
+import {PersistGate} from "redux-persist/es/integration/react";
+import thunk from "redux-thunk";
+import axiosMiddleware from 'redux-axios';
 
 const config = {
     key: 'root',
@@ -17,18 +16,69 @@ const config = {
     debug: true,
 }
 
+const backend = {
+    axios: {
+        baseURL: 'https://gorgiasapp-v3.azurewebsites.net/api/',
+        responseType: 'json',
+    },
+    //opt
+    options: {
+        interceptors: {
+            request: [
+                (getState, config) => {
+                    // if (getState().authentication.data.access_token) {
+                    //
+                    // }
+
+                    config.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+
+                    return config
+                }
+            ],
+            response: [
+                (getState, response) => {
+                    return response
+                }
+            ]
+        }
+    }
+};
+
+
+const clients = {
+    default: backend,
+};
+
 const reducer = persistCombineReducers(config, mainReducer)
 
-function configureStore () {
+// const fetch = (url, params) => ({
+//     type: 'FETCH',
+//     url,
+//     params,
+// });
+//
+// const fetchMiddleware = fetchImplementation => store => next => action => {
+//     if (action.type === 'FETCH') {
+//         const {url, params} = action;
+//         const token = store.getState().token;
+//         _.set(params, 'headers.token', token);
+//         return fetchImplementation(url, params);
+//     } else {
+//         return next(action);
+//     }
+// };
+
+function configureStore() {
     // ...
-    let store = createStore(reducer,  applyMiddleware(thunk))
+
+    let store = createStore(reducer, applyMiddleware(thunk, axiosMiddleware(clients)))
     let persistor = persistStore(store)
 
-    return { persistor, store }
+    return {persistor, store}
 }
 
 //let store = createStore(todoApp)
-const { persistor, store } = configureStore()
+const {persistor, store} = configureStore()
 
 class App extends Component {
 
@@ -48,7 +98,7 @@ class App extends Component {
                     // loading={<Loading />}
                     // onBeforeLift={onBeforeLift}
                     persistor={persistor}>
-                    <MainPage />
+                        <MainPage />
                 </PersistGate>
             </Provider>
         );

@@ -16,6 +16,10 @@ function story(state = [], action) {
             return []
         case storyAction.FILTER_STORY:
             return state
+        case "APP_GET_VALUES":
+            console.log('new', action, state);
+            return state;
+
         default:
             return state
     }
