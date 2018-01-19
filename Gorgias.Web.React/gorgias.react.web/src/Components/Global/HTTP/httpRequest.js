@@ -71,7 +71,7 @@ class HttpRequest {
     Languages_Endpoint = BASE_URL_V2 + 'Mobile/V2/Languages';
     Content_Ratings_Endpoint = BASE_URL_V2 + 'Mobile/V2/Content/Ratings';
     Activity_Types_Endpoint = BASE_URL_V2 + 'Mobile/V2/Felts/';
-    Countries_Endpoint = BASE_URL_V2 + 'Mobile/V2/Countries/';
+    Countries_Endpoint = BASE_URL_V2 + 'Mobile/V2/Countries/';//Mobile/V2/Countries/
     Cities_Endpoint = BASE_URL_V2 + 'Mobile/V2/Cities/';
     Profile_Types_Endpoint = BASE_URL_V2 + 'Mobile/V2/ProfileTypes';
     Album_Availability_Endpoint = BASE_URL_V2 + 'Mobile/V2/Album/Availibity/';
@@ -352,11 +352,10 @@ class HttpRequest {
             }
         ).then(response => {
                 console.log(response, 'axios');
-                authenticationAction.logout();
                 cbSuccess(response.data)
             }
         ).catch(error => {
-                //console.log(error, 'axios');
+                console.log(error, 'axios');
                 cbError(error.data);
             }
         );

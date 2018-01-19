@@ -4,7 +4,8 @@
 import { combineReducers } from 'redux'
 import * as storyAction from './action'
 
-function story(state = [], action) {
+function story(state = [], action: Action) {
+    console.log(action,'action');
     switch (action.type) {
         case storyAction.GET_STORY:
             console.log(action, state,'inside reducer ;)');
@@ -16,11 +17,14 @@ function story(state = [], action) {
             return []
         case storyAction.FILTER_STORY:
             return state
-        case "APP_GET_VALUES":
-            console.log('new', action, state);
-            return state;
-
+        case storyAction.AWESOME:
+            console.log('default new AWESOME', action, state);
+            return action.payload;
+        case storyAction.AWESOME + "_SUCCESS":
+            console.log('default new AWESOME _SUCCESS', action, state);
+            return action.payload;
         default:
+            console.log('story reducer default', action, state);
             return state
     }
 }

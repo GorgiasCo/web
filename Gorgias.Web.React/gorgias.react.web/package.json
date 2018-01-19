@@ -21,6 +21,7 @@
     "react-timeout": "^1.0.1",
     "redux": "^3.7.2",
     "redux-axios": "0.0.2",
+    "redux-axios-middleware": "^4.0.0",
     "redux-persist": "^5.4.0",
     "redux-thunk": "^2.2.0"
   },

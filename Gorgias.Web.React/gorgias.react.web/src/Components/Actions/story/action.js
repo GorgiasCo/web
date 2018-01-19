@@ -16,14 +16,18 @@ import {axios, AxiosRequestConfig, AxiosResponse} from "axios";
 export const GET_STORY = 'GET_STORY'
 export const FILTER_STORY = 'FILTER_STORY'
 export const LOADING = "LOADING"
+export const AWESOME = "AWESOME"
 
 export const Action =
     {
-        type: 'APP_GET_VALUES',
+        type: AWESOME,
         payload: {
             request: AxiosRequestConfig
         }
-    } ;
+    }  | {
+        type: AWESOME + '_SUCCESS',
+        payload: AxiosResponse
+    };
 
 /*
  * other constants
@@ -65,10 +69,14 @@ export const loadingRepos = () => ({type: LOADING});
 
 
 export const getValues = () => ({
-    type: 'APP_GET_VALUES',
+    type: AWESOME,
     payload: {
-        request:{
-            url:'Web/V2/Stories/Latest/10/1'
+        request: {
+            client: 'default',
+            url: 'Addresses/10/1',
+            // headers: {
+            //     'Authorization': 'Bearer ' + localStorage.getItem('token'),
+            // }
         }
     }
 });
