@@ -18,11 +18,17 @@ function story(state = [], action: Action) {
         case storyAction.FILTER_STORY:
             return state
         case storyAction.AWESOME:
-            console.log('default new AWESOME', action, state);
+            console.log('reducer  storyAction.AWESOME', action, state);
             return action.payload;
         case storyAction.AWESOME + "_SUCCESS":
-            console.log('default new AWESOME _SUCCESS', action, state);
-            return action.payload;
+            console.log('reducer AWESOME_SUCCESS', action, state);
+            if(action.payload !== undefined && action.payload !== null){
+                return {payload: action.payload, ...state};
+            }
+            return {payload: null, ...state};
+        case storyAction.AWESOME + "_FAIL":
+            console.log('reducer AWESOME_FAIL', action, state);
+            return {payload: null, ...state};
         default:
             console.log('story reducer default', action, state);
             return state

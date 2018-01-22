@@ -69,7 +69,7 @@ export const loadingRepos = () => ({type: LOADING});
 
 
 export const getValues = () => ({
-    type: AWESOME,
+    types: [AWESOME,AWESOME+"_SUCCESS", AWESOME+"_FAIL"],
     payload: {
         request: {
             client: 'default',
