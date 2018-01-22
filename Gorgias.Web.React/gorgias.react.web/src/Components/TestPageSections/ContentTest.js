@@ -52,7 +52,7 @@ class ContentTest extends React.Component {
 
     onDrop(files) {
 
-
+        console.log('onDrop ;)');
         var image  = new Image();
 
         image.addEventListener('load', function () {

@@ -1,17 +1,17 @@
 /**
  * Created by yasser on 12/15/2017.
  */
-import React, {Component} from 'react';
-import AdminHeader from './PageElements/AdminHeader';
-import Content from './Home/Content';
-import Footer from './PageElements/Footer';
-import ContentAbout from './AboutPageSection/ContentAbout';
-import ContentAppstore from './AppStoreSections/ContentAppstore';
-import ContentContact from './ContactPageSections/ContentContact';
-import ContentTerms from './TermsPageSections/ContentTerms';
-import ContentTest from './TestPageSections/ContentTest';
-import { connect } from 'react-redux';
-import * as todoActions from '../Components/Actions/ToDo/Action';
+import React, {Component} from "react";
+import AdminBurgerHeader from "./PageElements/AdminBurgerHeader";
+import Content from "./Home/Content";
+import Footer from "./PageElements/Footer";
+import ContentAbout from "./AboutPageSection/ContentAbout";
+import ContentAppstore from "./AppStoreSections/ContentAppstore";
+import ContentContact from "./ContactPageSections/ContentContact";
+import ContentTerms from "./TermsPageSections/ContentTerms";
+import ContentTest from "./TestPageSections/ContentTest";
+import {connect} from "react-redux";
+import * as todoActions from "../Components/Actions/ToDo/Action";
 class DefaultAdminPage extends Component {
 
     componentWillMount() {
@@ -19,9 +19,9 @@ class DefaultAdminPage extends Component {
         window.scrollTo(0, 0);
     }
 
-    componentWillReceiveProps(nextProps){
-        if(this.props.books !== nextProps.books){
-            console.log(nextProps.books,'changed');
+    componentWillReceiveProps(nextProps) {
+        if (this.props.books !== nextProps.books) {
+            console.log(nextProps.books, 'changed');
         }
     }
 
@@ -70,11 +70,13 @@ class DefaultAdminPage extends Component {
 
     render() {
         return (
-            <div id="Wrapper">
-                <AdminHeader/>
-                {this.prepareContainer()}
-                {this.props.hasFooter ?
-                    <Footer/> : null }
+            <div>
+                <AdminBurgerHeader/>
+                <div id="Wrapper">
+                    {this.prepareContainer()}
+                    {this.props.hasFooter ?
+                        <Footer/> : null }
+                </div>
             </div>
         );
     }
