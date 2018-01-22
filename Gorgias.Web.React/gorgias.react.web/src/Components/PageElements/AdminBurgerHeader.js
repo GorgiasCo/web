@@ -1,22 +1,36 @@
-import React from 'react';
-import {
-    NavLink
-} from 'react-router-dom'
-import { slide as Menu } from 'react-burger-menu'
+import React from "react";
+import {slide as Menu} from "react-burger-menu";
 
 export default class AdminBurgerHeader extends React.Component {
 
-
-    render() {
+    prepareMenu = () => {
         return (
             <div>
-                <Menu id="stack" styles={styles} >
+                <Menu id="stack" styles={styles}>
                     <a id="home" className="menu-item" href="/">Home</a>
-                    <a id="about" className="menu-item" href="/about">About</a>
-                    <a id="contact" className="menu-item" href="/contact">Contact</a>
+                    <a id="about" className="menu-item" onClick={this.props.prepareProfileAccounts} >About</a>
+                    <a id="contact" className="menu-item" onClick={this.props.logout}>logout</a>
                     <a className="menu-item--mall" href="">Settings</a>
                 </Menu>
             </div>
+        );
+    };
+
+    prepareProfileAccounts = () => {
+        return (
+            <div>
+                <Menu id="stack" styles={styles}>
+                    <a id="home" className="menu-item" href="/">Home</a>
+                    <a id="about" className="menu-item" onClick={this.props.prepareProfileAccounts} >About</a>
+                </Menu>
+            </div>
+        );
+    }
+
+    render() {
+        return (
+            !this.props.profileAccounts ?
+                this.prepareMenu() : this.prepareProfileAccounts()
         );
     }
 }

@@ -14,8 +14,16 @@ import {connect} from "react-redux";
 import * as todoActions from "../Components/Actions/ToDo/Action";
 class DefaultAdminPage extends Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            profileAccounts: false,
+        };
+    }
+
     componentWillMount() {
         //To ensure page is begining at top ;)
+
         window.scrollTo(0, 0);
     }
 
@@ -68,10 +76,28 @@ class DefaultAdminPage extends Component {
         }
     }
 
+    prepareProfileAccounts = (event) =>{
+        let {profileAccounts} = this.state;
+        console.log(profileAccounts,'prepareProfileAccounts');
+        this.setState({
+            profileAccounts: !profileAccounts,
+        })
+        event.preventDefault();
+    }
+
+    logout(event){
+        console.log('logout');
+        event.preventDefault();
+    }
+
     render() {
         return (
             <div>
-                <AdminBurgerHeader/>
+                <AdminBurgerHeader
+                    logout={this.logout}
+                    prepareProfileAccounts={this.prepareProfileAccounts}
+                    profileAccounts={this.state.profileAccounts}
+                />
                 <div id="Wrapper">
                     {this.prepareContainer()}
                     {this.props.hasFooter ?
