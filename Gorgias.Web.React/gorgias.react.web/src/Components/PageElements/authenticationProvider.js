@@ -51,7 +51,7 @@ export default function (ComposedComponent) {
 
     function mapStateToProps(state) {
         console.log(state.authentication.authentication, 'authentication')
-        return {authentication: state.authentication.authentication.payload}
+        return {authentication: state.authentication.authentication}
     }
 
     return connect(mapStateToProps)(AuthenticationProvider);

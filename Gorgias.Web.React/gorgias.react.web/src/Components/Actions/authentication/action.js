@@ -21,7 +21,7 @@ export const login = payload => ({
     payload,
 });
 
-export const authenticationInfo = () => ({
+export const profileSettings = () => ({
     payload: login.payload
 })
 

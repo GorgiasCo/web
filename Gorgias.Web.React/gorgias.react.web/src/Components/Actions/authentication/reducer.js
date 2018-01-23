@@ -8,12 +8,13 @@ function authentication(state = [], action) {
     switch (action.type) {
         case authenticationAction.LOGIN:
             console.log(action, state,'inside header login reducer ;)');
-            return action
+            return action.payload
         case authenticationAction.LOGOUT:
             return action
         case authenticationAction.LOADING:
             return action
         default:
+            console.log("authentication default reducer", state, action);
             return state
     }
 }

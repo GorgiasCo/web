@@ -4,9 +4,11 @@
 import todoApp from './ToDo/Reducers';
 import storyReducer from './story/reducer';
 import authenticationReducer from './authentication/reducer';
+import profileReducer from './profile/reducer';
 
 export default {
     todoApp: todoApp,
-    story: storyReducer,
+    storyManager: storyReducer,
     authentication: authenticationReducer,
+    profile: profileReducer,
 }

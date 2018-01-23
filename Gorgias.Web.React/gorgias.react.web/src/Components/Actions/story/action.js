@@ -11,12 +11,17 @@
 import * as authenticationAction from "../authentication/action";
 // import axios from 'axios';
 import {axios, AxiosRequestConfig, AxiosResponse} from "axios";
+import httpRequest from "../../Global/HTTP/httpRequest";
 
 
-export const GET_STORY = 'GET_STORY'
+export const GET_STORY = 'GET_STORY';
+
 export const FILTER_STORY = 'FILTER_STORY'
 export const LOADING = "LOADING"
 export const AWESOME = "AWESOME"
+
+export const GET_STORIES = 'GETSTORIES';
+export const GET_CATEGORIES = 'GETCATEGORIES';
 
 export const Action =
     {
@@ -24,7 +29,7 @@ export const Action =
         payload: {
             request: AxiosRequestConfig
         }
-    }  | {
+    } | {
         type: AWESOME + '_SUCCESS',
         payload: AxiosResponse
     };
@@ -69,7 +74,7 @@ export const loadingRepos = () => ({type: LOADING});
 
 
 export const getValues = () => ({
-    types: [AWESOME,AWESOME+"_SUCCESS", AWESOME+"_FAIL"],
+    types: [AWESOME, AWESOME + "_SUCCESS", AWESOME + "_FAIL"],
     payload: {
         request: {
             client: 'default',
@@ -81,7 +86,37 @@ export const getValues = () => ({
     }
 });
 
-export const getStories = username => async dispatch => {
+export const getCategories = profileID => ({
+    types: [
+        GET_CATEGORIES,
+        GET_CATEGORIES + "_SUCCESS",
+        GET_CATEGORIES + "_FAIL"
+    ],
+    payload: {
+        request: {
+            client: 'default',
+            url: httpRequest.Category_Endpoint + profileID,
+        }
+    }
+});
+
+export const getStories = filteringData => ({
+    types: [
+        GET_STORIES,
+        GET_STORIES + "_SUCCESS",
+        GET_STORIES + "_FAIL"
+    ],
+    payload: {
+        request: {
+            method: 'POST',
+            client: 'default',
+            url: httpRequest.Albums_Filter_Endpoint,
+            data: filteringData,
+        }
+    }
+});
+
+export const getStoriesOLD = username => async dispatch => {
     try {
         //dispatch(loadingRepos());
         // const url = `https://gorgiasapp-v3.azurewebsites.net/api/Addresses/10/1`;

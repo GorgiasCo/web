@@ -1,24 +1,19 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  StaticRouter, // for server rendering
-  Route,
-  Link,
-  NavLink
-  // etc.
-} from 'react-router-dom';
-import Dropzone from 'react-dropzone'
-
+import React from "react";
+import Dropzone from "react-dropzone";
 // import { createStore } from 'redux'
-import * as storyAction from '../Actions/story/action';
+import * as storyAction from "../Actions/story/action";
+import * as profileAction from "../Actions/profile/action";
 
-import { connect } from 'react-redux';
-import * as todoActions from '../Actions/ToDo/Action';
-import GoogleMapReact from 'google-map-react'
-import httpRequest from '../Global/HTTP/httpRequest';
+import {connect} from "react-redux";
+import * as todoActions from "../Actions/ToDo/Action";
+import GoogleMapReact from "google-map-react";
+import httpRequest from "../Global/HTTP/httpRequest";
 
-const AnyReactComponent = ({ text }) => <div>{ text }</div>;
+const AnyReactComponent = ({text}) => <div>{ text }</div>;
 
+function* getAll() {
+
+}
 
 class ContentTest extends React.Component {
 
@@ -30,7 +25,7 @@ class ContentTest extends React.Component {
             numberOfGuests: 2,
             fruit: 'lime',
             files: [],
-            center: { lat: 40.7446790, lng: -73.9485420 },
+            center: {lat: 40.7446790, lng: -73.9485420},
             zoom: 11
         };
 
@@ -41,19 +36,45 @@ class ContentTest extends React.Component {
 
     }
 
-    componentDidMount(){
+
+    componentDidMount() {
+
+        Promise.all([
+            this.props.getProfileSetting(1011),
+            this.props.getProfileAccounts(1016),
+            this.props.getProfileSettingHotSpot(1010),
+            this.props.getCategories(0),
+            this.props.getProfileMicroApp(1011),
+        ]).then(() => {
+            console.log('done');
+            console.log(this.props.stories, 'stories wow');
+        })
+
+        let filterData = {
+            CategoryID: 12,
+            CategoryTypeID: 2,
+            ProfileID: 1011,
+            Page: 1,
+            Size: 5,
+            Languages: ["en"],
+            isMicroApp: false,
+            MicroAppProfileID: null,
+        };
+
+        console.log(this.props.getStories(filterData), 'getStories filtering data wow');
+
         console.log('x story action in component s');
-        httpRequest.getCountires((response)=>{
-            console.log(response,'country response');
+        httpRequest.getCountires((response) => {
+            console.log(response, 'country response');
         }, (error) => {
-            console.log(error,'country error');
+            console.log(error, 'country error');
         })
     }
 
     onDrop(files) {
 
         console.log('onDrop ;)');
-        var image  = new Image();
+        var image = new Image();
 
         image.addEventListener('load', function () {
             console.log(image.height, image.width, image.size);
@@ -120,14 +141,15 @@ class ContentTest extends React.Component {
     }
 
     render() {
-        console.log(this.props.books,'files state wow');
-        if (!this.props.storyLoading){
+        console.log(this.props.books, 'files state wow');
+        if (!this.props.storyLoading) {
             return (
                 <div id="Content" style={{backgroundColor: "#292929"}}>
                     <div className="content_wrapper clearfix">
                         <div className="sections_group">
                             <div className="entry-content">
-                                <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop:150+"px"}}>
+                                <div className="section mcb-section tkSection-padding bg-color-1"
+                                     style={{paddingTop: 150 + "px"}}>
                                     <div className="section_wrapper mcb-section-inner">
                                         <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                                             <div className="mcb-wrap-inner">
@@ -137,7 +159,8 @@ class ContentTest extends React.Component {
                                                         <form onSubmit={this.handleSubmit}>
                                                             <label>
                                                                 Pick your favorite La Croix flavor:
-                                                                <select name="fruit" value={this.state.fruit} onChange={this.handleInputChange}>
+                                                                <select name="fruit" value={this.state.fruit}
+                                                                        onChange={this.handleInputChange}>
                                                                     <option value="grapefruit">Grapefruit</option>
                                                                     <option value="lime">Lime</option>
                                                                     <option value="coconut">Coconut</option>
@@ -159,7 +182,7 @@ class ContentTest extends React.Component {
                                                                     name="isGoing"
                                                                     type="checkbox"
                                                                     checked={this.state.isGoing}
-                                                                    onChange={this.handleInputChange} />
+                                                                    onChange={this.handleInputChange}/>
                                                             </label>
                                                             <br />
                                                             <label>
@@ -168,14 +191,15 @@ class ContentTest extends React.Component {
                                                                     name="numberOfGuests"
                                                                     type="number"
                                                                     value={this.state.numberOfGuests}
-                                                                    onChange={this.handleInputChange} />
+                                                                    onChange={this.handleInputChange}/>
                                                             </label>
                                                             <section>
                                                                 <div className="dropzone">
                                                                     <Dropzone
                                                                         multiple={true}
                                                                         onDrop={this.onDrop.bind(this)}>
-                                                                        <p>Try dropping some files here, or click to select files to upload.</p>
+                                                                        <p>Try dropping some files here, or click to
+                                                                            select files to upload.</p>
                                                                     </Dropzone>
                                                                 </div>
                                                                 {this.props.books !== undefined ?
@@ -184,15 +208,21 @@ class ContentTest extends React.Component {
 
                                                                         <ul>
                                                                             {
-                                                                                this.props.books.map(f => <li key={f.text}>{f.text}</li>)
+                                                                                this.props.books.map(f => <li
+                                                                                    key={f.text}>{f.text}</li>)
                                                                             }
                                                                         </ul>
-                                                                        <div>{this.props.books.map((file) => <img key={file.text} src={file.text} /> )}</div>
+                                                                        <div>{this.props.books.map((file) => <img
+                                                                            key={file.text} src={file.text}/>)}</div>
 
                                                                     </aside>
                                                                     : null }
                                                             </section>
-                                                            <div style={{width:600,backgroundColor: "#000000", height:500}}>
+                                                            <div style={{
+                                                                width: 600,
+                                                                backgroundColor: "#000000",
+                                                                height: 500
+                                                            }}>
                                                                 <GoogleMapReact
                                                                     defaultCenter={ this.state.center }
                                                                     defaultZoom={ this.state.zoom }>
@@ -203,7 +233,7 @@ class ContentTest extends React.Component {
                                                                     />
                                                                 </GoogleMapReact>
                                                             </div>
-                                                            <input type="submit" value="Submit" />
+                                                            <input type="submit" value="Submit"/>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -231,22 +261,30 @@ class ContentTest extends React.Component {
 
 // Maps state from store to props
 const mapStateToProps = (state, ownProps) => {
-    console.log(state, 'mapStateToProps');
+    console.log(state, 'mapStateToProps test wow');
     return {
         // You can now say this.props.books
         books: state.todoApp.todos,
-        stories: state.story.stories,
-        storyLoading: state.story.loading,
+        stories: state.storyManager.stories,
+        storyLoading: state.storyManager.loading,
+        profileSettings: state.authentication.authentication,
+        profileSettingsAccount: state.profile.profile,
     }
 };
 
 // Maps actions to props
 const mapDispatchToProps = (dispatch) => {
-    console.log(dispatch, 'new');
+    console.log(dispatch, 'new', dispatch);
     return {
         // You can now say this.props.createBook
         addTodo: book => dispatch(todoActions.addTodo(book)),
-        storyAction: stories =>  dispatch(storyAction.getValues())
+        storyAction: stories => dispatch(storyAction.getValues()),
+        getProfileSetting: profileID => dispatch(profileAction.getProfileAccountSetting(profileID)),
+        getProfileAccounts: userID => dispatch(profileAction.getProfileAccounts(userID)),
+        getProfileMicroApp: profileID => dispatch(profileAction.getProfileMicroApp(profileID)),
+        getProfileSettingHotSpot: profileID => dispatch(profileAction.getProfileSettingHotSpot(profileID)),
+        getStories: filteringData => dispatch(storyAction.getStories(filteringData)),
+        getCategories: profileID => dispatch(storyAction.getCategories(profileID)),
     }
 };
 
@@ -313,4 +351,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(ContentTest);
  </div>
  </div>
 
- </div>*/}
+ </div>*/
+}

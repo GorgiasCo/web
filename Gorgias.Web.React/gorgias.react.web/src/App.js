@@ -71,7 +71,7 @@ const middlewareConfig = {
                     console.log(success, 'response success'); //contains information about request object
                     if(success !== null)
                     {
-                        return success;
+                        return success.data.Result;
                     }
                     return null;
                 }
