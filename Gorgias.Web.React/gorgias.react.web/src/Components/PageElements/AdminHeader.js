@@ -5,6 +5,7 @@ import MiniFooter from './MiniFooter';
 import {
     NavLink
 } from 'react-router-dom'
+import { slide as Menu } from 'react-burger-menu'
 
 export default class AdminHeader extends React.Component {
 

@@ -1,15 +1,21 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  StaticRouter, // for server rendering
-  Route,
-  Link,
-  NavLink
-  // etc.
-} from 'react-router-dom';
+import React from "react";
+import Dropzone from "react-dropzone";
+// import { createStore } from 'redux'
+import * as storyAction from "../Actions/story/action";
+import * as profileAction from "../Actions/profile/action";
 
+import {connect} from "react-redux";
+import * as todoActions from "../Actions/ToDo/Action";
+import GoogleMapReact from "google-map-react";
+import httpRequest from "../Global/HTTP/httpRequest";
 
-export default class ContentTest extends React.Component {
+const AnyReactComponent = ({text}) => <div>{ text }</div>;
+
+function* getAll() {
+
+}
+
+class ContentTest extends React.Component {
 
     constructor(props) {
         super(props);
@@ -17,13 +23,96 @@ export default class ContentTest extends React.Component {
             value: 'coconut',
             isGoing: true,
             numberOfGuests: 2,
-            fruit: null,
+            fruit: 'lime',
+            files: [],
+            center: {lat: 40.7446790, lng: -73.9485420},
+            zoom: 11
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.props.storyAction(231);
 
+    }
+
+
+    componentDidMount() {
+
+        Promise.all([
+            this.props.getProfileSetting(1011),
+            this.props.getProfileAccounts(1016),
+            this.props.getProfileSettingHotSpot(1010),
+            this.props.getCategories(0),
+            this.props.getProfileMicroApp(1011),
+        ]).then(() => {
+            console.log('done');
+            console.log(this.props.stories, 'stories wow');
+        })
+
+        let filterData = {
+            CategoryID: 12,
+            CategoryTypeID: 2,
+            ProfileID: 1011,
+            Page: 1,
+            Size: 5,
+            Languages: ["en"],
+            isMicroApp: false,
+            MicroAppProfileID: null,
+        };
+
+        console.log(this.props.getStories(filterData), 'getStories filtering data wow');
+
+        console.log('x story action in component s');
+        httpRequest.getCountires((response) => {
+            console.log(response, 'country response');
+        }, (error) => {
+            console.log(error, 'country error');
+        })
+    }
+
+    onDrop(files) {
+
+        console.log('onDrop ;)');
+        var image = new Image();
+
+        image.addEventListener('load', function () {
+            console.log(image.height, image.width, image.size);
+            if (image.width > 300) {
+                console.log('This image must be exactly 2500 pixels wide.');
+                this.setState({
+                    // files: [...files, files],
+                    files: [...this.state.files, ...files],
+                });
+            } else if (image.height !== 3000) {
+                console.log('This image must be exactly 3000 pixels wide.');
+            }
+
+            // display errors or do success thing
+            // if (errors.length >= 0) {
+            //     alert(errors.join(', '));
+            // } else {
+            //     alert('client side validations passed');
+            // }
+        }.bind(this));
+
+        files.forEach(file => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                const fileAsBinaryString = reader.result;
+                console.log(file, 'file ;)');
+
+
+                image.src = file.preview;
+                this.props.addTodo(file.preview);
+
+                // do whatever you want with the file content
+            };
+            reader.onabort = () => console.log('file reading was aborted');
+            reader.onerror = () => console.log('file reading has failed');
+
+            reader.readAsBinaryString(file);
+        });
     }
 
     handleChange(event) {
@@ -31,7 +120,7 @@ export default class ContentTest extends React.Component {
     }
 
     handleSubmit(event) {
-        alert('Your favorite flavor is: ' + this.state.value);
+        alert('Your favorite flavor is: ' + this.state.fruit);
         console.log(this.state, 'state ;)');
         event.preventDefault();
         // alert(
@@ -52,55 +141,101 @@ export default class ContentTest extends React.Component {
     }
 
     render() {
-        return (
-            <div id="Content" style={{backgroundColor: "#292929"}}>
-                <div className="content_wrapper clearfix">
-                    <div className="sections_group">
-                        <div className="entry-content">
-                            <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop:150+"px"}}>
-                                <div className="section_wrapper mcb-section-inner">
-                                    <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
-                                        <div className="mcb-wrap-inner">
-                                            <div className="column mcb-column one column_column">
-                                                <div className="column_attr clearfix">
-                                                    <form onSubmit={this.handleSubmit}>
-                                                        <label>
-                                                            Pick your favorite La Croix flavor:
-                                                            <select name="fruit" value={this.state.value} onChange={this.handleInputChange}>
-                                                                <option value="grapefruit">Grapefruit</option>
-                                                                <option value="lime">Lime</option>
-                                                                <option value="coconut">Coconut</option>
-                                                                <option value="mango">Mango</option>
-                                                            </select>
-                                                        </label>
-                                                        <label>
-                                                            Upload file:
-                                                            <input
-                                                                type="file"
-                                                                ref={input => {
-                                                                    this.fileInput = input;
-                                                                }}
-                                                            />
-                                                        </label>
-                                                        <label>
-                                                            Is going:
-                                                            <input
-                                                                name="isGoing"
-                                                                type="checkbox"
-                                                                checked={this.state.isGoing}
-                                                                onChange={this.handleInputChange} />
-                                                        </label>
-                                                        <br />
-                                                        <label>
-                                                            Number of guests:
-                                                            <input
-                                                                name="numberOfGuests"
-                                                                type="number"
-                                                                value={this.state.numberOfGuests}
-                                                                onChange={this.handleInputChange} />
-                                                        </label>
-                                                        <input type="submit" value="Submit" />
-                                                    </form>
+        console.log(this.props.books, 'files state wow');
+        if (!this.props.storyLoading) {
+            return (
+                <div id="Content" style={{backgroundColor: "#292929"}}>
+                    <div className="content_wrapper clearfix">
+                        <div className="sections_group">
+                            <div className="entry-content">
+                                <div className="section mcb-section tkSection-padding bg-color-1"
+                                     style={{paddingTop: 150 + "px"}}>
+                                    <div className="section_wrapper mcb-section-inner">
+                                        <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
+                                            <div className="mcb-wrap-inner">
+                                                <div className="column mcb-column one column_column">
+                                                    <div className="column_attr clearfix">
+
+                                                        <form onSubmit={this.handleSubmit}>
+                                                            <label>
+                                                                Pick your favorite La Croix flavor:
+                                                                <select name="fruit" value={this.state.fruit}
+                                                                        onChange={this.handleInputChange}>
+                                                                    <option value="grapefruit">Grapefruit</option>
+                                                                    <option value="lime">Lime</option>
+                                                                    <option value="coconut">Coconut</option>
+                                                                    <option value="mango">Mango</option>
+                                                                </select>
+                                                            </label>
+                                                            <label>
+                                                                Upload file:
+                                                                <input
+                                                                    type="file"
+                                                                    ref={input => {
+                                                                        this.fileInput = input;
+                                                                    }}
+                                                                />
+                                                            </label>
+                                                            <label>
+                                                                Is going:
+                                                                <input
+                                                                    name="isGoing"
+                                                                    type="checkbox"
+                                                                    checked={this.state.isGoing}
+                                                                    onChange={this.handleInputChange}/>
+                                                            </label>
+                                                            <br />
+                                                            <label>
+                                                                Number of guests:
+                                                                <input
+                                                                    name="numberOfGuests"
+                                                                    type="number"
+                                                                    value={this.state.numberOfGuests}
+                                                                    onChange={this.handleInputChange}/>
+                                                            </label>
+                                                            <section>
+                                                                <div className="dropzone">
+                                                                    <Dropzone
+                                                                        multiple={true}
+                                                                        onDrop={this.onDrop.bind(this)}>
+                                                                        <p>Try dropping some files here, or click to
+                                                                            select files to upload.</p>
+                                                                    </Dropzone>
+                                                                </div>
+                                                                {this.props.books !== undefined ?
+                                                                    <aside>
+                                                                        <h2>Dropped files</h2>
+
+                                                                        <ul>
+                                                                            {
+                                                                                this.props.books.map(f => <li
+                                                                                    key={f.text}>{f.text}</li>)
+                                                                            }
+                                                                        </ul>
+                                                                        <div>{this.props.books.map((file) => <img
+                                                                            key={file.text} src={file.text}/>)}</div>
+
+                                                                    </aside>
+                                                                    : null }
+                                                            </section>
+                                                            <div style={{
+                                                                width: 600,
+                                                                backgroundColor: "#000000",
+                                                                height: 500
+                                                            }}>
+                                                                <GoogleMapReact
+                                                                    defaultCenter={ this.state.center }
+                                                                    defaultZoom={ this.state.zoom }>
+                                                                    <AnyReactComponent
+                                                                        lat={ 40.7473310 }
+                                                                        lng={ -73.8517440 }
+                                                                        text={ 'Where Waldo?' }
+                                                                    />
+                                                                </GoogleMapReact>
+                                                            </div>
+                                                            <input type="submit" value="Submit"/>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -110,11 +245,51 @@ export default class ContentTest extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        } else {
+            return (
+                <div>
+                    Loading....
+                </div>
+            );
+        }
     }
 }
 
+// ContentTest = connect()(ContentTest)
+// export default ContentTest;
+
+// Maps state from store to props
+const mapStateToProps = (state, ownProps) => {
+    console.log(state, 'mapStateToProps test wow');
+    return {
+        // You can now say this.props.books
+        books: state.todoApp.todos,
+        stories: state.storyManager.stories,
+        storyLoading: state.storyManager.loading,
+        profileSettings: state.authentication.authentication,
+        profileSettingsAccount: state.profile.profile,
+    }
+};
+
+// Maps actions to props
+const mapDispatchToProps = (dispatch) => {
+    console.log(dispatch, 'new', dispatch);
+    return {
+        // You can now say this.props.createBook
+        addTodo: book => dispatch(todoActions.addTodo(book)),
+        storyAction: stories => dispatch(storyAction.getValues()),
+        getProfileSetting: profileID => dispatch(profileAction.getProfileAccountSetting(profileID)),
+        getProfileAccounts: userID => dispatch(profileAction.getProfileAccounts(userID)),
+        getProfileMicroApp: profileID => dispatch(profileAction.getProfileMicroApp(profileID)),
+        getProfileSettingHotSpot: profileID => dispatch(profileAction.getProfileSettingHotSpot(profileID)),
+        getStories: filteringData => dispatch(storyAction.getStories(filteringData)),
+        getCategories: profileID => dispatch(storyAction.getCategories(profileID)),
+    }
+};
+
+// Use connect to put them together
+export default connect(mapStateToProps, mapDispatchToProps)(ContentTest);
 
 {/*<div  style={{backgroundColor: "#292929"}}>
  <h1>Tasst Page</h1>
@@ -176,4 +351,5 @@ export default class ContentTest extends React.Component {
  </div>
  </div>
 
- </div>*/}
+ </div>*/
+}

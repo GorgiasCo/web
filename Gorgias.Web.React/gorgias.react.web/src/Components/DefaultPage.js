@@ -10,12 +10,29 @@ import ContentAppstore from './AppStoreSections/ContentAppstore';
 import ContentContact from './ContactPageSections/ContentContact';
 import ContentTerms from './TermsPageSections/ContentTerms';
 import ContentTest from './TestPageSections/ContentTest';
+import { connect } from 'react-redux';
+import * as todoActions from '../Components/Actions/ToDo/Action';
+import httpRequest from '../Components/Global/HTTP/httpRequest';
 
-export default class DefaultPage extends Component {
+class DefaultPage extends Component {
 
     componentWillMount() {
         //To ensure page is begining at top ;)
         window.scrollTo(0, 0);
+        httpRequest.getAll();
+
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(this.props.books !== nextProps.books){
+            console.log(nextProps.books,'changed default');
+        }
+        console.log(nextProps.books,'changed default');
+    }
+
+    shouldComponentUpdate(nextProps, nextState){
+        console.log(nextProps.books,'changed default');
+        return true;
     }
 
     onChangeLinkName(newName) {
@@ -71,3 +88,22 @@ export default class DefaultPage extends Component {
         );
     }
 }
+
+const mapStateToProps = (state, ownProps) => {
+    console.log(state, 'mapStateToProps default admin');
+    return {
+        // You can now say this.props.books
+        books: state.todoApp.todos
+    }
+};
+
+// Maps actions to props
+const mapDispatchToProps = (dispatch) => {
+    return {
+        // You can now say this.props.createBook
+        addTodo: book => dispatch(todoActions.addTodo(book))
+    }
+};
+
+// Use connect to put them together
+export default connect(mapStateToProps, mapDispatchToProps)(DefaultPage);
