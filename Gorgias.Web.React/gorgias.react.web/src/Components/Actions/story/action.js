@@ -10,7 +10,8 @@
 
 import * as authenticationAction from "../authentication/action";
 // import axios from 'axios';
-import {axios, AxiosRequestConfig, AxiosResponse} from "axios";
+import {AxiosRequestConfig, AxiosResponse} from "axios";
+import axios from 'axios';
 import httpRequest from "../../Global/HTTP/httpRequest";
 
 
@@ -116,31 +117,23 @@ export const getStories = filteringData => ({
     }
 });
 
-export const getStoriesOLD = username => async dispatch => {
+export const getStoriesOLD = page => async dispatch => {
     try {
-        //dispatch(loadingRepos());
+        // dispatch(loadingRepos());
         // const url = `https://gorgiasapp-v3.azurewebsites.net/api/Addresses/10/1`;
-        const url = "Web/V2/Stories/Latest/10/1";
-
-
-        console.log(localStorage.getItem('token'), 'token local storage');
-
+        const url = "https://gorgiasapp-v4.azurewebsites.net/api/Web/V2/Stories/Latest/10/" + page;
         axios({
             method: 'get',
             url: url,
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('token'),
-                'Accept-Language': 'en'
-            }
         })
             .then(response => {
                 const responseBody = response;
-                console.log(responseBody, responseBody.data.Result.Items, username, 'in action story success');
+                console.log(responseBody, page, 'in action story success ;) NIMA');
                 dispatch(addRepos(responseBody.data.Result.Items));
             })
             .catch(error => {
-                console.log(error, username, 'in action story error ;)');
-                dispatch(authenticationAction.logout());
+                console.log(error, page, 'in action story error ;)');
+                // dispatch(authenticationAction.logout());
             });
 
 
@@ -155,8 +148,8 @@ export const getStoriesOLD = username => async dispatch => {
         // }
         // console.log(username, 'in action');
     } catch (error) {
-        console.log(error, username, 'in action error ********* ;)');
-        dispatch(authenticationAction.logout());
+        console.log(error, page, 'in action error ********* ;)');
+        // dispatch(authenticationAction.logout());
     }
 }
 

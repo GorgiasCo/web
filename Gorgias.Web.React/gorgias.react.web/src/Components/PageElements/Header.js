@@ -386,7 +386,7 @@ class Header extends React.Component {
                                                 <ul id="menu-main-menu" className="menu tk">
                                                     <li>
                                                         {/*<a href="#Featured" className="close"><span>Featured</span></a>*/}
-                                                        {!this.props.authentication.payload ?
+                                                        {!this.props.authentication.isAuthenticated ?
                                                             <a onClick={this.authenticationLogin}
                                                                className="close"><span>Login</span></a> :
                                                             <a onClick={this.authenticationLogout}

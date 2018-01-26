@@ -21,6 +21,16 @@ Start of  Content
 
 /*=======================1.0 Tk's fonts ======================*/
 
+.track {
+  float: left;
+  width: 300px;
+  margin: 50px;
+}
+
+.loader {
+  clear: both;
+}
+
 .tkFont {
   font-family: 'Poiret One', cursive;
 }

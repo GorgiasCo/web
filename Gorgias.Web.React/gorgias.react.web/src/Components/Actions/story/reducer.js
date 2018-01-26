@@ -1,17 +1,17 @@
 /**
  * Created by yasser on 1/9/2018.
  */
-import { combineReducers } from 'redux'
-import * as storyAction from './action'
+import {combineReducers} from "redux";
+import * as storyAction from "./action";
 
 function story(state = [], action: Action) {
     // console.log(action,'action');
     switch (action.type) {
         case storyAction.GET_STORY:
-            // console.log(action, state,'inside reducer ;)');
+            console.log(action, state,'inside reducer GET_STORY ;)');
             return [
                 ...state,
-                ...action.payload.ProfileType
+                ...action.payload
             ]
         case storyAction.LOADING:
             return []
@@ -22,7 +22,7 @@ function story(state = [], action: Action) {
             return action.payload;
         case storyAction.AWESOME + "_SUCCESS":
             // console.log('reducer AWESOME_SUCCESS', action, state);
-            if(action.payload !== undefined && action.payload !== null){
+            if (action.payload !== undefined && action.payload !== null) {
                 return {payload: action.payload, ...state};
             }
             return {payload: null, ...state};
@@ -38,15 +38,28 @@ function story(state = [], action: Action) {
 function stories(state = [], action: Action) {
     // console.log(action,'action');
     switch (action.type) {
-         case storyAction.GET_STORIES:
-            console.log('reducer  storyAction.AWESOME', action, state);
-            return action.payload;
+        case storyAction.GET_STORIES:
+            console.log('reducer  storyAction.AWESOME', action);
+            return {...state, isLoading: true,};
         case storyAction.GET_STORIES + "_SUCCESS":
-            console.log('reducer AWESOME_SUCCESS', action, state);
-            return {payload: action.payload, ...state};
+            console.log('reducer womo', action, state);
+            // if(state.payload !== undefined){
+            if (state.payload !== undefined) {
+                if (action.payload.Page !== 1) {
+                    console.log('reducer manam;)', [...state.payload, ...action.payload.Items]);
+                    let newItems = state.payload;
+                    newItems.Items = [...state.payload, ...action.payload.Items];
+                    console.log(newItems, 'womo new', [...state.payload, ...action.payload.Items]);
+                    return {...state, payload: [...state.payload, ...action.payload.Items], isLoading: false,};
+                }
+                // return {payload: [], isLoading: false,};
+            }
+            // }
+            return {...state, payload: action.payload.Items, isLoading: false,};
+        //return {payload: {}, isLoading: false,};
         case storyAction.GET_STORIES + "_FAIL":
             console.log('reducer AWESOME_FAIL', action, state);
-            return {payload: null, ...state};
+            return {...state, payload: null, isLoading: false};
 
         default:
             // console.log('story reducer default', action, state);

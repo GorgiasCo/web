@@ -92,6 +92,7 @@ function configureStore() {
     // ...
 
     let store = createStore(reducer, applyMiddleware(thunk, axiosMiddleware(client, middlewareConfig)))
+    // let store = createStore(reducer, applyMiddleware(thunk))
     let persistor = persistStore(store)
 
     return {persistor, store}

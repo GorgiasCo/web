@@ -10,6 +10,7 @@ import ContentAppstore from "./AppStoreSections/ContentAppstore";
 import ContentContact from "./ContactPageSections/ContentContact";
 import ContentTerms from "./TermsPageSections/ContentTerms";
 import ContentTest from "./TestPageSections/ContentTest";
+import ContentTestLoad from "./TestPageSections/ContentTestLoad";
 import {connect} from "react-redux";
 import * as todoActions from "../Components/Actions/ToDo/Action";
 class DefaultAdminPage extends Component {
@@ -50,7 +51,7 @@ class DefaultAdminPage extends Component {
                 break;
             case "test2":
                 return (
-                    <ContentAppstore/>
+                    <ContentTestLoad/>
                 )
                 break;
             case "terms":
@@ -100,8 +101,8 @@ class DefaultAdminPage extends Component {
                 />
                 <div id="Wrapper">
                     {this.prepareContainer()}
-                    {this.props.hasFooter ?
-                        <Footer/> : null }
+                    {/*{this.props.hasFooter ?*/}
+                        {/*<Footer/> : null }*/}
                 </div>
             </div>
         );
