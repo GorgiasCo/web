@@ -3,6 +3,7 @@
  */
 import {combineReducers} from "redux";
 import * as storyAction from "./action";
+import initialState from './initialState';
 
 function story(state = [], action: Action) {
     // console.log(action,'action');
@@ -35,7 +36,7 @@ function story(state = [], action: Action) {
     }
 }
 
-function stories(state = [], action: Action) {
+function stories(state = initialState.stories, action: Action) {
     // console.log(action,'action');
     switch (action.type) {
         case storyAction.GET_STORIES:
@@ -43,6 +44,7 @@ function stories(state = [], action: Action) {
             return {...state, isLoading: true,};
         case storyAction.GET_STORIES + "_SUCCESS":
             console.log('reducer womo', action, state);
+            console.log('filterData from reducer ;)', action.meta.previousAction.payload.request.data);
             // if(state.payload !== undefined){
             if (state.payload !== undefined) {
                 if (action.payload.Page !== 1) {
@@ -50,12 +52,13 @@ function stories(state = [], action: Action) {
                     let newItems = state.payload;
                     newItems.Items = [...state.payload, ...action.payload.Items];
                     console.log(newItems, 'womo new', [...state.payload, ...action.payload.Items]);
-                    return {...state, payload: [...state.payload, ...action.payload.Items], isLoading: false,};
+                    return {...state, payload: [...state.payload, ...action.payload.Items], filterData:action.meta.previousAction.payload.request.data, page: action.payload.Page, hasMore: action.payload.hasMore, isLoading: false,};
                 }
                 // return {payload: [], isLoading: false,};
             }
             // }
-            return {...state, payload: action.payload.Items, isLoading: false,};
+            return {payload: action.payload.Items, filterData:action.meta.previousAction.payload.request.data, page: action.payload.Page, hasMore: action.payload.hasMore, isLoading: false,};
+            // return {payload: action.payload.Items, isLoading: false,};
         //return {payload: {}, isLoading: false,};
         case storyAction.GET_STORIES + "_FAIL":
             console.log('reducer AWESOME_FAIL', action, state);
@@ -73,9 +76,9 @@ function categories(state = [], action) {
         case storyAction.GET_CATEGORIES:
             return action.payload;
         case storyAction.GET_CATEGORIES + "_SUCCESS":
-            return {payload: action.payload, ...state};
+            return {...state, payload: action.payload};
         case storyAction.GET_CATEGORIES + "_FAIL":
-            return {payload: null, ...state};
+            return {...state, payload: null};
         default:
             return state
     }

@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import * as storyAction from "../Actions/story/action";
+import * as profileAction from "../Actions/profile/action";
 import StoryRow from "../Admin/Story/StoryRow";
 
 import EndlessLoadingProvider from "../Admin/EndlessLoadingProvider";
@@ -67,14 +68,14 @@ class ContentTestLoad extends Component {
             hasMoreItems: true,
             nextHref: null,
             filterData: {
-                CategoryID: 12,
+                CategoryID: 12,//12 86
                 CategoryTypeID: 2,
                 ProfileID: 1011,
                 Page: 1,
                 Size: 30,
                 Languages: ["en"],
                 isMicroApp: false,
-                MicroAppProfileID: null,
+                MicroAppProfileID:parseInt(this.props.profileAccountSetting.payload.ProfileID),
             },
         };
     }
@@ -82,19 +83,27 @@ class ContentTestLoad extends Component {
     componentDidMount() {
         // this.loadItems(1);
         //this.props.getStoriesOLD(1);
+        this.loadItemsRedux(1011);
+        console.log(this.state.filterData,'filterData',  this.props.profileAccountSetting);
     }
 
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     if(this.props.stories !== nextProps.stories){
-    //         return true;
-    //     }
-    //     return false;
-    // }
+    shouldComponentUpdate(nextProps, nextState) {
+        if(this.props.filterData.MicroAppProfileID !== nextProps.filterData.MicroAppProfileID){
+            return true;
+        }
+        return false;
+    }
 
-    loadItemsRedux = (page) => {
+    loadItemsRedux = (profileid) => {
+
+        //this.props.getProfileAccountSetting(profileid);
+
         let filterData = this.state.filterData;
-        filterData.Page = page;
-        // this.props.getStoriesOLD(page);
+        filterData.Page = 1;
+        filterData.CategoryID = 86;
+        filterData.isMicroApp = !filterData.isMicroApp;
+        filterData.MicroAppProfileID = parseInt(this.props.profileAccountSetting.payload.ProfileID);
+            // this.props.getStoriesOLD(page);
         this.props.getStories(filterData);
     }
 
@@ -165,18 +174,18 @@ class ContentTestLoad extends Component {
         console.log('render rrrrrrr ;)')
         const loader = <div className="loader">Loading ...</div>;
 
-        var items = [];
-        // this.state.tracks.map((track, i) => {
-        this.props.stories.map((track, i) => {
-            items.push(
-                <StoryRow key={i} data={track}/>
-            );
-        });
+        // var items = [];
+        // // this.state.tracks.map((track, i) => {
+        // this.props.stories.map((track, i) => {
+        //     items.push(
+        //         <StoryRow key={i} data={track}/>
+        //     );
+        // });
 
         return (
             <div>
                 {/*<StoryEndless useWindow={false} getData={this.props.getStories}  filteringData={this.state.filterData} data={this.props.stories}/>*/}
-                <ProfileEndless useWindow={false} getData={this.props.getStories} filteringData={this.state.filterData}
+                <ProfileEndless useWindow={false} getData={this.props.getStories} hasMore={this.props.storiesHasMore}  filteringData={this.props.filterData}
                                 data={this.props.stories}/>
                 <AngryTitle>
                     Salam Yasser
@@ -186,9 +195,10 @@ class ContentTestLoad extends Component {
                     Nima Jan Salam ;)
                 </HappyTitle>
 
-                <Email name="nimaEmail"/>
+                <Email ref="nimaEmail" name="nimaEmail"/>
                 <Password name="nimaPassword"/>
                 <FruitDropDown/>
+                <button onClick={()=>this.props.getProfileAccountSetting(1010)}>Change Profile to something ;)</button>
                 {/*<yell children="Nasser Jan">*/}
                 {/*<InfiniteScroll*/}
                 {/*pageStart={0}*/}
@@ -212,6 +222,9 @@ const mapStateToProps = (state, ownProps) => {
     console.log(state, 'mapStateToProps storylist');
     return {
         stories: state.storyManager.stories.payload,
+        filterData: state.storyManager.stories.filterData,
+        storiesHasMore: state.storyManager.stories.hasMore,
+        profileAccountSetting: state.profile.profileAccountSetting,
     }
 };
 
@@ -223,6 +236,7 @@ const mapDispatchToProps = (dispatch) => {
         getStories: filteringData => dispatch(storyAction.getStories(filteringData)),
         getStoriesOLD: page => dispatch(storyAction.getStoriesOLD(page)),
         getCategories: profileID => dispatch(storyAction.getCategories(profileID)),
+        getProfileAccountSetting: profileID => dispatch(profileAction.getProfileAccountSetting(profileID))
     }
 };
 

@@ -8,6 +8,8 @@
  * action types
  */
 import axios from 'axios'
+import * as profileAction from '../profile/action';
+
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const LOADING = "LOADING"
@@ -77,12 +79,14 @@ export const authentication = credential => async dispatch => {
                 console.log(response.data,'after login data');
                 localStorage.setItem('token', response.data.access_token);
                 dispatch(login(loginData));
+                dispatch(profileAction.setProfileAccountSetting(response.data));
             })
             .catch(error => {
                 if (error.status === 200) {
                     let loginData = {data: error.data, isAuthenticated: true};
                     localStorage.setItem('token', error.data.access_token);
                     dispatch(login(loginData));
+                    dispatch(profileAction.setProfileAccountSetting(error.data));
                 } else {
                     console.log(error, 'loginError');
                     dispatch(logout());

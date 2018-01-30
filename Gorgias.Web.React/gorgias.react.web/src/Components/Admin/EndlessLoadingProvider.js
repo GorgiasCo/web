@@ -2,7 +2,6 @@
  * Created by yasser on 1/26/2018.
  */
 import React, {Component} from "react";
-import {connect} from "react-redux";
 import InfiniteScroll from "react-infinite-scroller";
 
 export default function (ComposedComponent) {
@@ -17,16 +16,25 @@ export default function (ComposedComponent) {
         }
 
         componentWillMount() {
-
+            //this.loadItems(1);
         }
 
         componentWillUpdate(nextProps) {
 
         }
 
+        componentWillUnmount() {
+            console.log('componentWillUnmount');
+        }
+
         loadItems = (page) => {
-            this.props.filteringData.Page = page;
-            this.props.getData(this.props.filteringData);
+            console.log(page, 'inside endless ;)', this.props.filterData);
+            // this.props.filteringData.Page = page;
+            if(this.props.filterData !== undefined){
+                let filteringData = this.props.filterData;
+                filteringData.Page = page;
+                this.props.getData(filteringData);
+            }
         }
 
         render() {
@@ -39,14 +47,15 @@ export default function (ComposedComponent) {
                 );
             });
 
-            console.log(this.context, 'Endless Rendering', ComposedComponent);
+            console.log(this.context, 'Endless Rendering', ComposedComponent, this.props.hasMore);
             // return <ComposedComponent {...this.props} {...newProps} />
             return (
-                <div style={{height:"700px",overflow:"auto"}}>
+                <div style={{height: "700px", overflow: "auto"}}>
                     <InfiniteScroll
-                        pageStart={0}
+                        pageStart={2}
+                        initialLoad={false}
                         loadMore={this.loadItems.bind(this)}
-                        hasMore={this.state.hasMore}
+                        hasMore={this.props.hasMore}
                         threshold={20}
                         useWindow={this.props.useWindow}
                         loader={loader}>

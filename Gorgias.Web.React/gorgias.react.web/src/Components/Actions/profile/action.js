@@ -10,6 +10,11 @@ export const PROFILE_MICROAPP_FULLNAME = 'PROFILEMICROAPPFULLNAME';
 
 export const LOADING = "LOADING";
 
+export const setProfileAccountSetting = payload => ({
+    type: PROFILE_ACCOUNT_SETTING + "_SUCCESS",
+    payload
+});
+
 export const getProfileAccountSetting = profileID => ({
     types: [PROFILE_ACCOUNT_SETTING, PROFILE_ACCOUNT_SETTING + "_SUCCESS", PROFILE_ACCOUNT_SETTING + "_FAIL"],
     payload: {
