@@ -64,14 +64,14 @@ function profileAccounts(state = [], action) {
 }
 
 function profileAccountSetting(state = [], action) {
-    // console.log(action, 'profile action');
     switch (action.type) {
         case profileAction.PROFILE_ACCOUNT_SETTING:
-            return null;//action.payload;
+            return {...state, isLoading: true,};//action.payload;
         case profileAction.PROFILE_ACCOUNT_SETTING + "_SUCCESS":
-            return {...state, payload: action.payload,};
+            console.log(action,'action stories profileAccountSetting');
+            return {...state, payload: action.payload, isLoading: false};
         case profileAction.PROFILE_ACCOUNT_SETTING + "_FAIL":
-            return {...state, payload: null,};
+            return {...state, payload: null, isLoading: false};
         default:
             return state
     }

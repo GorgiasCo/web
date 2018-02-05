@@ -62,6 +62,7 @@ const ProfileEndless = EndlessLoadingProvider(ProfileRowComponent);
 class ContentTestLoad extends Component {
     constructor(props) {
         super(props);
+        console.log('Avaaaaaal');
 
         this.state = {
             tracks: [],
@@ -75,7 +76,8 @@ class ContentTestLoad extends Component {
                 Size: 30,
                 Languages: ["en"],
                 isMicroApp: false,
-                MicroAppProfileID:parseInt(this.props.profileAccountSetting.payload.ProfileID),
+                MicroAppProfileID:parseInt(1010),
+                // MicroAppProfileID:parseInt(this.props.profileAccountSetting.payload.ProfileID),
             },
         };
     }
@@ -87,16 +89,39 @@ class ContentTestLoad extends Component {
         console.log(this.state.filterData,'filterData',  this.props.profileAccountSetting);
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        if(this.props.filterData.MicroAppProfileID !== nextProps.filterData.MicroAppProfileID){
-            return true;
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     if(this.props !== nextProps){
+    //         return true;
+    //     }
+    //     return false;
+    // }
+    //
+    // componentWillUpdate(nextProps, nextState){
+    //     if(this.state.filterData !== undefined){
+    //         if(this.state.filterData.MicroAppProfileID !== nextProps.profileAccountSetting.payload.ProfileID){
+    //             console.log('updated componentWillUpdate ! ;) ');
+    //             //this.loadItemsRedux(1011);
+    //         }
+    //     }
+    // }
+
+    componentWillReceiveProps(nextProps){
+        console.log(nextProps,'componentWillReceiveProps');
+        if(this.props.filterData !== undefined){
+            if(this.props.filterData.MicroAppProfileID !== nextProps.profileAccountSetting.payload.ProfileID){
+                console.log('updated ! ;) ', nextProps.profileAccountSetting.payload.ProfileID, this.props.filterData.MicroAppProfileID, this.props.filterData);
+                this.loadItemsRedux(123);
+                // if(this.props.profileAccountSetting.isLoading){
+                //
+                // }
+            }
         }
-        return false;
     }
 
     loadItemsRedux = (profileid) => {
 
         //this.props.getProfileAccountSetting(profileid);
+        console.log('loadItemsRedux');
 
         let filterData = this.state.filterData;
         filterData.Page = 1;
@@ -170,9 +195,20 @@ class ContentTestLoad extends Component {
     //         });
     // }
 
+    changeProfile = (event) => {
+        console.log('changeProfile');
+        if(this.props.filterData.MicroAppProfileID === 1011){
+            this.props.getProfileAccountSetting(1010);
+        } else {
+            this.props.getProfileAccountSetting(1011);
+        }
+        event.preventDefault();
+    }
+
     render() {
-        console.log('render rrrrrrr ;)')
+        console.log('render rrrrrrr ;)', this.props.stories)
         const loader = <div className="loader">Loading ...</div>;
+
 
         // var items = [];
         // // this.state.tracks.map((track, i) => {
@@ -185,7 +221,7 @@ class ContentTestLoad extends Component {
         return (
             <div>
                 {/*<StoryEndless useWindow={false} getData={this.props.getStories}  filteringData={this.state.filterData} data={this.props.stories}/>*/}
-                <ProfileEndless useWindow={false} getData={this.props.getStories} hasMore={this.props.storiesHasMore}  filteringData={this.props.filterData}
+                <ProfileEndless useWindow={false} getData={this.props.getStories} hasMore={this.props.storiesHasMore}  filterData={this.props.filterData}
                                 data={this.props.stories}/>
                 <AngryTitle>
                     Salam Yasser
@@ -198,7 +234,7 @@ class ContentTestLoad extends Component {
                 <Email ref="nimaEmail" name="nimaEmail"/>
                 <Password name="nimaPassword"/>
                 <FruitDropDown/>
-                <button onClick={()=>this.props.getProfileAccountSetting(1010)}>Change Profile to something ;)</button>
+                <button onClick={this.changeProfile}>Change Profile to something ;)</button>
                 {/*<yell children="Nasser Jan">*/}
                 {/*<InfiniteScroll*/}
                 {/*pageStart={0}*/}
@@ -230,7 +266,7 @@ const mapStateToProps = (state, ownProps) => {
 
 // Maps actions to props
 const mapDispatchToProps = (dispatch) => {
-    console.log(dispatch, 'new', dispatch);
+    // console.log(dispatch, 'new', dispatch);
     return {
         // You can now say this.props.createBook
         getStories: filteringData => dispatch(storyAction.getStories(filteringData)),

@@ -109,13 +109,13 @@ class DefaultAdminPage extends Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
-    console.log(state, 'mapStateToProps default admin');
-    return {
-        // You can now say this.props.books
-        books: state.todoApp.todos
-    }
-};
+// const mapStateToProps = (state, ownProps) => {
+//     //console.log(state, 'mapStateToProps default admin');
+//     return {
+//         // You can now say this.props.books
+//         books: state.todoApp.todos
+//     }
+// };
 
 // Maps actions to props
 const mapDispatchToProps = (dispatch) => {
@@ -126,4 +126,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 // Use connect to put them together
-export default connect(mapStateToProps, mapDispatchToProps)(DefaultAdminPage);
+export default connect(mapDispatchToProps)(DefaultAdminPage);
+// export default connect(mapStateToProps, mapDispatchToProps)(DefaultAdminPage);

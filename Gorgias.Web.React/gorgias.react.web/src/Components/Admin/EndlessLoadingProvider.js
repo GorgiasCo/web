@@ -12,7 +12,7 @@ export default function (ComposedComponent) {
             this.state = {
                 hasMore: true,
             };
-            console.log(this.context, 'this.context login');
+            console.log(this.props.filteringData, 'EndlessLoadingProvider');
         }
 
         componentWillMount() {
@@ -28,12 +28,12 @@ export default function (ComposedComponent) {
         }
 
         loadItems = (page) => {
-            console.log(page, 'inside endless ;)', this.props.filterData);
             // this.props.filteringData.Page = page;
             if(this.props.filterData !== undefined){
                 let filteringData = this.props.filterData;
                 filteringData.Page = page;
                 this.props.getData(filteringData);
+                console.log(page, 'inside endless ;)', this.props.filterData);
             }
         }
 
@@ -52,7 +52,7 @@ export default function (ComposedComponent) {
             return (
                 <div style={{height: "700px", overflow: "auto"}}>
                     <InfiniteScroll
-                        pageStart={2}
+                        pageStart={1}
                         initialLoad={false}
                         loadMore={this.loadItems.bind(this)}
                         hasMore={this.props.hasMore}

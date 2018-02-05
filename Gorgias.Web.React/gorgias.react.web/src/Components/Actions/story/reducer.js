@@ -37,7 +37,7 @@ function story(state = [], action: Action) {
 }
 
 function stories(state = initialState.stories, action: Action) {
-    // console.log(action,'action');
+    console.log(action,'action stories');
     switch (action.type) {
         case storyAction.GET_STORIES:
             console.log('reducer  storyAction.AWESOME', action);
