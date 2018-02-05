@@ -10,6 +10,11 @@ import ProfileRowComponent from "../Admin/Profile/ProfileRowComponent";
 import ElementProvider from "../Admin/Form/ElementProvider";
 
 import {connect} from "react-redux";
+
+import { withFormik } from 'formik';
+import Yup from 'yup';
+import classnames from 'classnames';
+
 const imageList = [];
 const api = {
     baseUrl: 'https://api.soundcloud.com',
@@ -58,6 +63,146 @@ const FruitDropDown = ElementProvider(DropDown);
 
 const StoryEndless = EndlessLoadingProvider(StoryRowComponent);
 const ProfileEndless = EndlessLoadingProvider(ProfileRowComponent);
+
+
+const formikEnhancer = withFormik({
+    validationSchema: Yup.object().shape({
+        firstName: Yup.string()
+            .min(2, "C'mon, your name is longer than that")
+            .required('First name is required.'),
+        lastName: Yup.string()
+            .min(2, "C'mon, your name is longer than that")
+            .required('Last name is required.'),
+        email: Yup.string()
+            .email('Invalid email address')
+            .required('Email is required!'),
+    }),
+
+    mapPropsToValues: ({ user }) => ({
+        ...user,
+    }),
+    handleSubmit: (payload, { setSubmitting }) => {
+        console.log(payload,'formikEnhancer');
+        setSubmitting(false);
+    },
+    displayName: 'MyForm',
+});
+
+const InputFeedback = ({ error }) =>
+    error ? (
+        <div className="input-feedback">{error}</div>
+    ) : null;
+
+const Label = ({
+                   error,
+                   className,
+                   children,
+                   ...props
+               }) => {
+    return (
+        <label className="label" {...props}>
+            {children}
+        </label>
+    );
+};
+
+const TextInput = ({
+                       type,
+                       id,
+                       label,
+                       error,
+                       value,
+                       onChange,
+                       className,
+                       ...props
+                   }) => {
+    const classes = classnames(
+        'input-group',
+        {
+            'animated shake error': !!error,
+        },
+        className
+    );
+    return (
+        <div className={classes}>
+            <Label htmlFor={id} error={error}>
+                {label}
+            </Label>
+            <input
+                id={id}
+                className="text-input"
+                type={type}
+                value={value}
+                onChange={onChange}
+                {...props}
+            />
+            <InputFeedback error={error} />
+        </div>
+    );
+};
+const MyForm = props => {
+    const {
+        values,
+        touched,
+        errors,
+        dirty,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        handleReset,
+        isSubmitting,
+    } = props;
+    return (
+        <form onSubmit={handleSubmit}>
+            <TextInput
+                id="firstName"
+                type="text"
+                label="First Name"
+                placeholder="John"
+                error={touched.firstName && errors.firstName}
+                value={values.firstName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+            />
+            <TextInput
+                id="lastName"
+                type="text"
+                label="Last Name"
+                placeholder="Doe"
+                error={touched.lastName && errors.lastName}
+                value={values.lastName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+            />
+            <TextInput
+                id="email"
+                type="email"
+                label="Email"
+                placeholder="Enter your email"
+                error={touched.email && errors.email}
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+            />
+            <button
+                type="button"
+                className="outline"
+                onClick={handleReset}
+                disabled={!dirty || isSubmitting}
+            >
+                Reset
+            </button>
+            <button type="submit" disabled={isSubmitting}>
+                Submit
+            </button>
+        </form>
+    );
+};
+
+const MyEnhancedForm = formikEnhancer(MyForm);
+
+
+
 
 class ContentTestLoad extends Component {
     constructor(props) {
@@ -223,6 +368,11 @@ class ContentTestLoad extends Component {
                 {/*<StoryEndless useWindow={false} getData={this.props.getStories}  filteringData={this.state.filterData} data={this.props.stories}/>*/}
                 <ProfileEndless useWindow={false} getData={this.props.getStories} hasMore={this.props.storiesHasMore}  filterData={this.props.filterData}
                                 data={this.props.stories}/>
+
+                <MyEnhancedForm
+                    user={{ email: '', firstName: '', lastName: '' }}
+                />
+
                 <AngryTitle>
                     Salam Yasser
                 </AngryTitle>

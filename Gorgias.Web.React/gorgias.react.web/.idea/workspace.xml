@@ -21,9 +21,11 @@
       <file leaf-file-name="ContentTestLoad.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/TestPageSections/ContentTestLoad.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="119" column="0" lean-forward="true" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="311">
+              <caret line="84" column="43" lean-forward="false" selection-start-line="84" selection-start-column="43" selection-end-line="84" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/src/Components/Admin/Profile/ProfileRowComponent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+              <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -65,7 +67,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="372">
               <caret line="71" column="61" lean-forward="false" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
-              <folding />
+              <folding>
+                <marker date="1517808417821" expanded="true" signature="2586:3119" ph="{...}" />
+                <marker date="1517808417821" expanded="true" signature="2613:3117" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/src/Components/Actions/profile/action.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="541">
-              <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+              <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -107,7 +112,7 @@
         <entry file="file://$PROJECT_DIR$/src/Components/Actions/story/reducer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="612">
-              <caret line="68" column="24" lean-forward="true" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
+              <caret line="68" column="24" lean-forward="false" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
               <folding>
                 <element signature="e#42#80#0" expanded="true" />
               </folding>
@@ -119,10 +124,11 @@
         <entry file="file://$PROJECT_DIR$/src/Components/Admin/EndlessLoadingProvider.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-535">
-              <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+              <caret line="7" column="41" lean-forward="false" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#43#82#0" expanded="true" />
+                <marker date="1517803928486" expanded="true" signature="182:2507" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -215,8 +221,8 @@
         <option value="$PROJECT_DIR$/src/Components/DefaultAdminPage.js" />
         <option value="$PROJECT_DIR$/src/Components/Actions/story/reducer.js" />
         <option value="$PROJECT_DIR$/src/Components/Actions/profile/reducer.js" />
-        <option value="$PROJECT_DIR$/src/Components/TestPageSections/ContentTestLoad.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Profile/ProfileRowComponent.js" />
+        <option value="$PROJECT_DIR$/src/Components/TestPageSections/ContentTestLoad.js" />
       </list>
     </option>
   </component>
@@ -662,12 +668,12 @@
       <workItem from="1516936299751" duration="18154000" />
       <workItem from="1517211188116" duration="3507000" />
       <workItem from="1517281263139" duration="12586000" />
-      <workItem from="1517797426423" duration="13973000" />
+      <workItem from="1517797426423" duration="15630000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254686000" />
+    <option name="totallyTimeSpent" value="256343000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -1015,10 +1021,11 @@
     <entry file="file://$PROJECT_DIR$/src/Components/Admin/EndlessLoadingProvider.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-535">
-          <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+          <caret line="7" column="41" lean-forward="false" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#43#82#0" expanded="true" />
+            <marker date="1517803928486" expanded="true" signature="182:2507" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1063,7 +1070,7 @@
     <entry file="file://$PROJECT_DIR$/src/Components/Actions/story/reducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
-          <caret line="68" column="24" lean-forward="true" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
+          <caret line="68" column="24" lean-forward="false" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
           <folding>
             <element signature="e#42#80#0" expanded="true" />
           </folding>
@@ -1073,7 +1080,7 @@
     <entry file="file://$PROJECT_DIR$/src/Components/Actions/profile/action.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="541">
-          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1082,14 +1089,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="71" column="61" lean-forward="false" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
-          <folding />
+          <folding>
+            <marker date="1517808417821" expanded="true" signature="2586:3119" ph="{...}" />
+            <marker date="1517808417821" expanded="true" signature="2613:3117" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Admin/Profile/ProfileRowComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+          <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -1104,9 +1114,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/TestPageSections/ContentTestLoad.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="119" column="0" lean-forward="true" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="311">
+          <caret line="84" column="43" lean-forward="false" selection-start-line="84" selection-start-column="43" selection-end-line="84" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
