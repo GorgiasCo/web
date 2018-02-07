@@ -21,6 +21,7 @@ const DefaultAdminPageComponent = AuthenticationProvider(DefaultAdminPage);
 const LoginComponent = AuthenticationProvider(AccountContent);
 const AdminTestComponent = AuthenticationProvider(DefaultAdminPage);
 const AdminTest2Component = AuthenticationProvider(DefaultAdminPage);
+const AdminStoryManageComponent = AuthenticationProvider(DefaultAdminPage);
 
 
 export default class MainPage extends Component {
@@ -61,7 +62,8 @@ export default class MainPage extends Component {
                            component={() => <AdminTestComponent containerName="test" hasFooter={true}/>}/>
                     <Route exact path="/test2"
                            component={() => <AdminTest2Component containerName="test2" hasFooter={true}/>}/>
-
+                    <Route exact path="/admin/story"
+                           component={() => <AdminStoryManageComponent containerName="StoryManage" hasFooter={true}/>}/>
                 </div>
             </Router>
         )

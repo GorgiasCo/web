@@ -4,18 +4,17 @@
 import React, {Component} from "react";
 import AdminBurgerHeader from "./PageElements/AdminBurgerHeader";
 import Content from "./Home/Content";
-import Footer from "./PageElements/Footer";
 import ContentAbout from "./AboutPageSection/ContentAbout";
-import ContentAppstore from "./AppStoreSections/ContentAppstore";
 import ContentContact from "./ContactPageSections/ContentContact";
 import ContentTerms from "./TermsPageSections/ContentTerms";
 import ContentTest from "./TestPageSections/ContentTest";
 import ContentTestLoad from "./TestPageSections/ContentTestLoad";
+import StoryManage from "./Admin/Story/StoryManage"
 import {connect} from "react-redux";
 import * as todoActions from "../Components/Actions/ToDo/Action";
 class DefaultAdminPage extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             profileAccounts: false,
@@ -69,6 +68,11 @@ class DefaultAdminPage extends Component {
                     <ContentTest/>
                 )
                 break;
+            case "StoryManage":
+                return (
+                    <StoryManage/>
+                )
+                break;
             default:
                 return (
                     <Content/>
@@ -77,16 +81,16 @@ class DefaultAdminPage extends Component {
         }
     }
 
-    prepareProfileAccounts = (event) =>{
+    prepareProfileAccounts = (event) => {
         let {profileAccounts} = this.state;
-        console.log(profileAccounts,'prepareProfileAccounts');
+        console.log(profileAccounts, 'prepareProfileAccounts');
         this.setState({
             profileAccounts: !profileAccounts,
         })
         event.preventDefault();
     }
 
-    logout(event){
+    logout(event) {
         console.log('logout');
         event.preventDefault();
     }
@@ -102,7 +106,7 @@ class DefaultAdminPage extends Component {
                 <div id="Wrapper">
                     {this.prepareContainer()}
                     {/*{this.props.hasFooter ?*/}
-                        {/*<Footer/> : null }*/}
+                    {/*<Footer/> : null }*/}
                 </div>
             </div>
         );

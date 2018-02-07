@@ -1,17 +1,12 @@
+/**
+ * Created by yasser on 2/6/2018.
+ */
 import React, {Component} from "react";
-import * as storyAction from "../Actions/story/action";
-import * as profileAction from "../Actions/profile/action";
-import StoryRow from "../Admin/Story/StoryRow";
-
-import EndlessLoadingProvider from "../Admin/EndlessLoadingProvider";
-import StoryRowComponent from "../Admin/Story/StoryRowComponent";
-import ProfileRowComponent from "../Admin/Profile/ProfileRowComponent";
-
-import ElementProvider from "../Admin/Form/ElementProvider";
-
+import * as storyAction from "../../Actions/story/action";
+import * as profileAction from "../../Actions/profile/action";
+import ElementProvider from "../../Admin/Form/ElementProvider";
 import {connect} from "react-redux";
-
-import { withFormik } from 'formik';
+import { withFormik, Form, Field, FieldArray } from 'formik';
 import Yup from 'yup';
 import classnames from 'classnames';
 
@@ -59,11 +54,6 @@ const HappyTitle = yell(Title5);
 const Email = ElementProvider(InputEmail);
 const Password = ElementProvider(InputPassword);
 const FruitDropDown = ElementProvider(DropDown);
-
-
-const StoryEndless = EndlessLoadingProvider(StoryRowComponent);
-const ProfileEndless = EndlessLoadingProvider(ProfileRowComponent);
-
 
 const formikEnhancer = withFormik({
     validationSchema: Yup.object().shape({
@@ -184,6 +174,48 @@ const MyForm = props => {
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
+
+            <FieldArray
+                name="contents"
+                render={arrayHelpers => (
+                        values.contents && values.contents.length > 0 ? (
+                            values.contents.map((friend, index) => (
+                                <div>
+                                    <TextInput
+                                        id={`contents.${index}`}
+                                        type="text"
+                                        label="title"
+                                        placeholder="Enter your email"
+                                        value={friend.title}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                    />
+                                    {/*<Field name={`contents.${index}`} />*/}
+                                    <button
+                                        type="button"
+                                        onClick={() => arrayHelpers.remove(index)}
+                                    >-</button>
+                                    <button
+                                        type="button"
+                                        onClick={() => arrayHelpers.push({title: '', url: ''})}
+                                    >+</button>
+                                </div>
+                            ))
+                        ) : (
+                            <button
+                                type="button"
+                                onClick={() => arrayHelpers.push('')}
+                            >
+                                {/** show this when user has removed all friends from the list */}
+                                Add a friend
+                            </button>
+                        )
+                )}
+            />
+
+            {/*{values.contents.map(item=> {*/}
+                {/*return */}
+            {/*})}*/}
             <button
                 type="button"
                 className="outline"
@@ -204,34 +236,16 @@ const MyEnhancedForm = formikEnhancer(MyForm);
 
 
 
-class ContentTestLoad extends Component {
+class StoryManage extends Component {
     constructor(props) {
         super(props);
-        console.log('Avaaaaaal');
-
         this.state = {
             tracks: [],
-            hasMoreItems: true,
-            nextHref: null,
-            filterData: {
-                CategoryID: 12,//12 86
-                CategoryTypeID: 2,
-                ProfileID: 1011,
-                Page: 1,
-                Size: 30,
-                Languages: ["en"],
-                isMicroApp: false,
-                MicroAppProfileID:parseInt(1010),
-                // MicroAppProfileID:parseInt(this.props.profileAccountSetting.payload.ProfileID),
-            },
         };
     }
 
     componentDidMount() {
-        // this.loadItems(1);
-        //this.props.getStoriesOLD(1);
-        this.loadItemsRedux(1011);
-        console.log(this.state.filterData,'filterData',  this.props.profileAccountSetting);
+        this.loadItemRedux(1011);
     }
 
     // shouldComponentUpdate(nextProps, nextState) {
@@ -252,93 +266,11 @@ class ContentTestLoad extends Component {
 
     componentWillReceiveProps(nextProps){
         console.log(nextProps,'componentWillReceiveProps');
-        if(this.props.filterData !== undefined){
-            if(this.props.filterData.MicroAppProfileID !== nextProps.profileAccountSetting.payload.ProfileID){
-                console.log('updated ! ;) ', nextProps.profileAccountSetting.payload.ProfileID, this.props.filterData.MicroAppProfileID, this.props.filterData);
-                this.loadItemsRedux(123);
-                // if(this.props.profileAccountSetting.isLoading){
-                //
-                // }
-            }
-        }
     }
 
-    loadItemsRedux = (profileid) => {
-
-        //this.props.getProfileAccountSetting(profileid);
-        console.log('loadItemsRedux');
-
-        let filterData = this.state.filterData;
-        filterData.Page = 1;
-        filterData.CategoryID = 86;
-        filterData.isMicroApp = !filterData.isMicroApp;
-        filterData.MicroAppProfileID = parseInt(this.props.profileAccountSetting.payload.ProfileID);
-            // this.props.getStoriesOLD(page);
-        this.props.getStories(filterData);
+    loadItemRedux = (storyID) => {
+        console.log('story loadItemRedux', storyID);
     }
-
-    // loadItems = (page) => {
-    //     var self = this;
-    //
-    //     var url = 'https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Stories/Latest/10/' + page;
-    //     if (this.state.nextHref) {
-    //         url = 'https://gorgiasapp-v3.azurewebsites.net/api/Web/V2/Stories/Latest/10/' + page;
-    //     }
-    //
-    //     let filterData = this.state.filterData;
-    //     filterData.Page = page;
-    //     console.log(filterData, 'load more owl');
-    //
-    //     // Promise.all([
-    //     //     this.setState({
-    //     //         tracks: []
-    //     //     })
-    //     // ]).then(() => {
-    //     //     console.log('P DONE ;)');
-    //     // });
-    //
-    //
-    //     axios({
-    //         method: 'get',
-    //         url: url}
-    //         // data:{
-    //         //     client_id: api.client_id,
-    //         //     linked_partitioning: 1,
-    //         //     page_size: 10
-    //         // }}
-    //     )
-    //         .then(response => {
-    //             if(response) {
-    //                 var tracks = self.state.tracks;
-    //
-    //                 console.log(response,'Response');
-    //
-    //                 response.data.Result.Items.map((track) => {
-    //                     if(track.artwork_url === null) {
-    //                         track.artwork_url = track.user.avatar_url;
-    //                     }
-    //
-    //                     tracks.push(track);
-    //                 });
-    //
-    //                 this.setState({
-    //                     tracks: tracks,
-    //                     nextHref: true,
-    //                 });
-    //
-    //                 // if(response.next_href) {
-    //                 //     self.setState({
-    //                 //         tracks: tracks,
-    //                 //         nextHref: response.next_href
-    //                 //     });
-    //                 // } else {
-    //                 //     self.setState({
-    //                 //         hasMoreItems: false
-    //                 //     });
-    //                 // }
-    //             }
-    //         });
-    // }
 
     changeProfile = (event) => {
         console.log('changeProfile');
@@ -354,50 +286,25 @@ class ContentTestLoad extends Component {
         console.log('render rrrrrrr ;)', this.props.stories)
         const loader = <div className="loader">Loading ...</div>;
 
-
-        // var items = [];
-        // // this.state.tracks.map((track, i) => {
-        // this.props.stories.map((track, i) => {
-        //     items.push(
-        //         <StoryRow key={i} data={track}/>
-        //     );
-        // });
-
         return (
             <div>
-                {/*<StoryEndless useWindow={false} getData={this.props.getStories}  filteringData={this.state.filterData} data={this.props.stories}/>*/}
-                <ProfileEndless useWindow={false} getData={this.props.getStories} hasMore={this.props.storiesHasMore}  filterData={this.props.filterData}
-                                data={this.props.stories}/>
-
                 <MyEnhancedForm
-                    user={{ email: '', firstName: 'Yasser', lastName: '' }}
+                    user={{ email: 'yaser2us@gmail.com', firstName: 'Yasser', lastName: 'dfgfgfdgfd g dgdgfg df', contents: [{title:'hi', url:'url hi'},{title:'wowowowow', url:'url hi'},{title:'hi', url:'url hi'}] }}
                 />
 
-                <AngryTitle>
-                    Salam Yasser
-                </AngryTitle>
+                {/*<AngryTitle>*/}
+                    {/*Salam Yasser*/}
+                {/*</AngryTitle>*/}
 
-                <HappyTitle>
-                    Nima Jan Salam ;)
-                </HappyTitle>
+                {/*<HappyTitle>*/}
+                    {/*Nima Jan Salam ;)*/}
+                {/*</HappyTitle>*/}
 
-                <Email ref="nimaEmail" name="nimaEmail"/>
-                <Password name="nimaPassword"/>
-                <FruitDropDown/>
-                <button onClick={this.changeProfile}>Change Profile to something ;)</button>
-                {/*<yell children="Nasser Jan">*/}
-                {/*<InfiniteScroll*/}
-                {/*pageStart={0}*/}
-                {/*loadMore={this.loadItemsRedux.bind(this)}*/}
-                {/*hasMore={this.state.hasMoreItems}*/}
-                {/*threshold={20}*/}
-                {/*useWindow={true}*/}
-                {/*loader={loader}>*/}
-                {/*<div className="tracks">*/}
-                {/*{items}*/}
-                {/*</div>*/}
-                {/*</InfiniteScroll>*/}
-                {/*</yell>*/}
+                {/*<Email ref="nimaEmail" name="nimaEmail"/>*/}
+                {/*<Password name="nimaPassword"/>*/}
+                {/*<FruitDropDown/>*/}
+                {/*<button onClick={this.changeProfile}>Change Profile to something ;)</button>*/}
+
             </div>
         );
     }
@@ -427,4 +334,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 // Use connect to put them together
-export default connect(mapStateToProps, mapDispatchToProps)(ContentTestLoad);
+export default connect(mapStateToProps, mapDispatchToProps)(StoryManage);

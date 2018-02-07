@@ -8,7 +8,6 @@ import {connect} from "react-redux";
 import * as todoActions from "../Actions/ToDo/Action";
 import GoogleMapReact from "google-map-react";
 import httpRequest from "../Global/HTTP/httpRequest";
-import StoryList from '../Admin/Story/StoryList';
 
 const AnyReactComponent = ({text}) => <div>{ text }</div>;
 
@@ -28,7 +27,6 @@ let filterData = {
 };
 
 class ContentTest extends React.Component {
-
 
 
     constructor(props) {
@@ -68,7 +66,7 @@ class ContentTest extends React.Component {
 
     }
 
-    componentWillMount(){
+    componentWillMount() {
 
 
 
@@ -83,7 +81,6 @@ class ContentTest extends React.Component {
         //     console.log(this.props.stories, 'stories wow');
         // });
         //
-
 
 
         // console.log(this.props.getStories(filterData), 'getStories filtering data wow')
@@ -144,8 +141,8 @@ class ContentTest extends React.Component {
     }
 
     loadMoreStories = (e) => {
-        console.log(e,'OWL',e.item.count - 10 < e.item.index);
-        if(e.item.count - 10 < e.item.index){
+        console.log(e, 'OWL', e.item.count - 10 < e.item.index);
+        if (e.item.count - 10 < e.item.index) {
             filterData.Page = filterData.Page++;
             console.log(filterData, 'load more owl');
             this.props.getStories(filterData);
@@ -178,108 +175,106 @@ class ContentTest extends React.Component {
         let a = 5; //!this.props.storyLoading;
         if (5 === a) {
             return (
-            <StoryList />
+                <div id="Content" style={{backgroundColor: "#292929"}}>
+                    <div className="content_wrapper clearfix">
+                        <div className="sections_group">
+                            <div className="entry-content">
+                                <div className="section mcb-section tkSection-padding bg-color-1"
+                                     style={{paddingTop: 150 + "px"}}>
+                                    <div className="section_wrapper mcb-section-inner">
+                                        <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
+                                            <div className="mcb-wrap-inner">
+                                                <div className="column mcb-column one column_column">
+                                                    <div className="column_attr clearfix">
+                                                        <form onSubmit={this.handleSubmit}>
+                                                            <label>
+                                                                Pick your favorite La Croix flavor:
+                                                                <select name="fruit" value={this.state.fruit}
+                                                                        onChange={this.handleInputChange}>
+                                                                    <option value="grapefruit">Grapefruit</option>
+                                                                    <option value="lime">Lime</option>
+                                                                    <option value="coconut">Coconut</option>
+                                                                    <option value="mango">Mango</option>
+                                                                </select>
+                                                            </label>
+                                                            <label>
+                                                                Upload file:
+                                                                <input
+                                                                    type="file"
+                                                                    ref={input => {
+                                                                        this.fileInput = input;
+                                                                    }}
+                                                                />
+                                                            </label>
+                                                            <label>
+                                                                Is going:
+                                                                <input
+                                                                    name="isGoing"
+                                                                    type="checkbox"
+                                                                    checked={this.state.isGoing}
+                                                                    onChange={this.handleInputChange}/>
+                                                            </label>
+                                                            <br />
+                                                            <label>
+                                                                Number of guests:
+                                                                <input
+                                                                    name="numberOfGuests"
+                                                                    type="number"
+                                                                    value={this.state.numberOfGuests}
+                                                                    onChange={this.handleInputChange}/>
+                                                            </label>
+                                                            <section>
+                                                                <div className="dropzone">
+                                                                    <Dropzone
+                                                                        multiple={true}
+                                                                        onDrop={this.onDrop.bind(this)}>
+                                                                        <p>Try dropping some files here, or click to
+                                                                            select files to upload.</p>
+                                                                    </Dropzone>
+                                                                </div>
+                                                                {this.props.books !== undefined ?
+                                                                    <aside>
+                                                                        <h2>Dropped files</h2>
 
-            // <div id="Content" style={{backgroundColor: "#292929"}}>
-            //         <div className="content_wrapper clearfix">
-            //             <div className="sections_group">
-            //                 <div className="entry-content">
-            //                     <div className="section mcb-section tkSection-padding bg-color-1"
-            //                          style={{paddingTop: 150 + "px"}}>
-            //                         <div className="section_wrapper mcb-section-inner">
-            //                             <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
-            //                                 <div className="mcb-wrap-inner">
-            //                                     <div className="column mcb-column one column_column">
-            //                                         <div className="column_attr clearfix">
-            //                                             <form onSubmit={this.handleSubmit}>
-            //                                                 <label>
-            //                                                     Pick your favorite La Croix flavor:
-            //                                                     <select name="fruit" value={this.state.fruit}
-            //                                                             onChange={this.handleInputChange}>
-            //                                                         <option value="grapefruit">Grapefruit</option>
-            //                                                         <option value="lime">Lime</option>
-            //                                                         <option value="coconut">Coconut</option>
-            //                                                         <option value="mango">Mango</option>
-            //                                                     </select>
-            //                                                 </label>
-            //                                                 <label>
-            //                                                     Upload file:
-            //                                                     <input
-            //                                                         type="file"
-            //                                                         ref={input => {
-            //                                                             this.fileInput = input;
-            //                                                         }}
-            //                                                     />
-            //                                                 </label>
-            //                                                 <label>
-            //                                                     Is going:
-            //                                                     <input
-            //                                                         name="isGoing"
-            //                                                         type="checkbox"
-            //                                                         checked={this.state.isGoing}
-            //                                                         onChange={this.handleInputChange}/>
-            //                                                 </label>
-            //                                                 <br />
-            //                                                 <label>
-            //                                                     Number of guests:
-            //                                                     <input
-            //                                                         name="numberOfGuests"
-            //                                                         type="number"
-            //                                                         value={this.state.numberOfGuests}
-            //                                                         onChange={this.handleInputChange}/>
-            //                                                 </label>
-            //                                                 <section>
-            //                                                     <div className="dropzone">
-            //                                                         <Dropzone
-            //                                                             multiple={true}
-            //                                                             onDrop={this.onDrop.bind(this)}>
-            //                                                             <p>Try dropping some files here, or click to
-            //                                                                 select files to upload.</p>
-            //                                                         </Dropzone>
-            //                                                     </div>
-            //                                                     {this.props.books !== undefined ?
-            //                                                         <aside>
-            //                                                             <h2>Dropped files</h2>
-            //
-            //                                                             <ul>
-            //                                                                 {
-            //                                                                     this.props.books.map(f => <li
-            //                                                                         key={f.text}>{f.text}</li>)
-            //                                                                 }
-            //                                                             </ul>
-            //                                                             <div>{this.props.books.map((file) => <img
-            //                                                                 key={file.text} src={file.text}/>)}</div>
-            //
-            //                                                         </aside>
-            //                                                         : null }
-            //                                                 </section>
-            //                                                 <div style={{
-            //                                                     width: 600,
-            //                                                     backgroundColor: "#000000",
-            //                                                     height: 500
-            //                                                 }}>
-            //                                                     <GoogleMapReact
-            //                                                         defaultCenter={ this.state.center }
-            //                                                         defaultZoom={ this.state.zoom }>
-            //                                                         <AnyReactComponent
-            //                                                             lat={ 40.7473310 }
-            //                                                             lng={ -73.8517440 }
-            //                                                             text={ 'Where Waldo?' }
-            //                                                         />
-            //                                                     </GoogleMapReact>
-            //                                                 </div>
-            //                                                 <input type="submit" value="Submit"/>
-            //                                             </form>
-            //                                         </div>
-            //                                     </div>
-            //                                 </div>
-            //                             </div>
-            //                         </div>
-            //                     </div>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //     </div>
+                                                                        <ul>
+                                                                            {
+                                                                                this.props.books.map(f => <li
+                                                                                    key={f.text}>{f.text}</li>)
+                                                                            }
+                                                                        </ul>
+                                                                        <div>{this.props.books.map((file) => <img
+                                                                            key={file.text} src={file.text}/>)}</div>
+
+                                                                    </aside>
+                                                                    : null }
+                                                            </section>
+                                                            <div style={{
+                                                                width: 600,
+                                                                backgroundColor: "#000000",
+                                                                height: 500
+                                                            }}>
+                                                                <GoogleMapReact
+                                                                    defaultCenter={ this.state.center }
+                                                                    defaultZoom={ this.state.zoom }>
+                                                                    <AnyReactComponent
+                                                                        lat={ 40.7473310 }
+                                                                        lng={ -73.8517440 }
+                                                                        text={ 'Where Waldo?' }
+                                                                    />
+                                                                </GoogleMapReact>
+                                                            </div>
+                                                            <input type="submit" value="Submit"/>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             );
         } else {
             return (
