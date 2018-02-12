@@ -294,7 +294,7 @@ const mapStateToProps = (state, ownProps) => {
     console.log(state, 'mapStateToProps test wow');
     return {
         // You can now say this.props.books
-        // books: state.todoApp.todos,
+        books: state.todoApp.todos,
         // // stories: state.storyManager.stories,
         // storyLoading: state.storyManager.loading,
         // profileSettings: state.authentication.authentication,
