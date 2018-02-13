@@ -358,7 +358,20 @@ const TextArea = ({
     );
 };
 
-
+const CustomInputComponent: React.SFC<FieldProps<Values> & CustomInputProps> = ({
+    field, // { name, value, onChange, onBlur }
+    form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+    ...props
+}) => (
+    <div>
+        <input
+            type="text"
+            {...field}
+            {...props}
+        />
+        {touched[field.name] && errors[field.name] && <div className="error">{errors[field.name]}</div>}
+    </div>
+)
 
 const MyForm = props => {
     const {
@@ -491,19 +504,56 @@ const MyForm = props => {
                     values.friends && values.friends.length > 0 ? (
                         values.friends.map((friend, index) => (
                             <div key={index}>
+                                <Field name={`friends.${index}.name`} component={CustomInputComponent}  />
+                                <Field component="select" name={`friends.${index}.ContentTypeID`} >
+                                    <option value="2">Red</option>
+                                    <option value="21">Green</option>
+                                    <option value="345">Blue</option>
+                                </Field>
+                                <Field name={`friends.${index}.name`} render={({ field, /* _form */ }) =>
+                                    <img {...field} src={field.value} style={{width:200}} placeholder="firstName" />
+                                } />
+
+                                <MyDropZone
+                                    error={errors.ProfilePhoto}
+                                    touched={touched.ProfilePhoto}
+                                    valueName={`friends.${index}.name`}
+                                    onChange={setFieldValue}
+                                    onBlur={setFieldTouched}
+                                >
+                                </MyDropZone>
+
+                                <button
+                                    type="button"
+                                    onClick={() => arrayHelpers.remove(index)}
+                                >
+                                    -
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => arrayHelpers.insert(index, {
+                                        name:'yasser',
+                                        ContentTypeID:0,
+                                        description: 'https://www.facebook.com/ashkan.rastghamatian',
+
+                                    })}
+                                >
+                                    +
+                                </button>
                                 {/*<Field name={`friends.${index}.name`} />*/}
                                 {/*<Field name={`friends.${index}.description`} />*/}
-                                <TextInput
-                                    id={`friends.${index}.name`}
-                                    type="text"
-                                    label="Friend name"
-                                    placeholder="Bio"
-                                    // error={touched.ProfileShortDescription && errors.ProfileShortDescription}
-                                    value={`friends.${index}.name`}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                />
-                                {/*<button*/}
+                                {/*<TextInput*/}
+                                    {/*id={`friends[${index}].name`}*/}
+                                    {/*name={`friends[${index}].name`}*/}
+                                    {/*type="text"*/}
+                                    {/*label="Friend name"*/}
+                                    {/*placeholder="Bio"*/}
+                                    {/*// error={touched.ProfileShortDescription && errors.ProfileShortDescription}*/}
+                                    {/*value={`friends[${index}].name`}*/}
+                                    {/*onChange={handleChange}*/}
+                                    {/*onBlur={handleBlur}*/}
+                                {/*/>*/}
+                                {/*/!*<button*!/*/}
                                 {/*type="button"*/}
                                 {/*onClick={() => unshift(index)}*/}
                                 {/*>*/}
@@ -669,7 +719,23 @@ class ProfileManageComponent extends Component {
                                             SubscriptionTypeID: undefined,
                                             ThemeID: undefined,
                                             ProfilePhoto: "",
-                                            friends: [{name:'yasser',description: 'https://www.facebook.com/ashkan.rastghamatian'},{name:'Nasser', description:'wowow'},{name:'niloofar', description:'lol ;)'}]
+                                            friends: [
+                                                {
+                                                    name:'yasser',
+                                                    ContentTypeID:0,
+                                                    description: 'https://www.facebook.com/ashkan.rastghamatian',
+
+                                                },
+                                                {
+                                                    name:'Nasser',
+                                                    ContentTypeID:0,
+                                                    description:'wowow',
+                                                },
+                                                {
+                                                    name:'niloofar',
+                                                    description:'lol ;)',
+                                                    ContentTypeID:0,
+                                                }]
                                             // topics:{value: "Kittens", label: "Being Fabulous"},
                                             // topics:{value: "Kittens"},
                                         }}
