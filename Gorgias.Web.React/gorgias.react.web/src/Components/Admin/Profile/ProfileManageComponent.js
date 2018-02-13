@@ -215,16 +215,16 @@ class MyDropZone extends React.Component {
                 </Dropzone>
 
                 {/*<Select*/}
-                    {/*id="color"*/}
-                    {/*options={optionsProfileTypes}*/}
-                    {/*multi={false}*/}
-                    {/*onChange={this.handleChange}*/}
-                    {/*onBlur={this.handleBlur}*/}
-                    {/*value={this.props.value}*/}
-                    {/*valueKey={this.props.valueKey}*/}
-                    {/*labelKey={this.props.labelKey}*/}
-                    {/*matchProp={this.props.matchProp}*/}
-                    {/*disabled={this.props.disabled}*/}
+                {/*id="color"*/}
+                {/*options={optionsProfileTypes}*/}
+                {/*multi={false}*/}
+                {/*onChange={this.handleChange}*/}
+                {/*onBlur={this.handleBlur}*/}
+                {/*value={this.props.value}*/}
+                {/*valueKey={this.props.valueKey}*/}
+                {/*labelKey={this.props.labelKey}*/}
+                {/*matchProp={this.props.matchProp}*/}
+                {/*disabled={this.props.disabled}*/}
                 {/*/>*/}
                 {!!this.props.error &&
                 this.props.touched && (
@@ -271,15 +271,15 @@ const formikEnhancer = withFormik({
 
 const InputFeedback = ({error}) =>
     error ? (
-        <div className="input-feedback">{error}</div>
-    ) : null;
+            <div className="input-feedback">{error}</div>
+        ) : null;
 
 const Label = ({
-                   error,
-                   className,
-                   children,
-                   ...props
-               }) => {
+    error,
+    className,
+    children,
+    ...props
+}) => {
     return (
         <label className="label" {...props}>
             {children}
@@ -288,15 +288,15 @@ const Label = ({
 };
 
 const TextInput = ({
-                       type,
-                       id,
-                       label,
-                       error,
-                       value,
-                       onChange,
-                       className,
-                       ...props
-                   }) => {
+    type,
+    id,
+    label,
+    error,
+    value,
+    onChange,
+    className,
+    ...props
+}) => {
     const classes = classnames(
         'input-group',
         {
@@ -323,15 +323,15 @@ const TextInput = ({
 };
 
 const TextArea = ({
-                      type,
-                      id,
-                      label,
-                      error,
-                      value,
-                      onChange,
-                      className,
-                      ...props
-                  }) => {
+    type,
+    id,
+    label,
+    error,
+    value,
+    onChange,
+    className,
+    ...props
+}) => {
     const classes = classnames(
         'input-group',
         {
@@ -360,7 +360,7 @@ const TextArea = ({
 
 const CustomInputComponent: React.SFC<FieldProps<Values> & CustomInputProps> = ({
     field, // { name, value, onChange, onBlur }
-    form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+    form: {touched, errors}, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
     ...props
 }) => (
     <div>
@@ -386,7 +386,8 @@ const MyForm = props => {
         setFieldValue,
         setFieldTouched,
         isSubmitting,
-        onDrop
+        onDrop,
+        arrayHelpers
     } = props;
     return (
         <form onSubmit={handleSubmit}>
@@ -498,21 +499,48 @@ const MyForm = props => {
             >
             </MyDropZone>
             {/*<FriendList/>*/}
+
+            <button
+                type="button"
+                onClick={() => values.friends.push({
+                    name: 'yasser',
+                    ContentTypeID: 0,
+                    description: 'https://www.facebook.com/ashkan.rastghamatian',
+
+                })}
+            >
+                +++
+            </button>
             <FieldArray
                 name="friends"
                 render={arrayHelpers => (
-                    values.friends && values.friends.length > 0 ? (
-                        values.friends.map((friend, index) => (
-                            <div key={index}>
-                                <Field name={`friends.${index}.name`} component={CustomInputComponent}  />
-                                <Field component="select" name={`friends.${index}.ContentTypeID`} >
+                    values.friends && values.friends.length > 0 ?
+
+                        (<div>
+                                <button
+                                    type="button"
+                                    onClick={() => arrayHelpers.insert(values.friends.length, {
+                                        name: 'yasser',
+                                        ContentTypeID: 0,
+                                        description: 'https://www.facebook.com/ashkan.rastghamatian',
+
+                                    })}
+                                >
+                                    ++++++++
+                                </button>
+
+                            {values.friends.map((friend, index) => (
+
+                                <div key={index}>
+                                <Field name={`friends.${index}.name`} component={CustomInputComponent}/>
+                                <Field component="select" name={`friends.${index}.ContentTypeID`}>
                                     <option value="2">Red</option>
                                     <option value="21">Green</option>
                                     <option value="345">Blue</option>
                                 </Field>
-                                <Field name={`friends.${index}.name`} render={({ field, /* _form */ }) =>
-                                    <img {...field} src={field.value} style={{width:200}} placeholder="firstName" />
-                                } />
+                                <Field name={`friends.${index}.name`} render={({field, /* _form */}) =>
+                                    <img {...field} src={field.value} style={{width: 200}} placeholder="firstName"/>
+                                }/>
 
                                 <MyDropZone
                                     error={errors.ProfilePhoto}
@@ -529,54 +557,27 @@ const MyForm = props => {
                                 >
                                     -
                                 </button>
-                                <button
-                                    type="button"
-                                    onClick={() => arrayHelpers.insert(index, {
-                                        name:'yasser',
-                                        ContentTypeID:0,
-                                        description: 'https://www.facebook.com/ashkan.rastghamatian',
 
-                                    })}
-                                >
-                                    +
-                                </button>
-                                {/*<Field name={`friends.${index}.name`} />*/}
-                                {/*<Field name={`friends.${index}.description`} />*/}
-                                {/*<TextInput*/}
-                                    {/*id={`friends[${index}].name`}*/}
-                                    {/*name={`friends[${index}].name`}*/}
-                                    {/*type="text"*/}
-                                    {/*label="Friend name"*/}
-                                    {/*placeholder="Bio"*/}
-                                    {/*// error={touched.ProfileShortDescription && errors.ProfileShortDescription}*/}
-                                    {/*value={`friends[${index}].name`}*/}
-                                    {/*onChange={handleChange}*/}
-                                    {/*onBlur={handleBlur}*/}
-                                {/*/>*/}
-                                {/*/!*<button*!/*/}
-                                {/*type="button"*/}
-                                {/*onClick={() => unshift(index)}*/}
-                                {/*>*/}
-                                {/*-*/}
-                                {/*</button>*/}
-                                {/*<button*/}
-                                {/*type="button"*/}
-                                {/*onClick={() => insert(index, {name: ''})}*/}
-                                {/*>*/}
-                                {/*+*/}
-                                {/*</button>*/}
                             </div>
-                        ))
-                    ) : (
-                        <button
-                            type="button"
-                            // onClick={() => push('')}
-                        >
-                            {/** show this when user has removed all friends from the list */}
-                            Add a friend
-                        </button>
-                    )
-                )}
+                                )
+                            )}
+                            </div>
+
+                        ) : (
+                            <button
+                                type="button"
+                                onClick={() => arrayHelpers.insert(0, {
+                                    name: 'yasser',
+                                    ContentTypeID: 0,
+                                    description: 'https://www.facebook.com/ashkan.rastghamatian',
+
+                                })}
+                            >
+                                ++++++++
+                            </button>
+
+                        )
+                            )}
             />
 
             <button
@@ -721,20 +722,20 @@ class ProfileManageComponent extends Component {
                                             ProfilePhoto: "",
                                             friends: [
                                                 {
-                                                    name:'yasser',
-                                                    ContentTypeID:0,
+                                                    name: 'yasser',
+                                                    ContentTypeID: 0,
                                                     description: 'https://www.facebook.com/ashkan.rastghamatian',
 
                                                 },
                                                 {
-                                                    name:'Nasser',
-                                                    ContentTypeID:0,
-                                                    description:'wowow',
+                                                    name: 'Nasser',
+                                                    ContentTypeID: 0,
+                                                    description: 'wowow',
                                                 },
                                                 {
-                                                    name:'niloofar',
-                                                    description:'lol ;)',
-                                                    ContentTypeID:0,
+                                                    name: 'niloofar',
+                                                    description: 'lol ;)',
+                                                    ContentTypeID: 0,
                                                 }]
                                             // topics:{value: "Kittens", label: "Being Fabulous"},
                                             // topics:{value: "Kittens"},
@@ -755,14 +756,14 @@ class ProfileManageComponent extends Component {
 // let values = { friends: ['jared', 'ian', 'brent'] };
 
 export const MyDynamicForm = ({
-                                  move, swap, push, insert, unshift, pop, form,values
-                              }) => (
+    move, swap, push, insert, unshift, pop, form, values
+}) => (
     <Form>
         {values.friends && values.friends.length > 0 ? (
-            values.friends.map((friend, index) => (
-                <div key={index}>
-                    <Field name={`friends.${index}.name`} />
-                    {/*<TextInput*/}
+                values.friends.map((friend, index) => (
+                    <div key={index}>
+                        <Field name={`friends.${index}.name`}/>
+                        {/*<TextInput*/}
                         {/*id="ProfileShortDescription"*/}
                         {/*type="text"*/}
                         {/*label="Short Description"*/}
@@ -771,32 +772,32 @@ export const MyDynamicForm = ({
                         {/*value={`friends.${index}.name`}*/}
                         {/*// onChange={handleChange}*/}
                         {/*// onBlur={handleBlur}*/}
-                    {/*/>*/}
-                    <button
-                        type="button"
-                        onClick={() => unshift(index)}
-                    >
-                        -
-                    </button>
-                    <button
-                        type="button"
-                        onClick={() => insert(index, {name: ''})}
-                    >
-                        +
-                    </button>
-                </div>
-            ))
-        ) : (
-            <button
-                type="button"
-                onClick={() => push('')}
-            >
-                {/** show this when user has removed all friends from the list */}
-                Add a friend
-            </button>
-        )}
+                        {/*/>*/}
+                        <button
+                            type="button"
+                            onClick={() => unshift(index)}
+                        >
+                            -
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => insert(index, {name: ''})}
+                        >
+                            +
+                        </button>
+                    </div>
+                ))
+            ) : (
+                <button
+                    type="button"
+                    onClick={() => push('')}
+                >
+                    {/** show this when user has removed all friends from the list */}
+                    Add a friend
+                </button>
+            )}
         {/*<div>*/}
-            {/*<button type="submit">Submit</button>*/}
+        {/*<button type="submit">Submit</button>*/}
         {/*</div>*/}
     </Form>
 );
@@ -805,7 +806,7 @@ export const FriendList = () => (
     <div>
         <h1>Friend List</h1>
         <Formik
-            initialValues={{ friends: [{name:'yasser'},{name:'Nasser'},{name:'niloofar'}] }}
+            initialValues={{friends: [{name: 'yasser'}, {name: 'Nasser'}, {name: 'niloofar'}]}}
             onSubmit={values =>
                 setTimeout(() => {
                     alert(JSON.stringify(values, null, 2));
