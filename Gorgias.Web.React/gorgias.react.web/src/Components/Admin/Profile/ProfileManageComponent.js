@@ -5,12 +5,13 @@ import React, {Component} from "react";
 import * as storyAction from "../../Actions/story/action";
 import * as profileAction from "../../Actions/profile/action";
 import {connect} from "react-redux";
-import { withFormik } from 'formik';
-import Yup from 'yup';
-import classnames from 'classnames';
-import Select from 'react-select';
-import 'react-select/dist/react-select.css';
-import axios from 'axios';
+import {withFormik} from "formik";
+import Yup from "yup";
+import classnames from "classnames";
+import Select from "react-select";
+import "react-select/dist/react-select.css";
+import axios from "axios";
+import Dropzone from "react-dropzone";
 
 const DropDown = (props) =>
     <select {...props.name}>
@@ -21,29 +22,29 @@ const DropDown = (props) =>
     </select>
 
 const options = [
-    { value: 'Food', label: 'Food' },
-    { value: 'Being Fabulous', label: 'Being Fabulous' },
-    { value: 'Ken Wheeler', label: 'Ken Wheeler' },
-    { value: 'ReasonML', label: 'ReasonML' },
-    { value: 'Unicorns', label: 'Unicorns' },
-    { value: 'Kittens', label: 'Kittens' },
+    {value: 'Food', label: 'Food'},
+    {value: 'Being Fabulous', label: 'Being Fabulous'},
+    {value: 'Ken Wheeler', label: 'Ken Wheeler'},
+    {value: 'ReasonML', label: 'ReasonML'},
+    {value: 'Unicorns', label: 'Unicorns'},
+    {value: 'Kittens', label: 'Kittens'},
 ];
 
 const optionsProfileTypes = [
-    { value: 1, label: 'Food' },
-    { value: 2, label: 'Being Fabulous' },
-    { value: 3, label: 'Ken Wheeler' },
-    { value: 4, label: 'ReasonML' },
-    { value: 5, label: 'Unicorns' },
-    { value: 6, label: 'Kittens' },
+    {value: 1, label: 'Food'},
+    {value: 2, label: 'Being Fabulous'},
+    {value: 3, label: 'Ken Wheeler'},
+    {value: 4, label: 'ReasonML'},
+    {value: 5, label: 'Unicorns'},
+    {value: 6, label: 'Kittens'},
 ];
 
 class MySelectAsync extends React.Component {
     handleChange = value => {
         // this is going to call setFieldValue and manually update values.topcis
-        if(value !== null){
-            console.log(value.KeyID, 'handleChange MySelect');
-            this.props.onChange(this.props.valueName, value.KeyID);
+        if (value !== null) {
+            console.log(value[this.props.valueKey], 'handleChange MySelect');
+            this.props.onChange(this.props.valueName, value[this.props.valueKey]);
         }
     };
 
@@ -52,7 +53,7 @@ class MySelectAsync extends React.Component {
         this.props.onBlur(this.props.valueName, true);
     };
 
-    getContributors = (input, callback)  => {
+    getContributors = (input, callback) => {
         const url = "https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/" + input;
         axios({
             method: 'get',
@@ -77,7 +78,7 @@ class MySelectAsync extends React.Component {
 
     render() {
         return (
-            <div style={{ margin: '1rem 0' }}>
+            <div style={{margin: '1rem 0'}}>
                 <label htmlFor="color">
                     Topics (select at least 3){' '}
                 </label>
@@ -96,7 +97,7 @@ class MySelectAsync extends React.Component {
                 />
                 {!!this.props.error &&
                 this.props.touched && (
-                    <div style={{ color: 'red', marginTop: '.5rem' }}>
+                    <div style={{color: 'red', marginTop: '.5rem'}}>
                         {this.props.error}
                     </div>
                 )}
@@ -108,22 +109,22 @@ class MySelectAsync extends React.Component {
 class MySelect extends React.Component {
     handleChange = value => {
         // this is going to call setFieldValue and manually update values.topcis
-        if(value !== null) {
-            console.log(value.value, 'handleChange MySelect');
-            this.props.onChange('SubscribeTypeID', value.value);
+        if (value !== null) {
+            console.log(value[this.props.valueKey], 'handleChange MySelect');
+            this.props.onChange(this.props.valueName, value[this.props.valueKey]);
         }
     };
 
     handleBlur = () => {
         // this is going to call setFieldTouched and manually update touched.topcis
-        this.props.onBlur('SubscribeTypeID', true);
+        this.props.onBlur(this.props.valueName, true);
     };
 
     render() {
         return (
-            <div style={{ margin: '1rem 0' }}>
+            <div style={{margin: '1rem 0'}}>
                 <label htmlFor="color">
-                    Topics (select at least 3){' '}
+                    {this.props.label}
                 </label>
                 <Select
                     id="color"
@@ -139,7 +140,57 @@ class MySelect extends React.Component {
                 />
                 {!!this.props.error &&
                 this.props.touched && (
-                    <div style={{ color: 'red', marginTop: '.5rem' }}>
+                    <div style={{color: 'red', marginTop: '.5rem'}}>
+                        {this.props.error}
+                    </div>
+                )}
+            </div>
+        );
+    }
+}
+
+class MyDropZone extends React.Component {
+    handleChange = value => {
+        // this is going to call setFieldValue and manually update values.topcis
+        if (value !== null) {
+            console.log(value, 'handleChange MySelect');
+            this.props.onChange(this.props.valueName, value[0].preview);
+        }
+    };
+
+    handleBlur = () => {
+        // this is going to call setFieldTouched and manually update touched.topcis
+        this.props.onBlur(this.props.valueName, true);
+    };
+
+    render() {
+        return (
+            <div style={{margin: '1rem 0'}}>
+                <label htmlFor="color">
+                    {this.props.label}
+                </label>
+                <Dropzone
+                    multiple={true}
+                    onDrop={this.handleChange}>
+                    <p>Try dropping some files here, or click to
+                        select files to upload.</p>
+                </Dropzone>
+
+                {/*<Select*/}
+                    {/*id="color"*/}
+                    {/*options={optionsProfileTypes}*/}
+                    {/*multi={false}*/}
+                    {/*onChange={this.handleChange}*/}
+                    {/*onBlur={this.handleBlur}*/}
+                    {/*value={this.props.value}*/}
+                    {/*valueKey={this.props.valueKey}*/}
+                    {/*labelKey={this.props.labelKey}*/}
+                    {/*matchProp={this.props.matchProp}*/}
+                    {/*disabled={this.props.disabled}*/}
+                {/*/>*/}
+                {!!this.props.error &&
+                this.props.touched && (
+                    <div style={{color: 'red', marginTop: '.5rem'}}>
                         {this.props.error}
                     </div>
                 )}
@@ -154,7 +205,7 @@ const formikEnhancer = withFormik({
         ProfileFullname: Yup.string()
             .min(2, "C'mon, your name is longer than that")
             .required('First name is required.'),
-        ProfileFullnameEn: Yup.string()
+        ProfileFullnameEnglish: Yup.string()
             .min(2, "C'mon, your name is longer than that")
             .required('Last name is required.'),
         ProfileEmail: Yup.string()
@@ -163,30 +214,34 @@ const formikEnhancer = withFormik({
         ProfileDescription: Yup.string()
             .min(70, "C'mon, your name is longer than that"),
         ProfileShortDescription: Yup.string()
-            .min(70, "C'mon, your name is longer than that")
+            .min(70, "C'mon, your name is longer than that"),
+        SubscriptionTypeID: Yup.number()
+            .required('Subscription is required'),
+        ProfilePhoto: Yup.string()
+            .required('where is the photo'),
     }),
 
-    mapPropsToValues: ({ user }) => ({
+    mapPropsToValues: ({user}) => ({
         ...user,
     }),
-    handleSubmit: (payload, { setSubmitting }) => {
-        console.log(payload,'formikEnhancer');
+    handleSubmit: (payload, {setSubmitting}) => {
+        console.log(payload, 'formikEnhancer');
         setSubmitting(false);
     },
     displayName: 'MyForm',
 });
 
-const InputFeedback = ({ error }) =>
+const InputFeedback = ({error}) =>
     error ? (
-            <div className="input-feedback">{error}</div>
-        ) : null;
+        <div className="input-feedback">{error}</div>
+    ) : null;
 
 const Label = ({
-    error,
-    className,
-    children,
-    ...props
-}) => {
+                   error,
+                   className,
+                   children,
+                   ...props
+               }) => {
     return (
         <label className="label" {...props}>
             {children}
@@ -195,15 +250,15 @@ const Label = ({
 };
 
 const TextInput = ({
-    type,
-    id,
-    label,
-    error,
-    value,
-    onChange,
-    className,
-    ...props
-}) => {
+                       type,
+                       id,
+                       label,
+                       error,
+                       value,
+                       onChange,
+                       className,
+                       ...props
+                   }) => {
     const classes = classnames(
         'input-group',
         {
@@ -224,10 +279,49 @@ const TextInput = ({
                 onChange={onChange}
                 {...props}
             />
-            <InputFeedback error={error} />
+            <InputFeedback error={error}/>
         </div>
     );
 };
+
+const TextArea = ({
+                      type,
+                      id,
+                      label,
+                      error,
+                      value,
+                      onChange,
+                      className,
+                      ...props
+                  }) => {
+    const classes = classnames(
+        'input-group',
+        {
+            'animated shake error': !!error,
+        },
+        className
+    );
+    return (
+        <div className={classes}>
+            <Label htmlFor={id} error={error}>
+                {label}
+            </Label>
+            <textarea
+                rows="5"
+                id={id}
+                className="text-input"
+                type={type}
+                value={value}
+                onChange={onChange}
+                {...props}
+            />
+            <InputFeedback error={error}/>
+        </div>
+    );
+};
+
+
+
 const MyForm = props => {
     const {
         values,
@@ -241,6 +335,7 @@ const MyForm = props => {
         setFieldValue,
         setFieldTouched,
         isSubmitting,
+        onDrop
     } = props;
     return (
         <form onSubmit={handleSubmit}>
@@ -255,16 +350,16 @@ const MyForm = props => {
                 onBlur={handleBlur}
             />
             <TextInput
-                id="ProfileFullnameEn"
+                id="ProfileFullnameEnglish"
                 type="text"
                 label="English Fullname"
                 placeholder="Doe"
-                error={touched.ProfileFullnameEn && errors.ProfileFullnameEn}
-                value={values.ProfileFullnameEn}
+                error={touched.ProfileFullnameEnglish && errors.ProfileFullnameEnglish}
+                value={values.ProfileFullnameEnglish}
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
-            <TextInput
+            <TextArea
                 id="ProfileDescription"
                 type="text"
                 label="Description"
@@ -285,26 +380,51 @@ const MyForm = props => {
                 onBlur={handleBlur}
             />
             <TextInput
+                id="ProfileURL"
+                type="text"
+                label="Short Description"
+                placeholder="Bio"
+                // error={touched.ProfileURL && errors.ProfileURL}
+                value={values.ProfileURL}
+                onChange={handleChange}
+                onBlur={handleBlur}
+            />
+            <TextInput
                 id="ProfileEmail"
                 type="email"
                 label="Email"
                 placeholder="Enter your email"
-                error={touched.ProfileEmail && errors.ProfileEmail}
+                // error={touched.ProfileEmail && errors.ProfileEmail}
                 value={values.ProfileEmail}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 disabled
             />
             <MySelect
-                value={values.SubscribeTypeID}
+                valueName="SubscriptionTypeID"
+                value={values.SubscriptionTypeID}
                 onChange={setFieldValue}
                 onBlur={setFieldTouched}
-                error={errors.SubscribeTypeID}
-                touched={touched.SubscribeTypeID}
+                error={errors.SubscriptionTypeID}
+                touched={touched.SubscriptionTypeID}
                 disabled={false}
                 matchProp="value"
                 valueKey="value"
                 labelKey="label"
+                label="Subscription"
+            />
+            <MySelect
+                valueName="ThemeID"
+                value={values.ThemeID}
+                onChange={setFieldValue}
+                onBlur={setFieldTouched}
+                error={errors.ThemeID}
+                touched={touched.ThemeID}
+                disabled={false}
+                matchProp="value"
+                valueKey="value"
+                labelKey="label"
+                label="Theme"
             />
             <MySelectAsync
                 valueName="ProfileTypeID"
@@ -318,6 +438,14 @@ const MyForm = props => {
                 valueKey="KeyID"
                 labelKey="KeyName"
             />
+            <MyDropZone
+                error={errors.ProfilePhoto}
+                touched={touched.ProfilePhoto}
+                valueName="ProfilePhoto"
+                onChange={setFieldValue}
+                onBlur={setFieldTouched}
+            >
+            </MyDropZone>
             <button
                 type="button"
                 className="outline"
@@ -345,6 +473,50 @@ class ProfileManageComponent extends Component {
         };
     }
 
+    onDrop(files) {
+
+        console.log('onDrop ;)', files);
+        // var image = new Image();
+        //
+        // image.addEventListener('load', function () {
+        //     console.log(image.height, image.width, image.size);
+        //     if (image.width > 300) {
+        //         console.log('This image must be exactly 2500 pixels wide.');
+        //         this.setState({
+        //             // files: [...files, files],
+        //             files: [...this.state.files, ...files],
+        //         });
+        //     } else if (image.height !== 3000) {
+        //         console.log('This image must be exactly 3000 pixels wide.');
+        //     }
+        //
+        //     // display errors or do success thing
+        //     // if (errors.length >= 0) {
+        //     //     alert(errors.join(', '));
+        //     // } else {
+        //     //     alert('client side validations passed');
+        //     // }
+        // }.bind(this));
+        //
+        // files.forEach(file => {
+        //     const reader = new FileReader();
+        //     reader.onload = () => {
+        //         const fileAsBinaryString = reader.result;
+        //         console.log(file, 'file ;)');
+        //
+        //
+        //         image.src = file.preview;
+        //         this.props.addTodo(file.preview);
+        //
+        //         // do whatever you want with the file content
+        //     };
+        //     reader.onabort = () => console.log('file reading was aborted');
+        //     reader.onerror = () => console.log('file reading has failed');
+        //
+        //     reader.readAsBinaryString(file);
+        // });
+    }
+
     componentDidMount() {
         // this.loadItems(1);
         //this.props.getStoriesOLD(1);
@@ -368,7 +540,7 @@ class ProfileManageComponent extends Component {
     //     }
     // }
 
-    componentWillReceiveProps(nextProps){
+    componentWillReceiveProps(nextProps) {
         // console.log(nextProps,'componentWillReceiveProps');
         // if(this.props.filterData !== undefined){
         //     if(this.props.filterData.MicroAppProfileID !== nextProps.profileAccountSetting.payload.ProfileID){
@@ -383,7 +555,7 @@ class ProfileManageComponent extends Component {
 
     changeProfile = (event) => {
         console.log('changeProfile');
-        if(this.props.filterData.MicroAppProfileID === 1011){
+        if (this.props.filterData.MicroAppProfileID === 1011) {
             this.props.getProfileAccountSetting(1010);
         } else {
             this.props.getProfileAccountSetting(1011);
@@ -395,21 +567,34 @@ class ProfileManageComponent extends Component {
         const loader = <div className="loader">Loading ...</div>;
 
         return (
-            <div>
-                <MyEnhancedForm
-                    user={{
-                        ProfileEmail: 'yaser2us@gmail.com',
-                        ProfileFullname: 'Yasser',
-                        ProfileFullnameEn: '',
-                        ProfileDescription: '',
-                        ProfileShortDescription: '',
-                        ProfileURL: 'siti',
-                        ProfileTypeID: 5,
-                        SubscribeTypeID: 5,
-                        // topics:{value: "Kittens", label: "Being Fabulous"},
-                        // topics:{value: "Kittens"},
-                    }}
-                />
+            <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
+                <div className="section_wrapper mcb-section-inner">
+                    <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
+                        <div className="mcb-wrap-inner">
+                            <div className="column mcb-column one column_column">
+                                <div className="column_attr clearfix">
+                                    <MyEnhancedForm
+                                        // onDrop={this.onDrop.bind(this)}
+                                        user={{
+                                            ProfileEmail: 'yaser2us@gmail.com',
+                                            ProfileFullname: 'Yasser',
+                                            ProfileFullnameEnglish: 'Yasser EN',
+                                            ProfileDescription: '',
+                                            ProfileShortDescription: '',
+                                            ProfileURL: 'siti',
+                                            ProfileTypeID: 5,
+                                            SubscriptionTypeID: undefined,
+                                            ThemeID: undefined,
+                                            ProfilePhoto: "",
+                                            // topics:{value: "Kittens", label: "Being Fabulous"},
+                                            // topics:{value: "Kittens"},
+                                        }}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
