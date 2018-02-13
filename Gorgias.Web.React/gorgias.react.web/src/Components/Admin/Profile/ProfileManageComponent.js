@@ -5,7 +5,7 @@ import React, {Component} from "react";
 import * as storyAction from "../../Actions/story/action";
 import * as profileAction from "../../Actions/profile/action";
 import {connect} from "react-redux";
-import {withFormik} from "formik";
+import {withFormik, Formik, Form, Field, FieldArray} from "formik";
 import Yup from "yup";
 import classnames from "classnames";
 import Select from "react-select";
@@ -136,6 +136,44 @@ class MySelect extends React.Component {
                     valueKey={this.props.valueKey}
                     labelKey={this.props.labelKey}
                     matchProp={this.props.matchProp}
+                    disabled={this.props.disabled}
+                />
+                {!!this.props.error &&
+                this.props.touched && (
+                    <div style={{color: 'red', marginTop: '.5rem'}}>
+                        {this.props.error}
+                    </div>
+                )}
+            </div>
+        );
+    }
+}
+
+class MyTextBox extends React.Component {
+    handleChange = value => {
+        // this is going to call setFieldValue and manually update values.topcis
+        if (value !== null) {
+            console.log(value, 'handleChange MySelect');
+            //this.props.onChange('wow', value);
+        }
+    };
+
+    handleBlur = () => {
+        // this is going to call setFieldTouched and manually update touched.topcis
+        //this.props.onBlur(this.props.valueName, true);
+    };
+
+    render() {
+        return (
+            <div style={{margin: '1rem 0'}}>
+                <label htmlFor="color">
+                    {this.props.label}
+                </label>
+                <input
+                    id="color"
+                    onChange={this.props.handleChange}
+                    onBlur={this.handleBlur}
+                    value={this.props.value}
                     disabled={this.props.disabled}
                 />
                 {!!this.props.error &&
@@ -446,6 +484,51 @@ const MyForm = props => {
                 onBlur={setFieldTouched}
             >
             </MyDropZone>
+            {/*<FriendList/>*/}
+            <FieldArray
+                name="friends"
+                render={arrayHelpers => (
+                    values.friends && values.friends.length > 0 ? (
+                        values.friends.map((friend, index) => (
+                            <div key={index}>
+                                {/*<Field name={`friends.${index}.name`} />*/}
+                                {/*<Field name={`friends.${index}.description`} />*/}
+                                <TextInput
+                                    id={`friends.${index}.name`}
+                                    type="text"
+                                    label="Friend name"
+                                    placeholder="Bio"
+                                    // error={touched.ProfileShortDescription && errors.ProfileShortDescription}
+                                    value={`friends.${index}.name`}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                />
+                                {/*<button*/}
+                                {/*type="button"*/}
+                                {/*onClick={() => unshift(index)}*/}
+                                {/*>*/}
+                                {/*-*/}
+                                {/*</button>*/}
+                                {/*<button*/}
+                                {/*type="button"*/}
+                                {/*onClick={() => insert(index, {name: ''})}*/}
+                                {/*>*/}
+                                {/*+*/}
+                                {/*</button>*/}
+                            </div>
+                        ))
+                    ) : (
+                        <button
+                            type="button"
+                            // onClick={() => push('')}
+                        >
+                            {/** show this when user has removed all friends from the list */}
+                            Add a friend
+                        </button>
+                    )
+                )}
+            />
+
             <button
                 type="button"
                 className="outline"
@@ -586,10 +669,12 @@ class ProfileManageComponent extends Component {
                                             SubscriptionTypeID: undefined,
                                             ThemeID: undefined,
                                             ProfilePhoto: "",
+                                            friends: [{name:'yasser',description: 'https://www.facebook.com/ashkan.rastghamatian'},{name:'Nasser', description:'wowow'},{name:'niloofar', description:'lol ;)'}]
                                             // topics:{value: "Kittens", label: "Being Fabulous"},
                                             // topics:{value: "Kittens"},
                                         }}
                                     />
+                                    <br/>
                                 </div>
                             </div>
                         </div>
@@ -600,6 +685,77 @@ class ProfileManageComponent extends Component {
     }
 }
 ;
+
+// let values = { friends: ['jared', 'ian', 'brent'] };
+
+export const MyDynamicForm = ({
+                                  move, swap, push, insert, unshift, pop, form,values
+                              }) => (
+    <Form>
+        {values.friends && values.friends.length > 0 ? (
+            values.friends.map((friend, index) => (
+                <div key={index}>
+                    <Field name={`friends.${index}.name`} />
+                    {/*<TextInput*/}
+                        {/*id="ProfileShortDescription"*/}
+                        {/*type="text"*/}
+                        {/*label="Short Description"*/}
+                        {/*placeholder="Bio"*/}
+                        {/*// error={touched.ProfileShortDescription && errors.ProfileShortDescription}*/}
+                        {/*value={`friends.${index}.name`}*/}
+                        {/*// onChange={handleChange}*/}
+                        {/*// onBlur={handleBlur}*/}
+                    {/*/>*/}
+                    <button
+                        type="button"
+                        onClick={() => unshift(index)}
+                    >
+                        -
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => insert(index, {name: ''})}
+                    >
+                        +
+                    </button>
+                </div>
+            ))
+        ) : (
+            <button
+                type="button"
+                onClick={() => push('')}
+            >
+                {/** show this when user has removed all friends from the list */}
+                Add a friend
+            </button>
+        )}
+        {/*<div>*/}
+            {/*<button type="submit">Submit</button>*/}
+        {/*</div>*/}
+    </Form>
+);
+
+export const FriendList = () => (
+    <div>
+        <h1>Friend List</h1>
+        <Formik
+            initialValues={{ friends: [{name:'yasser'},{name:'Nasser'},{name:'niloofar'}] }}
+            onSubmit={values =>
+                setTimeout(() => {
+                    alert(JSON.stringify(values, null, 2));
+                }, 500)
+            }
+            render={formikProps => (
+                <FieldArray
+                    name="friends"
+                    component={MyDynamicForm}
+                />
+
+
+            )}
+        />
+    </div>
+);
 
 const mapStateToProps = (state, ownProps) => {
     console.log(state, 'mapStateToProps storylist');
