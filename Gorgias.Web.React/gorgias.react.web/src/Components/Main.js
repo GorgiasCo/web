@@ -64,6 +64,8 @@ export default class MainPage extends Component {
                            component={() => <AdminTest2Component containerName="test2" hasFooter={true}/>}/>
                     <Route exact path="/admin/story"
                            component={() => <AdminStoryManageComponent containerName="StoryManage" hasFooter={true}/>}/>
+                    <Route exact path="/admin/profile"
+                           component={() => <AdminStoryManageComponent containerName="ProfileManage" hasFooter={true}/>}/>
                 </div>
             </Router>
         )
