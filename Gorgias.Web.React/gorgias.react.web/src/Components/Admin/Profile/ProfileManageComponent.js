@@ -10,6 +10,7 @@ import Yup from 'yup';
 import classnames from 'classnames';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import axios from 'axios';
 
 const DropDown = (props) =>
     <select {...props.name}>
@@ -28,15 +29,94 @@ const options = [
     { value: 'Kittens', label: 'Kittens' },
 ];
 
-class MySelect extends React.Component {
+const optionsProfileTypes = [
+    { value: 1, label: 'Food' },
+    { value: 2, label: 'Being Fabulous' },
+    { value: 3, label: 'Ken Wheeler' },
+    { value: 4, label: 'ReasonML' },
+    { value: 5, label: 'Unicorns' },
+    { value: 6, label: 'Kittens' },
+];
+
+class MySelectAsync extends React.Component {
     handleChange = value => {
         // this is going to call setFieldValue and manually update values.topcis
-        this.props.onChange('topics', value);
+        if(value !== null){
+            console.log(value.KeyID, 'handleChange MySelect');
+            this.props.onChange(this.props.valueName, value.KeyID);
+        }
     };
 
     handleBlur = () => {
         // this is going to call setFieldTouched and manually update touched.topcis
-        this.props.onBlur('topics', true);
+        this.props.onBlur(this.props.valueName, true);
+    };
+
+    getContributors = (input, callback)  => {
+        const url = "https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/" + input;
+        axios({
+            method: 'get',
+            url: url,
+        })
+            .then(response => {
+                const responseBody = response;
+                console.log(responseBody, input, 'in action story success ;) NIMA');
+
+                var data = {
+                    options: response.data.Result,
+                    complete: 6,
+                };
+
+                callback(null, data);
+            })
+            .catch(error => {
+                console.log(error, input, 'in action story error ;)');
+                // dispatch(authenticationAction.logout());
+            });
+    }
+
+    render() {
+        return (
+            <div style={{ margin: '1rem 0' }}>
+                <label htmlFor="color">
+                    Topics (select at least 3){' '}
+                </label>
+                <Select.Async
+                    id="color"
+                    options={optionsProfileTypes}
+                    multi={false}
+                    loadOptions={this.getContributors}
+                    onChange={this.handleChange}
+                    onBlur={this.handleBlur}
+                    value={this.props.value}
+                    valueKey={this.props.valueKey}
+                    labelKey={this.props.labelKey}
+                    matchProp={this.props.matchProp}
+                    disabled={this.props.disabled}
+                />
+                {!!this.props.error &&
+                this.props.touched && (
+                    <div style={{ color: 'red', marginTop: '.5rem' }}>
+                        {this.props.error}
+                    </div>
+                )}
+            </div>
+        );
+    }
+}
+
+class MySelect extends React.Component {
+    handleChange = value => {
+        // this is going to call setFieldValue and manually update values.topcis
+        if(value !== null) {
+            console.log(value.value, 'handleChange MySelect');
+            this.props.onChange('SubscribeTypeID', value.value);
+        }
+    };
+
+    handleBlur = () => {
+        // this is going to call setFieldTouched and manually update touched.topcis
+        this.props.onBlur('SubscribeTypeID', true);
     };
 
     render() {
@@ -47,11 +127,15 @@ class MySelect extends React.Component {
                 </label>
                 <Select
                     id="color"
-                    options={options}
+                    options={optionsProfileTypes}
                     multi={false}
                     onChange={this.handleChange}
                     onBlur={this.handleBlur}
                     value={this.props.value}
+                    valueKey={this.props.valueKey}
+                    labelKey={this.props.labelKey}
+                    matchProp={this.props.matchProp}
+                    disabled={this.props.disabled}
                 />
                 {!!this.props.error &&
                 this.props.touched && (
@@ -212,11 +296,27 @@ const MyForm = props => {
                 disabled
             />
             <MySelect
-                value={values.topics}
+                value={values.SubscribeTypeID}
                 onChange={setFieldValue}
                 onBlur={setFieldTouched}
-                error={errors.topics}
-                touched={touched.topics}
+                error={errors.SubscribeTypeID}
+                touched={touched.SubscribeTypeID}
+                disabled={false}
+                matchProp="value"
+                valueKey="value"
+                labelKey="label"
+            />
+            <MySelectAsync
+                valueName="ProfileTypeID"
+                value={values.ProfileTypeID}
+                onChange={setFieldValue}
+                onBlur={setFieldTouched}
+                error={errors.ProfileTypeID}
+                touched={touched.ProfileTypeID}
+                disabled={false}
+                matchProp="KeyID"
+                valueKey="KeyID"
+                labelKey="KeyName"
             />
             <button
                 type="button"
@@ -304,7 +404,10 @@ class ProfileManageComponent extends Component {
                         ProfileDescription: '',
                         ProfileShortDescription: '',
                         ProfileURL: 'siti',
-                        topics:{value: "Being Fabulous", label: "Being Fabulous"},
+                        ProfileTypeID: 5,
+                        SubscribeTypeID: 5,
+                        // topics:{value: "Kittens", label: "Being Fabulous"},
+                        // topics:{value: "Kittens"},
                     }}
                 />
             </div>
