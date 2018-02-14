@@ -9,7 +9,7 @@ import ContentContact from "./ContactPageSections/ContentContact";
 import ContentTerms from "./TermsPageSections/ContentTerms";
 import ContentTest from "./TestPageSections/ContentTest";
 import ContentTestLoad from "./TestPageSections/ContentTestLoad";
-import StoryManage from "./Admin/Story/StoryManage";
+import StoryManage from "./Admin/Story/StoryManageComponent";
 import ProfileManage from "./Admin/Profile/ProfileManageComponent";
 import {connect} from "react-redux";
 import * as todoActions from "../Components/Actions/ToDo/Action";
