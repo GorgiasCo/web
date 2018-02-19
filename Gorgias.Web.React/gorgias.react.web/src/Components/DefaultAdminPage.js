@@ -10,7 +10,9 @@ import ContentTerms from "./TermsPageSections/ContentTerms";
 import ContentTest from "./TestPageSections/ContentTest";
 import ContentTestLoad from "./TestPageSections/ContentTestLoad";
 import StoryManage from "./Admin/Story/StoryManageComponent";
+import StoryNew from "./Admin/Story/StoryNewComponent";
 import ProfileManage from "./Admin/Profile/ProfileManageComponent";
+import ContactManageComponent from "./Admin/Contact/ContactManageComponent";
 import {connect} from "react-redux";
 import * as todoActions from "../Components/Actions/ToDo/Action";
 class DefaultAdminPage extends Component {
@@ -74,9 +76,19 @@ class DefaultAdminPage extends Component {
                     <StoryManage/>
                 )
                 break;
+            case "StoryNew":
+                return (
+                    <StoryNew/>
+                )
+                break;
             case "ProfileManage":
                 return (
                     <ProfileManage/>
+                )
+                break;
+            case "ContactForm":
+                return (
+                    <ContactManageComponent/>
                 )
                 break;
             default:

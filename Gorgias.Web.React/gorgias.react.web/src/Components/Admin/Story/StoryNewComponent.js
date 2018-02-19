@@ -1,4 +1,10 @@
 /**
+ * Created by odenza on 19/02/2018.
+ */
+/**
+ * Created by odenza on 19/02/2018.
+ */
+/**
  * Created by odenza on 12/02/2018.
  */
 import React, {Component} from "react";
@@ -6,10 +12,8 @@ import * as storyAction from "../../Actions/story/action";
 import * as profileAction from "../../Actions/profile/action";
 import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
-import axios from "axios";
-import Dropzone from "react-dropzone";
-import Autocomplete from "react-autocomplete";
-import StoryForm from "./Form";
+import StoryForm from "./Form/";
+import CustomGoogleMap from "../../Admin/Form/CustomGoogleMap";
 
 const optionsProfileTypes = [
     {value: 1, label: 'Food'},
@@ -20,20 +24,14 @@ const optionsProfileTypes = [
     {value: 6, label: 'Kittens'},
 ];
 
-class StoryManageComponent extends Component {
+class StoryNewComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
             tracks: [],
             hasMoreItems: true,
             nextHref: null,
-            value: '',
-            values: [{KeyName: '', KeyID: 0}],
         };
-    }
-
-    renderContent(content, index) {
-
     }
 
     onDrop(files) {
@@ -126,25 +124,6 @@ class StoryManageComponent extends Component {
         event.preventDefault();
     }
 
-    prepareAutoComplete = (value) => {
-        this.setState({value});
-        const url = "https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/" + value;
-        axios({
-            method: 'get',
-            url: url,
-        })
-            .then(response => {
-                const responseBody = response;
-                console.log(responseBody, value, 'in action story success ;) NIMA');
-                this.setState({values: response.data.Result});
-            })
-            .catch(error => {
-                console.log(error, value, 'in action story error ;)');
-                // dispatch(authenticationAction.logout());
-            });
-
-    }
-
     render() {
         const loader = <div className="loader">Loading ...</div>;
 
@@ -155,7 +134,12 @@ class StoryManageComponent extends Component {
                         <div className="mcb-wrap-inner">
                             <div className="column mcb-column one column_column">
                                 <div className="column_attr clearfix">
+                                    <CustomGoogleMap/>
+                                    <h2>
+                                        New Story ;)
+                                    </h2>
                                     <StoryForm
+                                        optionsProfileTypes={optionsProfileTypes}
                                         // onDrop={this.onDrop.bind(this)}
                                         user={{
                                             ProfileEmail: 'yaser2us@gmail.com',
@@ -168,44 +152,29 @@ class StoryManageComponent extends Component {
                                             SubscriptionTypeID: undefined,
                                             ThemeID: undefined,
                                             ProfilePhoto: "",
-                                            CategoryName:'',
+                                            category:'iran',
                                             friends: [
                                                 {
                                                     name: 'yasser',
-                                                    ContentTypeID: 1,
+                                                    ContentTypeID: 0,
                                                     description: 'https://www.facebook.com/ashkan.rastghamatian',
 
                                                 },
                                                 {
                                                     name: 'Nasser',
-                                                    ContentTypeID: 2,
+                                                    ContentTypeID: 0,
                                                     description: 'wowow',
                                                 },
                                                 {
                                                     name: 'niloofar',
                                                     description: 'lol ;)',
-                                                    ContentTypeID: 3,
+                                                    ContentTypeID: 0,
                                                 }]
+                                            // topics:{value: "Kittens", label: "Being Fabulous"},
+                                            // topics:{value: "Kittens"},
                                         }}
                                     />
                                     <br/>
-                                    fdsfsfsdf
-                                    <Autocomplete
-                                        items={this.state.values}
-                                        shouldItemRender={(item, value) => item.KeyName.toLowerCase().indexOf(value.toLowerCase()) > -1}
-                                        getItemValue={item => item.KeyName}
-                                        renderItem={(item, highlighted) =>
-                                            <div
-                                                key={item.KeyID}
-                                                style={{backgroundColor: highlighted ? '#eee' : 'transparent'}}
-                                            >
-                                                {item.KeyName}
-                                            </div>
-                                        }
-                                        value={this.state.value}
-                                        onChange={e => this.prepareAutoComplete(e.target.value)}
-                                        onSelect={value => this.setState({value})}
-                                    />
                                 </div>
                             </div>
                         </div>
@@ -240,4 +209,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 // Use connect to put them together
-export default connect(mapStateToProps, mapDispatchToProps)(StoryManageComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(StoryNewComponent);

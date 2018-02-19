@@ -12,6 +12,12 @@ import Select from "react-select";
 import "react-select/dist/react-select.css";
 import axios from "axios";
 import Dropzone from "react-dropzone";
+import CustomSelect from "../Form/CustomSelect";
+import CustomAsyncSelect from "../Form/CustomAsyncSelect";
+import CustomTextInput from "../Form/CustomTextInput";
+import CustomInputFieldComponent from "../Form/CustomInputFieldComponent";
+import CustomDropZone from "../Form/CustomDropZone";
+import ProfileForm from "./Form/";
 
 const DropDown = (props) =>
     <select {...props.name}>
@@ -391,7 +397,7 @@ const MyForm = props => {
     } = props;
     return (
         <form onSubmit={handleSubmit}>
-            <TextInput
+            <CustomTextInput
                 id="ProfileFullname"
                 type="text"
                 label="Fullname"
@@ -401,7 +407,7 @@ const MyForm = props => {
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
-            <TextInput
+            <CustomTextInput
                 id="ProfileFullnameEnglish"
                 type="text"
                 label="English Fullname"
@@ -411,7 +417,7 @@ const MyForm = props => {
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
-            <TextArea
+            <CustomTextInput
                 id="ProfileDescription"
                 type="text"
                 label="Description"
@@ -421,7 +427,7 @@ const MyForm = props => {
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
-            <TextInput
+            <CustomTextInput
                 id="ProfileShortDescription"
                 type="text"
                 label="Short Description"
@@ -431,17 +437,17 @@ const MyForm = props => {
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
-            <TextInput
+            <CustomTextInput
                 id="ProfileURL"
                 type="text"
-                label="Short Description"
-                placeholder="Bio"
+                label="Profile Web URL"
+                placeholder="URL"
                 // error={touched.ProfileURL && errors.ProfileURL}
                 value={values.ProfileURL}
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
-            <TextInput
+            <CustomTextInput
                 id="ProfileEmail"
                 type="email"
                 label="Email"
@@ -452,7 +458,7 @@ const MyForm = props => {
                 onBlur={handleBlur}
                 disabled
             />
-            <MySelect
+            <CustomSelect
                 valueName="SubscriptionTypeID"
                 value={values.SubscriptionTypeID}
                 onChange={setFieldValue}
@@ -464,8 +470,9 @@ const MyForm = props => {
                 valueKey="value"
                 labelKey="label"
                 label="Subscription"
+                options={optionsProfileTypes}
             />
-            <MySelect
+            <CustomSelect
                 valueName="ThemeID"
                 value={values.ThemeID}
                 onChange={setFieldValue}
@@ -477,8 +484,9 @@ const MyForm = props => {
                 valueKey="value"
                 labelKey="label"
                 label="Theme"
+                options={optionsProfileTypes}
             />
-            <MySelectAsync
+            <CustomAsyncSelect
                 valueName="ProfileTypeID"
                 value={values.ProfileTypeID}
                 onChange={setFieldValue}
@@ -489,15 +497,17 @@ const MyForm = props => {
                 matchProp="KeyID"
                 valueKey="KeyID"
                 labelKey="KeyName"
+                label="Topics"
+                url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"
             />
-            <MyDropZone
+            <CustomDropZone
                 error={errors.ProfilePhoto}
                 touched={touched.ProfilePhoto}
                 valueName="ProfilePhoto"
                 onChange={setFieldValue}
                 onBlur={setFieldTouched}
             >
-            </MyDropZone>
+            </CustomDropZone>
             {/*<FriendList/>*/}
 
             <button
@@ -532,7 +542,7 @@ const MyForm = props => {
                             {values.friends.map((friend, index) => (
 
                                 <div key={index}>
-                                <Field name={`friends.${index}.name`} component={CustomInputComponent}/>
+                                <Field name={`friends.${index}.name`} component={CustomInputFieldComponent}/>
                                 <Field component="select" name={`friends.${index}.ContentTypeID`}>
                                     <option value="2">Red</option>
                                     <option value="21">Green</option>
@@ -542,14 +552,14 @@ const MyForm = props => {
                                     <img {...field} src={field.value} style={{width: 200}} placeholder="firstName"/>
                                 }/>
 
-                                <MyDropZone
+                                <CustomDropZone
                                     error={errors.ProfilePhoto}
                                     touched={touched.ProfilePhoto}
                                     valueName={`friends.${index}.name`}
                                     onChange={setFieldValue}
                                     onBlur={setFieldTouched}
                                 >
-                                </MyDropZone>
+                                </CustomDropZone>
 
                                 <button
                                     type="button"
@@ -707,7 +717,8 @@ class ProfileManageComponent extends Component {
                         <div className="mcb-wrap-inner">
                             <div className="column mcb-column one column_column">
                                 <div className="column_attr clearfix">
-                                    <MyEnhancedForm
+                                    <ProfileForm
+                                        optionsProfileTypes={optionsProfileTypes}
                                         // onDrop={this.onDrop.bind(this)}
                                         user={{
                                             ProfileEmail: 'yaser2us@gmail.com',
