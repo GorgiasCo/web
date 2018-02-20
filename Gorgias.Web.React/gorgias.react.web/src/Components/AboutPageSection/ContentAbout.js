@@ -8,7 +8,7 @@ import ImageBanner from './5-ImageBanner';
 import TextTilesPanels from './6-TextTilesPanels';
 import Teams from './7-Teams';
 import AppDownloadBanner from './8-AppDownloadBanner';
-import "../../css/main.css";
+// import "../../css/main.css";
 
 
 export default class ContentAbout extends Component {
