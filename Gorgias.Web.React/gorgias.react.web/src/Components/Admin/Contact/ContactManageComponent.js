@@ -12,6 +12,9 @@ import "react-select/dist/react-select.css";
 import ContactForm from "./Form/";
 import axios from 'axios';
 
+let API_KEY = "AIzaSyAjU94_y64Gh4mCZgDi4Ccdadaw8YRxqek";
+const GOOGLE_API = "https://maps.google.com/maps/api/geocode/json";
+
 const optionsProfileTypes = [
     {value: 1, label: 'Food'},
     {value: 2, label: 'Being Fabulous'},
@@ -43,6 +46,45 @@ class ContactManageComponent extends Component {
             }
         };
     }
+
+    async handleUrl(url) {
+        const response = await fetch(url).catch(error =>
+            Promise.reject(new Error("Error fetching data"))
+        );
+
+        const json = await response.json().catch(() => {
+            console.log("Error parsing server response");
+            return Promise.reject(new Error("Error parsing server response"));
+        });
+
+        if (json.status === "OK") {
+            console.log(json);
+            return json;
+        }
+        console.log(`Server returned status code ${json.status}`, true);
+        return Promise.reject(
+            new Error(`Server returned status code ${json.status}`)
+        );
+    }
+
+
+    async fromAddress(address: string, apiKey: string): Promise {
+        if (!address) {
+            console.log("Provided address is invalid", true);
+            return Promise.reject(new Error("Provided address is invalid"));
+        }
+
+        let url = `${GOOGLE_API}?address=${encodeURI(address)}`;
+
+        if (apiKey || API_KEY) {
+            API_KEY = apiKey || API_KEY;
+            url += `&key=${API_KEY}`;
+        }
+
+        console.log(url);
+        return this.handleUrl(url);
+    }
+
 
     onDrop(files) {
 
@@ -90,6 +132,15 @@ class ContactManageComponent extends Component {
 
     handleSubmit = (values) => {
         console.log(values,'handleSubmit');
+        this.fromAddress(values.AddressAddress,API_KEY).then(
+            response => {
+                const { lat, lng } = response.results[0].geometry.location;
+                console.log('address la',lat, lng);
+            },
+            error => {
+                console.error(error);
+            }
+        );
     }
 
     componentDidMount() {
@@ -100,7 +151,6 @@ class ContactManageComponent extends Component {
     }
 
     componentWillMount(){
-        let url = 'api/Address/AddressID/';
         console.log(this.props.AddressID, 'AddressID');
         let that = this;
         if(this.props.AddressID !== 'New'.toLowerCase()){

@@ -1,0 +1,572 @@
+html {
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+
+/* .center-box{
+position:absolute;
+top:0;
+right:0;
+bottom:0;
+left:0;
+z-index:99;
+margin:auto;
+height:400px;
+width:300px;
+border:1px solid #000;
+text-align:center;
+line-height:200px;
+background-color: white;
+} */
+
+#tk-overlay-form {
+  max-height: calc(100% - 100px);
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  border-radius: 9px;
+  /*background-color: #292929;*/
+  background-color: rgba(32, 33, 34, 0.85);
+  padding: 24px;
+  box-shadow: 3px 3px 15px 4px rgba(0, 0, 0, 0.5);
+}
+
+#tk-overlay-form #submit {
+  width: 100%;
+  /*padding: 5% 17%;*/
+}
+
+#tk-modal-form .forget{
+	color: #aaa;
+  display: block;
+  text-align: center;
+	/*float: right;*/
+	font-size: x-small;
+	margin-bottom: 10px;
+}
+
+#tk-modal-form .tkFontSmall{
+	color: #aaa;
+  display: block;
+  text-align: center;
+	/*float: right;*/
+	font-size: x-small;
+	margin-bottom: 10px;
+}
+
+.tkFont-Form {
+  color:#f5f5f5;
+  font-weight: normal;
+  font-size: large;
+}
+
+#tk-overlay-form ::placeholder {
+
+    color: rgba(255, 255, 255, 0.5);
+
+}
+
+
+/* #tk-overlay-form input[type="email"],
+#tk-overlay-form input[type="password"]
+{
+  border: none;
+  border-bottom: 0.5px solid #fff;
+  background:transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: x-small;
+  transition: all 0.3s ;
+  padding-left: 25px;
+} */
+
+#tk-overlay-form input[type="email"]:focus,
+#tk-overlay-form input[type="password"]:focus
+{
+  border-bottom: 0.5px solid #ff0088;
+  background:transparent !important;
+}
+
+#tk-overlay-form input[type="password"]:focus {
+  color: #ff0088;
+}
+
+#tk-overlay-form input[type="button"]:focus{
+  outline: none;
+  background-color: #B90350;
+}
+
+.inputIcons {
+  position: absolute;
+  margin-top: 3.5%;
+  color: #aaa;
+}
+
+@media only screen and (min-width:959px){
+      .inputIcons {
+          margin-top: 2.5%;
+      }
+}
+
+/*--contact form--*/
+
+#tk-contact-form ::placeholder {
+
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+#tk-contact-form input[type="email"],
+#tk-contact-form input[type="password"],
+#tk-contact-form input[type="date"],
+#tk-contact-form input[type="number"],
+#tk-contact-form input[type="search"],
+#tk-contact-form input[type="tel"],
+#tk-contact-form input[type="text"],
+#tk-contact-form input[type="url"],
+#tk-contact-form select,
+#tk-contact-form textarea
+
+{
+  border: none;
+  border-bottom: 0.5px solid #fff;
+  background:transparent;
+  outline: none;
+  /*height: 40px;*/
+  color: #fff;
+  font-size: small;
+  transition: all 0.3s ;
+  padding-left: 25px;
+}
+
+#tk-contact-form input[type="email"]:focus,
+#tk-contact-form input[type="password"]:focus
+#tk-contact-form input[type="date"]:focus,
+#tk-contact-form input[type="number"]:focus,
+#tk-contact-form input[type="search"]:focus,
+#tk-contact-form input[type="tel"]:focus,
+#tk-contact-form input[type="text"]:focus,
+#tk-contact-form input[type="url"]:focus,
+#tk-contact-form select:focus,
+#tk-contact-form textarea:focus
+{
+  border-bottom: 0.5px solid #ff0088;
+  transition: 0.6s;
+  background:#444 !important;
+}
+
+#tk-contact-form input[type="password"]:focus {
+  color: #ff0088;
+}
+
+#tk-contact-form input[type="button"]:focus{
+  outline: none;
+  background-color: #B90350;
+}
+
+.goBack {
+  padding: 4% 4%;
+  position: fixed;
+  z-index: 1;
+  color: #aaa
+}
+
+.goBack a {
+    color: #aaa;
+    text-align: center;
+    font-size: small;
+    margin-bottom: 10px;
+}
+
+.colorfulBtn {
+background-image: linear-gradient(120deg, #5c22ff 0%, #723493 100%);
+}
+
+
+#tk-overlay-form input[type="email"],
+#tk-overlay-form input[type="password"]
+{
+  border: none;
+  border-bottom: 0.5px solid #fff;
+  background:transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: small;
+  transition: all 0.3s ;
+  padding-left: 25px;
+}
+
+#tk-overlay-form input[type="email"]:focus,
+#tk-overlay-form input[type="password"]:focus
+{
+  border-bottom: 0.5px solid #ff0088;
+  background:transparent !important;
+}
+
+#tk-overlay-form input[type="password"]:focus {
+  color: #ff0088;
+}
+
+#tk-overlay-form input[type="button"]:focus{
+  outline: none;
+  background-color: #B90350;
+}
+
+
+/*=-=-=-=-=-=-=-=-=-=-=-  App Profile PageElements  -=-=-=-=-=-=-=-=-=-=-=-=-=--=*/
+
+.tk-AppAvatarImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 42%;
+  overflow: hidden;
+  position: relative;
+  top: calc(-20px/2);
+  left: calc(50% - 50px);
+  border: 7px solid #ff0088;
+}
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-uneeded-=-=-=-=-=-=-=--=-=-=-=-=-=--=-=--*/
+
+
+.loginBox {
+  position: absolute;;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width: 350px;
+  height:420px;
+  padding: 80px 40px;
+  box-sizing: border-box;
+  background: rgba(0,0,0,0.7);
+}
+
+.user {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: calc(-100px/2);
+  left: calc(50% - 50px);
+  border: 2px solid white;
+
+}
+
+#Content h2 {
+  margin: 0;
+  padding: 0 0 20px;
+  /* color: #efed40; */
+  text-align: center;
+}
+
+.loginBox p {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: #fff;
+}
+
+.loginBox input{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.loginBox input[type="text"],
+.loginBox input[type="password"]
+{
+  border: none;
+  border-bottom: 1px solid #fff;
+  background:transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.loginBox input[type="submit"]{
+  border: none;
+  outline: none;
+  height: 40px;
+  background:transparent;
+  color: #f5f5f5;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.loginBox input[type="submit"]:hover{
+
+  color: #fff;
+  background: #ff0088;
+  border: none;
+}
+
+.loginBox a {
+  color: #fff;
+  font-size: 14px;
+
+  text-decoration: none;
+}
+
+
+.loginBox a:hover {
+  text-decoration: underline;
+}
+
+
+/*-=-=-=-=-=-=-=-=-=-=-For responsive Fonts-=-=-=-=-=-=-=-=-=*/
+@media all and (min-width: 960px) {
+    body{
+        font-size: 18px;
+    }
+}
+
+@media all and (max-width: 959px) and (min-width: 600px) {
+    body{
+        font-size: 16px;
+    }
+}
+
+@media all and (max-width: 599px) and (min-width: 320px) {
+    body p{
+        font-size: medium;
+    }
+
+}
+
+
+/*=-=-=-=-=-=-=-=-=-=end of responsive font-=-=-=-=-=-=-=-=-*/
+
+
+/*------------for grid responsiveness guide---------------*/
+
+/*Nexus 5x, 6p & iPhone 6plus*/
+@media screen and (min-width:401px) , screen and (max-width: 760px) {
+
+}
+
+/*ipad iphone 4 & 5*/
+@media only screen and (max-width:400px){
+
+}
+
+@media only screen and (max-width:320px){
+
+}
+
+/*ipad */
+@media only screen and (width: 768px){
+
+}
+
+/*ipad pro & laptops*/
+@media only screen and (min-width:768px){
+
+}
+
+/*desktop*/
+@media only screen and (min-width:1025px){
+
+}
+
+/*to render ipad again*/
+@media only screen and (width: 768px){
+
+}
+
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= ### App Porfile Info Store Page =-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=--=*/
+
+/* ul.portfolio_grid.tk li {
+    float: left;
+    margin: 2%;
+    width: 40%!important;
+    padding: 0 1%;
+} */
+
+
+#tk-overlay-form.ver2 {
+
+    border-radius: 3px;
+    /* background-color: #292929; */
+    background-color: #fff;
+    box-shadow: 2px 2px 14px 0px rgba(0, 0, 0, 0.5);
+}
+
+
+@media only screen and (min-width: 1240px){
+
+#AppProfileInfo .section_wrapper {
+    max-width: 50%;
+  }
+}
+
+.tk-AppAvatarImg.qrCode {
+    width: 100px;
+    height: 100px;
+    border-radius: 28%;
+    overflow: hidden;
+    position: relative;
+    top: calc(-20px/2);
+    left: calc(50% - 50px);
+    border: 7px solid #ff0088;
+}
+
+#AppProfileInfo #submit {
+  background-color: #ff0088!important;
+  width: 80%;
+}
+
+
+/*Nexus 5x, 6p & iPhone 6, 7 plus*/
+@media screen and (min-width: 401px) , screen and (max-width:760px) {
+  #AppProfileInfo img.tk.fit2 {
+    /*border: 5px solid maroon;*/
+    /*width: 10em;*/
+    /*width: 250px;*/
+    width: 100%;
+    /*height: 10em !important;*/
+    height: 215px !important;
+    -o-object-fit: contain;
+    object-fit: cover;
+    display: block;
+    /*margin: 10px auto 10px auto;*/
+    margin-bottom: 0px !important;
+  }
+}
+
+/*desktop*/
+@media only screen and (min-width:1024px) {
+  #AppProfileInfo .tk.fit2 {
+    /*border: 5px solid maroon;*/
+    /*width: 10em;*/
+    /*width: 250px;*/
+    width: 100%;
+    /*height: 10em !important;*/
+    height: 300px !important;
+    -o-object-fit: contain;
+    object-fit: cover;
+    display: block;
+    /*margin: 10px auto 10px auto;*/
+    margin-bottom: 0px !important;
+  }
+}
+
+/* galaxy s5 & iphone 6, 7 */
+@media only screen and (max-width: 376px) {
+  #AppProfileInfo img.tk.fit2 {
+    /*border: 5px solid maroon;*/
+    /*width: 10em;*/
+    width: 235px;
+    width: -webkit-fill-available;
+    /*height: 10em !important;*/
+    height: 175px !important;
+    -o-object-fit: contain;
+    object-fit: cover;
+    display: block;
+    /*margin: 10px auto 10px auto;*/
+    margin-bottom: 0px !important;
+  }
+}
+/*iphone 4 & 5*/
+@media only screen and (max-width: 320px) {
+  #AppProfileInfo img.tk.fit2 {
+    /*border: 5px solid maroon;*/
+    /*width: 10em;*/
+    width: 235px;
+    width: -webkit-fill-available;
+    /*height: 10em !important;*/
+    height: 145px !important;
+    -o-object-fit: contain;
+    object-fit: cover;
+    display: block;
+    /*margin: 10px auto 10px auto;*/
+    margin-bottom: 0px !important;
+  }
+}
+
+/*to render ipad again*/
+@media only screen and (min-width:768px) {
+  #AppProfileInfo img.tk.fit2 {
+
+    width: 100%;
+    height: 145px !important;
+    -o-object-fit: contain;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 0px !important;
+  }
+
+  #AppProfileInfo .section_wrapper {
+      max-width: 50%;
+      margin-bottom: 3%;
+  }
+}
+
+/*ipad pro & laptops*/
+@media only screen and (min-width:1024px) {
+  #AppProfileInfo img.tk.fit2 {
+
+    width: 100%;
+    height: 225px !important;
+    -o-object-fit: contain;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 0px !important;
+  }
+}
+
+/*desktop*/
+@media only screen and (min-width:1440px) {
+  #AppProfileInfo img.tk.fit2 {
+    /*border: 5px solid maroon;*/
+    /*width: 10em;*/
+
+    width: 100%;
+    /*height: 10em !important;*/
+    height: 255px !important; /*400px*/
+    -o-object-fit: contain;
+    object-fit: cover;
+    display: block;
+    /*margin: 10px auto 10px auto;*/
+    margin-bottom: 0px !important;
+  }
+}
+
+
+table.Profile-Info-Table-banner {
+    border: 1px solid #ccc;
+    border-width: 1px 0px 1px 0px;
+}
+
+table.Profile-Info-Table-banner td {
+    border-color:#ccc;
+    border-bottom: 0;
+    width: 33.33%;
+    padding-bottom: 0px;
+    font-size: larger;
+    font-weight: bold;
+}
+table.Profile-Info-Table-banner tr.heading td {
+    color :#ff0088;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    font-size:smaller;
+    font-weight: normal;
+}
+
+/* table.Profile-Info-Table-banner tr:hover td {
+  color:#ff0088!important;
+} */
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= end of App Porfile Store Page =-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=--=*/
