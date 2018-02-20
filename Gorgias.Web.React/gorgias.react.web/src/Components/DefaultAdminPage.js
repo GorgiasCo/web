@@ -26,6 +26,7 @@ class DefaultAdminPage extends Component {
 
     componentWillMount() {
         //To ensure page is begining at top ;)
+        console.log(this.props, 'AddressID');
 
         window.scrollTo(0, 0);
     }
@@ -88,7 +89,7 @@ class DefaultAdminPage extends Component {
                 break;
             case "ContactForm":
                 return (
-                    <ContactManageComponent/>
+                    <ContactManageComponent AddressID={this.props.match.params.AddressID}/>
                 )
                 break;
             default:

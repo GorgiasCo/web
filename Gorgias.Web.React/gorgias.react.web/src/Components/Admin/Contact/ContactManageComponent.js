@@ -10,7 +10,7 @@ import * as profileAction from "../../Actions/profile/action";
 import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
 import ContactForm from "./Form/";
-
+import axios from 'axios';
 
 const optionsProfileTypes = [
     {value: 1, label: 'Food'},
@@ -22,12 +22,25 @@ const optionsProfileTypes = [
 ];
 
 class ContactManageComponent extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             tracks: [],
             hasMoreItems: true,
             nextHref: null,
+            isLoading: true,
+            contactData: {
+                AddressName: '',
+                AddressTel: '',
+                AddressFax: '',
+                AddressEmail: '',
+                AddressZipCode: '',
+                CityID: undefined,
+                AddressTypeID: undefined,
+                AddressAddress: '',
+                AddressPhoto: '',
+            }
         };
     }
 
@@ -75,11 +88,59 @@ class ContactManageComponent extends Component {
         // });
     }
 
+    handleSubmit = (values) => {
+        console.log(values,'handleSubmit');
+    }
+
     componentDidMount() {
         // this.loadItems(1);
         //this.props.getStoriesOLD(1);
         //this.loadItemsRedux(1011);
         //console.log(this.state.filterData,'filterData',  this.props.profileAccountSetting);
+    }
+
+    componentWillMount(){
+        let url = 'api/Address/AddressID/';
+        console.log(this.props.AddressID, 'AddressID');
+        let that = this;
+        if(this.props.AddressID !== 'New'.toLowerCase()){
+            const token = localStorage.getItem("token");
+            let headers = null;
+            if (token) {
+                headers = {'Authorization': `Bearer ${token}`};
+            }
+            const url = "https://gorgiasapp-v4.azurewebsites.net/api/Address/AddressID/" + this.props.AddressID;
+            axios({
+                method: 'get',
+                url: url,
+                headers: headers,
+            })
+                .then(response => {
+                    const responseBody = response.data.Result;
+
+                    // let contactData ={
+                    //     AddressName: responseBody.data.Result.AddressName,
+                    //     AddressTel: responseBody.data.Result.AddressTel,
+                    //     AddressFax: responseBody.data.Result.AddressFax,
+                    //     AddressEmail: responseBody.data.Result.AddressEmail,
+                    //     AddressZipCode: responseBody.data.Result.AddressZipCode,
+                    //     CityID: responseBody.data.Result.CityID,
+                    //     AddressTypeID: responseBody.data.Result.AddressTypeID,
+                    //     AddressAddress: responseBody.data.Result.AddressAddress,
+                    //     AddressPhoto: 'done',
+                    // }
+
+                    that.setState({contactData: responseBody, isLoading: false});
+                    console.log(this.state.contactData, this.props.AddressID, 'in action story success ;) NIMA');
+                })
+                .catch(error => {
+                    console.log(error, this.props.AddressID, 'in action story error ;)');
+                    // dispatch(authenticationAction.logout());
+                });
+
+        } else {
+            that.setState({isLoading: false});
+        }
     }
 
     // shouldComponentUpdate(nextProps, nextState) {
@@ -123,8 +184,10 @@ class ContactManageComponent extends Component {
 
     render() {
         const loader = <div className="loader">Loading ...</div>;
+        console.log(this.state.contactData, this.props.AddressID, 'in action story success ;) NIMA render');
 
         return (
+            !this.state.isLoading ?
             <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
                 <div className="section_wrapper mcb-section-inner">
                     <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
@@ -133,46 +196,17 @@ class ContactManageComponent extends Component {
                                 <div className="column_attr clearfix">
                                     <ContactForm
                                         optionsProfileTypes={optionsProfileTypes}
-                                        // onDrop={this.onDrop.bind(this)}
-                                        user={{
-                                            ProfileEmail: 'yaser2us@gmail.com',
-                                            ProfileFullname: 'Yasser',
-                                            ProfileFullnameEnglish: 'Yasser EN',
-                                            ProfileDescription: '',
-                                            ProfileShortDescription: '',
-                                            ProfileURL: 'siti',
-                                            ProfileTypeID: 5,
-                                            SubscriptionTypeID: undefined,
-                                            ThemeID: undefined,
-                                            ProfilePhoto: "",
-                                            friends: [
-                                                {
-                                                    name: 'yasser',
-                                                    ContentTypeID: 0,
-                                                    description: 'https://www.facebook.com/ashkan.rastghamatian',
-
-                                                },
-                                                {
-                                                    name: 'Nasser',
-                                                    ContentTypeID: 0,
-                                                    description: 'wowow',
-                                                },
-                                                {
-                                                    name: 'niloofar',
-                                                    description: 'lol ;)',
-                                                    ContentTypeID: 0,
-                                                }]
-                                            // topics:{value: "Kittens", label: "Being Fabulous"},
-                                            // topics:{value: "Kittens"},
-                                        }}
+                                        handleSubmit={this.handleSubmit.bind(this)}
+                                        data={this.state.contactData}
                                     />
                                     <br/>
+                                    {this.state.contactData.AddressAddress}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> : loader
         );
     }
 }

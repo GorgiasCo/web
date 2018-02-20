@@ -23,6 +23,7 @@ export default function (ComposedComponent) {
 
         componentWillMount() {
             console.log(this.props.authentication, 'WillMount');
+            console.log(this.props,'Main Props for Authentication ;)');
             if (this.props.authentication !== undefined) {
                 if (!this.props.authentication.isAuthenticated) {
                     this.context.router.history.push('/login');

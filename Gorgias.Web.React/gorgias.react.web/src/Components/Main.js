@@ -30,7 +30,7 @@ export default class MainPage extends Component {
         super(props);
         defaultPage.containerName = 'about';
         defaultPage.hasFooter = false;
-
+        console.log(props,'root props ;)');
         console.log(defaultPage.hasFooter, 'render');
     }
 
@@ -46,7 +46,7 @@ export default class MainPage extends Component {
                     {/*<Route exact path="/" component={AuthenticationProvider(DefaultPage)} data={{containerName:"contact", hasFooter:true}}/>*/}
                     <Route exact path="/" component={() => <ComposedComponent containerName=""  hasFooter={true} />}/>
                     <Route exact path="/login" component={LoginComponent}/>
-                    <Route path="/account/reset/:id" component={() => <AccountContent accountType="reset"/>}/>
+                    <Route path="/account/reset/:id" component={(props) => <AccountContent {...props} accountType="reset"/>}/>
                     <Route exact path="/account/forget" component={() => <AccountContent accountType="forget"/>}/>
                     <Route exact path="/about" component={() => <DefaultPage containerName="about" hasFooter={true}/>}/>
                     <Route exact path="/terms" component={() => <DefaultPage containerName="terms" hasFooter={true}/>}/>
@@ -63,13 +63,13 @@ export default class MainPage extends Component {
                     <Route exact path="/test2"
                            component={() => <AdminTest2Component containerName="test2" hasFooter={true}/>}/>
                     <Route exact path="/admin/story"
-                           component={() => <AdminStoryManageComponent containerName="StoryManage" hasFooter={true}/>}/>
+                           component={(props) => <AdminStoryManageComponent{...props} containerName="StoryManage" hasFooter={true}/>}/>
                     <Route exact path="/admin/story/new"
-                           component={() => <AdminStoryManageComponent containerName="StoryNew" hasFooter={true}/>}/>
+                           component={(props) => <AdminStoryManageComponent {...props} containerName="StoryNew" hasFooter={true}/>}/>
                     <Route exact path="/admin/profile"
-                           component={() => <AdminStoryManageComponent containerName="ProfileManage" hasFooter={true}/>}/>
-                    <Route exact path="/admin/contact/new"
-                           component={() => <AdminStoryManageComponent containerName="ContactForm" hasFooter={true}/>}/>
+                           component={(props) => <AdminStoryManageComponent {...props} containerName="ProfileManage" hasFooter={true}/>}/>
+                    <Route path="/admin/contact/:AddressID"
+                           component={(props) => <AdminStoryManageComponent {...props} containerName="ContactForm" hasFooter={true}/>}/>
                 </div>
             </Router>
         )

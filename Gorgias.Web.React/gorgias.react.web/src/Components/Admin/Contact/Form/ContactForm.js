@@ -30,112 +30,97 @@ const contactForm = props => {
     return (
         <form onSubmit={handleSubmit}>
             <CustomTextInput
-                id="ProfileFullname"
+                id="AddressName"
                 type="text"
-                label="Fullname"
+                label="AddressName"
                 placeholder="John"
-                error={touched.ProfileFullname && errors.ProfileFullname}
-                value={values.ProfileFullname}
+                error={touched.AddressName && errors.AddressName}
+                value={values.AddressName}
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
             <CustomTextInput
-                id="ProfileFullnameEnglish"
+                id="AddressTel"
                 type="text"
-                label="English Fullname"
+                label="AddressTel"
                 placeholder="Doe"
-                error={touched.ProfileFullnameEnglish && errors.ProfileFullnameEnglish}
-                value={values.ProfileFullnameEnglish}
+                error={touched.AddressTel && errors.AddressTel}
+                value={values.AddressTel}
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
             <CustomTextInput
-                id="ProfileDescription"
+                id="AddressFax"
                 type="text"
-                label="Description"
-                placeholder="long bio"
-                error={touched.ProfileDescription && errors.ProfileDescription}
-                value={values.ProfileDescription}
+                label="AddressFax"
+                placeholder="AddressFax"
+                error={touched.AddressFax && errors.AddressFax}
+                value={values.AddressFax}
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
             <CustomTextInput
-                id="ProfileShortDescription"
-                type="text"
-                label="Short Description"
-                placeholder="Bio"
-                error={touched.ProfileShortDescription && errors.ProfileShortDescription}
-                value={values.ProfileShortDescription}
-                onChange={handleChange}
-                onBlur={handleBlur}
-            />
-            <CustomTextInput
-                id="ProfileURL"
-                type="text"
-                label="Profile Web URL"
-                placeholder="URL"
-                // error={touched.ProfileURL && errors.ProfileURL}
-                value={values.ProfileURL}
-                onChange={handleChange}
-                onBlur={handleBlur}
-            />
-            <CustomTextInput
-                id="ProfileEmail"
+                id="AddressEmail"
                 type="email"
-                label="Email"
-                placeholder="Enter your email"
-                // error={touched.ProfileEmail && errors.ProfileEmail}
-                value={values.ProfileEmail}
+                label="AddressEmail"
+                placeholder="Bio"
+                error={touched.AddressEmail && errors.AddressEmail}
+                value={values.AddressEmail}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                disabled
+            />
+            <CustomTextInput
+                id="AddressZipCode"
+                type="text"
+                label="AddressZipCode"
+                placeholder="AddressZipCode"
+                error={touched.AddressZipCode && errors.AddressZipCode}
+                value={values.AddressZipCode}
+                onChange={handleChange}
+                onBlur={handleBlur}
+            />
+            <CustomTextInput
+                id="AddressAddress"
+                type="text"
+                label="AddressAddress"
+                placeholder="AddressAddress"
+                error={touched.AddressAddress && errors.AddressAddress}
+                value={values.AddressAddress}
+                onChange={handleChange}
+                onBlur={handleBlur}
             />
             <CustomSelect
-                valueName="SubscriptionTypeID"
-                value={values.SubscriptionTypeID}
+                valueName="AddressTypeID"
+                value={values.AddressTypeID}
                 onChange={setFieldValue}
                 onBlur={setFieldTouched}
-                error={errors.SubscriptionTypeID}
-                touched={touched.SubscriptionTypeID}
+                error={errors.AddressTypeID}
+                touched={touched.AddressTypeID}
                 disabled={false}
                 matchProp="value"
                 valueKey="value"
                 labelKey="label"
-                label="Subscription"
-                options={props.optionsProfileTypes}
-            />
-            <CustomSelect
-                valueName="ThemeID"
-                value={values.ThemeID}
-                onChange={setFieldValue}
-                onBlur={setFieldTouched}
-                error={errors.ThemeID}
-                touched={touched.ThemeID}
-                disabled={false}
-                matchProp="value"
-                valueKey="value"
-                labelKey="label"
-                label="Theme"
+                label="AddressTypeID"
                 options={props.optionsProfileTypes}
             />
             <CustomAsyncSelect
-                valueName="ProfileTypeID"
-                value={values.ProfileTypeID}
+                valueName="CityID"
+                value={values.CityID}
                 onChange={setFieldValue}
                 onBlur={setFieldTouched}
-                error={errors.ProfileTypeID}
-                touched={touched.ProfileTypeID}
+                error={errors.CityID}
+                touched={touched.CityID}
                 disabled={false}
                 matchProp="KeyID"
                 valueKey="KeyID"
                 labelKey="KeyName"
-                label="Topics"
+                label="CityID"
                 url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"
             />
             <CustomDropZone
-                error={errors.ProfilePhoto}
-                touched={touched.ProfilePhoto}
-                valueName="ProfilePhoto"
+                error={errors.AddressPhoto}
+                touched={touched.AddressPhoto}
+                valueName="AddressPhoto"
                 onChange={setFieldValue}
                 onBlur={setFieldTouched}
             >
@@ -158,33 +143,39 @@ const contactForm = props => {
 
 const formikEnhancer = withFormik({
     validationSchema: Yup.object().shape({
-        ProfileFullname: Yup.string()
+        AddressName: Yup.string()
             .min(2, "C'mon, your name is longer than that")
             .required('First name is required.'),
-        ProfileFullnameEnglish: Yup.string()
-            .min(2, "C'mon, your name is longer than that")
+        AddressTel: Yup.string()
+            .min(10, "C'mon, your name is longer than that")
             .required('Last name is required.'),
-        ProfileEmail: Yup.string()
+        AddressFax: Yup.string()
+            .min(10, "C'mon, your name is longer than that")
+            .nullable(),
+        AddressEmail: Yup.string()
             .email('Invalid email address')
-            .required('Email is required!'),
-        ProfileDescription: Yup.string()
-            .min(70, "C'mon, your name is longer than that"),
-        ProfileShortDescription: Yup.string()
-            .min(70, "C'mon, your name is longer than that"),
-        SubscriptionTypeID: Yup.number()
+            .nullable(),
+        AddressZipCode: Yup.string()
+            .min(4, "C'mon, your name is longer than that"),
+        CityID: Yup.number()
             .required('Subscription is required'),
-        ProfilePhoto: Yup.string()
-            .required('where is the photo'),
+        AddressTypeID: Yup.number()
+            .required('Address type is required'),
+        AddressAddress: Yup.string()
+            .min(40, "need correct address")
+            .required("it is compulsory"),
     }),
 
-    mapPropsToValues: ({user}) => ({
-        ...user,
+    mapPropsToValues: ({data}) => ({
+        ...data,
     }),
-    handleSubmit: (payload, {setSubmitting}) => {
+
+    handleSubmit: (payload, {setSubmitting, props}) => {
         console.log(payload, 'formikEnhancer');
+        props.handleSubmit(payload);
         setSubmitting(false);
     },
-    displayName: 'ProfileForm',
+    displayName: 'ContactForm',
 });
 
 const ContactForm = formikEnhancer(contactForm);
