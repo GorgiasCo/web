@@ -34,11 +34,12 @@
       <file leaf-file-name="ContactManageComponent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/Admin/Contact/ContactManageComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="128" column="46" lean-forward="false" selection-start-line="128" selection-start-column="46" selection-end-line="128" selection-end-column="46" />
+            <state relative-caret-position="323">
+              <caret line="244" column="55" lean-forward="false" selection-start-line="244" selection-start-column="55" selection-end-line="244" selection-end-column="55" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#88#127#0" expanded="true" />
+                <element signature="e#474#530#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,6 +64,7 @@
               <caret line="425" column="10" lean-forward="false" selection-start-line="425" selection-start-column="10" selection-end-line="425" selection-end-column="10" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <marker date="1519208261427" expanded="true" signature="236:24997" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -571,7 +573,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="346338000" />
+    <option name="totallyTimeSpent" value="347260000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -1035,17 +1037,19 @@
           <caret line="425" column="10" lean-forward="false" selection-start-line="425" selection-start-column="10" selection-end-line="425" selection-end-column="10" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <marker date="1519208261427" expanded="true" signature="236:24997" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Admin/Contact/ContactManageComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="128" column="46" lean-forward="false" selection-start-line="128" selection-start-column="46" selection-end-line="128" selection-end-column="46" />
+        <state relative-caret-position="323">
+          <caret line="244" column="55" lean-forward="false" selection-start-line="244" selection-start-column="55" selection-end-line="244" selection-end-column="55" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#88#127#0" expanded="true" />
+            <element signature="e#474#530#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -13,6 +13,7 @@ import "react-select/dist/react-select.css";
 import ContactForm from "./Form/";
 // import axios from "axios";
 import httpRequest from "../../Global/HTTP/httpRequest";
+import { ToastContainer, toast } from 'react-toastify';
 
 let API_KEY = "AIzaSyAjU94_y64Gh4mCZgDi4Ccdadaw8YRxqek";
 const GOOGLE_API = "https://maps.google.com/maps/api/geocode/json";
@@ -123,17 +124,19 @@ class ContactManageComponent extends Component {
 
     handleSubmit = (values) => {
         console.log(values, 'handleSubmit');
+        values.AddressLocation = null;
         this.fromAddress(values.AddressAddress, API_KEY).then(
             response => {
                 const {lat, lng} = response.results[0].geometry.location;
-                values.AddressLocation = null;
                 values.AddressStringLocation = lat + '#' + lng;
                 console.log(values,'error updateAsyncAddress');
-
                 if (this.props.AddressID !== 'New'.toLowerCase()) {
                     httpRequest.updateAsyncAddress(values.AddressID, values).then(
                         response => {
                             console.log(response,'response updateAsyncAddress');
+                            toast.success("Success Notification !", {
+                                position: toast.POSITION.TOP_CENTER
+                            });
                         },
                         error => {
                             console.log(error,'error updateAsyncAddress');
@@ -141,11 +144,13 @@ class ContactManageComponent extends Component {
                     )
                 } else {
                     values.ProfileID = parseInt(this.props.profileAccountSetting.payload.ProfileID);
-                    values.AddressLocation = null;
                     console.log(values,'inserting address');
                     httpRequest.newAsyncAddress(values).then(
                         response => {
                             console.log(response,'response newAsyncAddress');
+                            toast.success("Success Notification !", {
+                                position: toast.POSITION.TOP_CENTER
+                            });
                         },
                         error => {
                             console.log(error,'error newAsyncAddress');
@@ -237,6 +242,7 @@ class ContactManageComponent extends Component {
         return (
             !this.state.isLoading ?
                 <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
+                    <ToastContainer closeButton={false}/>
                     <div className="section_wrapper mcb-section-inner">
                         <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                             <div className="mcb-wrap-inner">
