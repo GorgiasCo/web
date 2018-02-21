@@ -7,42 +7,34 @@
 import React, {Component} from "react";
 import * as storyAction from "../../Actions/story/action";
 import * as profileAction from "../../Actions/profile/action";
+import * as authenticationAction from "../../Actions/authentication/action";
 import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
 import ContactForm from "./Form/";
-import axios from 'axios';
+// import axios from "axios";
+import httpRequest from "../../Global/HTTP/httpRequest";
 
 let API_KEY = "AIzaSyAjU94_y64Gh4mCZgDi4Ccdadaw8YRxqek";
 const GOOGLE_API = "https://maps.google.com/maps/api/geocode/json";
-
-const optionsProfileTypes = [
-    {value: 1, label: 'Food'},
-    {value: 2, label: 'Being Fabulous'},
-    {value: 3, label: 'Ken Wheeler'},
-    {value: 4, label: 'ReasonML'},
-    {value: 5, label: 'Unicorns'},
-    {value: 6, label: 'Kittens'},
-];
 
 class ContactManageComponent extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            tracks: [],
-            hasMoreItems: true,
-            nextHref: null,
             isLoading: true,
+            addressTypes: [],
             contactData: {
                 AddressName: '',
                 AddressTel: '',
                 AddressFax: '',
-                AddressEmail: '',
+                AddressEmail: null,
                 AddressZipCode: '',
                 CityID: undefined,
                 AddressTypeID: undefined,
                 AddressAddress: '',
-                AddressPhoto: '',
+                AddressImage: null,
+                AddressStatus: true,
             }
         };
     }
@@ -84,7 +76,6 @@ class ContactManageComponent extends Component {
         console.log(url);
         return this.handleUrl(url);
     }
-
 
     onDrop(files) {
 
@@ -131,11 +122,37 @@ class ContactManageComponent extends Component {
     }
 
     handleSubmit = (values) => {
-        console.log(values,'handleSubmit');
-        this.fromAddress(values.AddressAddress,API_KEY).then(
+        console.log(values, 'handleSubmit');
+        this.fromAddress(values.AddressAddress, API_KEY).then(
             response => {
-                const { lat, lng } = response.results[0].geometry.location;
-                console.log('address la',lat, lng);
+                const {lat, lng} = response.results[0].geometry.location;
+                values.AddressLocation = null;
+                values.AddressStringLocation = lat + '#' + lng;
+                console.log(values,'error updateAsyncAddress');
+
+                if (this.props.AddressID !== 'New'.toLowerCase()) {
+                    httpRequest.updateAsyncAddress(values.AddressID, values).then(
+                        response => {
+                            console.log(response,'response updateAsyncAddress');
+                        },
+                        error => {
+                            console.log(error,'error updateAsyncAddress');
+                        }
+                    )
+                } else {
+                    values.ProfileID = parseInt(this.props.profileAccountSetting.payload.ProfileID);
+                    values.AddressLocation = null;
+                    console.log(values,'inserting address');
+                    httpRequest.newAsyncAddress(values).then(
+                        response => {
+                            console.log(response,'response newAsyncAddress');
+                        },
+                        error => {
+                            console.log(error,'error newAsyncAddress');
+                        }
+                    )
+                }
+                console.log('address la', lat, lng, values);
             },
             error => {
                 console.error(error);
@@ -150,47 +167,28 @@ class ContactManageComponent extends Component {
         //console.log(this.state.filterData,'filterData',  this.props.profileAccountSetting);
     }
 
-    componentWillMount(){
+    componentWillMount() {
         console.log(this.props.AddressID, 'AddressID');
-        let that = this;
-        if(this.props.AddressID !== 'New'.toLowerCase()){
-            const token = localStorage.getItem("token");
-            let headers = null;
-            if (token) {
-                headers = {'Authorization': `Bearer ${token}`};
+        httpRequest.getAsyncAddressTypes().then(
+            response => {
+                console.log(response, 'response promis');
+                this.setState({addressTypes: response.data.Result});
+                let that = this;
+                if (this.props.AddressID !== 'New'.toLowerCase()) {
+                    httpRequest.getAddressByID(this.props.AddressID, (response) => {
+                        that.setState({contactData: response.Result, isLoading: false});
+                    }, (error) => {
+                        console.log(error, this.props.AddressID, 'in action story error ;)');
+                        this.props.logout();
+                    })
+                } else {
+                    that.setState({isLoading: false});
+                }
+            },
+            error => {
+                console.log(error, 'error promis');
             }
-            const url = "https://gorgiasapp-v4.azurewebsites.net/api/Address/AddressID/" + this.props.AddressID;
-            axios({
-                method: 'get',
-                url: url,
-                headers: headers,
-            })
-                .then(response => {
-                    const responseBody = response.data.Result;
-
-                    // let contactData ={
-                    //     AddressName: responseBody.data.Result.AddressName,
-                    //     AddressTel: responseBody.data.Result.AddressTel,
-                    //     AddressFax: responseBody.data.Result.AddressFax,
-                    //     AddressEmail: responseBody.data.Result.AddressEmail,
-                    //     AddressZipCode: responseBody.data.Result.AddressZipCode,
-                    //     CityID: responseBody.data.Result.CityID,
-                    //     AddressTypeID: responseBody.data.Result.AddressTypeID,
-                    //     AddressAddress: responseBody.data.Result.AddressAddress,
-                    //     AddressPhoto: 'done',
-                    // }
-
-                    that.setState({contactData: responseBody, isLoading: false});
-                    console.log(this.state.contactData, this.props.AddressID, 'in action story success ;) NIMA');
-                })
-                .catch(error => {
-                    console.log(error, this.props.AddressID, 'in action story error ;)');
-                    // dispatch(authenticationAction.logout());
-                });
-
-        } else {
-            that.setState({isLoading: false});
-        }
+        );
     }
 
     // shouldComponentUpdate(nextProps, nextState) {
@@ -238,25 +236,23 @@ class ContactManageComponent extends Component {
 
         return (
             !this.state.isLoading ?
-            <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
-                <div className="section_wrapper mcb-section-inner">
-                    <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
-                        <div className="mcb-wrap-inner">
-                            <div className="column mcb-column one column_column">
-                                <div className="column_attr clearfix">
-                                    <ContactForm
-                                        optionsProfileTypes={optionsProfileTypes}
-                                        handleSubmit={this.handleSubmit.bind(this)}
-                                        data={this.state.contactData}
-                                    />
-                                    <br/>
-                                    {this.state.contactData.AddressAddress}
+                <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
+                    <div className="section_wrapper mcb-section-inner">
+                        <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
+                            <div className="mcb-wrap-inner">
+                                <div className="column mcb-column one column_column">
+                                    <div className="column_attr clearfix">
+                                        <ContactForm
+                                            optionsProfileTypes={this.state.addressTypes}
+                                            handleSubmit={this.handleSubmit.bind(this)}
+                                            data={this.state.contactData}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div> : loader
+                </div> : loader
         );
     }
 }
@@ -280,7 +276,8 @@ const mapDispatchToProps = (dispatch) => {
         getStories: filteringData => dispatch(storyAction.getStories(filteringData)),
         getStoriesOLD: page => dispatch(storyAction.getStoriesOLD(page)),
         getCategories: profileID => dispatch(storyAction.getCategories(profileID)),
-        getProfileAccountSetting: profileID => dispatch(profileAction.getProfileAccountSetting(profileID))
+        getProfileAccountSetting: profileID => dispatch(profileAction.getProfileAccountSetting(profileID)),
+        logout: () => dispatch(authenticationAction.logout()),
     }
 };
 

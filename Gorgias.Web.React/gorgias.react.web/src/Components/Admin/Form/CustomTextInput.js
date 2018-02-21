@@ -32,7 +32,7 @@ const CustomTextInput = ({
                 id={id}
                 className="text-input"
                 type={type}
-                value={value}
+                value={value !== null ? value : ''}
                 onChange={onChange}
                 {...props}
             />

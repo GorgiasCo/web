@@ -3,9 +3,8 @@
  */
 import axios from "axios";
 
-import * as authenticationAction from "../../Actions/authentication/action";
-
-const BASE_URL_V2 = 'https://gorgiasapp-v3.azurewebsites.net/api/';
+// const BASE_URL_V2 = 'https://gorgiasapp-v4.azurewebsites.net/api/';
+const BASE_URL_V2 = 'http://localhost:43587/api/';
 let languageCode = 'en';
 class HttpRequest {
 
@@ -15,8 +14,17 @@ class HttpRequest {
 
     constructor() {
 
+        const token = localStorage.getItem("token");
+        let headers = null;
+        if (token) {
+            headers = {'Authorization': `Bearer ${token}`};
+        }
+
         this.instance = {
-            headers: {'Accept-Language': 'en'}
+            headers: {
+                'Accept-Language': 'en',
+                ...headers
+            }
         };
 
         // let languageLocal = DeviceInfo.getDeviceLocale();
@@ -86,6 +94,11 @@ class HttpRequest {
     //Update_Profile_Registration_Endpoint= BASE_URL_V2 + 'Mobile/V2/Profile/Register/Full';
     Update_Profile_Registration_Endpoint = BASE_URL_V2 + 'Account/Register/Mobile/V2';
 
+    AddressTypes_Endpoints = BASE_URL_V2 + 'AddressTypes/';
+    Address_By_ID_Endpoints = BASE_URL_V2 + 'Address/AddressID/';
+    Address_New_Endpoint = BASE_URL_V2 + 'Address/';
+    Address_Update_Endpoint = BASE_URL_V2 + 'Address/AddressID/';
+
     //Account/Register/Mobile/V2
 
     // {
@@ -124,6 +137,27 @@ class HttpRequest {
     //     }
     // ]
     // }
+
+    getAddressTypes(cbSuccess, cbError) {
+        this.getHTTP(this.AddressTypes_Endpoints, cbSuccess, cbError);
+    }
+
+    async getAsyncAddressTypes() {
+        return await this.getAsyncHTTP(this.AddressTypes_Endpoints);
+    }
+
+    async newAsyncAddress(data) {
+        return await this.postAsyncHTTPV2(this.Address_New_Endpoint, data);
+    }
+
+    async updateAsyncAddress(AddressID, data) {
+        return await this.postAsyncHTTPV2(this.Address_Update_Endpoint + AddressID, data);
+    }
+
+    getAddressByID(AddressID, cbSuccess, cbError) {
+        this.getHTTP(this.Address_By_ID_Endpoints + AddressID, cbSuccess, cbError);
+    }
+
     postNewAlbum(data, cbSuccess, cbError) {
         this.postHTTP(this.Upload_New_Album, cbSuccess, cbError, data);
     }
@@ -342,12 +376,20 @@ class HttpRequest {
         //     .catch(error => {
         //         cbError(error);
         //     });
+
+        const token = localStorage.getItem("token");
+        let headers = null;
+        if (token) {
+            headers = {'Authorization': `Bearer ${token}`};
+        }
+
         axios(
             {
                 method: 'get',
                 url: url,
                 headers: {
-                    'Accept-Language': languageCode
+                    'Accept-Language': languageCode,
+                    ...headers
                 }
             }
         ).then(response => {
@@ -356,10 +398,55 @@ class HttpRequest {
             }
         ).catch(error => {
                 console.log(error, 'axios');
-                cbError(error.data);
+                cbError(error);
             }
         );
     }
+
+    async getAsyncHTTP(url) {
+        const token = localStorage.getItem("token");
+        let headers = null;
+
+        if (token) {
+            headers = {'Authorization': `Bearer ${token}`};
+        }
+
+        return await axios(
+            {
+                method: 'get',
+                url: url,
+                headers: {
+                    'Accept-Language': languageCode,
+                    ...headers
+                }
+            }
+        );
+    }
+
+    async postAsyncHTTPV2(url, data){
+
+        const token = localStorage.getItem("token");
+        let headers = null;
+
+        if (token) {
+            headers = {'Authorization': `Bearer ${token}`};
+        }
+
+        return await axios(
+            {
+                method: 'post',
+                url: url,
+                data: data,
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Accept-Language': languageCode,
+                    ...headers
+                }
+            }
+        )
+    }
+
 
     getAxiosCategory() {
         return axios.get(this.Languages_Endpoint, this.instance);

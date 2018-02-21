@@ -97,9 +97,9 @@ const contactForm = props => {
                 error={errors.AddressTypeID}
                 touched={touched.AddressTypeID}
                 disabled={false}
-                matchProp="value"
-                valueKey="value"
-                labelKey="label"
+                matchProp="AddressTypeID"
+                valueKey="AddressTypeID"
+                labelKey="AddressTypeName"
                 label="AddressTypeID"
                 options={props.optionsProfileTypes}
             />
@@ -115,12 +115,12 @@ const contactForm = props => {
                 valueKey="KeyID"
                 labelKey="KeyName"
                 label="CityID"
-                url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"
+                url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Cities/"
             />
             <CustomDropZone
-                error={errors.AddressPhoto}
-                touched={touched.AddressPhoto}
-                valueName="AddressPhoto"
+                error={errors.AddressImage}
+                touched={touched.AddressImage}
+                valueName="AddressImage"
                 onChange={setFieldValue}
                 onBlur={setFieldTouched}
             >
@@ -156,13 +156,14 @@ const formikEnhancer = withFormik({
             .email('Invalid email address')
             .nullable(),
         AddressZipCode: Yup.string()
-            .min(4, "C'mon, your name is longer than that"),
+            .min(4, "C'mon, your name is longer than that")
+            .nullable(),
         CityID: Yup.number()
             .required('Subscription is required'),
         AddressTypeID: Yup.number()
             .required('Address type is required'),
         AddressAddress: Yup.string()
-            .min(40, "need correct address")
+            .min(20, "need correct address")
             .required("it is compulsory"),
     }),
 
