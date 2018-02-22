@@ -11,9 +11,9 @@ import * as authenticationAction from "../../Actions/authentication/action";
 import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
 import ContactForm from "./Form/";
-// import axios from "axios";
+import axios from "axios";
 import httpRequest from "../../Global/HTTP/httpRequest";
-import { ToastContainer, toast } from 'react-toastify';
+import {toast, ToastContainer} from "react-toastify";
 
 let API_KEY = "AIzaSyAjU94_y64Gh4mCZgDi4Ccdadaw8YRxqek";
 const GOOGLE_API = "https://maps.google.com/maps/api/geocode/json";
@@ -122,38 +122,66 @@ class ContactManageComponent extends Component {
         // });
     }
 
+    //'api/images/name?ImageName=hottest-' + $scope.imagename + '&MasterFileName=album'
+
+    prepareUploadPhoto = async (data, addressID) => {
+        var photoName = `address-${addressID}.jpg`;
+        console.log(data,addressID,'prepareUploadPhoto');
+
+        let body = new FormData();
+        body.append('file', data);
+        body.append('name', photoName);
+
+        // var fetchResult = await axios.post('http://localhost:43587/api/images/name?ImageName=' + photoName + '&MasterFileName=address',body);
+        var fetchResult = await httpRequest.uploadPhoto(photoName,'address',body);
+        return fetchResult;
+        // console.log(fetchResult, 'prepareUploadPhoto');
+    }
+
     handleSubmit = (values) => {
         console.log(values, 'handleSubmit');
         values.AddressLocation = null;
+        let addressImage = values.AddressImage;
+        values.AddressImage = null;
         this.fromAddress(values.AddressAddress, API_KEY).then(
             response => {
                 const {lat, lng} = response.results[0].geometry.location;
                 values.AddressStringLocation = lat + '#' + lng;
-                console.log(values,'error updateAsyncAddress');
+                console.log(values, 'error updateAsyncAddress');
                 if (this.props.AddressID !== 'New'.toLowerCase()) {
                     httpRequest.updateAsyncAddress(values.AddressID, values).then(
                         response => {
-                            console.log(response,'response updateAsyncAddress');
-                            toast.success("Success Notification !", {
-                                position: toast.POSITION.TOP_CENTER
-                            });
+                            console.log(response, 'response updateAsyncAddress');
+                            if(addressImage !== null){
+                                this.prepareUploadPhoto(addressImage, values.AddressID).then(
+                                    response => {
+                                        toast.success("Success Notification !" + response, {
+                                            position: toast.POSITION.TOP_CENTER
+                                        });
+                                    }
+                                );
+                            } else {
+                                toast.success("Success Notification !" + response, {
+                                    position: toast.POSITION.TOP_CENTER
+                                });
+                            }
                         },
                         error => {
-                            console.log(error,'error updateAsyncAddress');
+                            console.log(error, 'error updateAsyncAddress');
                         }
                     )
                 } else {
                     values.ProfileID = parseInt(this.props.profileAccountSetting.payload.ProfileID);
-                    console.log(values,'inserting address');
+                    console.log(values, 'inserting address');
                     httpRequest.newAsyncAddress(values).then(
                         response => {
-                            console.log(response,'response newAsyncAddress');
+                            console.log(response, 'response newAsyncAddress');
                             toast.success("Success Notification !", {
                                 position: toast.POSITION.TOP_CENTER
                             });
                         },
                         error => {
-                            console.log(error,'error newAsyncAddress');
+                            console.log(error, 'error newAsyncAddress');
                         }
                     )
                 }

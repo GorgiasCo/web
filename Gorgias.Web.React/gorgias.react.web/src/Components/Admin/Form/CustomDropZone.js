@@ -10,7 +10,7 @@ export default class CustomDropZone extends React.Component {
         // this is going to call setFieldValue and manually update values.topcis
         if (value !== null) {
             console.log(value, 'handleChange MySelect');
-            this.props.onChange(this.props.valueName, value[0].preview);
+            this.props.onChange(this.props.valueName, value[0]);
         }
     };
 

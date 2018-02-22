@@ -3,8 +3,8 @@
  */
 import axios from "axios";
 
-// const BASE_URL_V2 = 'https://gorgiasapp-v4.azurewebsites.net/api/';
-const BASE_URL_V2 = 'http://localhost:43587/api/';
+const BASE_URL_V2 = 'https://gorgiasapp-v4.azurewebsites.net/api/';
+// const BASE_URL_V2 = 'http://localhost:43587/api/';
 let languageCode = 'en';
 class HttpRequest {
 
@@ -401,6 +401,10 @@ class HttpRequest {
                 cbError(error);
             }
         );
+    }
+
+    async uploadPhoto(filename, photoType, data){
+        await axios.post(`${BASE_URL_V2}images/name?ImageName=${filename}&MasterFileName=${photoType}`,data);
     }
 
     async getAsyncHTTP(url) {
