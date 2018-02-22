@@ -176,9 +176,19 @@ class ContactManageComponent extends Component {
                     httpRequest.newAsyncAddress(values).then(
                         response => {
                             console.log(response, 'response newAsyncAddress');
-                            toast.success("Success Notification !", {
-                                position: toast.POSITION.TOP_CENTER
-                            });
+                            if(addressImage !== null){
+                                this.prepareUploadPhoto(addressImage, response.data.Result.AddressID).then(
+                                    response => {
+                                        toast.success("Success Notification !" + response, {
+                                            position: toast.POSITION.TOP_CENTER
+                                        });
+                                    }
+                                );
+                            } else {
+                                toast.success("Success Notification !" + response, {
+                                    position: toast.POSITION.TOP_CENTER
+                                });
+                            }
                         },
                         error => {
                             console.log(error, 'error newAsyncAddress');
@@ -207,7 +217,7 @@ class ContactManageComponent extends Component {
                 console.log(response, 'response promis');
                 this.setState({addressTypes: response.data.Result});
                 let that = this;
-                if (this.props.AddressID !== 'New'.toLowerCase()) {
+                if (this.props.AddressID.toLowerCase() !== 'New'.toLowerCase()) {
                     httpRequest.getAddressByID(this.props.AddressID, (response) => {
                         that.setState({contactData: response.Result, isLoading: false});
                     }, (error) => {
