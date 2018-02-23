@@ -1,4 +1,7 @@
 /**
+ * Created by yasser on 2/23/2018.
+ */
+/**
  * Created by odenza on 22/02/2018.
  */
 /**
@@ -17,12 +20,13 @@ import List from "../List/List";
 import axios from "axios";
 import httpRequest from "../../Global/HTTP/httpRequest";
 import {toast, ToastContainer} from "react-toastify";
-import ContactRow from "./List/ContactRow";
+import StoryRow from "../Story/StoryRow";
+import EndlessList from '../EndlessList/';
 
 let API_KEY = "AIzaSyAjU94_y64Gh4mCZgDi4Ccdadaw8YRxqek";
 const GOOGLE_API = "https://maps.google.com/maps/api/geocode/json";
 
-class ContactListComponent extends Component {
+class StoryListComponent extends Component {
 
     constructor(props) {
         super(props);
@@ -89,12 +93,22 @@ class ContactListComponent extends Component {
     }
 
     prepareContactRow = (item) => {
-        return <ContactRow key={item.AddressID} data={item}/>
+        return <StoryRow key={item.AlbumID} data={item}/>
     }
 
     onPress = (item) => {
         console.log(item, 'onPress');
         this.prepareDateFromAPI(item.AddressTypeID);
+    }
+
+    loadItems = (page) => {
+        console.log(page);
+        if(this.props.filterData !== undefined){
+            let filteringData = this.props.filterData;
+            filteringData.Page = page;
+            this.props.getStories(filteringData);
+            console.log(page, 'inside endless ;)', this.props.filterData);
+        }
     }
 
     render() {
@@ -110,14 +124,19 @@ class ContactListComponent extends Component {
                             <div className="mcb-wrap-inner">
                                 <div className="column mcb-column one column_column">
                                     <div className="column_attr clearfix">
-                                        <List
+                                        <EndlessList
                                             isLoading={this.state.isLoading}
-                                            items={this.state.addresses}
+                                            loadItems={this.loadItems}
                                             itemsExtra={this.state.addressTypes}
                                             onPress={this.onPress}
                                             prepareListRow={this.prepareContactRow}
                                             keyID="AddressTypeID"
                                             keyName="AddressTypeName"
+                                            useWindow={true}
+                                            getData={this.props.getStories}
+                                            hasMore={this.props.storiesHasMore}
+                                            filterData={this.props.filterData}
+                                            items={this.props.stories}
                                         />
                                     </div>
                                 </div>
@@ -154,4 +173,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 // Use connect to put them together
-export default connect(mapStateToProps, mapDispatchToProps)(ContactListComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(StoryListComponent);

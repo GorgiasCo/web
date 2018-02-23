@@ -11,6 +11,7 @@ import ContentTest from "./TestPageSections/ContentTest";
 import ContentTestLoad from "./TestPageSections/ContentTestLoad";
 import StoryManage from "./Admin/Story/StoryManageComponent";
 import StoryNew from "./Admin/Story/StoryNewComponent";
+import StoryListComponent from "./Admin/Story/StoryListComponent";
 import ProfileManage from "./Admin/Profile/ProfileManageComponent";
 import ContactManageComponent from "./Admin/Contact/ContactManageComponent";
 import ContactListComponent from "./Admin/Contact/ContactListComponent";
@@ -75,7 +76,7 @@ class DefaultAdminPage extends Component {
                 break;
             case "StoryManage":
                 return (
-                    <StoryManage/>
+                    <StoryListComponent />
                 )
                 break;
             case "StoryNew":

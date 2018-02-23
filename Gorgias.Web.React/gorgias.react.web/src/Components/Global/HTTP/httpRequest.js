@@ -98,6 +98,7 @@ class HttpRequest {
     Address_By_ID_Endpoints = BASE_URL_V2 + 'Address/AddressID/';
     Address_New_Endpoint = BASE_URL_V2 + 'Address/';
     Address_Update_Endpoint = BASE_URL_V2 + 'Address/AddressID/';
+    Addresses_By_ProfileID_AddressTypeID_Endpoint = `${BASE_URL_V2}Web/V2/Address/`;
 
     //Account/Register/Mobile/V2
 
@@ -138,12 +139,18 @@ class HttpRequest {
     // ]
     // }
 
+
+
     getAddressTypes(cbSuccess, cbError) {
         this.getHTTP(this.AddressTypes_Endpoints, cbSuccess, cbError);
     }
 
     async getAsyncAddressTypes() {
         return await this.getAsyncHTTP(this.AddressTypes_Endpoints);
+    }
+
+    async getAsyncAddresses(ProfileID, AddressTypeID) {
+        return await this.getAsyncHTTP(this.Addresses_By_ProfileID_AddressTypeID_Endpoint + '/' + ProfileID + '/' + AddressTypeID);
     }
 
     async newAsyncAddress(data) {
