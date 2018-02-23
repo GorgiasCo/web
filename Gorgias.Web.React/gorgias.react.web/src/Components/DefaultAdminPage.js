@@ -13,6 +13,7 @@ import StoryManage from "./Admin/Story/StoryManageComponent";
 import StoryNew from "./Admin/Story/StoryNewComponent";
 import ProfileManage from "./Admin/Profile/ProfileManageComponent";
 import ContactManageComponent from "./Admin/Contact/ContactManageComponent";
+import ContactListComponent from "./Admin/Contact/ContactListComponent";
 import {connect} from "react-redux";
 import * as todoActions from "../Components/Actions/ToDo/Action";
 class DefaultAdminPage extends Component {
@@ -90,6 +91,11 @@ class DefaultAdminPage extends Component {
             case "ContactForm":
                 return (
                     <ContactManageComponent AddressID={this.props.match.params.AddressID}/>
+                )
+                break;
+            case "ContactList":
+                return (
+                    <ContactListComponent/>
                 )
                 break;
             default:
