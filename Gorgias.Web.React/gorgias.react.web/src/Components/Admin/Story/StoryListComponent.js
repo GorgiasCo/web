@@ -16,12 +16,10 @@ import * as profileAction from "../../Actions/profile/action";
 import * as authenticationAction from "../../Actions/authentication/action";
 import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
-import List from "../List/List";
-import axios from "axios";
 import httpRequest from "../../Global/HTTP/httpRequest";
-import {toast, ToastContainer} from "react-toastify";
+import {ToastContainer} from "react-toastify";
 import StoryRow from "../Story/StoryRow";
-import EndlessList from '../EndlessList/';
+import EndlessList from "../EndlessList/";
 
 let API_KEY = "AIzaSyAjU94_y64Gh4mCZgDi4Ccdadaw8YRxqek";
 const GOOGLE_API = "https://maps.google.com/maps/api/geocode/json";
@@ -38,7 +36,7 @@ class StoryListComponent extends Component {
     }
 
     componentDidMount() {
-
+        //this.props.getProfileAccountSetting(1010);
     }
 
     componentWillMount() {
@@ -102,11 +100,25 @@ class StoryListComponent extends Component {
     }
 
     loadItems = (page) => {
-        console.log(page);
-        if(this.props.filterData !== undefined){
+        console.log(page, 'page ;)', this.props.filterData);
+        if (this.props.filterData !== undefined) {
             let filteringData = this.props.filterData;
             filteringData.Page = page;
             this.props.getStories(filteringData);
+            console.log(page, 'inside endless ;)', this.props.filterData);
+        } else {
+            let filterData = {
+                CategoryID: 12,//12 86
+                CategoryTypeID: 2,
+                ProfileID: 1011,
+                Page: page,
+                Size: 30,
+                Languages: ["en"],
+                isMicroApp: false,
+                // MicroAppProfileID:parseInt(1010),
+                MicroAppProfileID: parseInt(this.props.profileAccountSetting.payload.ProfileID),
+            };
+            this.props.getStories(filterData);
             console.log(page, 'inside endless ;)', this.props.filterData);
         }
     }

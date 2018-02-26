@@ -34,6 +34,8 @@ class ContactListComponent extends Component {
     }
 
     componentDidMount() {
+        this.props.getProfileAccounts(1016);
+        this.props.getProfileAccountSetting(1011);
 
     }
 
@@ -149,6 +151,7 @@ const mapDispatchToProps = (dispatch) => {
         getStoriesOLD: page => dispatch(storyAction.getStoriesOLD(page)),
         getCategories: profileID => dispatch(storyAction.getCategories(profileID)),
         getProfileAccountSetting: profileID => dispatch(profileAction.getProfileAccountSetting(profileID)),
+        getProfileAccounts: userID => dispatch(profileAction.getProfileAccounts(userID)),
         logout: () => dispatch(authenticationAction.logout()),
     }
 };

@@ -49,9 +49,9 @@ function profileSettingHotSpot(state = [], action) {
 }
 
 function profileAccounts(state = [], action) {
-    // console.log(action, 'profile action');
     switch (action.type) {
         case profileAction.PROFILE_ACCOUNTS:
+            console.log(action, 'profile action yasser');
             return null;//action;
         case profileAction.PROFILE_ACCOUNTS + "_SUCCESS":
             return {payload: action.payload, ...state};

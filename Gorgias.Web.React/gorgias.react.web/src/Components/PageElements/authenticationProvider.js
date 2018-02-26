@@ -46,7 +46,7 @@ export default function (ComposedComponent) {
 
         render() {
             console.log(this.context, this.props.authentication, 'Rendering', ComposedComponent);
-            return <ComposedComponent {...this.props} />
+            return <ComposedComponent {...this.props} router={this.context.router} />
         }
     }
 

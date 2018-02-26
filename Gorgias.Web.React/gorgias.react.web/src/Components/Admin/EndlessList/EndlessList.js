@@ -28,6 +28,7 @@ class EndlessList extends React.Component {
         //     this.props.getData(filteringData);
         //     console.log(page, 'inside endless ;)', this.props.filterData);
         // }
+        console.log('loadmore, endless', page);
         this.props.loadItems(page);
     }
 
@@ -61,7 +62,7 @@ class EndlessList extends React.Component {
                                     {/*<div style={{height: "700px", overflow: "auto"}}>*/}
                                         <InfiniteScroll
                                             pageStart={1}
-                                            initialLoad={false}
+                                            initialLoad={true}
                                             loadMore={this.loadItems.bind(this)}
                                             hasMore={hasMore}
                                             threshold={20}

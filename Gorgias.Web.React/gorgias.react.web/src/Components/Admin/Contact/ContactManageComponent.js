@@ -38,6 +38,7 @@ class ContactManageComponent extends Component {
                 AddressStatus: true,
             }
         };
+        console.log(props,'main router ;)');
     }
 
     async handleUrl(url) {
@@ -138,6 +139,10 @@ class ContactManageComponent extends Component {
         // console.log(fetchResult, 'prepareUploadPhoto');
     }
 
+    redirectToMainPage = () => {
+        this.props.router.history.push('/admin/contact/');
+    }
+
     handleSubmit = (values) => {
         console.log(values, 'handleSubmit');
         values.AddressLocation = null;
@@ -158,12 +163,14 @@ class ContactManageComponent extends Component {
                                         toast.success("Success Notification !" + response, {
                                             position: toast.POSITION.TOP_CENTER
                                         });
+                                        this.redirectToMainPage();
                                     }
                                 );
                             } else {
                                 toast.success("Success Notification !" + response, {
                                     position: toast.POSITION.TOP_CENTER
                                 });
+                                this.redirectToMainPage();
                             }
                         },
                         error => {
@@ -182,12 +189,14 @@ class ContactManageComponent extends Component {
                                         toast.success("Success Notification !" + response, {
                                             position: toast.POSITION.TOP_CENTER
                                         });
+                                        this.redirectToMainPage();
                                     }
                                 );
                             } else {
                                 toast.success("Success Notification !" + response, {
                                     position: toast.POSITION.TOP_CENTER
                                 });
+                                this.redirectToMainPage();
                             }
                         },
                         error => {
@@ -204,6 +213,8 @@ class ContactManageComponent extends Component {
     }
 
     componentDidMount() {
+        //this.props.getProfileAccounts(1016);
+        this.props.getProfileAccountSetting(1011);
         // this.loadItems(1);
         //this.props.getStoriesOLD(1);
         //this.loadItemsRedux(1011);
@@ -309,18 +320,21 @@ const mapStateToProps = (state, ownProps) => {
         filterData: state.storyManager.stories.filterData,
         storiesHasMore: state.storyManager.stories.hasMore,
         profileAccountSetting: state.profile.profileAccountSetting,
+        profileAccounts: state.profile.profileAccounts,
     }
 };
 
 // Maps actions to props
 const mapDispatchToProps = (dispatch) => {
-    // console.log(dispatch, 'new', dispatch);
+    console.log(dispatch, 'new yasser', dispatch);
     return {
         // You can now say this.props.createBook
         getStories: filteringData => dispatch(storyAction.getStories(filteringData)),
         getStoriesOLD: page => dispatch(storyAction.getStoriesOLD(page)),
         getCategories: profileID => dispatch(storyAction.getCategories(profileID)),
+        // getProfileAccountSetting: profileID => dispatch(profileAction.getProfileAccountSetting(profileID)),
         getProfileAccountSetting: profileID => dispatch(profileAction.getProfileAccountSetting(profileID)),
+        getProfileAccounts: userID => dispatch(profileAction.getProfileAccounts(userID)),
         logout: () => dispatch(authenticationAction.logout()),
     }
 };

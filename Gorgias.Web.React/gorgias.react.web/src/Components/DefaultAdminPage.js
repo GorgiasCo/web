@@ -91,7 +91,7 @@ class DefaultAdminPage extends Component {
                 break;
             case "ContactForm":
                 return (
-                    <ContactManageComponent AddressID={this.props.match.params.AddressID}/>
+                    <ContactManageComponent AddressID={this.props.match.params.AddressID} {...this.props}/>
                 )
                 break;
             case "ContactList":
