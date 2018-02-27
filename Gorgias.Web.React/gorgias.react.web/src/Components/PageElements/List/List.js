@@ -9,7 +9,6 @@
  A scrollable list with different item type
  */
 import React, {Component} from "react";
-import Coursol from "../Coursol";
 
 class List extends React.Component {
     constructor(args) {
@@ -17,19 +16,15 @@ class List extends React.Component {
     }
 
     render() {
-        const {isLoading, items, itemsExtra, keyID, keyName, onPress, prepareListRow} = this.props;
+        const {isLoading, items, header, prepareListRow} = this.props;
+        // console.log(header,'header');
         return (
             !isLoading ?
                 <div className="section mcb-section full-width tkSection-paddingBottom-only">
                     <div className="section_wrapper mcb-section-inner">
                         <div className="wrap mcb-wrap one  valign-top clearfix">
                             <div className="mcb-wrap-inner">
-                                <Coursol
-                                    items={itemsExtra}
-                                    keyID={keyID}
-                                    keyName={keyName}
-                                    onPress={onPress}
-                                />
+                                {header}
                                 <div className="column mcb-column one column_slider ">
                                     {items.map((item) => {
                                         return prepareListRow(item);

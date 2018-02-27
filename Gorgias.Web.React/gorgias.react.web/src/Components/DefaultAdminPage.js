@@ -15,6 +15,8 @@ import StoryListComponent from "./Admin/Story/StoryListComponent";
 import ProfileManage from "./Admin/Profile/ProfileManageComponent";
 import ContactManageComponent from "./Admin/Contact/ContactManageComponent";
 import ContactListComponent from "./Admin/Contact/ContactListComponent";
+import ContentManagerListComponent from "./Admin/ContentManager/ContentManagerListComponent";
+
 import {connect} from "react-redux";
 import * as todoActions from "./Stores/ToDo/Action";
 class DefaultAdminPage extends Component {
@@ -97,6 +99,11 @@ class DefaultAdminPage extends Component {
             case "ContactList":
                 return (
                     <ContactListComponent/>
+                )
+                break;
+                case "ContentManagerList":
+                return (
+                    <ContentManagerListComponent {...this.props}/>
                 )
                 break;
             default:

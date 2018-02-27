@@ -18,9 +18,8 @@ import axios from "axios";
 import httpRequest from "../../Global/HTTP/httpRequest";
 import {toast, ToastContainer} from "react-toastify";
 import ContactRow from "./List/ContactRow";
+import Coursol from "../../PageElements/Coursol";
 
-let API_KEY = "AIzaSyAjU94_y64Gh4mCZgDi4Ccdadaw8YRxqek";
-const GOOGLE_API = "https://maps.google.com/maps/api/geocode/json";
 
 class ContactListComponent extends Component {
 
@@ -99,9 +98,21 @@ class ContactListComponent extends Component {
         this.prepareDateFromAPI(item.AddressTypeID);
     }
 
+    header = () => {
+        return (
+            <Coursol
+                items={this.state.addressTypes}
+                keyID={"AddressTypeID"}
+                keyName={"AddressTypeName"}
+                onPress={this.onPress}
+            />
+        )
+    }
+
     render() {
         const loader = <div className="loader">Loading ...</div>;
         // console.log(this.state.contactData, this.props.AddressID, 'in action story success ;) NIMA render');
+
 
         return (
             !this.state.isLoading ?
@@ -115,11 +126,13 @@ class ContactListComponent extends Component {
                                         <List
                                             isLoading={this.state.isLoading}
                                             items={this.state.addresses}
-                                            itemsExtra={this.state.addressTypes}
-                                            onPress={this.onPress}
                                             prepareListRow={this.prepareContactRow}
-                                            keyID="AddressTypeID"
-                                            keyName="AddressTypeName"
+                                            header={<Coursol
+                                                items={this.state.addressTypes}
+                                                keyID={"AddressTypeID"}
+                                                keyName={"AddressTypeName"}
+                                                onPress={this.onPress}
+                                            />}
                                         />
                                     </div>
                                 </div>

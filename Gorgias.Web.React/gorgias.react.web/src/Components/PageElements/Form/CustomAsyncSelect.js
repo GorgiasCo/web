@@ -21,9 +21,19 @@ export default class CustomAsyncSelect extends React.Component {
 
     getContributors = (input, callback) => {
         const url = this.props.url + input;
+
+        const token = localStorage.getItem("token");
+        let headers = null;
+
+        if (token) {
+            headers = {'Authorization': `Bearer ${token}`};
+        }
+
+        console.log(headers,'headers token');
         axios({
             method: 'get',
             url: url,
+            headers: headers,
         })
             .then(response => {
                 const responseBody = response;

@@ -103,6 +103,7 @@ class HttpRequest {
     ContentManager_Insert_Endpoint = `${BASE_URL_V2}UserProfile/`;
     ContentManager_Delete_Endpoint = `${BASE_URL_V2}UserProfile/ProfileID/UserRoleID/UserID/`;
     ContentManager_Profile_AutoComplete_Endpoint = `${BASE_URL_V2}Profile/Autocomplete/keyword/`;
+    ContentManager_Profiles_All_Subscribers_Endpoint = `${BASE_URL_V2}Mobile/V2/Profile/Content/Management/`;
 
 
     //Account/Register/Mobile/V2
@@ -156,6 +157,10 @@ class HttpRequest {
 
     async getAsyncContentManagerAutoComplete(keyword) {
         return await this.getAsyncHTTP(this.ContentManager_Profile_AutoComplete_Endpoint + keyword);
+    }
+
+    async getAsyncContentManagerAllSubscribers(ProfileID) {
+        return await this.getAsyncHTTP(this.ContentManager_Profiles_All_Subscribers_Endpoint + ProfileID);
     }
 
     async newAsyncContentManager(data) {

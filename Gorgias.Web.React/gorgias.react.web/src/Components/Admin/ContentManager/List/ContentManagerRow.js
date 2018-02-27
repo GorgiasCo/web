@@ -21,7 +21,7 @@ export default class ContentManagerRow extends Component {
                     </div>
                     <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
                     <h4 className="tkFont-Bold tkFont-Theme"><a
-                        href={`admin/contact/${this.props.data.ProfileID}`}>{this.props.data.ProfileFullname}</a></h4>
+                        href={`admin/content/manager/${this.props.data.ProfileID}`}>{this.props.data.ProfileFullname}</a></h4>
                     {/*<p style={{minHeight: 100 + "px"}}>*/}
                         {/*{this.props.data.AddressAddress}*/}
                     {/*</p>*/}

@@ -18,6 +18,7 @@ import axios from "axios";
 import httpRequest from "../../Global/HTTP/httpRequest";
 import {toast, ToastContainer} from "react-toastify";
 import ContentManagerRow from "./List/ContentManagerRow";
+import ContentManagerForm from "./Form/";
 
 let API_KEY = "AIzaSyAjU94_y64Gh4mCZgDi4Ccdadaw8YRxqek";
 const GOOGLE_API = "https://maps.google.com/maps/api/geocode/json";
@@ -28,8 +29,7 @@ class ContentManagerListComponent extends Component {
         super(props);
         this.state = {
             isLoading: false,
-            addressTypes: [],
-            addresses: [],
+            contentManagers: [],
         };
     }
 
@@ -40,26 +40,73 @@ class ContentManagerListComponent extends Component {
     }
 
     componentWillMount() {
-        this.prepareDateFromAPI(0);
+        this.prepareDateFromAPI();
     }
 
-    prepareDateFromAPI = (addressTypeID) => {
+    prepareDateFromAPI = () => {
         this.setState({
             isLoading: true,
-            addresses: [],
-            addressTypes: []
+            contentManagers: [],
         });
-        httpRequest.getAsyncAddresses(1011, addressTypeID).then(
+        httpRequest.getAsyncContentManagerAllSubscribers(this.props.profileAccountSetting.payload.ProfileID).then(
             response => {
                 this.setState({
                     isLoading: false,
-                    addresses: response.data.Result.Addresses,
-                    addressTypes: response.data.Result.AddressTypes
+                    contentManagers: response.data.Result,
                 });
-                console.log(response, 'Contacts Address');
+                console.log(response, 'Content Managers');
             }
         )
     }
+
+    autoCompleteContentManager = (keyword) => {
+        httpRequest.getAsyncContentManagerAutoComplete(keyword).then(
+            response => {
+                this.setState({
+                    isLoading: true,
+                    contentManagersAutoComplete: response.data.Result,
+                });
+            }
+        )
+    }
+
+    insertContentManager = (UserID) => {
+        this.setState({
+            isLoading: true,
+            contentManagers: [],
+        });
+        let data = {
+            ProfileID: this.props.profileAccountSetting.payload.ProfileID,
+            UserRoleID: 5,
+            UserID: UserID,
+            CountryID: null,
+        }
+        httpRequest.newAsyncContentManager(data).then(
+            response => {
+                this.setState({
+                    isLoading: false,
+                    contentManagers: response.data.Result,
+                });
+                console.log(response, 'Content Managers');
+            }
+        )
+    };
+
+    deleteContentManager = (UserID) => {
+        this.setState({
+            isLoading: true,
+            contentManagers: [],
+        });
+        httpRequest.deleteAsyncContentManager(this.props.profileAccountSetting.payload.ProfileID,5,UserID).then(
+            response => {
+                this.setState({
+                    isLoading: false,
+                    contentManagers: response.data.Result,
+                });
+                console.log(response, 'Content Managers');
+            }
+        )
+    };
 
     // shouldComponentUpdate(nextProps, nextState) {
     //     if(this.props !== nextProps){
@@ -99,6 +146,10 @@ class ContentManagerListComponent extends Component {
         this.prepareDateFromAPI(item.AddressTypeID);
     }
 
+    handleSubmit = (data) => {
+        console.log(data,'content manager submit');
+    }
+
     render() {
         const loader = <div className="loader">Loading ...</div>;
         // console.log(this.state.contactData, this.props.AddressID, 'in action story success ;) NIMA render');
@@ -112,14 +163,14 @@ class ContentManagerListComponent extends Component {
                             <div className="mcb-wrap-inner">
                                 <div className="column mcb-column one column_column">
                                     <div className="column_attr clearfix">
+                                        <ContentManagerForm
+                                            handleSubmit={this.handleSubmit.bind(this)}
+                                            data={{ProfileID: null}}
+                                        />
                                         <List
                                             isLoading={this.state.isLoading}
-                                            items={this.state.addresses}
-                                            itemsExtra={this.state.addressTypes}
-                                            onPress={this.onPress}
+                                            items={this.state.contentManagers}
                                             prepareListRow={this.prepareContentManagerRow}
-                                            keyID="AddressTypeID"
-                                            keyName="AddressTypeName"
                                         />
                                     </div>
                                 </div>
