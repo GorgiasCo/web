@@ -100,6 +100,11 @@ class HttpRequest {
     Address_Update_Endpoint = BASE_URL_V2 + 'Address/AddressID/';
     Addresses_By_ProfileID_AddressTypeID_Endpoint = `${BASE_URL_V2}Web/V2/Address/`;
 
+    ContentManager_Insert_Endpoint = `${BASE_URL_V2}UserProfile/`;
+    ContentManager_Delete_Endpoint = `${BASE_URL_V2}UserProfile/ProfileID/UserRoleID/UserID/`;
+    ContentManager_Profile_AutoComplete_Endpoint = `${BASE_URL_V2}Profile/Autocomplete/keyword/`;
+
+
     //Account/Register/Mobile/V2
 
     // {
@@ -143,6 +148,18 @@ class HttpRequest {
 
     getAddressTypes(cbSuccess, cbError) {
         this.getHTTP(this.AddressTypes_Endpoints, cbSuccess, cbError);
+    }
+
+    async deleteAsyncContentManager(ProfileID, UserRoleID, UserID) {
+        return await this.getAsyncHTTP(this.ContentManager_Delete_Endpoint + ProfileID + '/' + UserRoleID + '/' + UserID);
+    }
+
+    async getAsyncContentManagerAutoComplete(keyword) {
+        return await this.getAsyncHTTP(this.ContentManager_Profile_AutoComplete_Endpoint + keyword);
+    }
+
+    async newAsyncContentManager(data) {
+        return await this.postAsyncHTTPV2(this.ContentManager_Insert_Endpoint, data);
     }
 
     async getAsyncAddressTypes() {
