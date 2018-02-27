@@ -3,14 +3,14 @@ import MainPage from "./Components/Main";
 import "./App.css";
 import {Provider} from "react-redux";
 import {applyMiddleware, createStore} from "redux";
-import mainReducer from "./Components/Actions/index";
+import mainReducer from "./Components/Stores/index";
 import {persistCombineReducers, persistStore} from "redux-persist";
 import storage from "redux-persist/lib/storage"; // default: localStorage if web, AsyncStorage if react-native
 import {PersistGate} from "redux-persist/es/integration/react";
 import thunk from "redux-thunk";
 //import axiosMiddleware from "redux-axios";
 import axiosMiddleware from "redux-axios-middleware";
-import * as authenticationActions from '../src/Components/Actions/authentication/action';
+import * as authenticationActions from './Components/Stores/authentication/action';
 
 import { connect } from 'react-redux';
 

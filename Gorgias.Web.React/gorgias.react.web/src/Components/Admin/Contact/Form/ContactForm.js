@@ -5,11 +5,11 @@ import React, {Component} from "react";
 import {withFormik, Formik, Form, Field, FieldArray} from "formik";
 import Yup from "yup";
 
-import CustomSelect from "../../Form/CustomSelect";
-import CustomAsyncSelect from "../../Form/CustomAsyncSelect";
-import CustomTextInput from "../../Form/CustomTextInput";
-import CustomInputFieldComponent from "../../Form/CustomInputFieldComponent";
-import CustomDropZone from "../../Form/CustomDropZone";
+import CustomSelect from "../../../PageElements/Form/CustomSelect";
+import CustomAsyncSelect from "../../../PageElements/Form/CustomAsyncSelect";
+import CustomTextInput from "../../../PageElements/Form/CustomTextInput";
+import CustomInputFieldComponent from "../../../PageElements/Form/CustomInputFieldComponent";
+import CustomDropZone from "../../../PageElements/Form/CustomDropZone";
 
 const contactForm = props => {
     const {

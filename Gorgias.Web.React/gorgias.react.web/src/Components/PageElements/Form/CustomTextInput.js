@@ -2,8 +2,8 @@
  * Created by odenza on 19/02/2018.
  */
 import React, {Component} from "react";
-import Label from "../Form/Label";
-import InputFeedback from "../Form/InputFeedback";
+import Label from "./Label";
+import InputFeedback from "./InputFeedback";
 import classnames from "classnames";
 
 const CustomTextInput = ({

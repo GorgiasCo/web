@@ -12,7 +12,7 @@
  A scrollable list with different item type
  */
 import React, {Component} from "react";
-import Coursol from "../../Admin/Coursol";
+import Coursol from "../Coursol";
 import InfiniteScroll from "react-infinite-scroller";
 
 class EndlessList extends React.Component {
@@ -21,13 +21,6 @@ class EndlessList extends React.Component {
     }
 
     loadItems = (page) => {
-        // this.props.filteringData.Page = page;
-        // if(this.props.filterData !== undefined){
-        //     let filteringData = this.props.filterData;
-        //     filteringData.Page = page;
-        //     this.props.getData(filteringData);
-        //     console.log(page, 'inside endless ;)', this.props.filterData);
-        // }
         console.log('loadmore, endless', page);
         this.props.loadItems(page);
     }

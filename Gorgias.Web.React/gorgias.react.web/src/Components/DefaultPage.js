@@ -11,7 +11,7 @@ import ContentContact from './ContactPageSections/ContentContact';
 import ContentTerms from './TermsPageSections/ContentTerms';
 import ContentTest from './TestPageSections/ContentTest';
 import { connect } from 'react-redux';
-import * as todoActions from '../Components/Actions/ToDo/Action';
+import * as todoActions from './Stores/ToDo/Action';
 import httpRequest from '../Components/Global/HTTP/httpRequest';
 
 class DefaultPage extends Component {

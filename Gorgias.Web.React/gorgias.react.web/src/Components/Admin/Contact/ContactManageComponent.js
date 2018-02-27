@@ -5,9 +5,9 @@
  * Created by odenza on 12/02/2018.
  */
 import React, {Component} from "react";
-import * as storyAction from "../../Actions/story/action";
-import * as profileAction from "../../Actions/profile/action";
-import * as authenticationAction from "../../Actions/authentication/action";
+import * as storyAction from "../../Stores/story/action";
+import * as profileAction from "../../Stores/profile/action";
+import * as authenticationAction from "../../Stores/authentication/action";
 import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
 import ContactForm from "./Form/";

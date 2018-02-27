@@ -12,7 +12,7 @@ import {
 import LoginContent from '../LoginSections/AccountContent';
 import HomeContainer from '../Home/HomeContainer';
 import { connect } from 'react-redux';
-import * as authenticationActions from '../Actions/authentication/action';
+import * as authenticationActions from '../Stores/authentication/action';
 
 class Header extends React.Component {
 

@@ -11,15 +11,15 @@
  * Created by odenza on 12/02/2018.
  */
 import React, {Component} from "react";
-import * as storyAction from "../../Actions/story/action";
-import * as profileAction from "../../Actions/profile/action";
-import * as authenticationAction from "../../Actions/authentication/action";
+import * as storyAction from "../../Stores/story/action";
+import * as profileAction from "../../Stores/profile/action";
+import * as authenticationAction from "../../Stores/authentication/action";
 import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
 import httpRequest from "../../Global/HTTP/httpRequest";
 import {ToastContainer} from "react-toastify";
 import StoryRow from "../Story/StoryRow";
-import EndlessList from "../EndlessList/";
+import EndlessList from "../../PageElements/EndlessList/";
 
 let API_KEY = "AIzaSyAjU94_y64Gh4mCZgDi4Ccdadaw8YRxqek";
 const GOOGLE_API = "https://maps.google.com/maps/api/geocode/json";
@@ -90,7 +90,7 @@ class StoryListComponent extends Component {
         // }
     }
 
-    prepareContactRow = (item) => {
+    prepareStoryRow = (item) => {
         return <StoryRow key={item.AlbumID} data={item}/>
     }
 
@@ -141,7 +141,7 @@ class StoryListComponent extends Component {
                                             loadItems={this.loadItems}
                                             itemsExtra={this.state.addressTypes}
                                             onPress={this.onPress}
-                                            prepareListRow={this.prepareContactRow}
+                                            prepareListRow={this.prepareStoryRow}
                                             keyID="AddressTypeID"
                                             keyName="AddressTypeName"
                                             useWindow={true}

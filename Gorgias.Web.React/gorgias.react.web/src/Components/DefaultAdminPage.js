@@ -16,7 +16,7 @@ import ProfileManage from "./Admin/Profile/ProfileManageComponent";
 import ContactManageComponent from "./Admin/Contact/ContactManageComponent";
 import ContactListComponent from "./Admin/Contact/ContactListComponent";
 import {connect} from "react-redux";
-import * as todoActions from "../Components/Actions/ToDo/Action";
+import * as todoActions from "./Stores/ToDo/Action";
 class DefaultAdminPage extends Component {
 
     constructor(props) {

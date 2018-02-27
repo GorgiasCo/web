@@ -6,7 +6,7 @@
  A scrollable list with different item type
  */
 import React, {Component} from "react";
-import * as storyAction from "../../Actions/story/action";
+import * as storyAction from "../../Stores/story/action";
 
 import {connect} from "react-redux";
 // Most of react-virtualized's styles are functional (eg position, size).

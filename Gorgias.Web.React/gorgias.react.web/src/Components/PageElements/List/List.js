@@ -9,7 +9,7 @@
  A scrollable list with different item type
  */
 import React, {Component} from "react";
-import Coursol from "../../Admin/Coursol";
+import Coursol from "../Coursol";
 
 class List extends React.Component {
     constructor(args) {

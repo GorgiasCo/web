@@ -1,11 +1,11 @@
 import React from "react";
 import Dropzone from "react-dropzone";
 // import { createStore } from 'redux'
-import * as storyAction from "../Actions/story/action";
-import * as profileAction from "../Actions/profile/action";
+import * as storyAction from "../Stores/story/action";
+import * as profileAction from "../Stores/profile/action";
 
 import {connect} from "react-redux";
-import * as todoActions from "../Actions/ToDo/Action";
+import * as todoActions from "../Stores/ToDo/Action";
 import GoogleMapReact from "google-map-react";
 import httpRequest from "../Global/HTTP/httpRequest";
 

@@ -1,13 +1,13 @@
 import React, {Component} from "react";
-import * as storyAction from "../Actions/story/action";
-import * as profileAction from "../Actions/profile/action";
+import * as storyAction from "../Stores/story/action";
+import * as profileAction from "../Stores/profile/action";
 import StoryRow from "../Admin/Story/StoryRow";
 
-import EndlessLoadingProvider from "../Admin/EndlessLoadingProvider";
+import EndlessLoadingProvider from "../PageElements/EndlessLoadingProvider";
 import StoryRowComponent from "../Admin/Story/StoryRowComponent";
 import ProfileRowComponent from "../Admin/Profile/ProfileRowComponent";
 
-import ElementProvider from "../Admin/Form/ElementProvider";
+import ElementProvider from "../PageElements/Form/ElementProvider";
 
 import {connect} from "react-redux";
 

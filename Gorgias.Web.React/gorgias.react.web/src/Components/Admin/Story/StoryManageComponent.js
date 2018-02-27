@@ -2,8 +2,8 @@
  * Created by odenza on 12/02/2018.
  */
 import React, {Component} from "react";
-import * as storyAction from "../../Actions/story/action";
-import * as profileAction from "../../Actions/profile/action";
+import * as storyAction from "../../Stores/story/action";
+import * as profileAction from "../../Stores/profile/action";
 import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
 import axios from "axios";
