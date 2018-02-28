@@ -6,11 +6,20 @@ import Select from "react-select";
 import axios from "axios";
 
 export default class CustomAsyncSelect extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            selectedItem: undefined,
+        };
+    }
+
     handleChange = value => {
         // this is going to call setFieldValue and manually update values.topcis
         if (value !== null) {
             console.log(value[this.props.valueKey], 'handleChange MySelect');
             this.props.onChange(this.props.valueName, value[this.props.valueKey]);
+            this.setState({selectedItem: value})
         }
     };
 
@@ -20,6 +29,9 @@ export default class CustomAsyncSelect extends React.Component {
     };
 
     getContributors = (input, callback) => {
+        // if(input === ''){
+        //     return;
+        // }
         const url = this.props.url + input;
 
         const token = localStorage.getItem("token");
@@ -70,6 +82,7 @@ export default class CustomAsyncSelect extends React.Component {
                     matchProp={this.props.matchProp}
                     disabled={this.props.disabled}
                 />
+                {this.props.hasCaption && this.state.selectedItem !== undefined ? this.state.selectedItem[this.props.labelKey] : null}
                 {!!this.props.error &&
                 this.props.touched && (
                     <div style={{color: 'red', marginTop: '.5rem'}}>

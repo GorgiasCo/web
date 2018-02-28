@@ -21,7 +21,8 @@ export default class ContentManagerRow extends Component {
                     </div>
                     <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
                     <h4 className="tkFont-Bold tkFont-Theme"><a
-                        href={`admin/content/manager/${this.props.data.ProfileID}`}>{this.props.data.ProfileFullname}</a></h4>
+                        >{this.props.data.ProfileFullname}</a></h4>
+                    <button onClick={() => this.props.onPress(this.props.data)}>Delete</button>
                     {/*<p style={{minHeight: 100 + "px"}}>*/}
                         {/*{this.props.data.AddressAddress}*/}
                     {/*</p>*/}

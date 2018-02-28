@@ -8,20 +8,17 @@
  * Created by odenza on 12/02/2018.
  */
 import React, {Component} from "react";
-import * as storyAction from "../../Stores/story/action";
 import * as profileAction from "../../Stores/profile/action";
 import * as authenticationAction from "../../Stores/authentication/action";
 import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
 import List from "../../PageElements/List/List";
-import axios from "axios";
 import httpRequest from "../../Global/HTTP/httpRequest";
 import {toast, ToastContainer} from "react-toastify";
 import ContentManagerRow from "./List/ContentManagerRow";
 import ContentManagerForm from "./Form/";
-
-let API_KEY = "AIzaSyAjU94_y64Gh4mCZgDi4Ccdadaw8YRxqek";
-const GOOGLE_API = "https://maps.google.com/maps/api/geocode/json";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 
 class ContentManagerListComponent extends Component {
 
@@ -30,12 +27,13 @@ class ContentManagerListComponent extends Component {
         this.state = {
             isLoading: false,
             contentManagers: [],
+            contentManager: {
+                UserID: undefined,
+            }
         };
     }
 
     componentDidMount() {
-        //this.props.getProfileAccounts(1016);
-        //this.props.getProfileAccountSetting(1011);
 
     }
 
@@ -83,10 +81,14 @@ class ContentManagerListComponent extends Component {
         }
         httpRequest.newAsyncContentManager(data).then(
             response => {
-                this.setState({
-                    isLoading: false,
-                    contentManagers: response.data.Result,
+                this.prepareDateFromAPI();
+                toast.success("Success Notification !", {
+                    position: toast.POSITION.TOP_CENTER
                 });
+                // this.setState({
+                //     isLoading: false,
+                //     contentManagers: response.data.Result,
+                // });
                 console.log(response, 'Content Managers');
             }
         )
@@ -97,13 +99,14 @@ class ContentManagerListComponent extends Component {
             isLoading: true,
             contentManagers: [],
         });
-        httpRequest.deleteAsyncContentManager(this.props.profileAccountSetting.payload.ProfileID,5,UserID).then(
+        console.log(this.props.profileAccountSetting.payload.ProfileID, 5, UserID, 'delete');
+        httpRequest.deleteAsyncContentManager(this.props.profileAccountSetting.payload.ProfileID, 5, UserID).then(
             response => {
-                this.setState({
-                    isLoading: false,
-                    contentManagers: response.data.Result,
+                console.log(response,'delete');
+                this.prepareDateFromAPI();
+                toast.success("Success Notification !", {
+                    position: toast.POSITION.TOP_CENTER
                 });
-                console.log(response, 'Content Managers');
             }
         )
     };
@@ -138,16 +141,24 @@ class ContentManagerListComponent extends Component {
     }
 
     prepareContentManagerRow = (item) => {
-        return <ContentManagerRow key={item.ProfileID} data={item}/>
+        return <ContentManagerRow key={item.ProfileID} onPress={this.onPress} data={item}/>
     }
 
     onPress = (item) => {
         console.log(item, 'onPress');
-        this.prepareDateFromAPI(item.AddressTypeID);
+        confirmAlert({
+            title: 'Confirm to submit',                        // Title dialog
+            message: 'Are you sure to do this.',               // Message dialog
+            childrenElement: () => <div>Custom UI</div>,       // Custom UI or Component
+            confirmLabel: 'Confirm',                           // Text button confirm
+            cancelLabel: 'Cancel',                             // Text button cancel
+            onConfirm: () => this.deleteContentManager(item.UserID),    // Action after Confirm
+        })
     }
 
     handleSubmit = (data) => {
-        console.log(data,'content manager submit');
+        this.insertContentManager(data.UserID);
+        console.log(data, 'content manager submit');
     }
 
     render() {
@@ -163,10 +174,12 @@ class ContentManagerListComponent extends Component {
                             <div className="mcb-wrap-inner">
                                 <div className="column mcb-column one column_column">
                                     <div className="column_attr clearfix">
-                                        <ContentManagerForm
-                                            handleSubmit={this.handleSubmit.bind(this)}
-                                            data={{ProfileID: null}}
-                                        />
+                                        <div style={{zindex:9999}}>
+                                            <ContentManagerForm
+                                                handleSubmit={this.handleSubmit.bind(this)}
+                                                data={this.state.contentManager}
+                                            />
+                                        </div>
                                         <List
                                             isLoading={this.state.isLoading}
                                             items={this.state.contentManagers}
@@ -180,7 +193,8 @@ class ContentManagerListComponent extends Component {
                 </div> : loader
         );
     }
-};
+}
+;
 
 const mapStateToProps = (state, ownProps) => {
     console.log(state, 'mapStateToProps storylist');

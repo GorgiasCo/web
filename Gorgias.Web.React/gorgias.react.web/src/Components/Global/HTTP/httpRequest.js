@@ -4,7 +4,7 @@
 import axios from "axios";
 
 const BASE_URL_V2 = 'https://gorgiasapp-v4.azurewebsites.net/api/';
-// const BASE_URL_V2 = 'http://localhost:43587/api/';
+//const BASE_URL_V2 = 'http://localhost:43587/api/';
 let languageCode = 'en';
 class HttpRequest {
 
@@ -101,8 +101,8 @@ class HttpRequest {
     Addresses_By_ProfileID_AddressTypeID_Endpoint = `${BASE_URL_V2}Web/V2/Address/`;
 
     ContentManager_Insert_Endpoint = `${BASE_URL_V2}UserProfile/`;
-    ContentManager_Delete_Endpoint = `${BASE_URL_V2}UserProfile/ProfileID/UserRoleID/UserID/`;
-    ContentManager_Profile_AutoComplete_Endpoint = `${BASE_URL_V2}Profile/Autocomplete/keyword/`;
+    ContentManager_Delete_Endpoint = `${BASE_URL_V2}UserProfile/ProfileID/UserRoleID/UserID/`; //UserProfile/ProfileID/UserRoleID/UserID/{ProfileID}/{UserRoleID}/{UserID}
+    ContentManager_Profile_AutoComplete_Endpoint = `${BASE_URL_V2}Profiles/Autocomplete/`;
     ContentManager_Profiles_All_Subscribers_Endpoint = `${BASE_URL_V2}Mobile/V2/Profile/Content/Management/`;
 
 

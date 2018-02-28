@@ -41,7 +41,8 @@ export default class CustomAutocomplete extends React.Component {
     getContributors = (input) => {
         //this.setState({input});
         console.log(input, 'NIMA');
-        const url = "https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/" + input;
+        // const url = "https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/" + input;
+        const url = this.props.url + input;
         axios({
             method: 'get',
             url: url,
@@ -61,8 +62,8 @@ export default class CustomAutocomplete extends React.Component {
 
     conditionForRendering = (item, value) => {
         if (value.value !== undefined) {
-            console.log(value.value, value.toString().toLowerCase(), 'lowercase', item.KeyName.toLowerCase().indexOf(value.value.toString().toLowerCase()) > -1);
-            return item.KeyName.toLowerCase().indexOf(value.toString().toLowerCase()) > -1;
+            console.log(value.value, value.toString().toLowerCase(), 'lowercase', item[this.props.KeyName].toLowerCase().indexOf(value.value.toString().toLowerCase()) > -1);
+            return item[this.props.KeyName].toLowerCase().indexOf(value.toString().toLowerCase()) > -1;
         }
         return true;
     }
@@ -76,13 +77,13 @@ export default class CustomAutocomplete extends React.Component {
                 <Autocomplete
                     items={this.state.values}
                     shouldItemRender={(item, value) => this.conditionForRendering(item, value)}
-                    getItemValue={item => item.KeyName}
+                    getItemValue={item => item[this.props.KeyName]}
                     renderItem={(item, highlighted) =>
                         <div
-                            key={item.KeyID}
+                            key={item[this.props.KeyID]}
                             style={{backgroundColor: highlighted ? '#eee' : 'transparent'}}
                         >
-                            {item.KeyName}
+                            {item[this.props.KeyName]}
                         </div>
                     }
                     value={this.props.value}

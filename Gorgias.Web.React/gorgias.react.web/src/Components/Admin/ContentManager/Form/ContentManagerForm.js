@@ -9,6 +9,8 @@ import {withFormik, Formik, Form, Field, FieldArray} from "formik";
 import Yup from "yup";
 import CustomAsyncSelect from "../../../PageElements/Form/CustomAsyncSelect";
 import httpRequest from "../../../Global/HTTP/httpRequest";
+import CustomAutocomplete from "../../../PageElements/Form/CustomAutocomplete";
+
 
 const contentManagerForm = props => {
     const {
@@ -29,16 +31,17 @@ const contentManagerForm = props => {
     return (
         <form onSubmit={handleSubmit}>
             <CustomAsyncSelect
-                valueName="ProfileID"
-                value={values.ProfileID}
+                valueName="UserID"
+                value={values.UserID}
                 onChange={setFieldValue}
                 onBlur={setFieldTouched}
-                error={errors.ProfileID}
-                touched={touched.ProfileID}
+                error={errors.UserID}
+                touched={touched.UserID}
+                hasCaption={true}
                 disabled={false}
-                matchProp="ProfileID"
-                valueKey="ProfileID"
-                labelKey="ProfileFullname"
+                matchProp="UserID"
+                valueKey="UserID"
+                labelKey="ProfileInformation"
                 label="Profile"
                 url={httpRequest.ContentManager_Profile_AutoComplete_Endpoint}
             />
@@ -51,7 +54,7 @@ const contentManagerForm = props => {
 
 const formikEnhancer = withFormik({
     validationSchema: Yup.object().shape({
-        ProfileID: Yup.number()
+        UserID: Yup.number()
             .required('Subscription is required')
     }),
 

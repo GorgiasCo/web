@@ -11,6 +11,7 @@ import * as authenticationAction from "../../Stores/authentication/action";
 import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
 import ContactForm from "./Form/";
+import ContentManagerForm from "../../Admin/ContentManager/Form";
 import axios from "axios";
 import httpRequest from "../../Global/HTTP/httpRequest";
 import {toast, ToastContainer} from "react-toastify";
@@ -301,6 +302,10 @@ class ContactManageComponent extends Component {
                                             optionsProfileTypes={this.state.addressTypes}
                                             handleSubmit={this.handleSubmit.bind(this)}
                                             data={this.state.contactData}
+                                        />
+                                        <ContentManagerForm
+                                            handleSubmit={this.handleSubmit.bind(this)}
+                                            data={{ProfileID: undefined}}
                                         />
                                     </div>
                                 </div>
