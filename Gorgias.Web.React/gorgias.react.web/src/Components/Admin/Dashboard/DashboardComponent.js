@@ -17,14 +17,14 @@ import List from "../../PageElements/List/List";
 import httpRequest from "../../Global/HTTP/httpRequest";
 import DashboardRow from "./List/DashboardRow";
 import Coursol from "../../PageElements/Coursol";
-import {toast, ToastContainer} from "react-toastify";
-import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
-import ReactTable from 'react-table'
-import 'react-table/react-table.css'
-import { color } from 'd3-color';
-import { interpolateRgb } from 'd3-interpolate';
-import LiquidFillGauge from 'react-liquid-gauge';
+import {ToastContainer} from "react-toastify";
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+import ReactTable from "react-table";
+import "react-table/react-table.css";
+import {color} from "d3-color";
+import {interpolateRgb} from "d3-interpolate";
+import LiquidFillGauge from "react-liquid-gauge";
+import Gauge from "react-svg-gauge";
 
 class DashboardComponent extends Component {
     startColor = '#6495ed'; // cornflowerblue
@@ -144,10 +144,10 @@ class DashboardComponent extends Component {
             accessor: 'TotalView',
             // Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
             Cell: props => <LiquidFillGauge
-                style={{ margin: '0 auto' }}
+                style={{margin: '0 auto'}}
                 width={radius * 2}
                 height={radius * 2}
-                value={props.value/10}
+                value={props.value / 10}
                 percent="%"
                 textSize={1}
                 textOffsetX={0}
@@ -191,7 +191,7 @@ class DashboardComponent extends Component {
                     fontFamily: 'Arial'
                 }}
                 onClick={() => {
-                    this.setState({ value: Math.random() * 100 });
+                    this.setState({value: Math.random() * 100});
                 }}
             /> // Custom cell components!
         }]
@@ -230,13 +230,17 @@ class DashboardComponent extends Component {
                             <div className="mcb-wrap-inner">
                                 <div className="column mcb-column one column_column">
                                     <div className="column_attr clearfix">
+                                        <Gauge value={33} width={400} height={320}
+                                               label="This is my Gauge"/>
                                         <List
                                             isLoading={isLoading}
                                             items={profileReports}
                                             prepareListRow={this.prepareContactRow}
                                             isEmptyList={isEmptyList}
                                             emptyComponent={
-                                                <div>It is empty<br/><a className="button-love button" href="admin/contact/new">Add New Contact</a></div>
+                                                <div>It is empty<br/><a className="button-love button"
+                                                                        href="admin/contact/new">Add New Contact</a>
+                                                </div>
                                             }
                                             header={<h1>Dashboard ;)</h1>}
                                         />
