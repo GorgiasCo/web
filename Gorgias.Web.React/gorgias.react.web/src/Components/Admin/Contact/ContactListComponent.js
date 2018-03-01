@@ -14,12 +14,12 @@ import * as authenticationAction from "../../Stores/authentication/action";
 import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
 import List from "../../PageElements/List/List";
-import axios from "axios";
 import httpRequest from "../../Global/HTTP/httpRequest";
-import {toast, ToastContainer} from "react-toastify";
 import ContactRow from "./List/ContactRow";
 import Coursol from "../../PageElements/Coursol";
-
+import {toast, ToastContainer} from "react-toastify";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 
 class ContactListComponent extends Component {
 
@@ -29,6 +29,7 @@ class ContactListComponent extends Component {
             isLoading: false,
             addressTypes: [],
             addresses: [],
+            isEmptyList: false,
         };
     }
 
@@ -50,14 +51,54 @@ class ContactListComponent extends Component {
         });
         httpRequest.getAsyncAddresses(1011, addressTypeID).then(
             response => {
+                let addressTypes = [{AddressTypeName: "All", AddressTypeID: 0}, ...response.data.Result.AddressTypes];
+                let isEmptyList = false;
+                if (response.data.Result.Addresses.length === 0) {
+                    isEmptyList = true;
+                }
+                console.log(response.data.Result.Addresses.length, 'addressTypes.length');
                 this.setState({
                     isLoading: false,
                     addresses: response.data.Result.Addresses,
-                    addressTypes: response.data.Result.AddressTypes
+                    addressTypes: addressTypes,
+                    isEmptyList: isEmptyList,
                 });
                 console.log(response, 'Contacts Address');
             }
         )
+    }
+
+    deleteContact = (AddressID) => {
+        this.setState({
+            isLoading: true,
+            addresses: [],
+            addressTypes: []
+        });
+        console.log(AddressID, 'delete');
+        httpRequest.deleteAsyncContact(AddressID).then(
+            response => {
+                console.log(response,'delete');
+                this.prepareDateFromAPI(0);
+                toast.success("Success Notification !", {
+                    position: toast.POSITION.TOP_CENTER
+                });
+            },
+            error => {
+                console.log(error,'delete error');
+                this.props.logout();
+            }
+        )
+    };
+
+    prepareDeleteConfirmation = (item) => {
+        confirmAlert({
+            title: 'Confirm to submit',                        // Title dialog
+            message: 'Are you sure to do this.',               // Message dialog
+            childrenElement: () => <div>Custom UI</div>,       // Custom UI or Component
+            confirmLabel: 'Confirm',                           // Text button confirm
+            cancelLabel: 'Cancel',                             // Text button cancel
+            onConfirm: () => this.deleteContact(item.AddressID),    // Action after Confirm
+        })
     }
 
     // shouldComponentUpdate(nextProps, nextState) {
@@ -90,12 +131,13 @@ class ContactListComponent extends Component {
     }
 
     prepareContactRow = (item) => {
-        return <ContactRow key={item.AddressID} data={item}/>
+        return <ContactRow key={item.AddressID} onPress={this.prepareDeleteConfirmation} data={item}/>
     }
 
-    onPress = (item) => {
+    onPress = (item, event) => {
         console.log(item, 'onPress');
         this.prepareDateFromAPI(item.AddressTypeID);
+        event.preventDefault();
     }
 
     header = () => {
@@ -109,13 +151,19 @@ class ContactListComponent extends Component {
         )
     }
 
+    renderEmptyList = () => {
+        console.log('renderEmptyList');
+        return <div>It is empty</div>
+    }
+
     render() {
         const loader = <div className="loader">Loading ...</div>;
         // console.log(this.state.contactData, this.props.AddressID, 'in action story success ;) NIMA render');
+        const {isEmptyList, isLoading, addresses, addressTypes} = this.state;
 
 
         return (
-            !this.state.isLoading ?
+            !isLoading ?
                 <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
                     <ToastContainer closeButton={false}/>
                     <div className="section_wrapper mcb-section-inner">
@@ -124,15 +172,21 @@ class ContactListComponent extends Component {
                                 <div className="column mcb-column one column_column">
                                     <div className="column_attr clearfix">
                                         <List
-                                            isLoading={this.state.isLoading}
-                                            items={this.state.addresses}
+                                            isLoading={isLoading}
+                                            items={addresses}
                                             prepareListRow={this.prepareContactRow}
-                                            header={<Coursol
-                                                items={this.state.addressTypes}
-                                                keyID={"AddressTypeID"}
-                                                keyName={"AddressTypeName"}
-                                                onPress={this.onPress}
-                                            />}
+                                            isEmptyList={isEmptyList}
+                                            emptyComponent={
+                                                <div>It is empty<br/><a className="button-love button" href="admin/contact/new">Add New Contact</a></div>
+                                            }
+                                            header={
+                                                <Coursol
+                                                    items={addressTypes}
+                                                    keyID={"AddressTypeID"}
+                                                    keyName={"AddressTypeName"}
+                                                    onPress={this.onPress}
+                                                />
+                                            }
                                         />
                                     </div>
                                 </div>

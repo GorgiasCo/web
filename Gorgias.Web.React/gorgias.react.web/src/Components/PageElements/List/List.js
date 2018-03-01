@@ -16,7 +16,7 @@ class List extends React.Component {
     }
 
     render() {
-        const {isLoading, items, header, prepareListRow} = this.props;
+        const {isLoading, items, header, prepareListRow, isEmptyList, emptyComponent} = this.props;
         // console.log(header,'header');
         return (
             !isLoading ?
@@ -25,11 +25,12 @@ class List extends React.Component {
                         <div className="wrap mcb-wrap one  valign-top clearfix">
                             <div className="mcb-wrap-inner">
                                 {header}
+                                {!isEmptyList ?
                                 <div className="column mcb-column one column_slider ">
                                     {items.map((item) => {
                                         return prepareListRow(item);
                                     })}
-                                </div>
+                                </div> : emptyComponent }
                             </div>
                         </div>
                     </div>

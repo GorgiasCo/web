@@ -16,6 +16,7 @@ import ProfileManage from "./Admin/Profile/ProfileManageComponent";
 import ContactManageComponent from "./Admin/Contact/ContactManageComponent";
 import ContactListComponent from "./Admin/Contact/ContactListComponent";
 import ContentManagerListComponent from "./Admin/ContentManager/ContentManagerListComponent";
+import FollowerListComponent from "./Admin/Follower/FollowerListComponent";
 
 import {connect} from "react-redux";
 import * as todoActions from "./Stores/ToDo/Action";
@@ -101,9 +102,14 @@ class DefaultAdminPage extends Component {
                     <ContactListComponent/>
                 )
                 break;
-                case "ContentManagerList":
+            case "ContentManagerList":
                 return (
                     <ContentManagerListComponent {...this.props}/>
+                )
+                break;
+            case "FollowerList":
+                return (
+                    <FollowerListComponent {...this.props}/>
                 )
                 break;
             default:

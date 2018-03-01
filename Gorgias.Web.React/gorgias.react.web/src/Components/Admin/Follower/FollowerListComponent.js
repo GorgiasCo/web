@@ -18,6 +18,7 @@ import axios from "axios";
 import httpRequest from "../../Global/HTTP/httpRequest";
 import {toast, ToastContainer} from "react-toastify";
 import FollowerRow from "./List/FollowerRow";
+import EndlessList from "../../PageElements/EndlessList";
 
 class FollowerListComponent extends Component {
 
@@ -26,6 +27,10 @@ class FollowerListComponent extends Component {
         this.state = {
             isLoading: false,
             followers: [],
+            page: 1,
+            pageSize: 15,
+            requestTypeID: 3,
+            hasMore: true,
         };
     }
 
@@ -36,21 +41,31 @@ class FollowerListComponent extends Component {
     }
 
     componentWillMount() {
-        this.prepareDateFromAPI();
+        this.prepareDateFromAPI(1);
     }
 
-    prepareDateFromAPI = () => {
-        this.setState({
-            isLoading: true,
-            contentManagers: [],
-        });
-        httpRequest.getAsyncContentManagerAllSubscribers(this.props.profileAccountSetting.payload.ProfileID).then(
+    prepareDateFromAPI = (Page,requestTypeID) => {
+        // this.setState({
+        //     isLoading: true,
+        //     followers: [],
+        // });
+        // if(this.state.hasMore){
+        //     return;
+        // }
+        let RequestTypeID = requestTypeID !== undefined ? requestTypeID : this.state.requestTypeID;
+        console.log(this.props.profileAccountSetting.payload.ProfileID, RequestTypeID, this.state.pageSize, Page, 'before http call');
+        httpRequest.getAsyncProfileFollowers(this.props.profileAccountSetting.payload.ProfileID, RequestTypeID, this.state.pageSize, Page).then(
             response => {
+                let newResult = [...this.state.followers, ...response.data.Result.Items]
+                console.log(response, 'Content Managers', Page >= response.data.Result.TotalPages, this.state.followers, newResult, Page);
                 this.setState({
                     isLoading: false,
-                    followers: response.data.Result,
+                    followers: newResult,
+                    hasMore: response.data.Result.hasMore,
+                    totalPage: response.data.Result.TotalPages,
+                    requestTypeID: RequestTypeID,
                 });
-                console.log(response, 'Content Managers');
+                console.log(this.state,'state la');
             }
         )
     }
@@ -88,14 +103,21 @@ class FollowerListComponent extends Component {
         return <FollowerRow key={item.ProfileID} data={item}/>
     }
 
-    // onPress = (item) => {
-    //     console.log(item, 'onPress');
-    //     this.prepareDateFromAPI(item.AddressTypeID);
-    // }
+    onPress = (item) => {
+        this.setState({
+            isLoading: true,
+            followers: [],
+            requestTypeID: item.RequestTypeID,
+            // hasMore: true,
+            f: this.prepareDateFromAPI(1,item.RequestTypeID),
+        });
+        console.log(item, 'onPress');
+    }
 
     render() {
         const loader = <div className="loader">Loading ...</div>;
         // console.log(this.state.contactData, this.props.AddressID, 'in action story success ;) NIMA render');
+        // const {isEmptyList, isLoading, addresses, addressTypes} = this.state;
 
         return (
             !this.state.isLoading ?
@@ -106,25 +128,23 @@ class FollowerListComponent extends Component {
                             <div className="mcb-wrap-inner">
                                 <div className="column mcb-column one column_column">
                                     <div className="column_attr clearfix">
-                                        <List
-                                            isLoading={this.state.isLoading}
-                                            items={this.state.followers}
-                                            prepareListRow={this.prepareFollowerRow}
-                                        />
-                                        {/*<EndlessList*/}
+                                        {/*<List*/}
                                             {/*isLoading={this.state.isLoading}*/}
-                                            {/*loadItems={this.loadItems}*/}
-                                            {/*itemsExtra={this.state.addressTypes}*/}
-                                            {/*onPress={this.onPress}*/}
-                                            {/*prepareListRow={this.prepareStoryRow}*/}
-                                            {/*keyID="AddressTypeID"*/}
-                                            {/*keyName="AddressTypeName"*/}
-                                            {/*useWindow={true}*/}
-                                            {/*getData={this.props.getStories}*/}
-                                            {/*hasMore={this.props.storiesHasMore}*/}
-                                            {/*filterData={this.props.filterData}*/}
-                                            {/*items={this.props.stories}*/}
+                                            {/*items={this.state.followers}*/}
+                                            {/*prepareListRow={this.prepareFollowerRow}*/}
                                         {/*/>*/}
+                                        <EndlessList
+                                            isLoading={this.state.isLoading}
+                                            loadItems={this.prepareDateFromAPI}
+                                            itemsExtra={[{RequestTypeID: 3, RequestTypeName: "StayOn"},{RequestTypeID: 4, RequestTypeName: "Subscribe"}]}
+                                            prepareListRow={this.prepareFollowerRow}
+                                            onPress={this.onPress}
+                                            keyID="RequestTypeID"
+                                            keyName="RequestTypeName"
+                                            useWindow={true}
+                                            hasMore={this.state.hasMore}
+                                            items={this.state.followers}
+                                        />
                                     </div>
                                 </div>
                             </div>

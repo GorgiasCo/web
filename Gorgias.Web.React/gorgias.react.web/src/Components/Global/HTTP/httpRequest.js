@@ -3,8 +3,8 @@
  */
 import axios from "axios";
 
-const BASE_URL_V2 = 'https://gorgiasapp-v4.azurewebsites.net/api/';
-//const BASE_URL_V2 = 'http://localhost:43587/api/';
+// const BASE_URL_V2 = 'https://gorgiasapp-v4.azurewebsites.net/api/';
+const BASE_URL_V2 = 'http://localhost:43587/api/';
 let languageCode = 'en';
 class HttpRequest {
 
@@ -98,12 +98,14 @@ class HttpRequest {
     Address_By_ID_Endpoints = BASE_URL_V2 + 'Address/AddressID/';
     Address_New_Endpoint = BASE_URL_V2 + 'Address/';
     Address_Update_Endpoint = BASE_URL_V2 + 'Address/AddressID/';
+    Address_Delete_Endpoint = BASE_URL_V2 + 'Address/AddressID/';
     Addresses_By_ProfileID_AddressTypeID_Endpoint = `${BASE_URL_V2}Web/V2/Address/`;
 
     ContentManager_Insert_Endpoint = `${BASE_URL_V2}UserProfile/`;
     ContentManager_Delete_Endpoint = `${BASE_URL_V2}UserProfile/ProfileID/UserRoleID/UserID/`; //UserProfile/ProfileID/UserRoleID/UserID/{ProfileID}/{UserRoleID}/{UserID}
     ContentManager_Profile_AutoComplete_Endpoint = `${BASE_URL_V2}Profiles/Autocomplete/`;
     ContentManager_Profiles_All_Subscribers_Endpoint = `${BASE_URL_V2}Mobile/V2/Profile/Content/Management/`;
+    Profile_Followers_Endpoint = `${BASE_URL_V2}Web/V2/Connection/`;
 
 
     //Account/Register/Mobile/V2
@@ -152,11 +154,19 @@ class HttpRequest {
     }
 
     async deleteAsyncContentManager(ProfileID, UserRoleID, UserID) {
-        return await this.getAsyncHTTP(this.ContentManager_Delete_Endpoint + ProfileID + '/' + UserRoleID + '/' + UserID);
+        return await this.deleteAsyncHTTP(this.ContentManager_Delete_Endpoint + ProfileID + '/' + UserRoleID + '/' + UserID);
+    }
+
+    async deleteAsyncContact(AddressID) {
+        return await this.deleteAsyncHTTP(this.Address_Delete_Endpoint + AddressID);
     }
 
     async getAsyncContentManagerAutoComplete(keyword) {
         return await this.getAsyncHTTP(this.ContentManager_Profile_AutoComplete_Endpoint + keyword);
+    }
+
+    async getAsyncProfileFollowers(ProfileID, RequestTypeID, PageSize, PageNumber) {
+        return await this.getAsyncHTTP(this.Profile_Followers_Endpoint + ProfileID + '/' + RequestTypeID + '/' + PageSize + '/' + PageNumber);
     }
 
     async getAsyncContentManagerAllSubscribers(ProfileID) {
@@ -447,6 +457,26 @@ class HttpRequest {
         return await axios(
             {
                 method: 'get',
+                url: url,
+                headers: {
+                    'Accept-Language': languageCode,
+                    ...headers
+                }
+            }
+        );
+    }
+
+    async deleteAsyncHTTP(url) {
+        const token = localStorage.getItem("token");
+        let headers = null;
+
+        if (token) {
+            headers = {'Authorization': `Bearer ${token}`};
+        }
+
+        return await axios(
+            {
+                method: 'delete',
                 url: url,
                 headers: {
                     'Accept-Language': languageCode,

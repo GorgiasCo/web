@@ -76,6 +76,8 @@ export default class MainPage extends Component {
                            component={(props) => <AdminStoryManageComponent {...props} containerName="ContactList" hasFooter={true}/>}/>
                     <Route exact path="/admin/content/manager/"
                            component={(props) => <AdminStoryManageComponent {...props} containerName="ContentManagerList" hasFooter={true}/>}/>
+                    <Route exact path="/admin/follower/"
+                           component={(props) => <AdminStoryManageComponent {...props} containerName="FollowerList" hasFooter={true}/>}/>
                 </div>
             </Router>
         )
