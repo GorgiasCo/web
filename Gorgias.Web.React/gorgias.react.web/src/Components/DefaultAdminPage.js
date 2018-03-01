@@ -17,6 +17,7 @@ import ContactManageComponent from "./Admin/Contact/ContactManageComponent";
 import ContactListComponent from "./Admin/Contact/ContactListComponent";
 import ContentManagerListComponent from "./Admin/ContentManager/ContentManagerListComponent";
 import FollowerListComponent from "./Admin/Follower/FollowerListComponent";
+import DashboardComponent from "./Admin/Dashboard/DashboardComponent";
 
 import {connect} from "react-redux";
 import * as todoActions from "./Stores/ToDo/Action";
@@ -110,6 +111,11 @@ class DefaultAdminPage extends Component {
             case "FollowerList":
                 return (
                     <FollowerListComponent {...this.props}/>
+                )
+                break;
+            case "Dashboard":
+                return (
+                    <DashboardComponent {...this.props}/>
                 )
                 break;
             default:

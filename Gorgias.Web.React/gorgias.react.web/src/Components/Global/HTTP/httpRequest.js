@@ -106,6 +106,7 @@ class HttpRequest {
     ContentManager_Profile_AutoComplete_Endpoint = `${BASE_URL_V2}Profiles/Autocomplete/`;
     ContentManager_Profiles_All_Subscribers_Endpoint = `${BASE_URL_V2}Mobile/V2/Profile/Content/Management/`;
     Profile_Followers_Endpoint = `${BASE_URL_V2}Web/V2/Connection/`;
+    Profile_Reports_Endpoint = `${BASE_URL_V2}Reports/Profiles/Current/`;
 
 
     //Account/Register/Mobile/V2
@@ -148,7 +149,6 @@ class HttpRequest {
     // }
 
 
-
     getAddressTypes(cbSuccess, cbError) {
         this.getHTTP(this.AddressTypes_Endpoints, cbSuccess, cbError);
     }
@@ -167,6 +167,10 @@ class HttpRequest {
 
     async getAsyncProfileFollowers(ProfileID, RequestTypeID, PageSize, PageNumber) {
         return await this.getAsyncHTTP(this.Profile_Followers_Endpoint + ProfileID + '/' + RequestTypeID + '/' + PageSize + '/' + PageNumber);
+    }
+
+    async getAsyncProfileReports(UserID, PageNumber) {
+        return await this.getAsyncHTTP(this.Profile_Reports_Endpoint + UserID + '/' + PageNumber);
     }
 
     async getAsyncContentManagerAllSubscribers(ProfileID) {
@@ -442,8 +446,8 @@ class HttpRequest {
         );
     }
 
-    async uploadPhoto(filename, photoType, data){
-        await axios.post(`${BASE_URL_V2}images/name?ImageName=${filename}&MasterFileName=${photoType}`,data);
+    async uploadPhoto(filename, photoType, data) {
+        await axios.post(`${BASE_URL_V2}images/name?ImageName=${filename}&MasterFileName=${photoType}`, data);
     }
 
     async getAsyncHTTP(url) {
@@ -486,7 +490,7 @@ class HttpRequest {
         );
     }
 
-    async postAsyncHTTPV2(url, data){
+    async postAsyncHTTPV2(url, data) {
 
         const token = localStorage.getItem("token");
         let headers = null;
