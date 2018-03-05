@@ -14,6 +14,7 @@ import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
 import StoryForm from "./Form/";
 import CustomGoogleMap from "../../PageElements/Form/CustomGoogleMap";
+import httpRequest from "../../Global/HTTP/httpRequest";
 
 const optionsProfileTypes = [
     {value: 1, label: 'Food'},
@@ -24,18 +25,61 @@ const optionsProfileTypes = [
     {value: 6, label: 'Kittens'},
 ];
 
+let newContent = {
+    ContentTitle: "hello WOW from fiddler4 h6",
+    ContentURL: "https://gorgiasasia.blob.core.windows.net/images/content-20161106233839-pic(4).jpg",
+    ContentGeoLocation: null,
+    ContentDimension: "800-600",
+    ContentTypeID: 1
+}
+
 class StoryNewComponent extends Component {
 
     constructor(props) {
         super(props);
+
+        let newAlbumData = {
+            AlbumID: 0,
+            AlbumName: '',
+            AlbumStatus: true,
+            AlbumCover: undefined,
+            CategoryID: undefined,
+            ProfileID: parseInt(props.profileAccountSetting.payload.ProfileID),
+            AlbumDatePublish: undefined,
+            AlbumView: 0,
+            AlbumAvailability: undefined,
+            AlbumHasComment: true,
+            AlbumReadingLanguageCode: undefined,
+            AlbumRepostValue: null,
+            AlbumRepostRequest: null,
+            AlbumRepostAttempt: null,
+            AlbumPrice: null,
+            AlbumIsTokenAvailable: null,
+            AlbumPriceToken: null,
+            ContentRatingID: undefined,
+            AlbumParentID: null,
+            Topic: null,
+            Contents: [{
+                ContentTitle: "hello WOW from fiddler4 h6",
+                ContentURL: "https://gorgiasasia.blob.core.windows.net/images/content-20161106233839-pic(4).jpg",
+                ContentGeoLocation: null,
+                ContentDimension: "800-600",
+                ContentTypeID: 1
+            }]
+        };
+
         this.state = {
             tracks: [],
             hasMoreItems: true,
             nextHref: null,
+            story: newAlbumData,
+            isLoading: true,
+            isNew: true,
+            storySetting: null,
+            contentTypes: null,
         };
 
-
-        console.log(this.props.AlbumID,'AlbumID');
+        console.log(this.props.AlbumID, 'AlbumID', newAlbumData);
     }
 
     onDrop(files) {
@@ -89,6 +133,56 @@ class StoryNewComponent extends Component {
         //console.log(this.state.filterData,'filterData',  this.props.profileAccountSetting);
     }
 
+    componentWillMount() {
+        httpRequest.getAsyncStorySettings(this.props.profileAccountSetting.payload.ProfileID, 13, this.props.profileAccountSetting.payload.ProfileIsConfirmed).then(
+            response => {
+                console.log(response, 'getAsyncStorySettings')
+                let storySetting = response.data.Result;
+
+                httpRequest.getAsyncContentTypes(3).then(
+                    response => {
+                        console.log(response,'getAsyncContentTypes');
+                        let contentTypes = response.data.Result;
+
+                        if (this.props.AlbumID.toLowerCase() === 'new') {
+                            this.setState({
+                                isLoading: false,
+                                isNew: true,
+                                storySetting: storySetting,
+                                contentTypes: contentTypes,
+                            })
+                        } else {
+                            httpRequest.getAsyncStoryForEdit(this.props.AlbumID, this.state.story.ProfileID).then(
+                                response => {
+                                    console.log(response.data.Result, 'getStory ;)');
+                                    this.setState({
+                                        story: response.data.Result,
+                                        isLoading: false,
+                                        isNew: false,
+                                        storySetting: storySetting,
+                                        contentTypes: contentTypes,
+                                    })
+                                },
+                                error => {
+                                    console.log(error, 'getStory ;)');
+                                }
+                            )
+                        }
+
+                    },
+                    error => {
+                        console.log(error,'getAsyncContentTypes');
+                    }
+                )
+            },
+            error => {
+                console.log(error, 'getAsyncStorySettings')
+            }
+        )
+
+
+    }
+
     // shouldComponentUpdate(nextProps, nextState) {
     //     if(this.props !== nextProps){
     //         return true;
@@ -131,59 +225,65 @@ class StoryNewComponent extends Component {
     render() {
         const loader = <div className="loader">Loading ...</div>;
 
+        const {isLoading, isNew} = this.state;
         return (
-            <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
-                <div className="section_wrapper mcb-section-inner">
-                    <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
-                        <div className="mcb-wrap-inner">
-                            <div className="column mcb-column one column_column">
-                                <div className="column_attr clearfix">
-                                    <h2>
-                                        New Story ;)
-                                    </h2>
-                                    <StoryForm
-                                        optionsProfileTypes={optionsProfileTypes}
-                                        // onDrop={this.onDrop.bind(this)}
-                                        user={{
-                                            ProfileEmail: 'yaser2us@gmail.com',
-                                            ProfileFullname: 'Yasser',
-                                            ProfileFullnameEnglish: 'Yasser EN',
-                                            ProfileDescription: '',
-                                            ProfileShortDescription: '',
-                                            ProfileURL: 'siti',
-                                            ProfileTypeID: 5,
-                                            SubscriptionTypeID: undefined,
-                                            ThemeID: undefined,
-                                            ProfilePhoto: "",
-                                            category: '',
-                                            friends: [
-                                                {
-                                                    name: 'yasser',
-                                                    ContentTypeID: 0,
-                                                    description: 'https://www.facebook.com/ashkan.rastghamatian',
-
-                                                },
-                                                {
-                                                    name: 'Nasser',
-                                                    ContentTypeID: 0,
-                                                    description: 'wowow',
-                                                },
-                                                {
-                                                    name: 'niloofar',
-                                                    description: 'lol ;)',
-                                                    ContentTypeID: 0,
-                                                }]
-                                            // topics:{value: "Kittens", label: "Being Fabulous"},
-                                            // topics:{value: "Kittens"},
-                                        }}
-                                    />
-                                    <br/>
+            !isLoading ?
+                <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
+                    <div className="section_wrapper mcb-section-inner">
+                        <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
+                            <div className="mcb-wrap-inner">
+                                <div className="column mcb-column one column_column">
+                                    <div className="column_attr clearfix">
+                                        <h2>
+                                            New Story ;)
+                                        </h2>
+                                        <StoryForm
+                                            optionsProfileTypes={optionsProfileTypes}
+                                            // onDrop={this.onDrop.bind(this)}
+                                            newContent={newContent}
+                                            isNew={isNew}
+                                            contentTypes={this.state.contentTypes}
+                                            user={this.state.story}
+                                            // user={{
+                                            //     ProfileEmail: 'yaser2us@gmail.com',
+                                            //     ProfileFullname: 'Yasser',
+                                            //     ProfileFullnameEnglish: 'Yasser EN',
+                                            //     ProfileDescription: '',
+                                            //     ProfileShortDescription: '',
+                                            //     ProfileURL: 'siti',
+                                            //     ProfileTypeID: 5,
+                                            //     SubscriptionTypeID: undefined,
+                                            //     ThemeID: undefined,
+                                            //     ProfilePhoto: "",
+                                            //     category: '',
+                                            //     friends: [
+                                            //         {
+                                            //             name: 'yasser',
+                                            //             ContentTypeID: 0,
+                                            //             description: 'https://www.facebook.com/ashkan.rastghamatian',
+                                            //
+                                            //         },
+                                            //         {
+                                            //             name: 'Nasser',
+                                            //             ContentTypeID: 0,
+                                            //             description: 'wowow',
+                                            //         },
+                                            //         {
+                                            //             name: 'niloofar',
+                                            //             description: 'lol ;)',
+                                            //             ContentTypeID: 0,
+                                            //         }]
+                                            //     // topics:{value: "Kittens", label: "Being Fabulous"},
+                                            //     // topics:{value: "Kittens"},
+                                            // }}
+                                        />
+                                        <br/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> : loader
         );
     }
 }

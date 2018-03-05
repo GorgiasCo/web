@@ -161,10 +161,14 @@ class ContactManageComponent extends Component {
                             if(addressImage !== null){
                                 this.prepareUploadPhoto(addressImage, values.AddressID).then(
                                     response => {
+                                        console.log(response,'address image uploaded ;)');
                                         toast.success("Success Notification !" + response, {
                                             position: toast.POSITION.TOP_CENTER
                                         });
                                         this.redirectToMainPage();
+                                    },
+                                    error => {
+                                        console.log(error,'address error image uploaded ;)');
                                     }
                                 );
                             } else {
@@ -303,10 +307,10 @@ class ContactManageComponent extends Component {
                                             handleSubmit={this.handleSubmit.bind(this)}
                                             data={this.state.contactData}
                                         />
-                                        <ContentManagerForm
-                                            handleSubmit={this.handleSubmit.bind(this)}
-                                            data={{ProfileID: undefined}}
-                                        />
+                                        {/*<ContentManagerForm*/}
+                                            {/*handleSubmit={this.handleSubmit.bind(this)}*/}
+                                            {/*data={{ProfileID: undefined}}*/}
+                                        {/*/>*/}
                                     </div>
                                 </div>
                             </div>

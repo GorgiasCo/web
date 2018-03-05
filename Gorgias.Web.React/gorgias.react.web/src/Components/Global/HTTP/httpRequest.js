@@ -108,6 +108,8 @@ class HttpRequest {
     Profile_Followers_Endpoint = `${BASE_URL_V2}Web/V2/Connection/`;
     Profile_Reports_Endpoint = `${BASE_URL_V2}Reports/Profiles/Current/`;
 
+    Album_Story_Edit_Endpoint = `${BASE_URL_V2}Mobile/V2/Album/Story/Edit/`;
+
 
     //Account/Register/Mobile/V2
 
@@ -167,6 +169,10 @@ class HttpRequest {
 
     async getAsyncProfileFollowers(ProfileID, RequestTypeID, PageSize, PageNumber) {
         return await this.getAsyncHTTP(this.Profile_Followers_Endpoint + ProfileID + '/' + RequestTypeID + '/' + PageSize + '/' + PageNumber);
+    }
+
+    async getAsyncStoryForEdit(AlbumID, ProfileID) {
+        return await this.getAsyncHTTP(this.Album_Story_Edit_Endpoint + AlbumID + '/' + ProfileID + '/600');
     }
 
     async getAsyncProfileReports(UserID, PageNumber) {
@@ -267,8 +273,8 @@ class HttpRequest {
         this.getHTTP(this.Profile_Bookmark_Endpoint + ProfileID + '/' + RequestedProfileID, cbSuccess, cbError);
     }
 
-    getStorySettings(ProfileID, CategoryParentID, IsProfileConfirmed, cbSuccess, cbError) {
-        this.getHTTP(this.Story_Settings_Endpoint + ProfileID + '/' + CategoryParentID + '/' + IsProfileConfirmed, cbSuccess, cbError);
+    getAsyncStorySettings(ProfileID, CategoryParentID, IsProfileConfirmed) {
+        return this.getAsyncHTTP(this.Story_Settings_Endpoint + ProfileID + '/' + CategoryParentID + '/' + IsProfileConfirmed);
     }
 
     //Forget_Password_Request_Endpoint
@@ -304,8 +310,8 @@ class HttpRequest {
         this.getHTTP(this.Quotes_Endpoint, cbSuccess, cbError);
     }
 
-    getContentTypes(ContentTypeID, cbSuccess, cbError) {
-        this.getHTTP(this.Content_Types_Endpoint + ContentTypeID, cbSuccess, cbError);
+    getAsyncContentTypes(ContentTypeID) {
+        return this.getAsyncHTTP(this.Content_Types_Endpoint + ContentTypeID);
     }
 
     getAlbumDetail(ProfileID, AlbumID, deviceWidth, cbSuccess, cbError) {

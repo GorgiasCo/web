@@ -123,6 +123,7 @@ const contactForm = props => {
                 valueName="AddressImage"
                 onChange={setFieldValue}
                 onBlur={setFieldTouched}
+                isUploading={false}
             >
             </CustomDropZone>
 
