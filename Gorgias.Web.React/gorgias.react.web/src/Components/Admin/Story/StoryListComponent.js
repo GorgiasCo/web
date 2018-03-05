@@ -40,7 +40,8 @@ class StoryListComponent extends Component {
     }
 
     componentWillMount() {
-        this.prepareDateFromAPI(0);
+        //this.prepareDateFromAPI(0);
+        //this.loadItems(1);
     }
 
     prepareDateFromAPI = (addressTypeID) => {
@@ -128,7 +129,7 @@ class StoryListComponent extends Component {
         // console.log(this.state.contactData, this.props.AddressID, 'in action story success ;) NIMA render');
 
         return (
-            !this.state.isLoading ?
+            this.props.filterData !== undefined ?
                 <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
                     <ToastContainer closeButton={false}/>
                     <div className="section_wrapper mcb-section-inner">

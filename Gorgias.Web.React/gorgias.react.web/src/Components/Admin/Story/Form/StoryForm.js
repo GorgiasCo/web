@@ -12,6 +12,7 @@ import CustomSelect from "../../../PageElements/Form/CustomSelect";
 import CustomAsyncSelect from "../../../PageElements/Form/CustomAsyncSelect";
 import CustomTextInput from "../../../PageElements/Form/CustomTextInput";
 import CustomInputFieldComponent from "../../../PageElements/Form/CustomInputFieldComponent";
+import CustomTextAreaFieldComponent from "../../../PageElements/Form/CustomTextAreaFieldComponent";
 import CustomDropZone from "../../../PageElements/Form/CustomDropZone";
 import CustomAutocomplete from "../../../PageElements/Form/CustomAutocomplete";
 
@@ -178,10 +179,10 @@ const storyForm = props => {
                                     ++++++++
                                 </button>
 
-                                {values.Contents.map((friend, index) => (
+                                {values.Contents.map((content, index) => (
                                         <div key={index}>
 
-                                            {friend.ContentTypeID === 1 ?
+                                            {content.ContentTypeID === 1 ?
                                                 <div>
                                                     <Field name={`Contents.${index}.ContentTitle`}
                                                            component={CustomInputFieldComponent}/>
@@ -202,17 +203,17 @@ const storyForm = props => {
                                                 : null
                                             }
 
-                                            {friend.ContentTypeID === 3 ?
+                                            {content.ContentTypeID === 3 ?
                                                 <div>
                                                     <Field name={`Contents.${index}.ContentTitle`}
                                                            component={CustomInputFieldComponent}/>
                                                     <Field name={`Contents.${index}.ContentURL`}
-                                                           component={CustomInputFieldComponent}/>
+                                                           component={CustomTextAreaFieldComponent}/>
                                                 </div>
                                                 : null
                                             }
 
-                                            {friend.ContentTypeID === 10 ?
+                                            {content.ContentTypeID === 10 ?
                                                 <div>
                                                     Youtube
                                                     <Field name={`Contents.${index}.ContentTitle`}
@@ -223,7 +224,7 @@ const storyForm = props => {
                                                 : null
                                             }
 
-                                            {friend.ContentTypeID !== 10 && friend.ContentTypeID !== 3 && friend.ContentTypeID !== 1  ?
+                                            {content.ContentTypeID !== 10 && content.ContentTypeID !== 3 && content.ContentTypeID !== 1  ?
                                                 <div>
                                                     CTA
                                                     {/*<Field name={`Contents.${index}.ContentTitle`}*/}
@@ -243,7 +244,7 @@ const storyForm = props => {
                                                 : null
                                             }
 
-                                            {friend.ContentTypeID}
+                                            {content.ContentTypeID}
                                             <button
                                                 type="button"
                                                 className="button button-love"
