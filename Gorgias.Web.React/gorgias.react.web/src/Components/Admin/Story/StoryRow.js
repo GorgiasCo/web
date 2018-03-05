@@ -5,7 +5,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const StoryRow = ({data}) => (
-    <div className="column mcb-column one-third column_column" style={{margin: 1 + "% " + 1 + "%",}}>
+    <div key={data.AlbumID} className="column mcb-column one-third column_column" style={{margin: 1 + "% " + 1 + "%",}}>
         <div className="column_attr align_center tkPanels">
             <div className="image_frame image_item no_link scale-with-grid alignnone no_border">
                 <div className="image_wrapper">
