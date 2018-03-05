@@ -31,7 +31,7 @@ export default class CustomDropZone extends React.Component {
             if(this.props.isUploading){
                 this.prepareUploadPhoto(value).then(
                     response => {
-                        this.props.onChange(this.props.valueName.preview, value[0]);
+                        this.props.onChange(this.props.valueName, value[0].preview);
                         console.log(response, 'upload response ;)');
                     },
                     error => {
@@ -39,7 +39,7 @@ export default class CustomDropZone extends React.Component {
                     }
                 )
             } else {
-                this.props.onChange(this.props.valueName, value[0]);
+                this.props.onChange(this.props.valueName, value[0].preview);
             }
         }
     };

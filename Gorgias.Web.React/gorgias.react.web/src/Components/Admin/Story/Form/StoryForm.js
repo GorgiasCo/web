@@ -5,7 +5,7 @@
  * Created by odenza on 19/02/2018.
  */
 import React, {Component} from "react";
-import {withFormik, Formik, Form, Field, FieldArray} from "formik";
+import {withFormik, Formik, Form, Field, FieldArray, getIn} from "formik";
 import Yup from "yup";
 
 import CustomSelect from "../../../PageElements/Form/CustomSelect";
@@ -15,7 +15,16 @@ import CustomInputFieldComponent from "../../../PageElements/Form/CustomInputFie
 import CustomTextAreaFieldComponent from "../../../PageElements/Form/CustomTextAreaFieldComponent";
 import CustomDropZone from "../../../PageElements/Form/CustomDropZone";
 import CustomAutocomplete from "../../../PageElements/Form/CustomAutocomplete";
-
+const ErrorMessage = ({ name }) => (
+    <Field
+        name={name}
+        render={({ form }) => {
+            const error = getIn(form.errors, name);
+            const touch = getIn(form.touched, name);
+            return touch && error ? error : <h2>alalalalalal </h2>;
+        }}
+    />
+);
 const storyForm = props => {
     const {
         values,
@@ -32,6 +41,9 @@ const storyForm = props => {
         onDrop,
         arrayHelpers,
         newContent,
+        newTextContent,
+        newCTAContent,
+        newYotubeContent,
         isNew,
         contentTypes,
     } = props;
@@ -164,8 +176,26 @@ const storyForm = props => {
                 type="button"
                 onClick={() => values.Contents.push(newContent)}
             >
-                +++
+                New Photo
             </button>
+            {/*<button*/}
+                {/*type="button"*/}
+                {/*onClick={() => values.Contents.push(newTextContent)}*/}
+            {/*>*/}
+                {/*New Text*/}
+            {/*</button>*/}
+            {/*<button*/}
+                {/*type="button"*/}
+                {/*onClick={() => values.Contents.push(newCTAContent)}*/}
+            {/*>*/}
+                {/*New CTA*/}
+            {/*</button>*/}
+            {/*<button*/}
+                {/*type="button"*/}
+                {/*onClick={() => values.Contents.push(newYotubeContent)}*/}
+            {/*>*/}
+                {/*New Youtube*/}
+            {/*</button>*/}
             <FieldArray
                 name="Contents"
                 render={arrayHelpers => (
@@ -176,7 +206,25 @@ const storyForm = props => {
                                     type="button"
                                     onClick={() => arrayHelpers.insert(values.Contents.length, newContent)}
                                 >
-                                    ++++++++
+                                    Photo
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => arrayHelpers.insert(values.Contents.length, newTextContent)}
+                                >
+                                    Text
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => arrayHelpers.insert(values.Contents.length, newCTAContent)}
+                                >
+                                    CTA
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => arrayHelpers.insert(values.Contents.length, newYotubeContent)}
+                                >
+                                    Youtube
                                 </button>
 
                                 {values.Contents.map((content, index) => (
@@ -184,8 +232,21 @@ const storyForm = props => {
 
                                             {content.ContentTypeID === 1 ?
                                                 <div>
+                                                    {/*<Field*/}
+                                                        {/*name={`Contents.${index}.ContentTitle`}*/}
+                                                        {/*render={({ field, form }: FieldProps<MyFormValues>) => (*/}
+                                                            {/*<div>*/}
+                                                                {/*<input type="text" {...field} placeholder="First Name" />*/}
+                                                                {/*{form.touched.Contents.firstName &&*/}
+                                                                {/*form.errors.firstName &&*/}
+                                                                {/*form.errors.firstName}*/}
+                                                            {/*</div>*/}
+                                                        {/*)}*/}
+                                                    {/*/>*/}
                                                     <Field name={`Contents.${index}.ContentTitle`}
                                                            component={CustomInputFieldComponent}/>
+                                                    <ErrorMessage name={`Contents.${index}.ContentTitle`} />
+
                                                     <Field name={`Contents.${index}.ContentURL`}
                                                            render={({field, /* _form */}) =>
                                                                <img {...field} src={field.value} style={{width: 200}}/>
@@ -196,7 +257,7 @@ const storyForm = props => {
                                                         valueName={`Contents.${index}.ContentURL`}
                                                         onChange={setFieldValue}
                                                         onBlur={setFieldTouched}
-                                                        isUploading={true}
+                                                        isUploading={false}
                                                     >
                                                     </CustomDropZone>
                                                 </div>
@@ -286,26 +347,55 @@ const storyForm = props => {
 };
 
 const formikEnhancer = withFormik({
-    // validationSchema: Yup.object().shape({
-    //     // ProfileFullname: Yup.string()
-    //     //     .min(2, "C'mon, your name is longer than that")
-    //     //     .required('First name is required.'),
-    //     // ProfileFullnameEnglish: Yup.string()
-    //     //     .min(2, "C'mon, your name is longer than that")
-    //     //     .required('Last name is required.'),
-    //     // ProfileEmail: Yup.string()
-    //     //     .email('Invalid email address')
-    //     //     .required('Email is required!'),
-    //     // ProfileDescription: Yup.string()
-    //     //     .min(70, "C'mon, your name is longer than that"),
-    //     // ProfileShortDescription: Yup.string()
-    //     //     .min(70, "C'mon, your name is longer than that"),
-    //     // SubscriptionTypeID: Yup.number()
-    //     //     .required('Subscription is required'),
-    //     // ProfilePhoto: Yup.string()
-    //     //     .required('where is the photo'),
-    // }),
+    validationSchema: Yup.object().shape({
+        Contents: Yup.array()
+            .of(
+                Yup.object().shape({
+                    ContentURL: Yup.string()
+                        .required('Required'), // these constraints take precedence
+                    ContentTitle: Yup.string()
+                        .required('wowowowowowow'),
+                    ContentTypeID: Yup.number(),
+                    ContentDimension: Yup.string().nullable(),
+                    ContentGeoLocation: Yup.string().nullable(),
+                    ContentID: Yup.number().nullable(),
+                        // .required('Required'), // these constraints take precedence
+                })
+            ).required('Must have friends')
 
+        // ProfileFullname: Yup.string()
+        //     .min(2, "C'mon, your name is longer than that")
+        //     .required('First name is required.'),
+        // ProfileFullnameEnglish: Yup.string()
+        //     .min(2, "C'mon, your name is longer than that")
+        //     .required('Last name is required.'),
+        // ProfileEmail: Yup.string()
+        //     .email('Invalid email address')
+        //     .required('Email is required!'),
+        // ProfileDescription: Yup.string()
+        //     .min(70, "C'mon, your name is longer than that"),
+        // ProfileShortDescription: Yup.string()
+        //     .min(70, "C'mon, your name is longer than that"),
+        // SubscriptionTypeID: Yup.number()
+        //     .required('Subscription is required'),
+        // ProfilePhoto: Yup.string()
+        //     .required('where is the photo'),
+    }),
+    // validate: (values, props) => {
+    //     const errors = {};
+    //     console.log(values, 'validate');
+    //     if(values.Contents.length > 2){
+    //         errors.Contents = 'need more photos';
+    //     }
+    //     // if (!values.email) {
+    //     //     errors.email = 'Required';
+    //     // } else if (
+    //     //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    //     // ) {
+    //     //     errors.email = 'Invalid email address';
+    //     // }
+    //     return errors;
+    // },
     mapPropsToValues: ({user}) => ({
         ...user,
     }),

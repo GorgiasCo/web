@@ -26,11 +26,39 @@ const optionsProfileTypes = [
 ];
 
 let newContent = {
-    ContentTitle: "hello WOW from fiddler4 h6",
-    ContentURL: "https://gorgiasasia.blob.core.windows.net/images/content-20161106233839-pic(4).jpg",
+    ContentTitle: '',
+    ContentURL: '',
     ContentGeoLocation: null,
-    ContentDimension: "800-600",
-    ContentTypeID: 1
+    ContentDimension: null,
+    ContentTypeID: 1,
+    ContentID: null,
+}
+
+let newTextContent = {
+    ContentTitle: '',
+    ContentURL: '',
+    ContentGeoLocation: null,
+    ContentDimension: null,
+    ContentTypeID: 3,
+    ContentID: null,
+}
+
+let newYotubeContent = {
+    ContentTitle: '',
+    ContentURL: '',
+    ContentGeoLocation: null,
+    ContentDimension: null,
+    ContentTypeID: 10,
+    ContentID: null,
+}
+
+let newCTAContent = {
+    ContentTitle: '',
+    ContentURL: '',
+    ContentGeoLocation: null,
+    ContentDimension: null,
+    ContentTypeID: 0,
+    ContentID: null,
 }
 
 class StoryNewComponent extends Component {
@@ -243,6 +271,9 @@ class StoryNewComponent extends Component {
                                             newContent={newContent}
                                             isNew={isNew}
                                             contentTypes={this.state.contentTypes}
+                                            newTextContent={newTextContent}
+                                            newYotubeContent={newYotubeContent}
+                                            newCTAContent={newCTAContent}
                                             user={this.state.story}
                                             // user={{
                                             //     ProfileEmail: 'yaser2us@gmail.com',
