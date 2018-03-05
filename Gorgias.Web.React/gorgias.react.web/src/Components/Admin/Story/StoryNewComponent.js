@@ -25,6 +25,7 @@ const optionsProfileTypes = [
 ];
 
 class StoryNewComponent extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -32,6 +33,9 @@ class StoryNewComponent extends Component {
             hasMoreItems: true,
             nextHref: null,
         };
+
+
+        console.log(this.props.AlbumID,'AlbumID');
     }
 
     onDrop(files) {
@@ -134,7 +138,6 @@ class StoryNewComponent extends Component {
                         <div className="mcb-wrap-inner">
                             <div className="column mcb-column one column_column">
                                 <div className="column_attr clearfix">
-                                    <CustomGoogleMap/>
                                     <h2>
                                         New Story ;)
                                     </h2>
@@ -152,7 +155,7 @@ class StoryNewComponent extends Component {
                                             SubscriptionTypeID: undefined,
                                             ThemeID: undefined,
                                             ProfilePhoto: "",
-                                            category:'iran',
+                                            category: '',
                                             friends: [
                                                 {
                                                     name: 'yasser',

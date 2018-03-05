@@ -139,9 +139,12 @@ const storyForm = props => {
             <CustomAutocomplete
                 valueName="category"
                 valueKey="KeyName"
+                KeyID="KeyID"
+                KeyName="KeyName"
                 value={values.category}
                 onChange={setFieldValue}
                 onBlur={setFieldTouched}
+                url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"
             />
             <CustomDropZone
                 error={errors.ProfilePhoto}

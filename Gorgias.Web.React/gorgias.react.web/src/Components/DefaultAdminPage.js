@@ -85,7 +85,7 @@ class DefaultAdminPage extends Component {
                 break;
             case "StoryNew":
                 return (
-                    <StoryNew/>
+                    <StoryNew AlbumID={this.props.match.params.AlbumID} {...this.props}/>
                 )
                 break;
             case "ProfileManage":

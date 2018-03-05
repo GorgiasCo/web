@@ -64,8 +64,8 @@ export default class MainPage extends Component {
                            component={() => <AdminTest2Component containerName="test2" hasFooter={true}/>}/>
                     <Route exact path="/admin/story"
                            component={(props) => <AdminStoryManageComponent{...props} containerName="StoryManage" hasFooter={true}/>}/>
-                    <Route exact path="/admin/story/new"
-                           component={(props) => <AdminStoryManageComponent {...props} containerName="StoryNew" hasFooter={true}/>}/>
+                    {/*<Route exact path="/admin/story/new"*/}
+                           {/*component={(props) => <AdminStoryManageComponent {...props} containerName="StoryNew" hasFooter={true}/>}/>*/}
                     <Route path="/admin/story/:AlbumID"
                            component={(props) => <AdminStoryManageComponent {...props} containerName="StoryNew" hasFooter={true}/>}/>
                     <Route exact path="/admin/profile"
