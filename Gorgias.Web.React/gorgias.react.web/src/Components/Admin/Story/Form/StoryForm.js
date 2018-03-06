@@ -236,8 +236,10 @@ const storyForm = props => {
                                                 <div>
                                                     <Field name={`Contents.${index}.ContentTitle`}
                                                            component={CustomInputFieldComponent}/>
+                                                    <ErrorMessage name={`Contents.${index}.ContentTitle`} />
                                                     <Field name={`Contents.${index}.ContentURL`}
                                                            component={CustomTextAreaFieldComponent}/>
+                                                    <ErrorMessage name={`Contents.${index}.ContentURL`} />
                                                 </div>
                                                 : null
                                             }
@@ -323,13 +325,24 @@ const formikEnhancer = withFormik({
                         .when('ContentTypeID', {
                             is: 1,  // alternatively: (val) => val == true
                             then:      Yup.string().min(5),
-                            otherwise: Yup.string().min(10)
                         })
                         .when('ContentTypeID', {
                             is: 3,  // alternatively: (val) => val == true
-                            then:      Yup.string().min(35),
-                            otherwise: Yup.string().min(30)
+                            then:      Yup.string().min(10),
                         })
+                        .when('ContentTypeID', {
+                            is: 10,  // alternatively: (val) => val == true
+                            then:      Yup.string().matches(/(youtube|bye)/, { message:'https valid only', excludeEmptyString: true }),
+                        })
+                        .when('ContentTypeID', (ContentTypeID, schema) => {
+                            if(ContentTypeID !== 10 && ContentTypeID !== 3 && ContentTypeID !== 1){
+                                return schema.matches(/(https|bye)/, { message:'https valid only', excludeEmptyString: true })
+                            }
+                        })
+                        // .when('ContentTypeID', {
+                        //     is: 10,  // alternatively: (val) => val == true
+                        //     then:      Yup.string().matches(/(https|bye)/, { message:'https valid only', excludeEmptyString: true }),
+                        // })
                         .required('Required'), // these constraints take precedence
                     ContentTitle: Yup.string()
                         .required('wowowowowowow'),

@@ -54,8 +54,8 @@
       <file leaf-file-name="StoryForm.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/Form/StoryForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="336" column="62" lean-forward="true" selection-start-line="336" selection-start-column="62" selection-end-line="336" selection-end-column="62" />
+            <state relative-caret-position="389">
+              <caret line="338" column="61" lean-forward="false" selection-start-line="338" selection-start-column="56" selection-end-line="338" selection-end-column="61" />
               <folding>
                 <element signature="e#88#127#0" expanded="true" />
               </folding>
@@ -243,10 +243,10 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="24" />
     <option name="width" value="1440" />
-    <option name="height" value="828" />
+    <option name="height" value="829" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -525,12 +525,12 @@
       <workItem from="1519801583155" duration="7710000" />
       <workItem from="1519884303376" duration="17303000" />
       <workItem from="1520269091682" duration="18766000" />
-      <workItem from="1520329460125" duration="8632000" />
+      <workItem from="1520329460125" duration="10630000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="446049000" />
+    <option name="totallyTimeSpent" value="448047000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -542,7 +542,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1440" height="829" extended-state="6" />
+    <frame x="0" y="24" width="1440" height="829" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23960535" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -928,8 +928,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/Form/StoryForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="336" column="62" lean-forward="true" selection-start-line="336" selection-start-column="62" selection-end-line="336" selection-end-column="62" />
+        <state relative-caret-position="389">
+          <caret line="338" column="61" lean-forward="false" selection-start-line="338" selection-start-column="56" selection-end-line="338" selection-end-column="61" />
           <folding>
             <element signature="e#88#127#0" expanded="true" />
           </folding>
