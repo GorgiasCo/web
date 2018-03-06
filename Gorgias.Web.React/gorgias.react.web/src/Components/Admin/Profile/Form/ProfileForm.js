@@ -29,6 +29,7 @@ const profileForm = props => {
     } = props;
     return (
         <form onSubmit={handleSubmit}>
+
             <CustomTextInput
                 id="ProfileFullname"
                 type="text"
@@ -39,6 +40,7 @@ const profileForm = props => {
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
+
             <CustomTextInput
                 id="ProfileFullnameEnglish"
                 type="text"
@@ -49,6 +51,7 @@ const profileForm = props => {
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
+
             <CustomTextInput
                 id="ProfileDescription"
                 type="text"
@@ -59,6 +62,7 @@ const profileForm = props => {
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
+
             <CustomTextInput
                 id="ProfileShortDescription"
                 type="text"
@@ -69,27 +73,30 @@ const profileForm = props => {
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
+
             <CustomTextInput
                 id="ProfileURL"
                 type="text"
                 label="Profile Web URL"
                 placeholder="URL"
-                // error={touched.ProfileURL && errors.ProfileURL}
+                error={touched.ProfileURL && errors.ProfileURL}
                 value={values.ProfileURL}
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
+
             <CustomTextInput
                 id="ProfileEmail"
                 type="email"
                 label="Email"
                 placeholder="Enter your email"
-                // error={touched.ProfileEmail && errors.ProfileEmail}
+                error={touched.ProfileEmail && errors.ProfileEmail}
                 value={values.ProfileEmail}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 disabled
             />
+
             <CustomSelect
                 valueName="SubscriptionTypeID"
                 value={values.SubscriptionTypeID}
@@ -104,6 +111,7 @@ const profileForm = props => {
                 label="Subscription"
                 options={props.optionsProfileTypes}
             />
+
             <CustomSelect
                 valueName="ThemeID"
                 value={values.ThemeID}
@@ -118,6 +126,7 @@ const profileForm = props => {
                 label="Theme"
                 options={props.optionsProfileTypes}
             />
+
             <CustomAsyncSelect
                 valueName="ProfileTypeID"
                 value={values.ProfileTypeID}
@@ -132,6 +141,7 @@ const profileForm = props => {
                 label="Topics"
                 url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"
             />
+
             <CustomDropZone
                 error={errors.ProfilePhoto}
                 touched={touched.ProfilePhoto}
@@ -144,8 +154,7 @@ const profileForm = props => {
                 photoType="profile"
                 defaultCaption={`Drop Profile Photo here`}
                 uploadedCaption={`uploaded wow`}
-            >
-            </CustomDropZone>
+            />
 
             <CustomDropZone
                 error={errors.ProfileWebPhoto}
@@ -186,6 +195,7 @@ const profileForm = props => {
             <button type="submit" disabled={isSubmitting}>
                 Submit
             </button>
+
         </form>
     );
 };
