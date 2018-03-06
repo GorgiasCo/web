@@ -249,8 +249,10 @@ const storyForm = props => {
                                                     Youtube
                                                     <Field name={`Contents.${index}.ContentTitle`}
                                                            component={CustomInputFieldComponent}/>
+                                                    <ErrorMessage name={`Contents.${index}.ContentTitle`} />
                                                     <Field name={`Contents.${index}.ContentURL`}
                                                            component={CustomInputFieldComponent}/>
+                                                    <ErrorMessage name={`Contents.${index}.ContentURL`} />
                                                 </div>
                                                 : null
                                             }
@@ -271,6 +273,7 @@ const storyForm = props => {
 
                                                     <Field name={`Contents.${index}.ContentURL`}
                                                            component={CustomInputFieldComponent}/>
+                                                    <ErrorMessage name={`Contents.${index}.ContentURL`} />
                                                 </div>
                                                 : null
                                             }
@@ -296,7 +299,6 @@ const storyForm = props => {
                             >
                                 ++++++++
                             </button>
-
                         )
                 )}
             />
