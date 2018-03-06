@@ -320,6 +320,16 @@ const formikEnhancer = withFormik({
             .of(
                 Yup.object().shape({
                     ContentURL: Yup.string()
+                        .when('ContentTypeID', {
+                            is: 1,  // alternatively: (val) => val == true
+                            then:      Yup.string().min(5),
+                            otherwise: Yup.string().min(10)
+                        })
+                        .when('ContentTypeID', {
+                            is: 3,  // alternatively: (val) => val == true
+                            then:      Yup.string().min(35),
+                            otherwise: Yup.string().min(30)
+                        })
                         .required('Required'), // these constraints take precedence
                     ContentTitle: Yup.string()
                         .required('wowowowowowow'),

@@ -110,9 +110,9 @@ class StoryNewComponent extends Component {
         console.log(this.props.AlbumID, 'AlbumID', newAlbumData);
     }
 
-    onDrop(files) {
+    handleSubmit = (data) => {
 
-        console.log('onDrop ;)', files);
+        console.log('onDrop ;)', data);
         // var image = new Image();
         //
         // image.addEventListener('load', function () {
@@ -268,7 +268,7 @@ class StoryNewComponent extends Component {
                                         <StoryForm
                                             optionsProfileTypes={optionsProfileTypes}
                                             storyOptions={storySetting}
-                                            // onDrop={this.onDrop.bind(this)}
+                                            handleSubmit={this.handleSubmit}
                                             newContent={newContent}
                                             isNew={isNew}
                                             contentTypes={this.state.contentTypes}
