@@ -137,10 +137,44 @@ const profileForm = props => {
                 touched={touched.ProfilePhoto}
                 valueName="ProfilePhoto"
                 onChange={setFieldValue}
-                onBlur={setFieldTouched}
+                onBlur={handleBlur}
+                isUploading={true}
+                prefix="profile-"
+                photoName={`profile-${values.ProfileID}.jpg`}
+                photoType="profile"
+                defaultCaption={`Drop Profile Photo here`}
+                uploadedCaption={`uploaded wow`}
             >
             </CustomDropZone>
-            
+
+            <CustomDropZone
+                error={errors.ProfileWebPhoto}
+                touched={touched.ProfileWebPhoto}
+                valueName="ProfileWebPhoto"
+                onChange={setFieldValue}
+                onBlur={handleBlur}
+                isUploading={true}
+                prefix="profile-"
+                photoName={`profile-web-${values.ProfileID}.jpg`}
+                photoType="profile"
+                defaultCaption={`Drop Profile Web Photo here`}
+                uploadedCaption={`uploaded wow`}
+            />
+
+            <CustomDropZone
+                error={errors.ProfileCoverPhoto}
+                touched={touched.ProfileCoverPhoto}
+                valueName="ProfileCoverPhoto"
+                onChange={setFieldValue}
+                onBlur={handleBlur}
+                isUploading={true}
+                prefix="profile-"
+                photoName={`profile-web-${values.ProfileID}.jpg`}
+                photoType="profile"
+                defaultCaption={`Drop Profile Cover Photo here`}
+                uploadedCaption={`uploaded wow`}
+            />
+
             <button
                 type="button"
                 className="outline"
@@ -180,9 +214,10 @@ const formikEnhancer = withFormik({
     mapPropsToValues: ({user}) => ({
         ...user,
     }),
-    handleSubmit: (payload, {setSubmitting}) => {
+    handleSubmit: (payload, {setSubmitting, props}) => {
         console.log(payload, 'formikEnhancer');
         setSubmitting(false);
+        props.handleSubmit(payload);
     },
     displayName: 'ProfileForm',
 });

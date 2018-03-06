@@ -34,6 +34,7 @@ class ProfileManageComponent extends Component {
         super(props);
 
         let profile = {
+            ProfileID: props.profileAccountSetting.payload.ProfileID,
             ProfileEmail: 'yaser2us@gmail.com',
             ProfileFullname: 'Yasser',
             ProfileFullnameEnglish: 'Yasser EN',
@@ -91,6 +92,10 @@ class ProfileManageComponent extends Component {
         // }
     }
 
+    handleSubmit = (data) => {
+        console.log(data, 'handleSubmit profile Form');
+    }
+
     render() {
         const loader = <div className="loader">Loading ...</div>;
 
@@ -106,6 +111,7 @@ class ProfileManageComponent extends Component {
                                     <ProfileForm
                                         optionsProfileTypes={optionsProfileTypes}
                                         user={this.state.profile}
+                                        handleSubmit={this.handleSubmit}
                                     />
                                     <br/>
                                 </div>
@@ -118,77 +124,6 @@ class ProfileManageComponent extends Component {
     }
 }
 ;
-
-// let values = { friends: ['jared', 'ian', 'brent'] };
-
-export const MyDynamicForm = ({
-                                  move, swap, push, insert, unshift, pop, form, values
-                              }) => (
-    <Form>
-        {values.friends && values.friends.length > 0 ? (
-            values.friends.map((friend, index) => (
-                <div key={index}>
-                    <Field name={`friends.${index}.name`}/>
-                    {/*<TextInput*/}
-                    {/*id="ProfileShortDescription"*/}
-                    {/*type="text"*/}
-                    {/*label="Short Description"*/}
-                    {/*placeholder="Bio"*/}
-                    {/*// error={touched.ProfileShortDescription && errors.ProfileShortDescription}*/}
-                    {/*value={`friends.${index}.name`}*/}
-                    {/*// onChange={handleChange}*/}
-                    {/*// onBlur={handleBlur}*/}
-                    {/*/>*/}
-                    <button
-                        type="button"
-                        onClick={() => unshift(index)}
-                    >
-                        -
-                    </button>
-                    <button
-                        type="button"
-                        onClick={() => insert(index, {name: ''})}
-                    >
-                        +
-                    </button>
-                </div>
-            ))
-        ) : (
-            <button
-                type="button"
-                onClick={() => push('')}
-            >
-                {/** show this when user has removed all friends from the list */}
-                Add a friend
-            </button>
-        )}
-        {/*<div>*/}
-        {/*<button type="submit">Submit</button>*/}
-        {/*</div>*/}
-    </Form>
-);
-
-export const FriendList = () => (
-    <div>
-        <h1>Friend List</h1>
-        <Formik
-            initialValues={{friends: [{name: 'yasser'}, {name: 'Nasser'}, {name: 'niloofar'}]}}
-            onSubmit={values =>
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                }, 500)
-            }
-            render={formikProps => (
-                <FieldArray
-                    name="friends"
-                    component={MyDynamicForm}
-                />
-
-
-            )}
-        />
-    </div>
-);
 
 const mapStateToProps = (state, ownProps) => {
     console.log(state, 'mapStateToProps storylist');

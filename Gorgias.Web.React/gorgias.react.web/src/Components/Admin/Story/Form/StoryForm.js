@@ -367,9 +367,10 @@ const formikEnhancer = withFormik({
     mapPropsToValues: ({user}) => ({
         ...user,
     }),
-    handleSubmit: (payload, {setSubmitting}) => {
+    handleSubmit: (payload, {setSubmitting, props}) => {
         console.log(payload, 'formikEnhancer');
         setSubmitting(false);
+        props.handleSubmit(payload);
     },
     displayName: 'ProfileForm',
 });

@@ -9,29 +9,40 @@ import uuid from 'uuid/v4';
 
 export default class CustomDropZone extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            isUploaded: false,
+        }
+    }
+
     prepareUploadPhoto = async (data) => {
-        var photoName = `${this.props.prefix + uuid()}.jpg`; //data.name;
-        console.log(data,'prepareUploadPhoto',photoName);
+        let photoName = `${this.props.prefix + uuid()}.jpg`; //data.name;
+        if (this.props.photoName !== undefined) {
+            photoName = this.props.photoName; //data.name;
+        }
+
+        console.log(data, 'prepareUploadPhoto', photoName);
 
         let body = new FormData();
         body.append('file', data);
         body.append('name', photoName);
 
         // var fetchResult = await axios.post('http://localhost:43587/api/images/name?ImageName=' + photoName + '&MasterFileName=address',body);
-        var fetchResult = await httpRequest.uploadPhoto(photoName,this.props.photoType,body);
+        var fetchResult = await httpRequest.uploadPhoto(photoName, this.props.photoType, body);
         console.log(fetchResult, 'prepareUploadPhoto yasser');
         return fetchResult;
     }
 
     handleChange = value => {
         // this is going to call setFieldValue and manually update values.topcis
-        console.log(uuid(),'uuid');
         if (value !== null) {
             console.log(value, 'handleChange MySelect');
-            if(this.props.isUploading){
+            if (this.props.isUploading) {
                 this.prepareUploadPhoto(value[0]).then(
                     response => {
                         this.props.onChange(this.props.valueName, response.data.Result[0].FileUrl);
+                        this.setState({isUploaded: true});
                         console.log(response, 'upload response ;)');
                     },
                     error => {
@@ -40,6 +51,7 @@ export default class CustomDropZone extends React.Component {
                 )
             } else {
                 this.props.onChange(this.props.valueName, value[0].preview);
+                this.setState({isUploaded: true});
             }
         }
     };
@@ -59,8 +71,12 @@ export default class CustomDropZone extends React.Component {
                     multiple={false}
                     accept="image/jpeg, image/png, image/jpg"
                     onDrop={this.handleChange}>
-                    <p>Try dropping some files here, or click to
-                        select files to upload.</p>
+                    <p>
+                        {this.props.defaultCaption !== undefined ?
+                            this.props.defaultCaption :
+                            "Try dropping some files here, or click to\n" +
+                            "                        select files to upload."}
+                    </p>
                 </Dropzone>
                 {!!this.props.error &&
                 this.props.touched && (
@@ -68,6 +84,7 @@ export default class CustomDropZone extends React.Component {
                         {this.props.error}
                     </div>
                 )}
+                {this.state.isUploaded ? <h3>{this.props.uploadedCaption}</h3> : null}
             </div>
         );
     }

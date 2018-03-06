@@ -54,8 +54,8 @@
       <file leaf-file-name="StoryForm.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/Form/StoryForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2617">
-              <caret line="225" column="56" lean-forward="true" selection-start-line="225" selection-start-column="56" selection-end-line="227" selection-end-column="72" />
+            <state relative-caret-position="398">
+              <caret line="372" column="36" lean-forward="false" selection-start-line="372" selection-start-column="36" selection-end-line="372" selection-end-column="36" />
               <folding>
                 <element signature="e#88#127#0" expanded="true" />
               </folding>
@@ -66,8 +66,8 @@
       <file leaf-file-name="ProfileForm.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/Admin/Profile/Form/ProfileForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7">
-              <caret line="142" column="12" lean-forward="false" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
+            <state relative-caret-position="315">
+              <caret line="169" column="34" lean-forward="true" selection-start-line="169" selection-start-column="34" selection-end-line="169" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -76,18 +76,8 @@
       <file leaf-file-name="ProfileManageComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Admin/Profile/ProfileManageComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="45" column="110" lean-forward="false" selection-start-line="45" selection-start-column="110" selection-end-line="45" selection-end-column="110" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfileManageComponentBackup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/Admin/Profile/ProfileManageComponentBackup.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="146">
+              <caret line="95" column="55" lean-forward="false" selection-start-line="95" selection-start-column="55" selection-end-line="95" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -96,15 +86,15 @@
       <file leaf-file-name="CustomDropZone.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/PageElements/Form/CustomDropZone.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="20" column="86" lean-forward="false" selection-start-line="20" selection-start-column="86" selection-end-line="20" selection-end-column="86" />
+            <state relative-caret-position="422">
+              <caret line="86" column="72" lean-forward="false" selection-start-line="86" selection-start-column="57" selection-end-line="86" selection-end-column="72" />
               <folding>
                 <element signature="e#44#83#0" expanded="true" />
-                <marker date="1520341900000" expanded="false" signature="1941:1950" ph="..." />
-                <marker date="1520341900000" expanded="true" signature="2001:2065" ph="..." />
-                <marker date="1520341900000" expanded="true" signature="2092:2383" ph="..." />
-                <marker date="1520341900000" expanded="true" signature="2262:2355" ph="..." />
-                <marker date="1520341900000" expanded="false" signature="2495:2503" ph="..." />
+                <marker date="1520345487000" expanded="true" signature="2259:2268" ph="..." />
+                <marker date="1520345487000" expanded="true" signature="2319:2383" ph="..." />
+                <marker date="1520345487000" expanded="true" signature="2410:2911" ph="..." />
+                <marker date="1520345487000" expanded="true" signature="2580:2883" ph="..." />
+                <marker date="1520345487000" expanded="false" signature="3023:3031" ph="..." />
               </folding>
             </state>
           </provider>
@@ -216,10 +206,10 @@
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomInputFieldComponent.js" />
         <option value="$PROJECT_DIR$/src/Components/Global/HTTP/httpRequest.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Story/StoryNewComponent.js" />
-        <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomDropZone.js" />
-        <option value="$PROJECT_DIR$/src/Components/Admin/Story/Form/StoryForm.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Profile/ProfileManageComponentBackup.js" />
+        <option value="$PROJECT_DIR$/src/Components/Admin/Story/Form/StoryForm.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Profile/ProfileManageComponent.js" />
+        <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomDropZone.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Profile/Form/ProfileForm.js" />
       </list>
     </option>
@@ -523,12 +513,12 @@
       <workItem from="1519801583155" duration="7710000" />
       <workItem from="1519884303376" duration="17303000" />
       <workItem from="1520269091682" duration="18766000" />
-      <workItem from="1520329460125" duration="4589000" />
+      <workItem from="1520329460125" duration="7245000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="442006000" />
+    <option name="totallyTimeSpent" value="444662000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -766,14 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Contact/Form/ContactForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/web-forms.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -837,7 +819,7 @@
         <state relative-caret-position="390">
           <caret line="29" column="41" lean-forward="false" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
           <folding>
-            <element signature="e#44#83#0" expanded="true" />
+            <element signature="e#44#83#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -847,7 +829,7 @@
         <state relative-caret-position="180">
           <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -860,27 +842,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/PageElements/Form/CustomDropZone.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="20" column="86" lean-forward="false" selection-start-line="20" selection-start-column="86" selection-end-line="20" selection-end-column="86" />
-          <folding>
-            <element signature="e#44#83#0" expanded="true" />
-            <marker date="1520341900000" expanded="false" signature="1941:1950" ph="..." />
-            <marker date="1520341900000" expanded="true" signature="2001:2065" ph="..." />
-            <marker date="1520341900000" expanded="true" signature="2092:2383" ph="..." />
-            <marker date="1520341900000" expanded="true" signature="2262:2355" ph="..." />
-            <marker date="1520341900000" expanded="false" signature="2495:2503" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Admin/Profile/ProfileRowComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -893,16 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/Form/StoryForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2617">
-          <caret line="225" column="56" lean-forward="true" selection-start-line="225" selection-start-column="56" selection-end-line="227" selection-end-column="72" />
-          <folding>
-            <element signature="e#88#127#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/StoryNewComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -911,18 +868,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Contact/Form/ContactForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="176" column="25" lean-forward="false" selection-start-line="176" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/Form/StoryForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="372" column="36" lean-forward="false" selection-start-line="372" selection-start-column="36" selection-end-line="372" selection-end-column="36" />
+          <folding>
+            <element signature="e#88#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Admin/Profile/ProfileManageComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="45" column="110" lean-forward="false" selection-start-line="45" selection-start-column="110" selection-end-line="45" selection-end-column="110" />
+        <state relative-caret-position="146">
+          <caret line="95" column="55" lean-forward="false" selection-start-line="95" selection-start-column="55" selection-end-line="95" selection-end-column="55" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/PageElements/Form/CustomDropZone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="86" column="72" lean-forward="false" selection-start-line="86" selection-start-column="57" selection-end-line="86" selection-end-column="72" />
+          <folding>
+            <element signature="e#44#83#0" expanded="true" />
+            <marker date="1520345487000" expanded="true" signature="2259:2268" ph="..." />
+            <marker date="1520345487000" expanded="true" signature="2319:2383" ph="..." />
+            <marker date="1520345487000" expanded="true" signature="2410:2911" ph="..." />
+            <marker date="1520345487000" expanded="true" signature="2580:2883" ph="..." />
+            <marker date="1520345487000" expanded="false" signature="3023:3031" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Admin/Profile/Form/ProfileForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7">
-          <caret line="142" column="12" lean-forward="false" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
+        <state relative-caret-position="315">
+          <caret line="169" column="34" lean-forward="true" selection-start-line="169" selection-start-column="34" selection-end-line="169" selection-end-column="34" />
           <folding />
         </state>
       </provider>
