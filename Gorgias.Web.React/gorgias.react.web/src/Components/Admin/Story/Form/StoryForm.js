@@ -15,16 +15,18 @@ import CustomInputFieldComponent from "../../../PageElements/Form/CustomInputFie
 import CustomTextAreaFieldComponent from "../../../PageElements/Form/CustomTextAreaFieldComponent";
 import CustomDropZone from "../../../PageElements/Form/CustomDropZone";
 import CustomAutocomplete from "../../../PageElements/Form/CustomAutocomplete";
+
 const ErrorMessage = ({ name }) => (
     <Field
         name={name}
         render={({ form }) => {
             const error = getIn(form.errors, name);
             const touch = getIn(form.touched, name);
-            return touch && error ? error : <h2>alalalalalal </h2>;
+            return touch && error ? error : null;
         }}
     />
 );
+
 const storyForm = props => {
     const {
         values,
@@ -46,131 +48,95 @@ const storyForm = props => {
         newYotubeContent,
         isNew,
         contentTypes,
+        storyOptions,
     } = props;
     return (
         <form onSubmit={handleSubmit}>
-            {/*<CustomTextInput*/}
-            {/*id="ProfileFullname"*/}
-            {/*type="text"*/}
-            {/*label="Fullname"*/}
-            {/*placeholder="John"*/}
-            {/*error={touched.ProfileFullname && errors.ProfileFullname}*/}
-            {/*value={values.ProfileFullname}*/}
-            {/*onChange={handleChange}*/}
-            {/*onBlur={handleBlur}*/}
-            {/*/>*/}
-            {/*<CustomTextInput*/}
-            {/*id="ProfileFullnameEnglish"*/}
-            {/*type="text"*/}
-            {/*label="English Fullname"*/}
-            {/*placeholder="Doe"*/}
-            {/*error={touched.ProfileFullnameEnglish && errors.ProfileFullnameEnglish}*/}
-            {/*value={values.ProfileFullnameEnglish}*/}
-            {/*onChange={handleChange}*/}
-            {/*onBlur={handleBlur}*/}
-            {/*/>*/}
-            {/*<CustomTextInput*/}
-            {/*id="ProfileDescription"*/}
-            {/*type="text"*/}
-            {/*label="Description"*/}
-            {/*placeholder="long bio"*/}
-            {/*error={touched.ProfileDescription && errors.ProfileDescription}*/}
-            {/*value={values.ProfileDescription}*/}
-            {/*onChange={handleChange}*/}
-            {/*onBlur={handleBlur}*/}
-            {/*/>*/}
-            {/*<CustomTextInput*/}
-            {/*id="ProfileShortDescription"*/}
-            {/*type="text"*/}
-            {/*label="Short Description"*/}
-            {/*placeholder="Bio"*/}
-            {/*error={touched.ProfileShortDescription && errors.ProfileShortDescription}*/}
-            {/*value={values.ProfileShortDescription}*/}
-            {/*onChange={handleChange}*/}
-            {/*onBlur={handleBlur}*/}
-            {/*/>*/}
-            {/*<CustomTextInput*/}
-            {/*id="ProfileURL"*/}
-            {/*type="text"*/}
-            {/*label="Profile Web URL"*/}
-            {/*placeholder="URL"*/}
-            {/*// error={touched.ProfileURL && errors.ProfileURL}*/}
-            {/*value={values.ProfileURL}*/}
-            {/*onChange={handleChange}*/}
-            {/*onBlur={handleBlur}*/}
-            {/*/>*/}
-            {/*<CustomTextInput*/}
-            {/*id="ProfileEmail"*/}
-            {/*type="email"*/}
-            {/*label="Email"*/}
-            {/*placeholder="Enter your email"*/}
-            {/*// error={touched.ProfileEmail && errors.ProfileEmail}*/}
-            {/*value={values.ProfileEmail}*/}
-            {/*onChange={handleChange}*/}
-            {/*onBlur={handleBlur}*/}
-            {/*disabled*/}
-            {/*/>*/}
-            {/*<CustomSelect*/}
-            {/*valueName="SubscriptionTypeID"*/}
-            {/*value={values.SubscriptionTypeID}*/}
-            {/*onChange={setFieldValue}*/}
-            {/*onBlur={setFieldTouched}*/}
-            {/*error={errors.SubscriptionTypeID}*/}
-            {/*touched={touched.SubscriptionTypeID}*/}
-            {/*disabled={false}*/}
-            {/*matchProp="value"*/}
-            {/*valueKey="value"*/}
-            {/*labelKey="label"*/}
-            {/*label="Subscription"*/}
-            {/*options={props.optionsProfileTypes}*/}
-            {/*/>*/}
-            {/*<CustomSelect*/}
-            {/*valueName="ThemeID"*/}
-            {/*value={values.ThemeID}*/}
-            {/*onChange={setFieldValue}*/}
-            {/*onBlur={setFieldTouched}*/}
-            {/*error={errors.ThemeID}*/}
-            {/*touched={touched.ThemeID}*/}
-            {/*disabled={false}*/}
-            {/*matchProp="value"*/}
-            {/*valueKey="value"*/}
-            {/*labelKey="label"*/}
-            {/*label="Theme"*/}
-            {/*options={props.optionsProfileTypes}*/}
-            {/*/>*/}
-            {/*<CustomAsyncSelect*/}
-            {/*valueName="ProfileTypeID"*/}
-            {/*value={values.ProfileTypeID}*/}
-            {/*onChange={setFieldValue}*/}
-            {/*onBlur={setFieldTouched}*/}
-            {/*error={errors.ProfileTypeID}*/}
-            {/*touched={touched.ProfileTypeID}*/}
-            {/*disabled={false}*/}
-            {/*matchProp="KeyID"*/}
-            {/*valueKey="KeyID"*/}
-            {/*labelKey="KeyName"*/}
-            {/*label="Topics"*/}
-            {/*url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"*/}
-            {/*/>*/}
-            {/*<CustomAutocomplete*/}
-            {/*valueName="category"*/}
-            {/*valueKey="KeyName"*/}
-            {/*KeyID="KeyID"*/}
-            {/*KeyName="KeyName"*/}
-            {/*value={values.category}*/}
-            {/*onChange={setFieldValue}*/}
-            {/*onBlur={setFieldTouched}*/}
-            {/*url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"*/}
-            {/*/>*/}
-            {/*<CustomDropZone*/}
-            {/*error={errors.ProfilePhoto}*/}
-            {/*touched={touched.ProfilePhoto}*/}
-            {/*valueName="ProfilePhoto"*/}
-            {/*onChange={setFieldValue}*/}
-            {/*onBlur={setFieldTouched}*/}
-            {/*>*/}
-            {/*</CustomDropZone>*/}
-            {/*<FriendList/>*/}
+            <CustomAutocomplete
+                valueName="category"
+                valueKey="KeyName"
+                KeyID="KeyID"
+                KeyName="KeyName"
+                value={values.category}
+                onChange={setFieldValue}
+                onBlur={setFieldTouched}
+                url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"
+            />
+            <CustomTextInput
+            id="AlbumPublishDate"
+            type="date"
+            label="Publish in"
+            placeholder="Enter your email"
+            // error={touched.ProfileEmail && errors.ProfileEmail}
+            value={values.AlbumPublishDate}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            />
+            <CustomTextInput
+            id="AlbumHasComment"
+            type="checkbox"
+            label="Allow comment"
+            // error={touched.ProfileEmail && errors.ProfileEmail}
+            value={values.AlbumHasComment}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            />
+            <CustomSelect
+                valueName="ContentRatingID"
+                value={values.ContentRatingID}
+                onChange={setFieldValue}
+                onBlur={setFieldTouched}
+                error={errors.ContentRatingID}
+                touched={touched.ContentRatingID}
+                disabled={false}
+                matchProp="KeyID"
+                valueKey="KeyID"
+                labelKey="KeyName"
+                label="Content Rating"
+                options={props.storyOptions[2].SettingCollection}
+            />
+            <CustomSelect
+                valueName="AvailabilityID"
+                value={values.AvailabilityID}
+                onChange={setFieldValue}
+                onBlur={setFieldTouched}
+                error={errors.AvailabilityID}
+                touched={touched.AvailabilityID}
+                disabled={false}
+                matchProp="KeyID"
+                valueKey="KeyID"
+                labelKey="KeyName"
+                label="Expires in"
+                options={props.storyOptions[3].SettingCollection}
+            />
+            <CustomSelect
+            valueName="LanguageID"
+            value={values.LanguageID}
+            onChange={setFieldValue}
+            onBlur={setFieldTouched}
+            error={errors.LanguageID}
+            touched={touched.LanguageID}
+            disabled={false}
+            matchProp="KeyID"
+            valueKey="KeyID"
+            labelKey="KeyName"
+            label="Language"
+            options={props.storyOptions[0].SettingCollection}
+            />
+            <CustomSelect
+            valueName="TopicID"
+            value={values.TopicID}
+            onChange={setFieldValue}
+            onBlur={setFieldTouched}
+            error={errors.TopicID}
+            touched={touched.TopicID}
+            disabled={false}
+            matchProp="KeyID"
+            valueKey="KeyID"
+            labelKey="KeyName"
+            label="Topic"
+            options={props.storyOptions[1].SettingCollection}
+            />
 
             <button
                 type="button"
@@ -257,7 +223,9 @@ const storyForm = props => {
                                                         valueName={`Contents.${index}.ContentURL`}
                                                         onChange={setFieldValue}
                                                         onBlur={setFieldTouched}
-                                                        isUploading={false}
+                                                        isUploading={true}
+                                                        prefix="hottest-"
+                                                        photoType="album"
                                                     >
                                                     </CustomDropZone>
                                                 </div>

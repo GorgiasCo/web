@@ -253,7 +253,7 @@ class StoryNewComponent extends Component {
     render() {
         const loader = <div className="loader">Loading ...</div>;
 
-        const {isLoading, isNew} = this.state;
+        const {isLoading, isNew, storySetting} = this.state;
         return (
             !isLoading ?
                 <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
@@ -267,6 +267,7 @@ class StoryNewComponent extends Component {
                                         </h2>
                                         <StoryForm
                                             optionsProfileTypes={optionsProfileTypes}
+                                            storyOptions={storySetting}
                                             // onDrop={this.onDrop.bind(this)}
                                             newContent={newContent}
                                             isNew={isNew}

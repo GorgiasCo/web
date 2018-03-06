@@ -10,7 +10,7 @@ import uuid from 'uuid/v4';
 export default class CustomDropZone extends React.Component {
 
     prepareUploadPhoto = async (data) => {
-        var photoName = `hottest-${uuid()}.jpg`; //data.name;
+        var photoName = `${this.props.prefix + uuid()}.jpg`; //data.name;
         console.log(data,'prepareUploadPhoto',photoName);
 
         let body = new FormData();
@@ -18,9 +18,9 @@ export default class CustomDropZone extends React.Component {
         body.append('name', photoName);
 
         // var fetchResult = await axios.post('http://localhost:43587/api/images/name?ImageName=' + photoName + '&MasterFileName=address',body);
-        var fetchResult = await httpRequest.uploadPhoto(photoName,'address',body);
+        var fetchResult = await httpRequest.uploadPhoto(photoName,this.props.photoType,body);
+        console.log(fetchResult, 'prepareUploadPhoto yasser');
         return fetchResult;
-        // console.log(fetchResult, 'prepareUploadPhoto');
     }
 
     handleChange = value => {
@@ -29,9 +29,9 @@ export default class CustomDropZone extends React.Component {
         if (value !== null) {
             console.log(value, 'handleChange MySelect');
             if(this.props.isUploading){
-                this.prepareUploadPhoto(value).then(
+                this.prepareUploadPhoto(value[0]).then(
                     response => {
-                        this.props.onChange(this.props.valueName, value[0].preview);
+                        this.props.onChange(this.props.valueName, response.data.Result[0].FileUrl);
                         console.log(response, 'upload response ;)');
                     },
                     error => {

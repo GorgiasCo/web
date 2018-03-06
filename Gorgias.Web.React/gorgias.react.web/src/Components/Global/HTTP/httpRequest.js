@@ -44,6 +44,8 @@ class HttpRequest {
         this.getCategories = this.getCategories.bind(this);
     }
 
+    Image_Store_URL_V2 = 'https://gorgiasasia.blob.core.windows.net/albums/';
+
     MicroApp_ProfileFullname_Endpoint = BASE_URL_V2 + 'Mobile/V2/Profile/MicroApp/';
     MicroApp_Subscribe_Status_Endpoint = BASE_URL_V2 + 'Mobile/V2/Profile/MicroApp/Subscribe/Status/';
     Profile_Bookmark_Endpoint = BASE_URL_V2 + 'Mobile/V2/Subscriber/Bookmark/';
@@ -453,7 +455,7 @@ class HttpRequest {
     }
 
     async uploadPhoto(filename, photoType, data) {
-        await axios.post(`${BASE_URL_V2}images/name?ImageName=${filename}&MasterFileName=${photoType}`, data);
+        return await axios.post(`${BASE_URL_V2}images/name?ImageName=${filename}&MasterFileName=${photoType}`, data);
     }
 
     async getAsyncHTTP(url) {
