@@ -192,7 +192,11 @@ const profileForm = props => {
             >
                 Reset
             </button>
-            <button type="submit" disabled={isSubmitting}>
+            <button
+                type="submit"
+                disabled={isSubmitting}
+                className="button-stroke"
+            >
                 Submit
             </button>
 

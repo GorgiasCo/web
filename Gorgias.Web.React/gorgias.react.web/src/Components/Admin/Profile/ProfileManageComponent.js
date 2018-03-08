@@ -107,7 +107,7 @@ class ProfileManageComponent extends Component {
                     <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                         <div className="mcb-wrap-inner">
                             <div className="column mcb-column one column_column">
-                                <div className="column_attr clearfix">
+                                <div className="column_attr tkPanels clearfix">
                                     <ProfileForm
                                         optionsProfileTypes={optionsProfileTypes}
                                         user={this.state.profile}

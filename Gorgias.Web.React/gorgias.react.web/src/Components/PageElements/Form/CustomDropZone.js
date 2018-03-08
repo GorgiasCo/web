@@ -71,7 +71,12 @@ export default class CustomDropZone extends React.Component {
                     multiple={false}
                     accept="image/jpeg, image/png, image/jpg"
                     onDrop={this.handleChange}>
-                    <p>
+                    <p style={{
+                        textAlign: 'center',
+                        marginTop: 42,
+                        fontSize: 28,
+                        lineHeight: 2,
+                    }}>
                         {this.props.defaultCaption !== undefined ?
                             this.props.defaultCaption :
                             "Try dropping some files here, or click to\n" +
