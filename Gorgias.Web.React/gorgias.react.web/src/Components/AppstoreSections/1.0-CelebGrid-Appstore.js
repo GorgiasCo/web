@@ -1,6 +1,7 @@
-import React from 'react';
-import $ from 'jquery';
-import OwlCarousel from 'react-owl-carousel';
+import React from "react";
+import Modal from 'react-responsive-modal';
+import AppProfileInfo from "./AppProfileInfo";
+import httpRequest from "../Global/HTTP/httpRequest";
 
 export default class CelebGrid extends React.Component {
 
@@ -12,6 +13,7 @@ export default class CelebGrid extends React.Component {
             showLoadMoreBtn: true,
             color_black: true,
             filteringData: {},
+            profileOpen: false,
         };
 
         this.handleLoadMore = this.handleLoadMore.bind(this);
@@ -141,7 +143,7 @@ export default class CelebGrid extends React.Component {
             .then(function (data) {
 
                 var canLoadMore = true;
-                if(data.Result.length < filteringData.PageSize){
+                if (data.Result.length < filteringData.PageSize) {
                     canLoadMore = false;
                 }
 
@@ -203,7 +205,7 @@ export default class CelebGrid extends React.Component {
                 // newResult.length == showLoadMoreBtn1 > 45 ? "false" : "true";
 
                 var canLoadMore = true;
-                if(data.Result.length < bodyData.PageSize){
+                if (data.Result.length < bodyData.PageSize) {
                     canLoadMore = false;
                 }
 
@@ -255,29 +257,32 @@ export default class CelebGrid extends React.Component {
 
     renderProfile(profileData) {
         return (
-            <div key={profileData.ProfileID}
-                 className="post-item isotope-item clearfix post-2277 post  format-standard has-post-thumbnail  category-lifestyle category-technology tag-Malaysia author-Female">
-                <div className="post-photo-wrapper scale-with-grid">
-                    <img width="800" height="800" src={profileData.ProfileImage}
-                         className="scale-with-grid wp-post-image fixed-grid" alt="home_journalist_blog7"/>
-                </div>
-                <div className="post-desc-wrapper">
-                    <div className="post-desc">
-                        <div className="post-title" style={{cursor:"default"}}>
-                            <h2 className="entry-title larger" style={{paddingBottom: 0, lineHeight:"115%"}}>
-                                <a>{profileData.ProfileFullname}</a></h2>
-                            <h2 className="entry-title larger tkFontSecondaryName" style={{marginBottom: 0 + "px"}}>
-                                <a>{profileData.ProfileURL}</a></h2>
+            <a>
+                <div onClick={() => this.prepareProfileModal(profileData.ProfileID)} key={profileData.ProfileID}
+                     className="post-item isotope-item clearfix post-2277 post  format-standard has-post-thumbnail  category-lifestyle category-technology tag-Malaysia author-Female">
+                    <div className="post-photo-wrapper scale-with-grid">
+                        <img width="800" height="800" src={profileData.ProfileImage}
+                             className="scale-with-grid wp-post-image fixed-grid" alt="home_journalist_blog7"/>
+                    </div>
+                    <div className="post-desc-wrapper">
+                        <div className="post-desc">
+                            <div className="post-title" style={{cursor: "default"}}>
+                                <h2 className="entry-title larger" style={{paddingBottom: 0, lineHeight: "115%"}}>
+                                    <a onClick={() => this.prepareProfileModal(profileData.ProfileID)}>{profileData.ProfileFullname}</a></h2>
+                                <h2 className="entry-title larger tkFontSecondaryName" style={{marginBottom: 0 + "px"}}>
+                                    <a onClick={() => this.prepareProfileModal(profileData.ProfileID)}>{profileData.ProfileURL}</a></h2>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         )
     }
 
     renderCountry(countryData) {
         return (
-            <li key={countryData.CountryID} className={(this.state.filteringData.CountryID === countryData.CountryID ? "current-cat" : "")}>
+            <li key={countryData.CountryID}
+                className={(this.state.filteringData.CountryID === countryData.CountryID ? "current-cat" : "")}>
                 <a data-rel={".tag-" + countryData.CountryName}
                    onClick={() => this.handleCountryFilter(countryData.CountryID)}>{countryData.CountryName}</a>
             </li>
@@ -286,7 +291,8 @@ export default class CelebGrid extends React.Component {
 
     renderProfileType(profileTypeData) {
         return (
-            <li key={profileTypeData.ProfileTypeID} className={(this.state.filteringData.ProfileTypeID === profileTypeData.ProfileTypeID ? "current-cat" : "")}>
+            <li key={profileTypeData.ProfileTypeID}
+                className={(this.state.filteringData.ProfileTypeID === profileTypeData.ProfileTypeID ? "current-cat" : "")}>
                 <a data-rel={".author-" + profileTypeData.ProfileTypeName}
                    onClick={() => this.handleProfileTypeFilter(profileTypeData.ProfileTypeID)}>{profileTypeData.ProfileTypeName}</a>
             </li>
@@ -335,8 +341,41 @@ export default class CelebGrid extends React.Component {
         this.setState({showIndustriesTag: !this.state.showIndustriesTag});
     }
 
+    onOpenModal = () => {
+
+    };
+
+    onCloseModal = () => {
+        this.setState({ profileOpen: false });
+    };
+
+    prepareProfileModal = (data) => {
+        httpRequest.getAsyncProfileSettingHotSpot(data).then(
+            response => {
+                console.log(response,'response prepareProfileModal');
+                let miniProfile = response.data.Result;
+                httpRequest.getAsyncMiniProfileStories(data).then(
+                    response => {
+                        console.log(response,'response prepareProfileModal stories');
+                        this.setState({
+                            profileOpen: true,
+                            miniProfile: miniProfile,
+                            profileStories: response.data.Result.Items,
+                        });
+                    },
+                    error => {
+                        console.log(error,'error prepareProfileModal stories');
+                    }
+                )
+            },
+            error => {
+                console.log(error,'error prepareProfileModal');
+            }
+        )
+    }
+
     render() {
-        const {filteringData} = this.state;
+        const {filteringData, profileOpen} = this.state;
         console.log(this.state.profiles, 'render', filteringData, this.state.filteringData);
 
         return (
@@ -359,9 +398,9 @@ export default class CelebGrid extends React.Component {
                                     }}>
                                         {!this.props.isMainPage ?
                                             <div>
-                                          {/*<span className="label" style={{color: "#999c9e"}}>
-                                              Filterrr by
-                                          </span>*/}
+                                                {/*<span className="label" style={{color: "#999c9e"}}>
+                                                 Filterrr by
+                                                 </span>*/}
                                                 <ul className="filters_buttons" style={{
                                                     margin: "0px auto",
                                                     fontSize: "16px",
@@ -457,6 +496,9 @@ export default class CelebGrid extends React.Component {
                                             }
                                         </div>
                                     </div>
+                                    <Modal open={profileOpen} onClose={this.onCloseModal}>
+                                        <AppProfileInfo data={this.state.miniProfile} profileStories={this.state.profileStories}/>
+                                    </Modal>
                                 </div>
                             </div>
                         </div>

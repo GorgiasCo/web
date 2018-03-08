@@ -23,9 +23,9 @@ export default class AppProfileInfoContainer extends React.Component {
             <div>
                 <div className="goBack">
                     <i className="icon-left-thin"></i>
-                    <NavLink exact to={"/"}><span>Back to Gorgias</span></NavLink>
+                    <NavLink exact to={"/store"}><span>Back to Gorgias</span></NavLink>
                 </div>
-                <AppProfileInfo/>
+                <AppProfileInfo {...this.props}/>
                 <MiniFooter />
             </div>
         );

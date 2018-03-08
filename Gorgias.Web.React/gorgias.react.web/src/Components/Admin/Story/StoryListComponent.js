@@ -41,7 +41,7 @@ class StoryListComponent extends Component {
 
     componentWillMount() {
         //this.prepareDateFromAPI(0);
-        //this.loadItems(1);
+        this.loadItems(1);
     }
 
     prepareDateFromAPI = (addressTypeID) => {
@@ -105,6 +105,7 @@ class StoryListComponent extends Component {
         if (this.props.filterData !== undefined) {
             let filteringData = this.props.filterData;
             filteringData.Page = page;
+            filteringData.MicroAppProfileID = parseInt(this.props.profileAccountSetting.payload.ProfileID);
             this.props.getStories(filteringData);
             console.log(page, 'inside endless ;)', this.props.filterData);
         } else {
@@ -115,8 +116,7 @@ class StoryListComponent extends Component {
                 Page: page,
                 Size: 30,
                 Languages: ["en"],
-                isMicroApp: false,
-                // MicroAppProfileID:parseInt(1010),
+                isMicroApp: true,
                 MicroAppProfileID: parseInt(this.props.profileAccountSetting.payload.ProfileID),
             };
             this.props.getStories(filterData);

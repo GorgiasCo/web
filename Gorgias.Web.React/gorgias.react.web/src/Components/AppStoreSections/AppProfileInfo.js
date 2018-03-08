@@ -1,11 +1,6 @@
-import React from 'react';
-import MetaTags from 'react-meta-tags';
-import uuid from 'uuid/v1';
-import {BrowserView, isIOS, isAndroid, isMobile} from 'react-device-detect'
-import OwlCarousel from 'react-owl-carousel';
-
-let profileID = null;
-let profileTitle = null;
+import React from "react";
+import {BrowserView, isAndroid, isIOS, isMobile} from "react-device-detect";
+import OwlCarousel from "react-owl-carousel";
 
 export default class AppProfileInfo extends React.Component {
 
@@ -15,8 +10,8 @@ export default class AppProfileInfo extends React.Component {
             isLanding: true,
             isLoading: false,
             profileData: {},
+            profileStories: null,
         }
-        //console.log('hi avval' + new Date);
     }
 
     deepLinkRedirect = (url) => {
@@ -29,7 +24,7 @@ export default class AppProfileInfo extends React.Component {
     }
 
     componentDidMount() {
-
+        //console.log('app profile', this.props, this.props.match.params.id);
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -45,185 +40,137 @@ export default class AppProfileInfo extends React.Component {
         }
     }
 
+    renderStory = (item) => {
+        return <li className="tklist">
+            <img width="287" height="339" className="tk fit2"
+                 src={item.AlbumCover}
+                 alt="portfolio_1"/>
+        </li>
+    }
+
     //profileID
-    renderLoginForm() {
+    renderMiniProfile() {
         const {isLoading} = this.state;
         return (
             !isLoading ?
-                  <div id="AppProfileInfo" className="section mcb-section tkSection-padding bg-color-2">
-                      <div className="section_wrapper mcb-section-inner">
-                          {/*<div className="wrap mcb-wrap one  valign-top clearfix">*/}
-                              {/*<div className="mcb-wrap-inner">*/}
-                                      {/*<div className="column mcb-column one-second column_column" style={{*/}
-                                          {/*float: "none",*/}
-                                          {/*marginTop: 0 + "px",*/}
-                                          {/*marginLeft: "auto",*/}
-                                          {/*marginRight: "auto",*/}
-                                          {/*textAlign: "center"*/}
-                                      {/*}}>*/}
-                                      {/*<div className="column_attr clearfix">*/}
-                                          {/*<h2 className="tkFont1" style={{color: "white"}}>App Profile Info</h2>*/}
-                                      {/*</div>*/}
-                                  {/*</div>*/}
-                              {/*</div>*/}
-                          {/*</div>*/}
-                          <div className="wrap mcb-wrap one  valign-top clearfix" style={{margin: 0 + "px auto"}}>
-                              <div className="mcb-wrap-inner">
+                <div className="column mcb-column one-second column_column"
+                     style={{float: "none", textAlign: "center", margin: "25px auto 0 auto",}}>
+                    <div >
+                        <img className="tk-AppAvatarImg" style={{left: "0"}}
+                             src={this.props.data.ProfileImage}
+                             width="50" height="50"/>
+                        <h2 style={{color: "#ff0088"}}>
+                            {this.props.data.ProfileFullname}
+                        </h2>
+                        <h4 className="tkFont1" style={{color: "darkgrey", fontWeight: "bold"}}>
+                            {this.props.data.ProfileFullnameEnglish}
+                        </h4>
+                        <p style={{minWidth:200}}>
+                            {this.props.data.ProfileShortDescription}
+                        </p>
+                        <table className="Profile-Info-Table-banner">
+                            <tr>
+                                <td>{this.props.data.TotalViews}</td>
+                                <td>{this.props.data.TotalConnections}</td>
+                                <td>{this.props.data.TotalEngagements}</td>
+                            </tr>
+                            <tr className="heading">
+                                <td>Views</td>
+                                <td>StayOn</td>
+                                <td>React</td>
+                            </tr>
+                        </table>
+                    </div>
 
-                                  <div className="column mcb-column one column_column"
-                                       style={{margin: 1 + "%" + 1 + "%"}}>
-                                      <div className="column_attr tkPanels">
+                    {/* <hr style={{margin: 0 + " auto " + 30 + "px"}}/>*/}
+                    <OwlCarousel
+                        className="owl-theme"
+                        autoWidth={false}
+                        loop={false}
+                        margin={10}
+                        nav={false}
+                        dots={false}
+                        autoplay={false}
+                        autoplayTimeout={1000}
+                        autoplayHoverPause={true}
+                        responsiveClass={false}
+                        responsive={{
+                            0: {
+                                items: 2,
+                                nav: false,
+                                margin: 10,
+                                center: true,
 
+                            },
+                            400: {
+                                items: 2,
+                                nav: false,
+                                margin: 10,
+                                center: true,
 
+                            },
+                            600: {
+                                items: 3,
+                                nav: false,
+                                margin: 15,
+                            },
 
-                                           <div className="column mcb-column one-second column_column" style={{float: "none", textAlign: "center",margin:"25px auto 0 auto"}}>
+                            1000: {
+                                items: 3,
+                                nav: false,
+                                loop: false,
+                                margin: 15,
 
-                                             <img className="tk-AppAvatarImg" style={{left:"0"}}
-                                                  src="https://gorgiasasia.blob.core.windows.net/images/profile-4125.jpg?timestamp=2e1e6114-e604-11e7-a557-4fc1842ba146"
-                                                  width="50" height="50"/>
+                            },
 
-                                             <h2 style={{color: "#ff0088"}}>Twinko</h2>
+                            1200: {
+                                items: 3,
+                                nav: false,
+                                loop: false,
+                                margin: 15,
+                                center: false,
 
-                                             <h4 className="tkFont1" style={{color:"darkgrey", fontWeight:"bold"}}>Miki c Sze</h4>
+                            },
 
-                                             <p>
-                                                An aspiring singer turned model. Contact me at ... I wish to be a unicorn one day :D
-                                             </p>
-                                           </div>
+                            1366: {
+                                items: 2,
+                                nav: false,
+                                loop: false,
+                                margin: 15,
+                            },
 
-                                           <table className="Profile-Info-Table-banner">
-                                            <tr>
-                                               <td>143</td>
-                                               <td>16</td>
-                                               <td>144</td>
-                                             </tr>
-                                             <tr className="heading">
-                                               <td>Views</td>
-                                               <td>StayOn</td>
-                                               <td>React</td>
-                                             </tr>
-                                           </table>
+                            1920: {
+                                items: 2,
+                                nav: false,
+                                loop: false,
+                                margin: 25,
+                                center: false,
+                            },
 
-
-                                        {/* <hr style={{margin: 0 + " auto " + 30 + "px"}}/>*/}
-
-                                          <OwlCarousel
-                                              className="owl-theme"
-                                              autoWidth={false}
-                                              loop={false}
-                                              margin={10}
-                                              nav={false}
-                                              dots={false}
-                                              autoplay={false}
-                                              autoplayTimeout={1000}
-                                              autoplayHoverPause={true}
-                                              responsiveClass= {false}
-                                              responsive= {{
-                                                0: {
-                                                  items: 2,
-                                                  nav: false,
-                                                  margin:10,
-                                                  center:true,
-
-                                                },
-                                                400: {
-                                                  items: 2,
-                                                  nav: false,
-                                                  margin:10,
-                                                  center:true,
-
-                                                },
-                                                600: {
-                                                  items: 3,
-                                                  nav: false,
-                                                  margin: 15,
-                                                },
-
-                                                1000: {
-                                                  items: 3,
-                                                  nav: false,
-                                                  loop: false,
-                                                  margin: 15,
-
-                                                },
-
-                                                1200: {
-                                                  items: 3,
-                                                  nav: false,
-                                                  loop: false,
-                                                  margin: 15,
-                                                  center:false,
-
-                                                },
-
-                                                1366:{
-                                                  items: 4,
-                                                  nav: false,
-                                                  loop: false,
-                                                  margin: 15,
-                                                },
-
-                                                1920:{
-                                                  items: 4,
-                                                  nav: false,
-                                                  loop: false,
-                                                  margin: 25,
-                                                  center:false,
-                                                },
-
-                                                2560:{
-                                                  items: 3,
-                                                  nav: false,
-                                                  loop: false,
-                                                  margin: 15,
-                                                }
-                                              }}
-                                          >
-                                            <li className="tklist">
-                                              <img width="287" height="339" className="tk fit2" src="https://i.pinimg.com/564x/0f/1e/9f/0f1e9fb97a6d3b31cc53ba4edb33b2d2.jpg" alt="portfolio_1"/>
-                                            </li>
-                                            <li className="tklist">
-                                              <img width="287" height="339" className="tk fit2" src="https://i.pinimg.com/originals/3e/72/6f/3e726f015975ebd9791a2eae433f4d17.jpg" alt="portfolio_1"/>
-                                            </li>
-                                            <li className="tklist">
-                                              <img width="287" height="339" className="tk fit2" src="https://gorgiasasia.blob.core.windows.net/images/profile-1133.jpg" alt="portfolio_1"/>
-                                            </li>
-                                            <li className="tklist">
-                                              <img width="287" height="339" className="tk fit2" src="https://gorgiasasia.blob.core.windows.net/images/profile-4125.jpg" alt="portfolio_1"/>
-                                            </li>
-                                            <li className="tklist">
-                                              <img width="287" height="339" className="tk fit2" src="https://gorgiasasia.blob.core.windows.net/images/profile-4992.jpg" alt="portfolio_1"/>
-                                            </li>
-                                            <li className="tklist">
-                                              <img width="287" height="339" className="tk fit2" src="https://gorgiasasia.blob.core.windows.net/images/profile-1133.jpg" alt="portfolio_1"/>
-                                            </li>
-
-                                        </OwlCarousel>
-
-                                        <br/>
-                                        <hr/>
-                                        <div className="column mcb-column one-second column_column" style={{float: "none", textAlign: "center",margin:"0px auto"}}>
-
-                                          <p style={{marginTop:"20px"}}>
-                                            Scan the code!
-                                          </p>
-
-                                          <img className="tk-AppAvatarImg qrCode" style={{left:0}}
-                                                 src="https://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg"
-                                                 width="150" height="150"/>
-
-                                          <input type="submit" id="submit" value="GET APP" className="tkFont-Bold" style={{width:"100%"}}/>
-
-                                        </div>
-
-                                      </div>
-                                  </div>
-
-                              </div>
-                          </div>
-                      </div>
-                  </div>: null
-
+                            2560: {
+                                items: 2,
+                                nav: false,
+                                loop: false,
+                                margin: 15,
+                            }
+                        }}
+                    >
+                        {this.props.profileStories ? this.props.profileStories.map(item => this.renderStory(item)) : null}
+                    </OwlCarousel>
+                    <br/>
+                    <hr/>
+                    <div className="column mcb-column one-second column_column"
+                         style={{float: "none", textAlign: "center", margin: "0px auto"}}>
+                        <p style={{marginTop: "20px"}}>
+                            Scan the code!
+                        </p>
+                        <img className="tk-AppAvatarImg qrCode" style={{left: 0}}
+                             src="https://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg"
+                             width="150" height="150"/>
+                        <input type="submit" id="submit" value="GET APP" className="tkFont-Bold"
+                               style={{width: "100%"}}/>
+                    </div>
+                </div> : null
         );
     }
 
@@ -251,7 +198,6 @@ export default class AppProfileInfo extends React.Component {
     }
 
     render() {
-        console.log(this.state.profileID, 'Render ;)');
-        return this.renderLoginForm();
+        return this.renderMiniProfile();
     }
 }

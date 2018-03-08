@@ -18,10 +18,12 @@ export default class MiniFooter extends React.Component {
 
     }
 
+    // backgroundColor: "rgba(0,0,0,0.5)"
+
     render() {
         return (
             <footer id="Footer" className="clearfix"
-                    style={{backgroundColor: "rgba(0,0,0,0.5)", position: "fixed"}}>
+                    style={{position: "fixed"}}>
                 <div className="footer_copy">
                     <div className="container">
                         <div className="column one" style={{marginBottom: 10 + "px", paddingTop: 20 + "px"}}>

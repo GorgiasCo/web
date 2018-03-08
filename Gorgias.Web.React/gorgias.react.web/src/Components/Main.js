@@ -7,6 +7,11 @@ import DefaultAdminPage from "./DefaultAdminPage";
 import AuthenticationProvider from "./PageElements/authenticationProvider";
 
 import {browserHistory, BrowserRouter as Router, Route} from "react-router-dom";
+
+// import {
+//     HashRouter as Router,
+//     Route,
+// } from 'react-router-dom';
 //
 // export const mainHOC = () => {
 //     return(
@@ -53,7 +58,7 @@ export default class MainPage extends Component {
                     <Route exact path="/contact"
                            component={() => <DefaultPage containerName="contact" hasFooter={true}/>}/>
                     <Route exact path="/app/:id" component={DownloadAppContainer}/>
-                    <Route exact path="/store/profile" component={AppProfileInfoContainer}/>
+                    <Route path="/store/profile/:id" component={AppProfileInfoContainer}/>
                     <Route exact path="/app/:id/:pid" component={DownloadAppContainer}/>
                     <Route exact path="/store"
                            component={() => <DefaultPage containerName="store" hasFooter={false}/>}/>

@@ -111,6 +111,7 @@ class HttpRequest {
     Profile_Reports_Endpoint = `${BASE_URL_V2}Reports/Profiles/Current/`;
 
     Album_Story_Edit_Endpoint = `${BASE_URL_V2}Mobile/V2/Album/Story/Edit/`;
+    Album_Story_Latest_Mini_Profile_Endpoint = `${BASE_URL_V2}Mobile/V2/Albums/Filter/Profile/`;
 
 
     //Account/Register/Mobile/V2
@@ -183,6 +184,10 @@ class HttpRequest {
 
     async getAsyncContentManagerAllSubscribers(ProfileID) {
         return await this.getAsyncHTTP(this.ContentManager_Profiles_All_Subscribers_Endpoint + ProfileID);
+    }
+
+    async getAsyncMiniProfileStories(ProfileID) {
+        return await this.getAsyncHTTP(this.Album_Story_Latest_Mini_Profile_Endpoint + ProfileID);
     }
 
     async newAsyncContentManager(data) {
@@ -348,8 +353,8 @@ class HttpRequest {
         this.getHTTP(this.Comments_Endpoint + ContentID + '/' + Size + '/' + Page + '/', cbSuccess, cbError);
     }
 
-    getProfileSettingHotSpot(ProfileID, cbSuccess, cbError) {
-        this.getHTTP(this.Profile_Setting_HotSpot + ProfileID, cbSuccess, cbError);
+    getAsyncProfileSettingHotSpot(ProfileID) {
+        return this.getAsyncHTTP(this.Profile_Setting_HotSpot + ProfileID);
     }
 
     getProfileAccountSetting(ProfileID, cbSuccess, cbError) {

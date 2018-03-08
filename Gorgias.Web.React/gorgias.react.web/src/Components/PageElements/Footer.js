@@ -29,8 +29,6 @@ export default class Footer extends React.Component {
                                 <hr/>
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                     <NavLink to={"/about"} activeClassName={"activee"}><span>Company</span></NavLink>
-                                    <NavLink to={"/test"} activeClassName={"activee"}><span>Company</span></NavLink>
-                                    <NavLink to={"/test2"} activeClassName={"activee"}><span>Company</span></NavLink>
                                 </p>
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                     <NavLink to={"/contact"} activeClassName={"activee"}><span>Contact</span></NavLink>
@@ -42,17 +40,17 @@ export default class Footer extends React.Component {
                         </div>
                         <div className="column one-fourth">
                             <aside className="widget tkLinks">
-                                <h4 className="tkFont1 footer-heading"><a>Site</a></h4>
+                                <h4 className="tkFont1 footer-heading"><a>iconicAp</a></h4>
                                 <hr/>
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                     <NavLink to={"/store"} activeClassName={"activee"}>
-                                        <span>App Store</span>
+                                        <span>Iconic Ap Store</span>
                                     </NavLink>
                                 </p>
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                     <NavLink to={"/app/gorgias/1010"}
                                              activeClassName={"activee"}>
-                                        <span>Gorgias microAp</span>
+                                        <span>iconicAp</span>
                                     </NavLink>
                                 </p>
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
@@ -81,7 +79,7 @@ export default class Footer extends React.Component {
                                         <ul>
                                             <li style={{marginBottom: 10}}></li>
                                             <li style={{marginbottom: 10}}>
-                                                <i style={{marginright: 10}} className="icon-email"></i><a href="#">noreply@envato.com</a>
+                                                <i style={{marginright: 10}} className="icon-email"></i><a href="#">support@gorgias.com</a>
                                             </li>
                                         </ul>
                                         <p className="tkFont1" style={{fontSize: 26 + "px", lineHeight: 35 + "px"}}>

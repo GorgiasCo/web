@@ -70,7 +70,7 @@ class Login extends React.Component {
         return (
             <div className="content_wrapper clearfix" style={{
                 height: 100 + "vh",
-                backgroundImage: "url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/0kjHIH6/glamorous-sparkling-sequins-in-a-silver-border-frame-with-flare-lights-and-particles-background_vs9pjap6l__F0000.png)",
+                // backgroundImage: "url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/0kjHIH6/glamorous-sparkling-sequins-in-a-silver-border-frame-with-flare-lights-and-particles-background_vs9pjap6l__F0000.png)",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center top",
                 backgroundSize: "cover",
