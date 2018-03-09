@@ -20,6 +20,7 @@ import httpRequest from "../../Global/HTTP/httpRequest";
 import {ToastContainer} from "react-toastify";
 import StoryRow from "../Story/StoryRow";
 import EndlessList from "../../PageElements/EndlessList/";
+import AdminpageHeader from "../../PageElements/AdminPageHeader";
 
 let API_KEY = "AIzaSyAjU94_y64Gh4mCZgDi4Ccdadaw8YRxqek";
 const GOOGLE_API = "https://maps.google.com/maps/api/geocode/json";
@@ -135,6 +136,13 @@ class StoryListComponent extends Component {
                     <div className="section_wrapper mcb-section-inner">
                         <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                             <div className="mcb-wrap-inner">
+                                <AdminpageHeader
+                                    isLoading={false}
+                                    hasButton={true}
+                                    headerTitle={`My Stories`}
+                                    newPageURL={`/admin/story/new`}
+                                    newButtonCaption={`+`}
+                                />
                                 <div className="column mcb-column one column_column">
                                     <div className="column_attr clearfix">
                                         <EndlessList

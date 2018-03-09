@@ -19,6 +19,7 @@ import ContentManagerRow from "./List/ContentManagerRow";
 import ContentManagerForm from "./Form/";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+import AdminpageHeader from "../../PageElements/AdminPageHeader";
 
 class ContentManagerListComponent extends Component {
 
@@ -172,14 +173,24 @@ class ContentManagerListComponent extends Component {
                     <div className="section_wrapper mcb-section-inner">
                         <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                             <div className="mcb-wrap-inner">
+                                <AdminpageHeader
+                                    isLoading={false}
+                                    hasButton={false}
+                                    headerTitle={`My Content Managers`}
+                                />
                                 <div className="column mcb-column one column_column">
-                                    <div className="column_attr clearfix">
+                                    <div className="column_attr tkPanels clearfix">
                                         <div style={{zindex:9999}}>
                                             <ContentManagerForm
                                                 handleSubmit={this.handleSubmit.bind(this)}
                                                 data={this.state.contentManager}
                                             />
                                         </div>
+                                    </div>
+                                </div>
+
+                                <div className="column mcb-column one column_column">
+                                    <div className="column_attr clearfix">
                                         <List
                                             isLoading={this.state.isLoading}
                                             items={this.state.contentManagers}

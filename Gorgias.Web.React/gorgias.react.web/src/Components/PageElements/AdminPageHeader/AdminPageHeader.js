@@ -7,7 +7,7 @@ class AdminPageHeader extends React.Component {
     }
 
     render() {
-        const {isLoading, headerTitle, newPageURL, newButtonCaption} = this.props;
+        const {isLoading, headerTitle, newPageURL, newButtonCaption, hasButton = true} = this.props;
         return (
             !isLoading ?
                 <div
@@ -20,6 +20,7 @@ class AdminPageHeader extends React.Component {
                                 {headerTitle}
                             </h3>
                         </div>
+                        {hasButton ?
                         <div
                             style={{float: 'right'}}>
                             <CustomButton
@@ -27,7 +28,7 @@ class AdminPageHeader extends React.Component {
                                 className={`button button-no-margin`}
                                 buttonCaption={`${newButtonCaption}`}
                             />
-                        </div>
+                        </div> : null }
                     </div>
                 </div>
                 : null

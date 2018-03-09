@@ -70,12 +70,15 @@ export default class CustomAutocomplete extends React.Component {
 
     render() {
         return (
-            <div style={{margin: '1rem 0'}}>
+            <div
+                className={`input-group`}
+                style={{margin: '1rem 0'}}>
                 <label htmlFor="color">
                     {this.props.label}
                 </label>
                 <Autocomplete
                     items={this.state.values}
+                    wrapperStyle={`text-input`}
                     shouldItemRender={(item, value) => this.conditionForRendering(item, value)}
                     getItemValue={item => item[this.props.KeyName]}
                     renderItem={(item, highlighted) =>

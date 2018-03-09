@@ -55,9 +55,9 @@ class DashboardComponent extends Component {
             profileReports: [],
             reports: {}
         });
-        console.log('dashboard');
+        console.log('dashboard',this.props.profileAccountSetting);
 
-        httpRequest.getAsyncProfileReports(this.props.profileAccountSetting.payload.userUserID, 1).then(
+        httpRequest.getAsyncProfileReports(this.props.profileAccountSetting.payload.UserID, 1).then(
             response => {
                 let ProfileReports = response.data.Result.ProfileReports;
                 let isEmptyList = false;

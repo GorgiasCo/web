@@ -7,7 +7,12 @@ export default class AdminBurgerHeader extends React.Component {
         return (
             <div>
                 <Menu id="stack" styles={styles}>
-                    <a id="home" className="menu-item" href="/">Home</a>
+                    <a id="home" className="menu-item" href="/admin/">Home</a>
+                    <a id="profile" className="menu-item" href="/admin/profile">Profile</a>
+                    <a id="story" className="menu-item" href="/admin/story">Story</a>
+                    <a id="contact" className="menu-item" href="/admin/contact">Contact</a>
+                    <a id="follower" className="menu-item" href="/admin/follower">Followers</a>
+                    <a id="contentmanager" className="menu-item" href="/admin/content/manager">Content Managers</a>
                     <a id="about" className="menu-item" onClick={this.props.prepareProfileAccounts} >About</a>
                     <a id="contact" className="menu-item" onClick={this.props.logout}>logout</a>
                     <a className="menu-item--mall" href="">Settings</a>

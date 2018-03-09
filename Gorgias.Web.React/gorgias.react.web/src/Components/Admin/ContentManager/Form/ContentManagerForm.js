@@ -45,9 +45,13 @@ const contentManagerForm = props => {
                 label="Profile"
                 url={httpRequest.ContentManager_Profile_AutoComplete_Endpoint}
             />
-            <button type="submit" disabled={isSubmitting}>
-                Submit
-            </button>
+            <div
+                style={{float: 'right'}}>
+                <button type="submit" className={`submit`} disabled={isSubmitting}>
+                    Submit
+                </button>
+            </div>
+
         </form>
     );
 };

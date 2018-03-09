@@ -18,6 +18,7 @@ import CustomTextInput from "../../PageElements/Form/CustomTextInput";
 import CustomInputFieldComponent from "../../PageElements/Form/CustomInputFieldComponent";
 import CustomDropZone from "../../PageElements/Form/CustomDropZone";
 import ProfileForm from "./Form/";
+import AdminpageHeader from "../../PageElements/AdminPageHeader";
 
 const optionsProfileTypes = [
     {value: 1, label: 'Food'},
@@ -106,6 +107,11 @@ class ProfileManageComponent extends Component {
                 <div className="section_wrapper mcb-section-inner">
                     <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                         <div className="mcb-wrap-inner">
+                            <AdminpageHeader
+                                isLoading={false}
+                                hasButton={false}
+                                headerTitle={`My Profile`}
+                            />
                             <div className="column mcb-column one column_column">
                                 <div className="column_attr tkPanels clearfix">
                                     <ProfileForm

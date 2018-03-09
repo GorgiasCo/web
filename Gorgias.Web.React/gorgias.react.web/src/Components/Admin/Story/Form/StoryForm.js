@@ -15,11 +15,12 @@ import CustomInputFieldComponent from "../../../PageElements/Form/CustomInputFie
 import CustomTextAreaFieldComponent from "../../../PageElements/Form/CustomTextAreaFieldComponent";
 import CustomDropZone from "../../../PageElements/Form/CustomDropZone";
 import CustomAutocomplete from "../../../PageElements/Form/CustomAutocomplete";
+import RowLayout from "../../../PageElements/Form/RowLayout";
 
-const ErrorMessage = ({ name }) => (
+const ErrorMessage = ({name}) => (
     <Field
         name={name}
-        render={({ form }) => {
+        render={({form}) => {
             const error = getIn(form.errors, name);
             const touch = getIn(form.touched, name);
             return touch && error ? error : null;
@@ -52,167 +53,17 @@ const storyForm = props => {
     } = props;
     return (
         <form onSubmit={handleSubmit}>
-            <CustomAutocomplete
-                valueName="category"
-                valueKey="KeyName"
-                KeyID="KeyID"
-                KeyName="KeyName"
-                value={values.category}
-                onChange={setFieldValue}
-                onBlur={setFieldTouched}
-                url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"
-            />
-            <CustomTextInput
-            id="AlbumPublishDate"
-            type="date"
-            label="Publish in"
-            placeholder="Enter your email"
-            // error={touched.ProfileEmail && errors.ProfileEmail}
-            value={values.AlbumPublishDate}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            />
-            <CustomTextInput
-            id="AlbumHasComment"
-            type="checkbox"
-            label="Allow comment"
-            // error={touched.ProfileEmail && errors.ProfileEmail}
-            value={values.AlbumHasComment}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            />
-            <CustomSelect
-                valueName="ContentRatingID"
-                value={values.ContentRatingID}
-                onChange={setFieldValue}
-                onBlur={setFieldTouched}
-                error={errors.ContentRatingID}
-                touched={touched.ContentRatingID}
-                disabled={false}
-                matchProp="KeyID"
-                valueKey="KeyID"
-                labelKey="KeyName"
-                label="Content Rating"
-                options={props.storyOptions[2].SettingCollection}
-            />
-            <CustomSelect
-                valueName="AvailabilityID"
-                value={values.AvailabilityID}
-                onChange={setFieldValue}
-                onBlur={setFieldTouched}
-                error={errors.AvailabilityID}
-                touched={touched.AvailabilityID}
-                disabled={false}
-                matchProp="KeyID"
-                valueKey="KeyID"
-                labelKey="KeyName"
-                label="Expires in"
-                options={props.storyOptions[3].SettingCollection}
-            />
-            <CustomSelect
-            valueName="LanguageID"
-            value={values.LanguageID}
-            onChange={setFieldValue}
-            onBlur={setFieldTouched}
-            error={errors.LanguageID}
-            touched={touched.LanguageID}
-            disabled={false}
-            matchProp="KeyID"
-            valueKey="KeyID"
-            labelKey="KeyName"
-            label="Language"
-            options={props.storyOptions[0].SettingCollection}
-            />
-            <CustomSelect
-            valueName="TopicID"
-            value={values.TopicID}
-            onChange={setFieldValue}
-            onBlur={setFieldTouched}
-            error={errors.TopicID}
-            touched={touched.TopicID}
-            disabled={false}
-            matchProp="KeyID"
-            valueKey="KeyID"
-            labelKey="KeyName"
-            label="Topic"
-            options={props.storyOptions[1].SettingCollection}
-            />
-
-            <button
-                type="button"
-                onClick={() => values.Contents.push(newContent)}
-            >
-                New Photo
-            </button>
-            {/*<button*/}
-                {/*type="button"*/}
-                {/*onClick={() => values.Contents.push(newTextContent)}*/}
-            {/*>*/}
-                {/*New Text*/}
-            {/*</button>*/}
-            {/*<button*/}
-                {/*type="button"*/}
-                {/*onClick={() => values.Contents.push(newCTAContent)}*/}
-            {/*>*/}
-                {/*New CTA*/}
-            {/*</button>*/}
-            {/*<button*/}
-                {/*type="button"*/}
-                {/*onClick={() => values.Contents.push(newYotubeContent)}*/}
-            {/*>*/}
-                {/*New Youtube*/}
-            {/*</button>*/}
             <FieldArray
                 name="Contents"
                 render={arrayHelpers => (
                     values.Contents && values.Contents.length > 0 ?
 
                         (<div>
-                                <button
-                                    type="button"
-                                    onClick={() => arrayHelpers.insert(values.Contents.length, newContent)}
-                                >
-                                    Photo
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={() => arrayHelpers.insert(values.Contents.length, newTextContent)}
-                                >
-                                    Text
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={() => arrayHelpers.insert(values.Contents.length, newCTAContent)}
-                                >
-                                    CTA
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={() => arrayHelpers.insert(values.Contents.length, newYotubeContent)}
-                                >
-                                    Youtube
-                                </button>
-
                                 {values.Contents.map((content, index) => (
                                         <div key={index}>
 
                                             {content.ContentTypeID === 1 ?
                                                 <div>
-                                                    {/*<Field*/}
-                                                        {/*name={`Contents.${index}.ContentTitle`}*/}
-                                                        {/*render={({ field, form }: FieldProps<MyFormValues>) => (*/}
-                                                            {/*<div>*/}
-                                                                {/*<input type="text" {...field} placeholder="First Name" />*/}
-                                                                {/*{form.touched.Contents.firstName &&*/}
-                                                                {/*form.errors.firstName &&*/}
-                                                                {/*form.errors.firstName}*/}
-                                                            {/*</div>*/}
-                                                        {/*)}*/}
-                                                    {/*/>*/}
-                                                    <Field name={`Contents.${index}.ContentTitle`}
-                                                           component={CustomInputFieldComponent}/>
-                                                    <ErrorMessage name={`Contents.${index}.ContentTitle`} />
-
                                                     <Field name={`Contents.${index}.ContentURL`}
                                                            render={({field, /* _form */}) =>
                                                                <img {...field} src={field.value} style={{width: 200}}/>
@@ -226,8 +77,10 @@ const storyForm = props => {
                                                         isUploading={true}
                                                         prefix="hottest-"
                                                         photoType="album"
-                                                    >
-                                                    </CustomDropZone>
+                                                    />
+                                                    <Field name={`Contents.${index}.ContentTitle`}
+                                                           component={CustomInputFieldComponent}/>
+                                                    <ErrorMessage name={`Contents.${index}.ContentTitle`}/>
                                                 </div>
                                                 : null
                                             }
@@ -236,10 +89,10 @@ const storyForm = props => {
                                                 <div>
                                                     <Field name={`Contents.${index}.ContentTitle`}
                                                            component={CustomInputFieldComponent}/>
-                                                    <ErrorMessage name={`Contents.${index}.ContentTitle`} />
+                                                    <ErrorMessage name={`Contents.${index}.ContentTitle`}/>
                                                     <Field name={`Contents.${index}.ContentURL`}
                                                            component={CustomTextAreaFieldComponent}/>
-                                                    <ErrorMessage name={`Contents.${index}.ContentURL`} />
+                                                    <ErrorMessage name={`Contents.${index}.ContentURL`}/>
                                                 </div>
                                                 : null
                                             }
@@ -249,71 +102,222 @@ const storyForm = props => {
                                                     Youtube
                                                     <Field name={`Contents.${index}.ContentTitle`}
                                                            component={CustomInputFieldComponent}/>
-                                                    <ErrorMessage name={`Contents.${index}.ContentTitle`} />
+                                                    <ErrorMessage name={`Contents.${index}.ContentTitle`}/>
                                                     <Field name={`Contents.${index}.ContentURL`}
                                                            component={CustomInputFieldComponent}/>
-                                                    <ErrorMessage name={`Contents.${index}.ContentURL`} />
+                                                    <ErrorMessage name={`Contents.${index}.ContentURL`}/>
                                                 </div>
                                                 : null
                                             }
 
-                                            {content.ContentTypeID !== 10 && content.ContentTypeID !== 3 && content.ContentTypeID !== 1  ?
+                                            {content.ContentTypeID !== 10 && content.ContentTypeID !== 3 && content.ContentTypeID !== 1 ?
                                                 <div>
                                                     CTA
-                                                    {/*<Field name={`Contents.${index}.ContentTitle`}*/}
-                                                           {/*component={CustomInputFieldComponent}/>*/}
-
                                                     <Field component="select" name={`Contents.${index}.ContentTitle`}>
                                                         {
-                                                            contentTypes.map((contentType, index) =>{
-                                                                return <option value={contentType.ContentTypeID}>{contentType.ContentTypeName}</option>
+                                                            contentTypes.map((contentType, index) => {
+                                                                return <option
+                                                                    value={contentType.ContentTypeID}>{contentType.ContentTypeName}</option>
                                                             })
                                                         }
                                                     </Field>
 
                                                     <Field name={`Contents.${index}.ContentURL`}
                                                            component={CustomInputFieldComponent}/>
-                                                    <ErrorMessage name={`Contents.${index}.ContentURL`} />
+                                                    <ErrorMessage name={`Contents.${index}.ContentURL`}/>
                                                 </div>
                                                 : null
                                             }
 
-                                            {content.ContentTypeID}
-                                            <button
-                                                type="button"
-                                                className="button button-love"
-                                                onClick={() => arrayHelpers.remove(index)}
-                                            >
-                                                -
-                                            </button>
-
+                                            <div
+                                                style={{float: 'right', width: '100%', textAlign: 'right'}}>
+                                                {content.ContentTypeID}
+                                                <button
+                                                    type="button"
+                                                    className="button button-love"
+                                                    onClick={() => arrayHelpers.remove(index)}
+                                                >
+                                                    -
+                                                </button>
+                                            </div>
                                         </div>
                                     )
                                 )}
+
+                                <div
+                                    style={{textAlign: 'center'}}>
+                                    <button
+                                        type="button"
+                                        onClick={() => arrayHelpers.insert(values.Contents.length, newContent)}
+                                    >
+                                        Photo
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => arrayHelpers.insert(values.Contents.length, newTextContent)}
+                                    >
+                                        Text
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => arrayHelpers.insert(values.Contents.length, newCTAContent)}
+                                    >
+                                        CTA
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => arrayHelpers.insert(values.Contents.length, newYotubeContent)}
+                                    >
+                                        Youtube
+                                    </button>
+                                </div>
+
                             </div>
 
                         ) : (
-                            <button
-                                type="button"
-                                onClick={() => arrayHelpers.insert(0, newContent)}
-                            >
-                                ++++++++
-                            </button>
+                            <div
+                                style={{textAlign: 'center'}}>
+                                <button
+                                    type="button"
+                                    onClick={() => arrayHelpers.insert(0, newContent)}
+                                >
+                                    Photo
+                                </button>
+                            </div>
                         )
                 )}
             />
 
-            <button
-                type="button"
-                className="outline"
-                onClick={handleReset}
-                disabled={!dirty || isSubmitting}
-            >
-                Reset
-            </button>
-            <button type="submit" disabled={isSubmitting}>
-                Submit
-            </button>
+            <RowLayout
+                left={
+                    <CustomAutocomplete
+                        valueName="category"
+                        valueKey="KeyName"
+                        KeyID="KeyID"
+                        KeyName="KeyName"
+                        value={values.category}
+                        onChange={setFieldValue}
+                        onBlur={setFieldTouched}
+                        url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"
+                    />
+                }
+                right={
+                    <CustomTextInput
+                        id="AlbumPublishDate"
+                        type="date"
+                        label="Publish in"
+                        placeholder="Enter your email"
+                        // error={touched.ProfileEmail && errors.ProfileEmail}
+                        value={values.AlbumPublishDate}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                    />
+                }
+                margin={100}
+            />
+
+            <RowLayout
+                left={
+                    <CustomSelect
+                        valueName="ContentRatingID"
+                        value={values.ContentRatingID}
+                        onChange={setFieldValue}
+                        onBlur={setFieldTouched}
+                        error={errors.ContentRatingID}
+                        touched={touched.ContentRatingID}
+                        disabled={false}
+                        matchProp="KeyID"
+                        valueKey="KeyID"
+                        labelKey="KeyName"
+                        label="Content Rating"
+                        options={props.storyOptions[2].SettingCollection}
+                    />
+                }
+                right={
+                    <CustomSelect
+                        valueName="AvailabilityID"
+                        value={values.AvailabilityID}
+                        onChange={setFieldValue}
+                        onBlur={setFieldTouched}
+                        error={errors.AvailabilityID}
+                        touched={touched.AvailabilityID}
+                        disabled={false}
+                        matchProp="KeyID"
+                        valueKey="KeyID"
+                        labelKey="KeyName"
+                        label="Expires in"
+                        options={props.storyOptions[3].SettingCollection}
+                    />
+                }
+            />
+
+            <RowLayout
+                left={
+                    <CustomSelect
+                        valueName="LanguageID"
+                        value={values.LanguageID}
+                        onChange={setFieldValue}
+                        onBlur={setFieldTouched}
+                        error={errors.LanguageID}
+                        touched={touched.LanguageID}
+                        disabled={false}
+                        matchProp="KeyID"
+                        valueKey="KeyID"
+                        labelKey="KeyName"
+                        label="Language"
+                        options={props.storyOptions[0].SettingCollection}
+                    />
+                }
+                right={
+                    <CustomSelect
+                        valueName="TopicID"
+                        value={values.TopicID}
+                        onChange={setFieldValue}
+                        onBlur={setFieldTouched}
+                        error={errors.TopicID}
+                        touched={touched.TopicID}
+                        disabled={false}
+                        matchProp="KeyID"
+                        valueKey="KeyID"
+                        labelKey="KeyName"
+                        label="Topic"
+                        options={props.storyOptions[1].SettingCollection}
+                    />
+                }
+            />
+
+            <RowLayout
+                left={
+                    <CustomTextInput
+                        id="AlbumHasComment"
+                        type="checkbox"
+                        label="Allow comment"
+                        // error={touched.ProfileEmail && errors.ProfileEmail}
+                        value={values.AlbumHasComment}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                    />
+                }
+                right={null}
+                margin={95}
+            />
+
+            <div
+                style={{textAlign: 'right'}}>
+
+                <button
+                    type="button"
+                    className="reset"
+                    onClick={handleReset}
+                >
+                    Reset
+                </button>
+
+                <button type="submit" className={`submit`} disabled={isSubmitting}>
+                    Submit
+                </button>
+
+            </div>
         </form>
     );
 };
@@ -326,19 +330,25 @@ const formikEnhancer = withFormik({
                     ContentURL: Yup.string()
                         .when('ContentTypeID', {
                             is: 1,  // alternatively: (val) => val == true
-                            then:      Yup.string().min(5),
+                            then: Yup.string().min(5),
                         })
                         .when('ContentTypeID', {
                             is: 3,  // alternatively: (val) => val == true
-                            then:      Yup.string().min(10),
+                            then: Yup.string().min(10),
                         })
                         .when('ContentTypeID', {
                             is: 10,  // alternatively: (val) => val == true
-                            then:      Yup.string().matches(/(youtube|bye)/, { message:'https valid only', excludeEmptyString: true }),
+                            then: Yup.string().matches(/(youtube|bye)/, {
+                                message: 'https valid only',
+                                excludeEmptyString: true
+                            }),
                         })
                         .when('ContentTypeID', (ContentTypeID, schema) => {
-                            if(ContentTypeID !== 10 && ContentTypeID !== 3 && ContentTypeID !== 1){
-                                return schema.matches(/(https|bye)/, { message:'https valid only', excludeEmptyString: true })
+                            if (ContentTypeID !== 10 && ContentTypeID !== 3 && ContentTypeID !== 1) {
+                                return schema.matches(/(https|bye)/, {
+                                    message: 'https valid only',
+                                    excludeEmptyString: true
+                                })
                             }
                         })
                         // .when('ContentTypeID', {
@@ -352,7 +362,7 @@ const formikEnhancer = withFormik({
                     ContentDimension: Yup.string().nullable(),
                     ContentGeoLocation: Yup.string().nullable(),
                     ContentID: Yup.number().nullable(),
-                        // .required('Required'), // these constraints take precedence
+                    // .required('Required'), // these constraints take precedence
                 })
             ).required('Must have friends')
 

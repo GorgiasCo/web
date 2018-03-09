@@ -1,12 +1,3 @@
-/**
- * Created by odenza on 22/02/2018.
- */
-/**
- * Created by odenza on 19/02/2018.
- */
-/**
- * Created by odenza on 12/02/2018.
- */
 import React, {Component} from "react";
 import * as storyAction from "../../Stores/story/action";
 import * as profileAction from "../../Stores/profile/action";
@@ -19,6 +10,7 @@ import httpRequest from "../../Global/HTTP/httpRequest";
 import {toast, ToastContainer} from "react-toastify";
 import FollowerRow from "./List/FollowerRow";
 import EndlessList from "../../PageElements/EndlessList";
+import AdminpageHeader from "../../PageElements/AdminPageHeader";
 
 class FollowerListComponent extends Component {
 
@@ -126,13 +118,13 @@ class FollowerListComponent extends Component {
                     <div className="section_wrapper mcb-section-inner">
                         <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                             <div className="mcb-wrap-inner">
+                                <AdminpageHeader
+                                    isLoading={false}
+                                    hasButton={false}
+                                    headerTitle={`My Followers`}
+                                />
                                 <div className="column mcb-column one column_column">
                                     <div className="column_attr clearfix">
-                                        {/*<List*/}
-                                            {/*isLoading={this.state.isLoading}*/}
-                                            {/*items={this.state.followers}*/}
-                                            {/*prepareListRow={this.prepareFollowerRow}*/}
-                                        {/*/>*/}
                                         <EndlessList
                                             isLoading={this.state.isLoading}
                                             loadItems={this.prepareDateFromAPI}

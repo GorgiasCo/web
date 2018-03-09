@@ -15,6 +15,7 @@ import "react-select/dist/react-select.css";
 import StoryForm from "./Form/";
 import CustomGoogleMap from "../../PageElements/Form/CustomGoogleMap";
 import httpRequest from "../../Global/HTTP/httpRequest";
+import AdminpageHeader from "../../PageElements/AdminPageHeader";
 
 const optionsProfileTypes = [
     {value: 1, label: 'Food'},
@@ -260,11 +261,15 @@ class StoryNewComponent extends Component {
                     <div className="section_wrapper mcb-section-inner">
                         <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                             <div className="mcb-wrap-inner">
+                                <AdminpageHeader
+                                    isLoading={false}
+                                    hasButton={true}
+                                    headerTitle={`Edit Story`}
+                                    newPageURL={`/admin/story/`}
+                                    newButtonCaption={`Back`}
+                                />
                                 <div className="column mcb-column one column_column">
-                                    <div className="column_attr clearfix">
-                                        <h2>
-                                            New Story ;)
-                                        </h2>
+                                    <div className="column_attr tkPanels clearfix">
                                         <StoryForm
                                             optionsProfileTypes={optionsProfileTypes}
                                             storyOptions={storySetting}

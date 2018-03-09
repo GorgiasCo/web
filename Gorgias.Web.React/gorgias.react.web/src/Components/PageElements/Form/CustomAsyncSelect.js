@@ -82,7 +82,9 @@ export default class CustomAsyncSelect extends React.Component {
                     matchProp={this.props.matchProp}
                     disabled={this.props.disabled}
                 />
-                {this.props.hasCaption && this.state.selectedItem !== undefined ? this.state.selectedItem[this.props.labelKey] : null}
+                <p style={{paddingTop:13,fontStyle:'italic'}}>
+                    {this.props.hasCaption && this.state.selectedItem !== undefined ? this.state.selectedItem[this.props.labelKey] : null}
+                </p>
                 {!!this.props.error &&
                 this.props.touched && (
                     <div style={{color: 'red', marginTop: '.5rem'}}>

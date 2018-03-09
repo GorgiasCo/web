@@ -302,12 +302,6 @@ class ContactManageComponent extends Component {
                     <div className="section_wrapper mcb-section-inner">
                         <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                             <div className="mcb-wrap-inner">
-                                {/*<CustomButton*/}
-                                    {/*newPageURL={`/admin/contact/`}*/}
-                                    {/*className={`button back`}*/}
-                                    {/*buttonCaption={`Back`}*/}
-                                    {/*isButton={false}*/}
-                                {/*/>*/}
                                 <AdminpageHeader
                                     isLoading={false}
                                     headerTitle={`Edit`}
