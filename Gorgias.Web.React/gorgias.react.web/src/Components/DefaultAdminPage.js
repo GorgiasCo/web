@@ -18,6 +18,7 @@ import ContactListComponent from "./Admin/Contact/ContactListComponent";
 import ContentManagerListComponent from "./Admin/ContentManager/ContentManagerListComponent";
 import FollowerListComponent from "./Admin/Follower/FollowerListComponent";
 import DashboardComponent from "./Admin/Dashboard/DashboardComponent";
+import MiniFooter from './PageElements/MiniFooter';
 
 import {connect} from "react-redux";
 import * as todoActions from "./Stores/ToDo/Action";
@@ -150,8 +151,7 @@ class DefaultAdminPage extends Component {
                 />
                 <div id="Wrapper">
                     {this.prepareContainer()}
-                    {/*{this.props.hasFooter ?*/}
-                    {/*<Footer/> : null }*/}
+                    <MiniFooter/>
                 </div>
             </div>
         );

@@ -5,6 +5,13 @@ html {
 background-size: cover;
 }
 
+.dropzoneCustom {
+    width: 100%;
+    border: #8a7e88 1px dotted;
+    border-radius: 7px;
+    text-align: center;
+    padding: 13px;
+}
 
 /* .center-box{
 position:absolute;
@@ -119,7 +126,7 @@ background-color: white;
 
 #tk-contact-form ::placeholder {
 
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 1);
 }
 
 
@@ -291,7 +298,8 @@ background-image: linear-gradient(120deg, #5c22ff 0%, #723493 100%);
   font-size: 16px;
 }
 ::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
+    font-style: italic;
 }
 
 .loginBox input[type="submit"]{

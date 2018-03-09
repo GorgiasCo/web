@@ -10,6 +10,7 @@ import CustomAsyncSelect from "../../../PageElements/Form/CustomAsyncSelect";
 import CustomTextInput from "../../../PageElements/Form/CustomTextInput";
 import CustomInputFieldComponent from "../../../PageElements/Form/CustomInputFieldComponent";
 import CustomDropZone from "../../../PageElements/Form/CustomDropZone";
+import RowLayout from "../../../PageElements/Form/RowLayout";
 
 const contactForm = props => {
     const {
@@ -29,115 +30,153 @@ const contactForm = props => {
     } = props;
     return (
         <form onSubmit={handleSubmit}>
-            <CustomTextInput
-                id="AddressName"
-                type="text"
-                label="AddressName"
-                placeholder="John"
-                error={touched.AddressName && errors.AddressName}
-                value={values.AddressName}
-                onChange={handleChange}
-                onBlur={handleBlur}
-            />
-            <CustomTextInput
-                id="AddressTel"
-                type="text"
-                label="AddressTel"
-                placeholder="Doe"
-                error={touched.AddressTel && errors.AddressTel}
-                value={values.AddressTel}
-                onChange={handleChange}
-                onBlur={handleBlur}
-            />
-            <CustomTextInput
-                id="AddressFax"
-                type="text"
-                label="AddressFax"
-                placeholder="AddressFax"
-                error={touched.AddressFax && errors.AddressFax}
-                value={values.AddressFax}
-                onChange={handleChange}
-                onBlur={handleBlur}
-            />
-            <CustomTextInput
-                id="AddressEmail"
-                type="email"
-                label="AddressEmail"
-                placeholder="Bio"
-                error={touched.AddressEmail && errors.AddressEmail}
-                value={values.AddressEmail}
-                onChange={handleChange}
-                onBlur={handleBlur}
-            />
-            <CustomTextInput
-                id="AddressZipCode"
-                type="text"
-                label="AddressZipCode"
-                placeholder="AddressZipCode"
-                error={touched.AddressZipCode && errors.AddressZipCode}
-                value={values.AddressZipCode}
-                onChange={handleChange}
-                onBlur={handleBlur}
-            />
-            <CustomTextInput
-                id="AddressAddress"
-                type="text"
-                label="AddressAddress"
-                placeholder="AddressAddress"
-                error={touched.AddressAddress && errors.AddressAddress}
-                value={values.AddressAddress}
-                onChange={handleChange}
-                onBlur={handleBlur}
-            />
-            <CustomSelect
-                valueName="AddressTypeID"
-                value={values.AddressTypeID}
-                onChange={setFieldValue}
-                onBlur={setFieldTouched}
-                error={errors.AddressTypeID}
-                touched={touched.AddressTypeID}
-                disabled={false}
-                matchProp="AddressTypeID"
-                valueKey="AddressTypeID"
-                labelKey="AddressTypeName"
-                label="AddressTypeID"
-                options={props.optionsProfileTypes}
-            />
-            <CustomAsyncSelect
-                valueName="CityID"
-                value={values.CityID}
-                onChange={setFieldValue}
-                onBlur={setFieldTouched}
-                error={errors.CityID}
-                touched={touched.CityID}
-                disabled={false}
-                matchProp="KeyID"
-                valueKey="KeyID"
-                labelKey="KeyName"
-                label="CityID"
-                url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Cities/"
-            />
-            <CustomDropZone
-                error={errors.AddressImage}
-                touched={touched.AddressImage}
-                valueName="AddressImage"
-                onChange={setFieldValue}
-                onBlur={setFieldTouched}
-                isUploading={false}
-            >
-            </CustomDropZone>
 
-            <button
-                type="button"
-                className="outline"
-                onClick={handleReset}
-                disabled={!dirty || isSubmitting}
-            >
-                Reset
-            </button>
-            <button type="submit" disabled={isSubmitting}>
-                Submit
-            </button>
+            <RowLayout
+                left={
+                    <CustomTextInput
+                        id="AddressName"
+                        type="text"
+                        label="AddressName"
+                        placeholder="John"
+                        error={touched.AddressName && errors.AddressName}
+                        value={values.AddressName}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                    />
+                }
+                right={
+                    <CustomTextInput
+                        id="AddressTel"
+                        type="text"
+                        label="AddressTel"
+                        placeholder="Doe"
+                        error={touched.AddressTel && errors.AddressTel}
+                        value={values.AddressTel}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                    />
+                }
+            />
+
+            <RowLayout
+                left={
+                    <CustomTextInput
+                        id="AddressFax"
+                        type="text"
+                        label="AddressFax"
+                        placeholder="AddressFax"
+                        error={touched.AddressFax && errors.AddressFax}
+                        value={values.AddressFax}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                    />
+                }
+                right={
+                    <CustomTextInput
+                        id="AddressZipCode"
+                        type="text"
+                        label="AddressZipCode"
+                        placeholder="AddressZipCode"
+                        error={touched.AddressZipCode && errors.AddressZipCode}
+                        value={values.AddressZipCode}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                    />
+                }
+            />
+
+            <RowLayout
+                margin={100}
+                left={
+                    <CustomTextInput
+                        id="AddressEmail"
+                        type="email"
+                        label="AddressEmail"
+                        placeholder="Bio"
+                        error={touched.AddressEmail && errors.AddressEmail}
+                        value={values.AddressEmail}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                    />}
+                right={
+                    <CustomTextInput
+                        id="AddressAddress"
+                        type="text"
+                        label="AddressAddress"
+                        placeholder="AddressAddress"
+                        error={touched.AddressAddress && errors.AddressAddress}
+                        value={values.AddressAddress}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                    />
+                }
+            />
+
+            <RowLayout
+                left={
+                    <CustomSelect
+                        valueName="AddressTypeID"
+                        value={values.AddressTypeID}
+                        onChange={setFieldValue}
+                        onBlur={setFieldTouched}
+                        error={errors.AddressTypeID}
+                        touched={touched.AddressTypeID}
+                        disabled={false}
+                        matchProp="AddressTypeID"
+                        valueKey="AddressTypeID"
+                        labelKey="AddressTypeName"
+                        label="AddressTypeID"
+                        options={props.optionsProfileTypes}
+                    />
+                }
+                right={
+                    <CustomAsyncSelect
+                        valueName="CityID"
+                        value={values.CityID}
+                        onChange={setFieldValue}
+                        onBlur={setFieldTouched}
+                        error={errors.CityID}
+                        touched={touched.CityID}
+                        disabled={false}
+                        matchProp="KeyID"
+                        valueKey="KeyID"
+                        labelKey="KeyName"
+                        label="CityID"
+                        url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Cities/"
+                    />
+                }
+            />
+
+            <RowLayout
+                margin={95}
+                left={
+                    <CustomDropZone
+                        error={errors.AddressImage}
+                        touched={touched.AddressImage}
+                        valueName="AddressImage"
+                        onChange={setFieldValue}
+                        onBlur={setFieldTouched}
+                        isUploading={false}
+                    />
+
+                }
+                right={null}
+            />
+
+            <div
+                style={{textAlign: 'right'}}>
+                <button
+                    type="button"
+                    className="reset"
+                    onClick={handleReset}
+                >
+                    Reset
+                </button>
+                <button className={`submit`} type="submit" disabled={isSubmitting}>
+                    Submit
+                </button>
+            </div>
+
         </form>
     );
 };

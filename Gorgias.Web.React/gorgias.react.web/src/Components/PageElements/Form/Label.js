@@ -3,11 +3,11 @@
  */
 import React, {Component} from "react";
 const Label = ({
-    error,
-    className,
-    children,
-    ...props
-}) => {
+                   error,
+                   className,
+                   children,
+                   ...props
+               }) => {
     return (
         <label className="label" {...props}>
             {children}

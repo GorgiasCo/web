@@ -27,7 +27,7 @@ export default class ContactRow extends Component {
                     <p style={{minHeight: 100 + "px"}}>
                         {this.props.data.AddressAddress}
                     </p>
-                    <button onClick={() => this.props.onPress(this.props.data)}>Delete</button>
+                    <button className={``} onClick={() => this.props.onPress(this.props.data)}>Delete</button>
                 </div>
             </div>
         );

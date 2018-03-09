@@ -15,6 +15,8 @@ import ContentManagerForm from "../../Admin/ContentManager/Form";
 import axios from "axios";
 import httpRequest from "../../Global/HTTP/httpRequest";
 import {toast, ToastContainer} from "react-toastify";
+import CustomButton from "../../PageElements/Form/CustomButton";
+import AdminpageHeader from "../../PageElements/AdminPageHeader";
 
 let API_KEY = "AIzaSyAjU94_y64Gh4mCZgDi4Ccdadaw8YRxqek";
 const GOOGLE_API = "https://maps.google.com/maps/api/geocode/json";
@@ -300,17 +302,25 @@ class ContactManageComponent extends Component {
                     <div className="section_wrapper mcb-section-inner">
                         <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                             <div className="mcb-wrap-inner">
+                                {/*<CustomButton*/}
+                                    {/*newPageURL={`/admin/contact/`}*/}
+                                    {/*className={`button back`}*/}
+                                    {/*buttonCaption={`Back`}*/}
+                                    {/*isButton={false}*/}
+                                {/*/>*/}
+                                <AdminpageHeader
+                                    isLoading={false}
+                                    headerTitle={`Edit`}
+                                    newPageURL={`/admin/contact/`}
+                                    newButtonCaption={`Back`}
+                                />
                                 <div className="column mcb-column one column_column">
-                                    <div className="column_attr clearfix">
+                                    <div className="column_attr tkPanels clearfix">
                                         <ContactForm
                                             optionsProfileTypes={this.state.addressTypes}
                                             handleSubmit={this.handleSubmit.bind(this)}
                                             data={this.state.contactData}
                                         />
-                                        {/*<ContentManagerForm*/}
-                                            {/*handleSubmit={this.handleSubmit.bind(this)}*/}
-                                            {/*data={{ProfileID: undefined}}*/}
-                                        {/*/>*/}
                                     </div>
                                 </div>
                             </div>

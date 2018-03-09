@@ -1234,11 +1234,15 @@ a.button_theme, a.tp-button.button_theme, button, input[type="submit"], input[ty
 	color: #fff;
 }
 .button-stroke a.button.button_theme:not(.action_button), .button-stroke a.button.button_theme:not(.action_button), .button-stroke a.button.button_theme .button_icon i, .button-stroke a.tp-button.button_theme, .button-stroke button, .button-stroke input[type="submit"], .button-stroke input[type="reset"], .button-stroke input[type="button"] {
+	/*border-color: #ff0088;*/
+	/*color: #FFF !important;*/
+
+	background-color: #ff0088 !important;
+	color: #ffffff !important;
 	border-color: #ff0088;
-	color: #FFF !important;
 }
 .button-stroke a.button.button_theme:hover, .button-stroke a.tp-button.button_theme:hover, .button-stroke button:hover, .button-stroke input[type="submit"]:hover, .button-stroke input[type="reset"]:hover, .button-stroke input[type="button"]:hover {
-	background-color: #ff0088 !important;
+	background-color: #ffffff !important;
 	color: black !important;
 	border-color:#ff0088;
 }
@@ -1247,6 +1251,47 @@ a.button_theme, a.tp-button.button_theme, button, input[type="submit"], input[ty
     color: black !important;
     border-color: #ff0088;
 }
+
+button.submit {
+	background-color: #8fae1b !important;
+	color: #ffffff !important;
+	border-color: #8fae1b;
+}
+
+button.submit:hover {
+	background-color: #ffffff !important;
+	color: #8fae1b !important;
+	border-color: #8fae1b;
+}
+
+button.reset {
+	background-color: #8a7e88 !important;
+	color: #ffffff !important;
+	border-color: #8a7e88;
+}
+
+button.reset:hover {
+	background-color: #ffffff !important;
+	color: #8a7e88 !important;
+	border-color: #8a7e88;
+}
+
+button.back {
+	background-color: #9C9C9C !important;
+	color: #ffffff !important;
+	border-color: #9C9C9C;
+}
+
+button.back:hover {
+	background-color: #ffffff !important;
+	color: #9C9C9C !important;
+	border-color: #9C9C9C;
+}
+
+button.button-no-margin {
+	margin: 0;
+}
+
 a.mfn-link {
 	color: #656B6F;
 }
@@ -1533,9 +1578,11 @@ body.table-hover:not(.woocommerce-page) table tr:hover td {
 	background: #ff334b;
 }
 input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea, .woocommerce .quantity input.qty {
-	color: #919597;
+	color: #000000;
 	background-color: rgba(230, 234, 235, 1);
 	border-color: #919394;
+	width: 100%;
+	border-radius: 3px;
 }
 input[type="date"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus {
 	color: #111619;

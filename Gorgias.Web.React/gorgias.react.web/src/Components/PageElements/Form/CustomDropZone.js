@@ -13,6 +13,7 @@ export default class CustomDropZone extends React.Component {
         super(props);
         this.state = {
             isUploaded: false,
+            file: null,
         }
     }
 
@@ -54,6 +55,7 @@ export default class CustomDropZone extends React.Component {
                 this.setState({isUploaded: true});
             }
         }
+        this.setState({file: value[0]})
     };
 
     handleBlur = () => {
@@ -62,6 +64,7 @@ export default class CustomDropZone extends React.Component {
     };
 
     render() {
+        const {file, isUploaded} = this.state;
         return (
             <div style={{margin: '1rem 0'}}>
                 <label htmlFor="color">
@@ -70,18 +73,25 @@ export default class CustomDropZone extends React.Component {
                 <Dropzone
                     multiple={false}
                     accept="image/jpeg, image/png, image/jpg"
-                    onDrop={this.handleChange}>
-                    <p style={{
-                        textAlign: 'center',
-                        marginTop: 42,
-                        fontSize: 28,
-                        lineHeight: 2,
-                    }}>
-                        {this.props.defaultCaption !== undefined ?
-                            this.props.defaultCaption :
-                            "Try dropping some files here, or click to\n" +
-                            "                        select files to upload."}
-                    </p>
+                    className={`dropzoneCustom`}
+                    onDrop={this.handleChange}
+                >
+                    {file === null ?
+                        <p style={{
+                            textAlign: 'center',
+                            margin: 42,
+                            fontSize: 17,
+                        }}>
+                            {this.props.defaultCaption !== undefined ?
+                                this.props.defaultCaption :
+                                "Try dropping some files here, or click to\n" +
+                                "                        select files to upload."}
+                        </p> :
+                        <img
+                            src={file.preview}
+                            style={{width: 150, height: 130}}
+                        />
+                    }
                 </Dropzone>
                 {!!this.props.error &&
                 this.props.touched && (
@@ -89,7 +99,7 @@ export default class CustomDropZone extends React.Component {
                         {this.props.error}
                     </div>
                 )}
-                {this.state.isUploaded ? <h3>{this.props.uploadedCaption}</h3> : null}
+                {isUploaded ? <h3>{this.props.uploadedCaption}</h3> : null}
             </div>
         );
     }

@@ -18,8 +18,9 @@ import httpRequest from "../../Global/HTTP/httpRequest";
 import ContactRow from "./List/ContactRow";
 import Coursol from "../../PageElements/Coursol";
 import {toast, ToastContainer} from "react-toastify";
-import { confirmAlert } from 'react-confirm-alert'; // Import
+import {confirmAlert} from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+import AdminpageHeader from "../../PageElements/AdminPageHeader";
 
 class ContactListComponent extends Component {
 
@@ -77,14 +78,14 @@ class ContactListComponent extends Component {
         console.log(AddressID, 'delete');
         httpRequest.deleteAsyncContact(AddressID).then(
             response => {
-                console.log(response,'delete');
+                console.log(response, 'delete');
                 this.prepareDateFromAPI(0);
                 toast.success("Success Notification !", {
                     position: toast.POSITION.TOP_CENTER
                 });
             },
             error => {
-                console.log(error,'delete error');
+                console.log(error, 'delete error');
                 this.props.logout();
             }
         )
@@ -169,6 +170,12 @@ class ContactListComponent extends Component {
                     <div className="section_wrapper mcb-section-inner">
                         <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                             <div className="mcb-wrap-inner">
+                                <AdminpageHeader
+                                    isLoading={isLoading}
+                                    headerTitle={`My Contacts`}
+                                    newPageURL={`/admin/contact/new`}
+                                    newButtonCaption={`+`}
+                                />
                                 <div className="column mcb-column one column_column">
                                     <div className="column_attr clearfix">
                                         <List
@@ -177,7 +184,18 @@ class ContactListComponent extends Component {
                                             prepareListRow={this.prepareContactRow}
                                             isEmptyList={isEmptyList}
                                             emptyComponent={
-                                                <div>It is empty<br/><a className="button-love button" href="admin/contact/new">Add New Contact</a></div>
+                                                <div
+                                                    style={{marginTop: 70, textAlign: 'center'}}>
+                                                    ops no address saved.
+                                                    <br/>
+                                                    <form action="admin/contact/new">
+                                                        <button
+                                                            className="button"
+                                                        >
+                                                            New Contact
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             }
                                             header={
                                                 <Coursol

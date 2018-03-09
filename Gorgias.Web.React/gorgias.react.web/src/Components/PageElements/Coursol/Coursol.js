@@ -16,9 +16,9 @@ export default class Coursol extends React.Component {
 
     renderCoursolItem(item) {
         return (
-            <li onClick={(event) => this.props.onPress(item, event)} key={item[this.props.keyID]} className="floatr tklist content_slider_li" style={{float: "left"}}>
+            <div onClick={(event) => this.props.onPress(item, event)} key={item[this.props.keyID]} className="" style={{textAlign: "center"}}>
                 {item[this.props.keyName]}
-            </li>
+            </div>
         )
     }
 
