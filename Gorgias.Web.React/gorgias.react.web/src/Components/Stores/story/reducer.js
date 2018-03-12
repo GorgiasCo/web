@@ -57,6 +57,7 @@ function stories(state = initialState.stories, action: Action) {
                 // return {payload: [], isLoading: false,};
             }
             // }
+
             return {payload: action.payload.Items, filterData:action.meta.previousAction.payload.request.data, page: action.payload.Page, hasMore: action.payload.hasMore, isLoading: false,};
             // return {payload: action.payload.Items, isLoading: false,};
         //return {payload: {}, isLoading: false,};

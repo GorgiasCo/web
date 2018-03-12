@@ -80,16 +80,10 @@ class StoryListComponent extends Component {
     // }
 
     componentWillReceiveProps(nextProps) {
-        // console.log(nextProps,'componentWillReceiveProps');
-        // if(this.props.filterData !== undefined){
-        //     if(this.props.filterData.MicroAppProfileID !== nextProps.profileAccountSetting.payload.ProfileID){
-        //         console.log('updated ! ;) ', nextProps.profileAccountSetting.payload.ProfileID, this.props.filterData.MicroAppProfileID, this.props.filterData);
-        //         this.loadItemsRedux(123);
-        //         // if(this.props.profileAccountSetting.isLoading){
-        //         //
-        //         // }
-        //     }
-        // }
+        if(this.props.profileAccountSetting.payload.ProfileID !== nextProps.profileAccountSetting.payload.ProfileID){
+            console.log(nextProps,'componentWillReceiveProps storyList',this.props.profileAccountSetting.payload.ProfileID, nextProps.profileAccountSetting.payload.ProfileID);
+            this.loadItems(1);
+        }
     }
 
     prepareStoryRow = (item) => {
@@ -102,8 +96,8 @@ class StoryListComponent extends Component {
     }
 
     loadItems = (page) => {
-        console.log(page, 'page ;)', this.props.filterData);
-        if (this.props.filterData !== undefined) {
+        console.log(page, 'page ;)', this.props.filterData,this.props.profileAccountSetting.payload.ProfileID);
+        if (page !== 1 && this.props.filterData !== undefined) {
             let filteringData = this.props.filterData;
             filteringData.Page = page;
             filteringData.MicroAppProfileID = parseInt(this.props.profileAccountSetting.payload.ProfileID);
@@ -111,9 +105,9 @@ class StoryListComponent extends Component {
             console.log(page, 'inside endless ;)', this.props.filterData);
         } else {
             let filterData = {
-                CategoryID: 12,//12 86
+                CategoryID: 86,//12 86
                 CategoryTypeID: 2,
-                ProfileID: 1011,
+                ProfileID: parseInt(this.props.profileAccountSetting.payload.ProfileID),
                 Page: page,
                 Size: 30,
                 Languages: ["en"],

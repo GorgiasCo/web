@@ -35,22 +35,22 @@ class ContactListComponent extends Component {
     }
 
     componentDidMount() {
-        this.props.getProfileAccounts(1016);
-        this.props.getProfileAccountSetting(1011);
+        //this.props.getProfileAccounts(1016);
+        //this.props.getProfileAccountSetting(1011);
 
     }
 
     componentWillMount() {
-        this.prepareDateFromAPI(0);
+        this.prepareDateFromAPI(this.props.profileAccountSetting.payload.ProfileID,0);
     }
 
-    prepareDateFromAPI = (addressTypeID) => {
+    prepareDateFromAPI = (profileID, addressTypeID) => {
         this.setState({
             isLoading: true,
             addresses: [],
             addressTypes: []
         });
-        httpRequest.getAsyncAddresses(1011, addressTypeID).then(
+        httpRequest.getAsyncAddresses(profileID, addressTypeID).then(
             response => {
                 let addressTypes = [{AddressTypeName: "All", AddressTypeID: 0}, ...response.data.Result.AddressTypes];
                 let isEmptyList = false;
@@ -137,15 +137,10 @@ class ContactListComponent extends Component {
 
     componentWillReceiveProps(nextProps) {
         // console.log(nextProps,'componentWillReceiveProps');
-        // if(this.props.filterData !== undefined){
-        //     if(this.props.filterData.MicroAppProfileID !== nextProps.profileAccountSetting.payload.ProfileID){
-        //         console.log('updated ! ;) ', nextProps.profileAccountSetting.payload.ProfileID, this.props.filterData.MicroAppProfileID, this.props.filterData);
-        //         this.loadItemsRedux(123);
-        //         // if(this.props.profileAccountSetting.isLoading){
-        //         //
-        //         // }
-        //     }
-        // }
+        if(this.props.profileAccountSetting.payload.ProfileID !== nextProps.profileAccountSetting.payload.ProfileID){
+            console.log(nextProps,'componentWillReceiveProps storyList',this.props.profileAccountSetting.payload.ProfileID, nextProps.profileAccountSetting.payload.ProfileID);
+            this.prepareDateFromAPI(nextProps.profileAccountSetting.payload.ProfileID,0);
+        }
     }
 
     prepareContactRow = (item) => {

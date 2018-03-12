@@ -36,13 +36,13 @@ class ProfileManageComponent extends Component {
 
         let profile = {
             ProfileID: props.profileAccountSetting.payload.ProfileID,
-            ProfileEmail: 'yaser2us@gmail.com',
-            ProfileFullname: 'Yasser',
-            ProfileFullnameEnglish: 'Yasser EN',
-            ProfileDescription: '',
-            ProfileShortDescription: '',
-            ProfileURL: 'siti',
-            ProfileTypeID: 5,
+            ProfileEmail: props.profileAccountSetting.payload.ProfileEmail,//'yaser2us@gmail.com',
+            ProfileFullname: props.profileAccountSetting.payload.ProfileFullname,//'Yasser',
+            ProfileFullnameEnglish: props.profileAccountSetting.payload.ProfileFullnameEnglish,//'Yasser EN',
+            ProfileDescription: props.profileAccountSetting.payload.ProfileDescription,//'',
+            ProfileShortDescription: props.profileAccountSetting.payload.ProfileShortDescription,//'',
+            ProfileURL: props.profileAccountSetting.payload.ProfileURL,//'siti',
+            ProfileTypeID: props.profileAccountSetting.payload.ProfileTypeID,//5,
             SubscriptionTypeID: undefined,
             ThemeID: undefined,
             ProfilePhoto: "https://gorgiasasia.blob.core.windows.net/images/content-20161106233839-pic(4).jpg"
@@ -52,7 +52,7 @@ class ProfileManageComponent extends Component {
             tracks: [],
             hasMoreItems: true,
             nextHref: null,
-            profile : profile,
+            profile: profile,
             isLoading: false,
         };
     }
@@ -81,51 +81,75 @@ class ProfileManageComponent extends Component {
     // }
 
     componentWillReceiveProps(nextProps) {
-        // console.log(nextProps,'componentWillReceiveProps');
-        // if(this.props.filterData !== undefined){
-        //     if(this.props.filterData.MicroAppProfileID !== nextProps.profileAccountSetting.payload.ProfileID){
-        //         console.log('updated ! ;) ', nextProps.profileAccountSetting.payload.ProfileID, this.props.filterData.MicroAppProfileID, this.props.filterData);
-        //         this.loadItemsRedux(123);
-        //         // if(this.props.profileAccountSetting.isLoading){
-        //         //
-        //         // }
-        //     }
-        // }
+        console.log(nextProps, 'componentWillReceiveProps profile', this.props.profileAccountSetting.payload.ProfileID, nextProps.profileAccountSetting.payload.ProfileID);
+        if (this.props.profileAccountSetting.payload.ProfileID !== nextProps.profileAccountSetting.payload.ProfileID) {
+            console.log(nextProps, 'componentWillReceiveProps storyList', this.props.profileAccountSetting.payload.ProfileID, nextProps.profileAccountSetting.payload.ProfileID);
+            // this.setState({isLoading: true,profile:null,});
+            let profile = {
+                ProfileID: nextProps.profileAccountSetting.payload.ProfileID,
+                ProfileEmail: nextProps.profileAccountSetting.payload.ProfileEmail,//'yaser2us@gmail.com',
+                ProfileFullname: nextProps.profileAccountSetting.payload.ProfileFullname,//'Yasser',
+                ProfileFullnameEnglish: nextProps.profileAccountSetting.payload.ProfileFullnameEnglish,//'Yasser EN',
+                ProfileDescription: nextProps.profileAccountSetting.payload.ProfileDescription,//'',
+                ProfileShortDescription: nextProps.profileAccountSetting.payload.ProfileShortDescription,//'',
+                ProfileURL: nextProps.profileAccountSetting.payload.ProfileURL,//'siti',
+                ProfileTypeID: nextProps.profileAccountSetting.payload.ProfileTypeID,//5,
+                SubscriptionTypeID: undefined,
+                ThemeID: undefined,
+                ProfilePhoto: "https://gorgiasasia.blob.core.windows.net/images/content-20161106233839-pic(4).jpg"
+            };
+            this.setState({
+                profile: profile,
+                isLoading: false,
+            });
+            console.log(profile, 'componentWillReceiveProps profile 8888', this.state.isLoading);
+        }
     }
 
     handleSubmit = (data) => {
         console.log(data, 'handleSubmit profile Form');
     }
 
+    prepareForm = (data) => {
+        console.log('prepareForm', data);
+        return  <ProfileForm
+            optionsProfileTypes={optionsProfileTypes}
+            user={data}
+            handleSubmit={this.handleSubmit}
+        />
+    }
+
     render() {
         const loader = <div className="loader">Loading ...</div>;
+        const {isLoading, profile} = this.state;
+        console.log(profile, 'render profile changed ;)', isLoading);
 
-        const {isLoading} = this.state;
         return (
             !isLoading ?
-            <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
-                <div className="section_wrapper mcb-section-inner">
-                    <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
-                        <div className="mcb-wrap-inner">
-                            <AdminpageHeader
-                                isLoading={false}
-                                hasButton={false}
-                                headerTitle={`My Profile`}
-                            />
-                            <div className="column mcb-column one column_column">
-                                <div className="column_attr tkPanels clearfix">
-                                    <ProfileForm
-                                        optionsProfileTypes={optionsProfileTypes}
-                                        user={this.state.profile}
-                                        handleSubmit={this.handleSubmit}
-                                    />
-                                    <br/>
+                <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
+                    <div className="section_wrapper mcb-section-inner">
+                        <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
+                            <div className="mcb-wrap-inner">
+                                <AdminpageHeader
+                                    isLoading={false}
+                                    hasButton={false}
+                                    headerTitle={`My Profile`}
+                                />
+                                <div className="column mcb-column one column_column">
+                                    <div className="column_attr tkPanels clearfix">
+                                        {/*<ProfileForm*/}
+                                            {/*optionsProfileTypes={optionsProfileTypes}*/}
+                                            {/*user={profile}*/}
+                                            {/*handleSubmit={this.handleSubmit}*/}
+                                        {/*/>*/}
+                                        {this.prepareForm(profile)}
+                                        <br/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div> : loader
+                </div> : loader
         );
     }
 }

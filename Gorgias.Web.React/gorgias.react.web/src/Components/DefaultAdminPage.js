@@ -19,10 +19,12 @@ import ContentManagerListComponent from "./Admin/ContentManager/ContentManagerLi
 import FollowerListComponent from "./Admin/Follower/FollowerListComponent";
 import DashboardComponent from "./Admin/Dashboard/DashboardComponent";
 import MiniFooter from './PageElements/MiniFooter';
-
+import ContentManagerProfileListComponent from '../Components/Admin/ContentManager/ContentManagerProfileListComponent';
 import {connect} from "react-redux";
 import * as todoActions from "./Stores/ToDo/Action";
 import * as authenticationAction from "./Stores/authentication/action";
+import * as profileAction from "./Stores/profile/action";
+
 class DefaultAdminPage extends Component {
 
     constructor(props) {
@@ -34,8 +36,10 @@ class DefaultAdminPage extends Component {
 
     componentWillMount() {
         //To ensure page is begining at top ;)
-        console.log(this.props, 'AddressID');
-
+        console.log(this.props, 'defaultAdmin', this.props.profileAccountSetting.payload);
+        if(this.props.profileAccountSetting.payload.userUserID !== undefined){
+            this.props.getProfileAccounts(this.props.profileAccountSetting.payload.userUserID);
+        }
         window.scrollTo(0, 0);
     }
 
@@ -148,7 +152,11 @@ class DefaultAdminPage extends Component {
                 <AdminBurgerHeader
                     logout={this.props.logout}
                     prepareProfileAccounts={this.prepareProfileAccounts}
-                    profileAccounts={this.state.profileAccounts}
+                    prepareProfileAccountLists={this.props.profileAccounts}
+                    profileAccountss={this.state.profileAccounts}
+                    profileAccountSetting={this.props.profileAccountSetting.payload}
+                    onPressProfileAccount={(ProfileID) => this.props.getProfileAccountSetting(ProfileID)}
+                    router={this.props.router}
                 />
                 <div id="Wrapper">
                     {this.prepareContainer()}
@@ -166,16 +174,24 @@ class DefaultAdminPage extends Component {
 //         books: state.todoApp.todos
 //     }
 // };
-
+const mapStateToProps = (state, ownProps) => {
+    console.log(state, 'mapStateToProps storylist');
+    return {
+        profileAccountSetting: state.profile.profileAccountSetting,
+        profileAccounts: state.profile.profileAccounts,
+    }
+};
 // Maps actions to props
 const mapDispatchToProps = (dispatch) => {
     return {
         // You can now say this.props.createBook
         addTodo: book => dispatch(todoActions.addTodo(book)),
         logout: () => dispatch(authenticationAction.logout()),
+        getProfileAccountSetting: (ProfileID) => dispatch(profileAction.getProfileAccountSetting(ProfileID)),
+        getProfileAccounts: (UserID) => dispatch(profileAction.getProfileAccounts(UserID)),
     }
 };
 
 // Use connect to put them together
-export default connect(mapDispatchToProps)(DefaultAdminPage);
+export default connect(mapStateToProps, mapDispatchToProps)(DefaultAdminPage);
 // export default connect(mapStateToProps, mapDispatchToProps)(DefaultAdminPage);

@@ -36,7 +36,7 @@ class FollowerListComponent extends Component {
         this.prepareDateFromAPI(1);
     }
 
-    prepareDateFromAPI = (Page, requestTypeID) => {
+    prepareDateFromAPI = (Page, requestTypeID, profileID) => {
         // this.setState({
         //     isLoading: true,
         //     followers: [],
@@ -44,11 +44,19 @@ class FollowerListComponent extends Component {
         // if(this.state.hasMore){
         //     return;
         // }
+
+        let ProfileID = profileID !== undefined ? profileID : this.props.profileAccountSetting.payload.ProfileID;
+
         let RequestTypeID = requestTypeID !== undefined ? requestTypeID : this.state.requestTypeID;
-        console.log(this.props.profileAccountSetting.payload.ProfileID, RequestTypeID, this.state.pageSize, Page, 'before http call');
-        httpRequest.getAsyncProfileFollowers(this.props.profileAccountSetting.payload.ProfileID, RequestTypeID, this.state.pageSize, Page).then(
+        console.log(this.props.profileAccountSetting.payload.ProfileID, RequestTypeID, this.state.pageSize, Page, 'before http call',ProfileID);
+        httpRequest.getAsyncProfileFollowers(ProfileID, RequestTypeID, this.state.pageSize, Page).then(
             response => {
-                let newResult = [...this.state.followers, ...response.data.Result.Items]
+                let newResult = null;
+                if(Page === 1){
+                    newResult = [...response.data.Result.Items];
+                } else {
+                    newResult = [...this.state.followers, ...response.data.Result.Items];
+                }
                 console.log(response, 'Content Managers', Page >= response.data.Result.TotalPages, this.state.followers, newResult, Page);
                 this.setState({
                     isLoading: false,
@@ -80,15 +88,10 @@ class FollowerListComponent extends Component {
 
     componentWillReceiveProps(nextProps) {
         // console.log(nextProps,'componentWillReceiveProps');
-        // if(this.props.filterData !== undefined){
-        //     if(this.props.filterData.MicroAppProfileID !== nextProps.profileAccountSetting.payload.ProfileID){
-        //         console.log('updated ! ;) ', nextProps.profileAccountSetting.payload.ProfileID, this.props.filterData.MicroAppProfileID, this.props.filterData);
-        //         this.loadItemsRedux(123);
-        //         // if(this.props.profileAccountSetting.isLoading){
-        //         //
-        //         // }
-        //     }
-        // }
+        if(this.props.profileAccountSetting.payload.ProfileID !== nextProps.profileAccountSetting.payload.ProfileID){
+            console.log(nextProps,'componentWillReceiveProps storyList',this.props.profileAccountSetting.payload.ProfileID, nextProps.profileAccountSetting.payload.ProfileID);
+            this.prepareDateFromAPI(1,undefined,nextProps.profileAccountSetting.payload.ProfileID);
+        }
     }
 
     prepareFollowerRow = (item) => {

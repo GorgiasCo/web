@@ -46,10 +46,10 @@ class DashboardComponent extends Component {
     }
 
     componentWillMount() {
-        this.prepareDateFromAPI();
+        this.prepareDateFromAPI(this.props.profileAccountSetting.payload.UserID);
     }
 
-    prepareDateFromAPI = () => {
+    prepareDateFromAPI = (UserID) => {
         this.setState({
             isLoading: true,
             profileReports: [],
@@ -57,7 +57,7 @@ class DashboardComponent extends Component {
         });
         console.log('dashboard',this.props.profileAccountSetting);
 
-        httpRequest.getAsyncProfileReports(this.props.profileAccountSetting.payload.UserID, 1).then(
+        httpRequest.getAsyncProfileReports(UserID, 1).then(
             response => {
                 let ProfileReports = response.data.Result.ProfileReports;
                 let isEmptyList = false;
@@ -94,15 +94,10 @@ class DashboardComponent extends Component {
 
     componentWillReceiveProps(nextProps) {
         // console.log(nextProps,'componentWillReceiveProps');
-        // if(this.props.filterData !== undefined){
-        //     if(this.props.filterData.MicroAppProfileID !== nextProps.profileAccountSetting.payload.ProfileID){
-        //         console.log('updated ! ;) ', nextProps.profileAccountSetting.payload.ProfileID, this.props.filterData.MicroAppProfileID, this.props.filterData);
-        //         this.loadItemsRedux(123);
-        //         // if(this.props.profileAccountSetting.isLoading){
-        //         //
-        //         // }
-        //     }
-        // }
+        if (this.props.profileAccountSetting.payload.ProfileID !== nextProps.profileAccountSetting.payload.ProfileID) {
+            console.log(nextProps, 'componentWillReceiveProps storyList', this.props.profileAccountSetting.payload.ProfileID, nextProps.profileAccountSetting.payload.ProfileID);
+            this.prepareDateFromAPI(nextProps.profileAccountSetting.payload.UserID);
+        }
     }
 
     prepareContactRow = (item) => {

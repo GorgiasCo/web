@@ -1,13 +1,35 @@
 import React from "react";
 import {slide as Menu} from "react-burger-menu";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+import List from "../PageElements/List/List";
+import ContentManagerProfileRow from "../Admin/ContentManager/List/ContentManagerProfileRow";
+
 
 export default class AdminBurgerHeader extends React.Component {
+
+    prepareAccountProfilesModal = () => {
+        confirmAlert({
+            customUI: ({onClose}) => {
+                return (
+                    <div className='custom-ui' style={{textAlign:'center'}}>
+                        <List
+                            isLoading={false}
+                            items={this.props.prepareProfileAccountLists.payload}
+                            prepareListRow={(item) => this.prepareContentManagerProfileRow(item,onClose)}
+                        />
+                        <button className={`reset`} onClick={onClose}>close</button>
+                    </div>
+                )
+            }
+        })
+    }
 
     prepareMenu = () => {
         return (
             <div>
                 <Menu id="stack" styles={styles}>
-                    <img src={`https://gorgiasasia.blob.core.windows.net/images/profile-1011.jpg`}
+                    <img onClick={this.prepareAccountProfilesModal} src={this.props.profileAccountSetting.ProfileImage}
                          style={{
                              width: 130, height: 130, display: '',
                              borderBottomRightRadius: 15,
@@ -22,6 +44,7 @@ export default class AdminBurgerHeader extends React.Component {
                     <a id="contentmanager" className="menu-item" href="/admin/content/manager">Content Managers</a>
                     {/*<a id="about" className="menu-item" onClick={this.props.prepareProfileAccounts}>About</a>*/}
                     <a id="contact" className="menu-item" onClick={this.props.logout}>logout</a>
+
                     {/*<a className="menu-item--mall" href="">Settings</a>*/}
                 </Menu>
             </div>
@@ -39,9 +62,21 @@ export default class AdminBurgerHeader extends React.Component {
         );
     }
 
+    onPress = (item, onClose) => {
+        this.props.onPressProfileAccount(item.ProfileID);
+        this.props.router.history.push('/admin/');
+        onClose();
+        console.log(item,'onPress item profile account');
+    }
+
+    prepareContentManagerProfileRow = (item,onClose) => {
+        return <ContentManagerProfileRow key={item.ProfileID} onPress={() => this.onPress(item, onClose)} data={item}/>
+    }
+
     render() {
+        console.log(this.props.prepareProfileAccountLists,'this.props.prepareProfileAccountLists');
         return (
-            !this.props.profileAccounts ?
+            !this.props.profileAccountss ?
                 this.prepareMenu() : this.prepareProfileAccounts()
         );
     }

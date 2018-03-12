@@ -21,7 +21,7 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 import AdminpageHeader from "../../PageElements/AdminPageHeader";
 
-class ContentManagerListComponent extends Component {
+class ContentManagerProfileListComponent extends Component {
 
     constructor(props) {
         super(props);
@@ -39,15 +39,15 @@ class ContentManagerListComponent extends Component {
     }
 
     componentWillMount() {
-        this.prepareDateFromAPI(this.props.profileAccountSetting.payload.ProfileID);
+        this.prepareDateFromAPI();
     }
 
-    prepareDateFromAPI = (ProfileID) => {
+    prepareDateFromAPI = () => {
         this.setState({
             isLoading: true,
             contentManagers: [],
         });
-        httpRequest.getAsyncContentManagerAllSubscribers(ProfileID).then(
+        httpRequest.getAsyncContentManagerAllSubscribers(this.props.profileAccountSetting.payload.ProfileID).then(
             response => {
                 this.setState({
                     isLoading: false,
@@ -82,7 +82,7 @@ class ContentManagerListComponent extends Component {
         }
         httpRequest.newAsyncContentManager(data).then(
             response => {
-                this.prepareDateFromAPI(this.props.profileAccountSetting.payload.ProfileID);
+                this.prepareDateFromAPI();
                 toast.success("Success Notification !", {
                     position: toast.POSITION.TOP_CENTER
                 });
@@ -104,7 +104,7 @@ class ContentManagerListComponent extends Component {
         httpRequest.deleteAsyncContentManager(this.props.profileAccountSetting.payload.ProfileID, 5, UserID).then(
             response => {
                 console.log(response,'delete');
-                this.prepareDateFromAPI(this.props.profileAccountSetting.payload.ProfileID);
+                this.prepareDateFromAPI();
                 toast.success("Success Notification !", {
                     position: toast.POSITION.TOP_CENTER
                 });
@@ -130,10 +130,15 @@ class ContentManagerListComponent extends Component {
 
     componentWillReceiveProps(nextProps) {
         // console.log(nextProps,'componentWillReceiveProps');
-        if(this.props.profileAccountSetting.payload.ProfileID !== nextProps.profileAccountSetting.payload.ProfileID){
-            console.log(nextProps,'componentWillReceiveProps storyList',this.props.profileAccountSetting.payload.ProfileID, nextProps.profileAccountSetting.payload.ProfileID);
-            this.prepareDateFromAPI(nextProps.profileAccountSetting.payload.ProfileID);
-        }
+        // if(this.props.filterData !== undefined){
+        //     if(this.props.filterData.MicroAppProfileID !== nextProps.profileAccountSetting.payload.ProfileID){
+        //         console.log('updated ! ;) ', nextProps.profileAccountSetting.payload.ProfileID, this.props.filterData.MicroAppProfileID, this.props.filterData);
+        //         this.loadItemsRedux(123);
+        //         // if(this.props.profileAccountSetting.isLoading){
+        //         //
+        //         // }
+        //     }
+        // }
     }
 
     prepareContentManagerRow = (item) => {
@@ -180,26 +185,9 @@ class ContentManagerListComponent extends Component {
         return (
             !this.state.isLoading ?
                 <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
-                    <ToastContainer closeButton={false}/>
                     <div className="section_wrapper mcb-section-inner">
                         <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                             <div className="mcb-wrap-inner">
-                                <AdminpageHeader
-                                    isLoading={false}
-                                    hasButton={false}
-                                    headerTitle={`My Content Managers`}
-                                />
-                                <div className="column mcb-column one column_column">
-                                    <div className="column_attr tkPanels clearfix">
-                                        <div style={{zindex:9999}}>
-                                            <ContentManagerForm
-                                                handleSubmit={this.handleSubmit.bind(this)}
-                                                data={this.state.contentManager}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <div className="column mcb-column one column_column">
                                     <div className="column_attr clearfix">
                                         <List
@@ -240,4 +228,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 // Use connect to put them together
-export default connect(mapStateToProps, mapDispatchToProps)(ContentManagerListComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(ContentManagerProfileListComponent);
