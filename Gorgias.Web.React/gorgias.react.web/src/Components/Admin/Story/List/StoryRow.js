@@ -17,12 +17,16 @@ const StoryRow = ({data}) => (
                 position: "absolute",
                 top: "70%",
                 left: "16px",
+                right:'16px',
                 color: "white",
-                zIndex: "1"
+                zIndex: "1",
+                overflow: 'hidden',
+                height: '28%',
             }}>
                 <p style={{fontSize: "12px"}}>{data.AlbumName}</p>
             </div>
-            <a href={`/admin/story/${data.AlbumID}`} className="full-card-overlay gradient" style={{borderRadius: "9px", textDecoration:'none'}}>
+            <a href={`/admin/story/${data.AlbumID}`} className="full-card-overlay gradient"
+               style={{borderRadius: "9px", textDecoration:'none'}}>
                 <div className="customButton">Edit</div>
             </a>
         </li>

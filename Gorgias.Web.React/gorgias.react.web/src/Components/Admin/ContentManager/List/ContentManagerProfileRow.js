@@ -27,9 +27,14 @@ export default class ContentManagerProfileRow extends Component {
                         </div>
                     </div>
                     <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
-                    <h4 className="tkFont-Bold tkFont-Theme"><a
-                    >{this.props.data.ProfileFullname}</a></h4>
-                    {/*<button onClick={() => this.props.onPress(this.props.data)}>Delete</button>*/}
+                    <h4 className="tkFont-Bold tkFont-Theme"
+                        style={{
+                            textOverflow: 'ellipsis',
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                        }}>
+                        {this.props.data.ProfileFullname}
+                    </h4>
                 </div>
             </div>
         );

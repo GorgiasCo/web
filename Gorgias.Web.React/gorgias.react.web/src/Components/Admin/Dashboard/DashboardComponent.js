@@ -46,7 +46,7 @@ class DashboardComponent extends Component {
     }
 
     componentWillMount() {
-        this.prepareDateFromAPI(this.props.profileAccountSetting.payload.UserID);
+        this.prepareDateFromAPI(this.props.profileAccountSetting.payload.userUserID);
     }
 
     prepareDateFromAPI = (UserID) => {

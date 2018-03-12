@@ -27,7 +27,11 @@ export default class FollowerRow extends Component {
                         </div>
                     </div>
                     <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
-                    <h4 className="tkFont-Bold tkFont-Theme">{this.props.data.ProfileFullname}</h4>
+                    <h4 className="tkFont-Bold tkFont-Theme" style={{
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                        width:'200px',
+                    }}>{this.props.data.ProfileFullname}</h4>
                 </div>
             </div>
         );
