@@ -149,7 +149,8 @@ class ContactListComponent extends Component {
 
     onPress = (item, event) => {
         console.log(item, 'onPress');
-        this.prepareDateFromAPI(item.AddressTypeID);
+        // this.prepareDateFromAPI(item.AddressTypeID);
+        this.prepareDateFromAPI(this.props.profileAccountSetting.payload.ProfileID,item.AddressTypeID);
         event.preventDefault();
     }
 
