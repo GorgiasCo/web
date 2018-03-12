@@ -25,6 +25,7 @@ import {color} from "d3-color";
 import {interpolateRgb} from "d3-interpolate";
 import LiquidFillGauge from "react-liquid-gauge";
 import Gauge from "react-svg-gauge";
+import AdminpageHeader from "../../PageElements/AdminPageHeader";
 
 class DashboardComponent extends Component {
     startColor = '#6495ed'; // cornflowerblue
@@ -37,6 +38,23 @@ class DashboardComponent extends Component {
             profileReports: [],
             reports: {},
             isEmptyList: false,
+            columns: [{
+                Header: 'Profile',
+                accessor: 'ProfileFullname',
+                minWidth:150,
+            }, {
+                Header: 'View',
+                accessor: 'TotalView',
+                Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+            }, {
+                Header: 'Engagement',
+                accessor: 'TotalEngagement',
+                Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+            }, {
+                Header: 'Subscription',
+                accessor: 'TotalSubscription',
+                Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+            }],
         };
     }
 
@@ -46,7 +64,84 @@ class DashboardComponent extends Component {
     }
 
     componentWillMount() {
-        this.prepareDateFromAPI(this.props.profileAccountSetting.payload.userUserID);
+        if (this.props.profileAccountSetting.payload.userUserID !== undefined) {
+            this.prepareDateFromAPI(this.props.profileAccountSetting.payload.userUserID);
+        } else {
+            this.prepareDateFromAPI(this.props.profileAccountSetting.payload.UserID);
+        }
+        this.prepareColumns(1);
+    }
+
+    prepareColumns = (type) => {
+        let columns = null;
+        switch (type) {
+            case 1:
+                columns = [{
+                    Header: 'Profile',
+                    accessor: 'ProfileFullname',
+                    minWidth:150,
+                }, {
+                    Header: 'View',
+                    accessor: 'AlbumView',
+                    Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+                }, {
+                    Header: 'Comments',
+                    accessor: 'AlbumComments',
+                    Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+                }, {
+                    Header: 'Likes',
+                    accessor: 'AlbumLikes',
+                    Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+                }, {
+                    Header: 'StayOn',
+                    accessor: 'StayOnConnection',
+                    Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+                }, {
+                    Header: 'Subscription',
+                    accessor: 'Subscription',
+                    Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+                }];
+                break;
+            case 2:
+                columns = [{
+                    Header: 'Profile',
+                    accessor: 'ProfileFullname',
+                    minWidth:150,
+                }, {
+                    Header: 'View',
+                    accessor: 'OverAllTotalView',
+                    Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+                }, {
+                    Header: 'Engagement',
+                    accessor: 'OverAllTotalEngagement',
+                    Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+                }, {
+                    Header: 'Subscription',
+                    accessor: 'OverAllTotalSubscription',
+                    Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+                }];
+                break;
+            default:
+                columns = [{
+                    Header: 'Profile',
+                    accessor: 'ProfileFullname',
+                    minWidth:150,
+                }, {
+                    Header: 'View',
+                    accessor: 'TotalView',
+                    Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+                }, {
+                    Header: 'Engagement',
+                    accessor: 'TotalEngagement',
+                    Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+                }, {
+                    Header: 'Subscription',
+                    accessor: 'TotalSubscription',
+                    Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+                }];
+                break;
+        }
+        this.setState({columns: columns});
     }
 
     prepareDateFromAPI = (UserID) => {
@@ -55,7 +150,7 @@ class DashboardComponent extends Component {
             profileReports: [],
             reports: {}
         });
-        console.log('dashboard',this.props.profileAccountSetting);
+        console.log('dashboard', this.props.profileAccountSetting);
 
         httpRequest.getAsyncProfileReports(UserID, 1).then(
             response => {
@@ -129,67 +224,24 @@ class DashboardComponent extends Component {
     render() {
         const loader = <div className="loader">Loading ...</div>;
         // console.log(this.state.contactData, this.props.AddressID, 'in action story success ;) NIMA render');
-        const {isEmptyList, isLoading, profileReports, reports} = this.state;
+        const {isEmptyList, isLoading, profileReports, reports, columns} = this.state;
 
-        const columns = [{
-            Header: 'Name',
-            accessor: 'ProfileFullname' // String-based value accessors!
-        }, {
-            Header: 'TotalView',
-            accessor: 'TotalView',
-            // Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-            Cell: props => <LiquidFillGauge
-                style={{margin: '0 auto'}}
-                width={radius * 2}
-                height={radius * 2}
-                value={props.value / 10}
-                percent="%"
-                textSize={1}
-                textOffsetX={0}
-                textOffsetY={0}
-                textRenderer={(props) => {
-                    const value = Math.round(props.value);
-                    const radius = Math.min(props.height / 2, props.width / 2);
-                    const textPixels = (props.textSize * radius / 2);
-                    const valueStyle = {
-                        fontSize: textPixels
-                    };
-                    const percentStyle = {
-                        fontSize: textPixels * 0.6
-                    };
-
-                    return (
-                        <tspan>
-                            <tspan className="value" style={valueStyle}>{value}</tspan>
-                            <tspan style={percentStyle}>{props.percent}</tspan>
-                        </tspan>
-                    );
-                }}
-                riseAnimation
-                waveAnimation
-                waveFrequency={2}
-                waveAmplitude={1}
-                gradient
-                gradientStops={gradientStops}
-                circleStyle={{
-                    fill: fillColor
-                }}
-                waveStyle={{
-                    fill: fillColor
-                }}
-                textStyle={{
-                    fill: color('#444').toString(),
-                    fontFamily: 'Arial'
-                }}
-                waveTextStyle={{
-                    fill: color('#fff').toString(),
-                    fontFamily: 'Arial'
-                }}
-                onClick={() => {
-                    this.setState({value: Math.random() * 100});
-                }}
-            /> // Custom cell components!
-        }]
+        // const columns = [{
+        //     Header: 'Name',
+        //     accessor: 'ProfileFullname' // String-based value accessors!
+        // }, {
+        //     Header: 'TotalView',
+        //     accessor: 'TotalView',
+        //     Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+        // },{
+        //     Header: 'TotalEngagement',
+        //     accessor: 'TotalEngagement',
+        //     Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+        // },{
+        //     Header: 'TotalSubscription',
+        //     accessor: 'TotalSubscription',
+        //     Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+        // }]
 
         const radius = 200;
         const interpolate = interpolateRgb(this.startColor, this.endColor);
@@ -223,26 +275,46 @@ class DashboardComponent extends Component {
                     <div className="section_wrapper mcb-section-inner">
                         <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                             <div className="mcb-wrap-inner">
+                                <AdminpageHeader
+                                    isLoading={false}
+                                    hasButton={false}
+                                    headerTitle={`My Dashboard`}
+                                />
                                 <div className="column mcb-column one column_column">
-                                    <div className="column_attr clearfix">
-                                        <Gauge value={33} width={400} height={320}
-                                               label="This is my Gauge"/>
-                                        <List
-                                            isLoading={isLoading}
-                                            items={profileReports}
-                                            prepareListRow={this.prepareContactRow}
-                                            isEmptyList={isEmptyList}
-                                            emptyComponent={
-                                                <div>It is empty<br/><a className="button-love button"
-                                                                        href="admin/contact/new">Add New Contact</a>
-                                                </div>
-                                            }
-                                            header={<h1>Dashboard ;)</h1>}
-                                        />
-                                        <ReactTable
-                                            data={profileReports}
-                                            columns={columns}
-                                        />
+                                    <div className="column_attr tkPanels clearfix">
+                                        {/*<Gauge value={33} width={400} height={320}*/}
+                                               {/*label="This is my Gauge"/>*/}
+
+                                        {/*<List*/}
+                                            {/*isLoading={isLoading}*/}
+                                            {/*items={profileReports}*/}
+                                            {/*prepareListRow={this.prepareContactRow}*/}
+                                            {/*isEmptyList={isEmptyList}*/}
+                                            {/*emptyComponent={*/}
+                                                {/*<div>It is empty<br/><a className="button-love button"*/}
+                                                                        {/*href="admin/contact/new">Add New Contact</a>*/}
+                                                {/*</div>*/}
+                                            {/*}*/}
+                                        {/*/>*/}
+                                        <div>
+                                            <div>
+                                                <button onClick={() => this.prepareColumns(1)}>
+                                                    Now
+                                                </button>
+                                                <button onClick={() => this.prepareColumns(2)}>
+                                                    Total
+                                                </button>
+                                                <button onClick={() => this.prepareColumns(0)}>
+                                                    Overall
+                                                </button>
+                                            </div>
+                                            <ReactTable
+                                                data={profileReports}
+                                                columns={columns}
+                                                showPagination={false}
+                                                defaultPageSize={10}
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
