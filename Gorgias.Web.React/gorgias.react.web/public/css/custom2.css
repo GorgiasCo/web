@@ -5,6 +5,20 @@ html {
 background-size: cover;
 }
 
+.owl-theme-header{
+    height: 66px;
+}
+
+.loader{
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    font-style: italic;
+    margin-top: 20%;
+    color: #ff0088;
+    padding:13px 25px;
+}
+
 .dropzoneCustom {
     width: 100%;
     border: #8a7e88 1px dotted;

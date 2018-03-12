@@ -16,7 +16,10 @@ export default class Coursol extends React.Component {
 
     renderCoursolItem(item) {
         return (
-            <div onClick={(event) => this.props.onPress(item, event)} key={item[this.props.keyID]} className="" style={{textAlign: "center"}}>
+            <div onClick={(event) => this.props.onPress(item, event)}
+                 key={item[this.props.keyID]}
+                 className=""
+                 style={{textAlign: "center", padding:13, height:65,}}>
                 {item[this.props.keyName]}
             </div>
         )

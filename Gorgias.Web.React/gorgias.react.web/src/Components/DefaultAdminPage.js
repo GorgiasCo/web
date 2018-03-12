@@ -22,6 +22,7 @@ import MiniFooter from './PageElements/MiniFooter';
 
 import {connect} from "react-redux";
 import * as todoActions from "./Stores/ToDo/Action";
+import * as authenticationAction from "./Stores/authentication/action";
 class DefaultAdminPage extends Component {
 
     constructor(props) {
@@ -145,7 +146,7 @@ class DefaultAdminPage extends Component {
         return (
             <div>
                 <AdminBurgerHeader
-                    logout={this.logout}
+                    logout={this.props.logout}
                     prepareProfileAccounts={this.prepareProfileAccounts}
                     profileAccounts={this.state.profileAccounts}
                 />
@@ -170,7 +171,8 @@ class DefaultAdminPage extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         // You can now say this.props.createBook
-        addTodo: book => dispatch(todoActions.addTodo(book))
+        addTodo: book => dispatch(todoActions.addTodo(book)),
+        logout: () => dispatch(authenticationAction.logout()),
     }
 };
 

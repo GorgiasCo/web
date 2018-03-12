@@ -20,8 +20,8 @@
       <file leaf-file-name="ContactListComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Admin/Contact/ContactListComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="109" column="10" lean-forward="true" selection-start-line="94" selection-start-column="8" selection-end-line="109" selection-end-column="10" />
+            <state relative-caret-position="383">
+              <caret line="217" column="51" lean-forward="false" selection-start-line="217" selection-start-column="51" selection-end-line="217" selection-end-column="51" />
               <folding>
                 <element signature="e#132#171#0" expanded="true" />
               </folding>
@@ -29,31 +29,51 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Coursol.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/PageElements/Coursol/Coursol.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="21" column="68" lean-forward="false" selection-start-line="21" selection-start-column="68" selection-end-line="21" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom2.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/custom2.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="musician.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/musician.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="1436" column="18" lean-forward="false" selection-start-line="1436" selection-start-column="18" selection-end-line="1436" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ContentManagerListComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Admin/ContentManager/ContentManagerListComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="158" column="37" lean-forward="true" selection-start-line="158" selection-start-column="37" selection-end-line="158" selection-end-column="37" />
+            <state relative-caret-position="-3094">
+              <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultAdminPage.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DefaultAdminPage.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/DefaultAdminPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="146" column="30" lean-forward="true" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminBurgerHeader.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Components/PageElements/AdminBurgerHeader.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="23" column="71" lean-forward="true" selection-start-line="23" selection-start-column="71" selection-end-line="23" selection-end-column="71" />
+            <state relative-caret-position="-1757">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -71,7 +91,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Profile_Account_Setting_Endpoint</find>
       <find>PROFILE_ACCOUNT_SETTING</find>
       <find>profileAccountSetting</find>
       <find>valueKey</find>
@@ -101,6 +120,7 @@
       <find>#Footer</find>
       <find>#Footer, #Footer .widget_recent_entries ul li a</find>
       <find>alert</find>
+      <find>isLoading</find>
     </findStrings>
     <replaceStrings>
       <replace>https://</replace>
@@ -128,14 +148,11 @@
         <option value="$PROJECT_DIR$/src/Components/AppStoreSections/AppProfileInfo.js" />
         <option value="$PROJECT_DIR$/src/Components/Main.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/src/Components/PageElements/Coursol/Coursol.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/AdminPageHeader/index.js" />
-        <option value="$PROJECT_DIR$/src/Components/DefaultAdminPage.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomButton.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/Label.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/RowLayout.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomDropZone.js" />
-        <option value="$PROJECT_DIR$/public/css/custom2.css" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Contact/Form/ContactForm.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/AdminPageHeader/AdminPageHeader.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/ContentManager/Form/ContentManagerForm.js" />
@@ -154,12 +171,15 @@
         <option value="$PROJECT_DIR$/src/Components/Admin/Story/StoryListComponent.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/EndlessList/EndlessList.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Story/List/StoryRow.js" />
-        <option value="$PROJECT_DIR$/public/css/musician.css" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Contact/List/ContactRow.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Contact/ContactListComponent.js" />
-        <option value="$PROJECT_DIR$/src/Components/Admin/ContentManager/ContentManagerListComponent.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/AdminBurgerHeader.js" />
+        <option value="$PROJECT_DIR$/src/Components/PageElements/Coursol/Coursol.js" />
+        <option value="$PROJECT_DIR$/public/css/musician.css" />
+        <option value="$PROJECT_DIR$/public/css/custom2.css" />
+        <option value="$PROJECT_DIR$/src/Components/Admin/ContentManager/ContentManagerListComponent.js" />
+        <option value="$PROJECT_DIR$/src/Components/DefaultAdminPage.js" />
       </list>
     </option>
   </component>
@@ -208,6 +228,17 @@
             <path>
               <item name="gorgias.react.web" type="b2602c69:ProjectViewProjectNode" />
               <item name="gorgias.react.web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gorgias.react.web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gorgias.react.web" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gorgias.react.web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gorgias.react.web" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gorgias.react.web" type="b2602c69:ProjectViewProjectNode" />
@@ -413,7 +444,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="483126000" />
+    <option name="totallyTimeSpent" value="485096000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -473,16 +504,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Components/AppStoreSections/AppProfileInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding>
-            <marker date="1520516941000" expanded="true" signature="7:18" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Global/HTTP/httpRequest.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -505,6 +526,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -512,13 +536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
           <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/PageElements/Coursol/Coursol.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="18" column="138" lean-forward="false" selection-start-line="18" selection-start-column="138" selection-end-line="18" selection-end-column="138" />
         </state>
       </provider>
     </entry>
@@ -554,6 +571,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="48" column="31" lean-forward="false" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -586,14 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/custom2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/PageElements/Form/CustomDropZone.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
@@ -620,7 +630,7 @@
         <state relative-caret-position="135">
           <caret line="9" column="78" lean-forward="false" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="78" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -629,6 +639,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2076">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -699,7 +712,7 @@
         <state relative-caret-position="264">
           <caret line="166" column="45" lean-forward="true" selection-start-line="165" selection-start-column="10" selection-end-line="166" selection-end-column="45" />
           <folding>
-            <element signature="e#44#83#0" expanded="true" />
+            <element signature="e#44#83#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -763,7 +776,7 @@
         <state relative-caret-position="1250">
           <caret line="444" column="106" lean-forward="true" selection-start-line="443" selection-start-column="36" selection-end-line="444" selection-end-column="108" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -826,16 +839,8 @@
         <state relative-caret-position="180">
           <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#44#83#0" expanded="true" />
+            <element signature="e#44#83#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/musician.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="1432" column="19" lean-forward="true" selection-start-line="1432" selection-start-column="19" selection-end-line="1432" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -855,36 +860,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/PageElements/AdminBurgerHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="23" column="71" lean-forward="true" selection-start-line="23" selection-start-column="71" selection-end-line="23" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Admin/Contact/ContactListComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="109" column="10" lean-forward="true" selection-start-line="94" selection-start-column="8" selection-end-line="109" selection-end-column="10" />
+        <state relative-caret-position="383">
+          <caret line="217" column="51" lean-forward="false" selection-start-line="217" selection-start-column="51" selection-end-line="217" selection-end-column="51" />
           <folding>
             <element signature="e#132#171#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/PageElements/Coursol/Coursol.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="21" column="68" lean-forward="false" selection-start-line="21" selection-start-column="68" selection-end-line="21" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/musician.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="1436" column="18" lean-forward="false" selection-start-line="1436" selection-start-column="18" selection-end-line="1436" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/custom2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Stores/authentication/action.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Admin/ContentManager/ContentManagerListComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="158" column="37" lean-forward="true" selection-start-line="158" selection-start-column="37" selection-end-line="158" selection-end-column="37" />
+        <state relative-caret-position="-3094">
+          <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/DefaultAdminPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="146" column="30" lean-forward="true" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/PageElements/AdminBurgerHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="23" column="71" lean-forward="true" selection-start-line="23" selection-start-column="71" selection-end-line="23" selection-end-column="71" />
+        <state relative-caret-position="-1757">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
