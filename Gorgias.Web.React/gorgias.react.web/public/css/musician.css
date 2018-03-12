@@ -1160,7 +1160,7 @@ body:not(.template-slider) #Header_wrapper {
 	border-top-color: #dce2e3;
 }
 #Footer {
-	background-color: #dce2e3;
+	background-color: rgba(0,0,0,0.7);
 }
 body, ul.timeline_items, .icon_box a .desc, .icon_box a:hover .desc, .feature_list ul li a, .list_item a, .list_item a:hover, .widget_recent_entries ul li a, .flat_box a, .flat_box a:hover, .story_box .desc, .content_slider.carouselul li a .title, .content_slider.flat.description ul li .desc, .content_slider.flat.description ul li a .desc, .post-nav.minimal a i {
 	color: #626262;
@@ -1427,12 +1427,14 @@ a.mfn-link-6:before {
 }
 #Subheader ul.breadcrumbs li, #Subheader ul.breadcrumbs li a {
 	color: rgba(255, 255, 255, 0.6);
+	font-size: 9px;
 }
 #Footer, #Footer .widget_recent_entries ul li a {
-	color: #848c8e;
+	color: #ffffff;
+	font-size: 14px;
 }
 #Footer a {
-	color: #989ea1;
+	color: #ffffff;
 }
 #Footer a:hover {
 	color: #767b7e;

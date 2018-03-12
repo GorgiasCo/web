@@ -36,7 +36,7 @@ class FollowerListComponent extends Component {
         this.prepareDateFromAPI(1);
     }
 
-    prepareDateFromAPI = (Page,requestTypeID) => {
+    prepareDateFromAPI = (Page, requestTypeID) => {
         // this.setState({
         //     isLoading: true,
         //     followers: [],
@@ -57,7 +57,7 @@ class FollowerListComponent extends Component {
                     totalPage: response.data.Result.TotalPages,
                     requestTypeID: RequestTypeID,
                 });
-                console.log(this.state,'state la');
+                console.log(this.state, 'state la');
             }
         )
     }
@@ -101,7 +101,7 @@ class FollowerListComponent extends Component {
             followers: [],
             requestTypeID: item.RequestTypeID,
             // hasMore: true,
-            f: this.prepareDateFromAPI(1,item.RequestTypeID),
+            f: this.prepareDateFromAPI(1, item.RequestTypeID),
         });
         console.log(item, 'onPress');
     }
@@ -128,7 +128,10 @@ class FollowerListComponent extends Component {
                                         <EndlessList
                                             isLoading={this.state.isLoading}
                                             loadItems={this.prepareDateFromAPI}
-                                            itemsExtra={[{RequestTypeID: 3, RequestTypeName: "StayOn"},{RequestTypeID: 4, RequestTypeName: "Subscribe"}]}
+                                            itemsExtra={[{
+                                                RequestTypeID: 3,
+                                                RequestTypeName: "StayOn"
+                                            }, {RequestTypeID: 4, RequestTypeName: "Subscribe"}]}
                                             prepareListRow={this.prepareFollowerRow}
                                             onPress={this.onPress}
                                             keyID="RequestTypeID"

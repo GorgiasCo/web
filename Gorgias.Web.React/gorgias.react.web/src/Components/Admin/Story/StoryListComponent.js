@@ -18,7 +18,7 @@ import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
 import httpRequest from "../../Global/HTTP/httpRequest";
 import {ToastContainer} from "react-toastify";
-import StoryRow from "../Story/StoryRow";
+import StoryRow from "./List/StoryRow";
 import EndlessList from "../../PageElements/EndlessList/";
 import AdminpageHeader from "../../PageElements/AdminPageHeader";
 

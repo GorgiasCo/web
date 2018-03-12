@@ -21,9 +21,9 @@ export default class ContentManagerRow extends Component {
                                 fallbackImage="tkImages/1_Discover_Gorgias.png"
                                 initialImage="tkImages/1_Discover_Gorgias.png"
                                 alt="cool image should be here"
-                                width="123"
-                                height="100"
-                                className="scale-with-grid wp-post-image fixed-grid"/>
+                                width="130"
+                                height="130"
+                                className="wp-post-image fixed-grid"/>
                         </div>
                     </div>
                     <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>

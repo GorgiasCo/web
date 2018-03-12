@@ -16,42 +16,7 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Login.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Components/LoginSections/Login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="85" column="56" lean-forward="false" selection-start-line="85" selection-start-column="56" selection-end-line="85" selection-end-column="56" />
-              <folding>
-                <element signature="e#2353#2800#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginPage.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/LoginSections/LoginPage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AccountContent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/LoginSections/AccountContent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -63,8 +28,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>AsyncStorage</find>
-      <find>baseURL</find>
       <find>middlewareConfig</find>
       <find>Profile_Account_Setting_Endpoint</find>
       <find>PROFILE_ACCOUNT_SETTING</find>
@@ -93,6 +56,8 @@
       <find>render</find>
       <find>wrapperStyle</find>
       <find>anima</find>
+      <find>#Footer</find>
+      <find>#Footer, #Footer .widget_recent_entries ul li a</find>
     </findStrings>
     <replaceStrings>
       <replace>https://</replace>
@@ -101,18 +66,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Components/PageElements/authenticationProvider.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/EndlessList/EndlessList.js" />
         <option value="$PROJECT_DIR$/src/Components/Actions/profile/reducer.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/ContentManager/Form/index.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Follower/List/ContentManagerRow.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/List/List.js" />
-        <option value="$PROJECT_DIR$/src/Components/Admin/Follower/List/FollowerRow.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Dashboard/List/ContactRow.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Dashboard/List/DashboardRow.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Story/StoryRow.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomTextAreaFieldComponent.js" />
-        <option value="$PROJECT_DIR$/src/Components/PageElements/EndlessList/EndlessList.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomInputFieldComponent.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Profile/ProfileManageComponentBackup.js" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -125,12 +87,10 @@
         <option value="$PROJECT_DIR$/src/Components/Main.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Coursol/Coursol.js" />
-        <option value="$PROJECT_DIR$/src/Components/Admin/Contact/List/ContactRow.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/AdminPageHeader/index.js" />
         <option value="$PROJECT_DIR$/src/Components/DefaultAdminPage.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomButton.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Contact/ContactListComponent.js" />
-        <option value="$PROJECT_DIR$/public/css/musician.css" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/Label.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/RowLayout.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomDropZone.js" />
@@ -139,11 +99,8 @@
         <option value="$PROJECT_DIR$/src/Components/PageElements/AdminPageHeader/AdminPageHeader.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/ContentManager/Form/ContentManagerForm.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomAsyncSelect.js" />
-        <option value="$PROJECT_DIR$/src/Components/Admin/ContentManager/List/ContentManagerRow.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Contact/ContactManageComponent.js" />
-        <option value="$PROJECT_DIR$/src/Components/Admin/Follower/FollowerListComponent.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/ContentManager/ContentManagerListComponent.js" />
-        <option value="$PROJECT_DIR$/src/Components/Admin/Story/StoryListComponent.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Story/StoryNewComponent.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomAutocomplete.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Story/Form/StoryForm.js" />
@@ -152,6 +109,14 @@
         <option value="$PROJECT_DIR$/src/Components/Admin/Profile/Form/ProfileForm.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Dashboard/DashboardComponent.js" />
         <option value="$PROJECT_DIR$/src/Components/LoginSections/Login.js" />
+        <option value="$PROJECT_DIR$/src/Components/Admin/Follower/FollowerListComponent.js" />
+        <option value="$PROJECT_DIR$/src/Components/Admin/Follower/List/FollowerRow.js" />
+        <option value="$PROJECT_DIR$/src/Components/Admin/ContentManager/List/ContentManagerRow.js" />
+        <option value="$PROJECT_DIR$/src/Components/Admin/Story/StoryListComponent.js" />
+        <option value="$PROJECT_DIR$/src/Components/PageElements/EndlessList/EndlessList.js" />
+        <option value="$PROJECT_DIR$/src/Components/Admin/Story/List/StoryRow.js" />
+        <option value="$PROJECT_DIR$/public/css/musician.css" />
+        <option value="$PROJECT_DIR$/src/Components/Admin/Contact/List/ContactRow.js" />
       </list>
     </option>
   </component>
@@ -172,10 +137,10 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="830" />
+    <option name="height" value="829" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -206,50 +171,6 @@
               <item name="gorgias.react.web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="gorgias.react.web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gorgias.react.web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gorgias.react.web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gorgias.react.web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gorgias.react.web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gorgias.react.web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gorgias.react.web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gorgias.react.web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="Profile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gorgias.react.web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gorgias.react.web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="PageElements" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gorgias.react.web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gorgias.react.web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="PageElements" type="462c0819:PsiDirectoryNode" />
-              <item name="Form" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -267,19 +188,19 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Components/Admin/Story/List" />
+      <recent name="$PROJECT_DIR$/src/Components/PageElements" />
+      <recent name="E:\Yasser\GorgiasWeb\web\Gorgias.Web.React\gorgias.react.web\src\Components\Admin\Contact\List" />
+      <recent name="E:\Yasser\GorgiasWeb\web\Gorgias.Web.React\gorgias.react.web\src\Components\Admin" />
+      <recent name="E:\Yasser\GorgiasWeb\web\Gorgias.Web.React\gorgias.react.web\src\Components\Admin\Coursol" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Yasser\GorgiasWeb\web\Gorgias.Web.React\gorgias.react.web\src\Components\Admin\Dashboard" />
       <recent name="$PROJECT_DIR$/src/Components/Admin/Follower" />
       <recent name="$PROJECT_DIR$/src/Components/Admin/ContentManager" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/Styles" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Components/PageElements" />
-      <recent name="E:\Yasser\GorgiasWeb\web\Gorgias.Web.React\gorgias.react.web\src\Components\Admin\Contact\List" />
-      <recent name="E:\Yasser\GorgiasWeb\web\Gorgias.Web.React\gorgias.react.web\src\Components\Admin" />
-      <recent name="E:\Yasser\GorgiasWeb\web\Gorgias.Web.React\gorgias.react.web\src\Components\Admin\Coursol" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -419,7 +340,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="478319000" />
+    <option name="totallyTimeSpent" value="480803000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -431,17 +352,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1440" height="830" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="829" extended-state="0" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23960535" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292517" sideWeight="0.49753347" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14965986" sideWeight="0.5602537" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14986376" sideWeight="0.5602537" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14965986" sideWeight="0.4397463" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14986376" sideWeight="0.4397463" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -478,34 +399,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Components/AppStoreSections/AppProfileInfoContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/AppStoreSections/ContentAppstore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/AppStoreSections/AppstoreContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/MainSections/1.2-TopStories.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2175">
-          <caret line="146" column="60" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/AppStoreSections/1.0-CelebGrid-Appstore.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4110">
@@ -562,16 +455,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="18" column="138" lean-forward="false" selection-start-line="18" selection-start-column="138" selection-end-line="18" selection-end-column="138" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Contact/List/ContactRow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -649,14 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/musician.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1043">
-          <caret line="906" column="53" lean-forward="true" selection-start-line="906" selection-start-column="53" selection-end-line="906" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/custom2.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -686,20 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Follower/List/FollowerRow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="4" column="12" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Admin/ContentManager/List/ContentManagerRow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="31" column="95" lean-forward="false" selection-start-line="31" selection-start-column="95" selection-end-line="31" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Admin/ContentManager/ContentManagerListComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
@@ -707,13 +568,6 @@
           <folding>
             <element signature="n#!!doc" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Follower/FollowerListComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="121" column="53" lean-forward="true" selection-start-line="121" selection-start-column="53" selection-end-line="121" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -731,14 +585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2076">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/StoryListComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="144" column="34" lean-forward="true" selection-start-line="138" selection-start-column="32" selection-end-line="144" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -814,7 +660,7 @@
         <state relative-caret-position="168">
           <caret line="190" column="22" lean-forward="false" selection-start-line="190" selection-start-column="13" selection-end-line="190" selection-end-column="22" />
           <folding>
-            <element signature="e#88#127#0" expanded="true" />
+            <element signature="e#88#127#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -863,16 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/LoginSections/AccountContent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/LoginSections/Login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -880,6 +716,105 @@
           <folding>
             <element signature="e#2353#2800#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/LoginSections/AccountContent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/MainSections/2.1-CelebGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1250">
+          <caret line="444" column="106" lean-forward="true" selection-start-line="443" selection-start-column="36" selection-end-line="444" selection-end-column="108" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Follower/FollowerListComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="94" column="24" lean-forward="true" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Admin/ContentManager/List/ContentManagerRow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="25" column="43" lean-forward="false" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/StoryListComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="147" column="48" lean-forward="true" selection-start-line="147" selection-start-column="48" selection-end-line="147" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/MainSections/1.2-TopStories.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-303">
+          <caret line="41" column="37" lean-forward="false" selection-start-line="30" selection-start-column="6" selection-end-line="48" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/PageElements/EndlessList/EndlessList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="61" column="65" lean-forward="false" selection-start-line="61" selection-start-column="65" selection-end-line="61" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/List/StoryRow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="24" column="46" lean-forward="false" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Contact/List/ContactRow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="23" column="62" lean-forward="false" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
+          <folding>
+            <element signature="e#84#123#0" expanded="true" />
+            <marker date="1520851622000" expanded="false" signature="1346:1355" ph="..." />
+            <marker date="1520851622000" expanded="true" signature="1445:1478" ph="..." />
+            <marker date="1520851622000" expanded="true" signature="1448:1478" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Follower/List/FollowerRow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#44#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/musician.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="1432" column="19" lean-forward="true" selection-start-line="1432" selection-start-column="19" selection-end-line="1432" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>

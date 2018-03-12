@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import * as storyAction from "../Stores/story/action";
 import * as profileAction from "../Stores/profile/action";
-import StoryRow from "../Admin/Story/StoryRow";
+import StoryRow from "../Admin/Story/List/StoryRow";
 
 import EndlessLoadingProvider from "../PageElements/EndlessLoadingProvider";
 import StoryRowComponent from "../Admin/Story/StoryRowComponent";

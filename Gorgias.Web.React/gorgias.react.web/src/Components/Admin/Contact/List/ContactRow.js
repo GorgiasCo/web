@@ -4,6 +4,7 @@
 // import PropTypes from "prop-types";
 
 import React, {Component} from "react";
+import ReactImageFallback from "react-image-fallback";
 
 export default class ContactRow extends Component {
     constructor(props) {
@@ -17,8 +18,14 @@ export default class ContactRow extends Component {
                 <div className="column_attr align_center tkPanels">
                     <div className="image_frame image_item no_link scale-with-grid alignnone no_border">
                         <div className="image_wrapper">
-                            <img className="scale-with-grid" src="tkImages/1_Discover_Gorgias.png" alt="" width="123"
-                                 height="100"/>
+                            <ReactImageFallback
+                                src={`https://gorgiasasia.blob.core.windows.net/images/address-${this.props.data.AddressID}.jpg`}
+                                fallbackImage="tkImages/iconMap.png"
+                                initialImage="tkImages/iconMap.png"
+                                alt="cool image should be here"
+                                width="130"
+                                height="130"
+                                className="wp-post-image fixed-grid"/>
                         </div>
                     </div>
                     <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
