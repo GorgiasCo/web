@@ -93,13 +93,30 @@ class ContactListComponent extends Component {
 
     prepareDeleteConfirmation = (item) => {
         confirmAlert({
-            title: 'Confirm to submit',                        // Title dialog
-            message: 'Are you sure to do this.',               // Message dialog
-            childrenElement: () => <div>Custom UI</div>,       // Custom UI or Component
-            confirmLabel: 'Confirm',                           // Text button confirm
-            cancelLabel: 'Cancel',                             // Text button cancel
-            onConfirm: () => this.deleteContact(item.AddressID),    // Action after Confirm
+            customUI: ({onClose}) => {
+                return (
+                    <div className='custom-ui' style={{textAlign:'center'}}>
+                        <h1>Are you sure?</h1>
+                        <p>You want to delete this?</p>
+                        <button className={`reset`} onClick={onClose}>No</button>
+                        <button onClick={() => {
+                            this.deleteContact(item.AddressID)
+                            onClose()
+                        }}>Yes, Delete it!
+                        </button>
+                    </div>
+                )
+            }
         })
+
+        // confirmAlert({
+        //     title: 'Confirm to submit',                        // Title dialog
+        //     message: 'Are you sure to do this.',               // Message dialog
+        //     childrenElement: () => <div>Custom UI</div>,       // Custom UI or Component
+        //     confirmLabel: 'Confirm',                           // Text button confirm
+        //     cancelLabel: 'Cancel',                             // Text button cancel
+        //     onConfirm: () => this.deleteContact(item.AddressID),    // Action after Confirm
+        // })
     }
 
     // shouldComponentUpdate(nextProps, nextState) {
