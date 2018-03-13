@@ -41,7 +41,7 @@ class DashboardComponent extends Component {
             columns: [{
                 Header: 'Profile',
                 accessor: 'ProfileFullname',
-                minWidth:150,
+                minWidth: 150,
             }, {
                 Header: 'View',
                 accessor: 'TotalView',
@@ -65,9 +65,9 @@ class DashboardComponent extends Component {
 
     componentWillMount() {
         if (this.props.profileAccountSetting.payload.userUserID !== undefined) {
-            this.prepareDateFromAPI(this.props.profileAccountSetting.payload.userUserID);
+            this.prepareDateFromAPI(this.props.profileAccountSetting.payload.userUserID, this.props.profileAccountSetting.payload.ProfileID);
         } else {
-            this.prepareDateFromAPI(this.props.profileAccountSetting.payload.UserID);
+            this.prepareDateFromAPI(this.props.profileAccountSetting.payload.UserID, this.props.profileAccountSetting.payload.ProfileID);
         }
         this.prepareColumns(1);
     }
@@ -79,7 +79,7 @@ class DashboardComponent extends Component {
                 columns = [{
                     Header: 'Profile',
                     accessor: 'ProfileFullname',
-                    minWidth:150,
+                    minWidth: 150,
                 }, {
                     Header: 'View',
                     accessor: 'AlbumView',
@@ -106,7 +106,7 @@ class DashboardComponent extends Component {
                 columns = [{
                     Header: 'Profile',
                     accessor: 'ProfileFullname',
-                    minWidth:150,
+                    minWidth: 150,
                 }, {
                     Header: 'View',
                     accessor: 'OverAllTotalView',
@@ -125,7 +125,7 @@ class DashboardComponent extends Component {
                 columns = [{
                     Header: 'Profile',
                     accessor: 'ProfileFullname',
-                    minWidth:150,
+                    minWidth: 150,
                 }, {
                     Header: 'View',
                     accessor: 'TotalView',
@@ -144,7 +144,7 @@ class DashboardComponent extends Component {
         this.setState({columns: columns});
     }
 
-    prepareDateFromAPI = (UserID) => {
+    prepareDateFromAPI = (UserID, ProfileID) => {
         this.setState({
             isLoading: true,
             profileReports: [],
@@ -159,14 +159,26 @@ class DashboardComponent extends Component {
                 if (response.data.Result.ProfileReports.length === 0) {
                     isEmptyList = true;
                 }
+
                 console.log(response.data.Result, 'addressTypes.length');
-                this.setState({
-                    isLoading: false,
-                    profileReports: ProfileReports,
-                    reports: response.data.Result,
-                    isEmptyList: isEmptyList,
-                });
-                console.log(response, 'Contacts Address');
+                let report = response.data.Result;
+
+                httpRequest.getAsyncProfileSettingHotSpot(ProfileID).then(
+                    response => {
+                        console.log(response, 'getAsyncProfileSettingHotSpot');
+                        this.setState({
+                            isLoading: false,
+                            profileReports: ProfileReports,
+                            reports: report,
+                            hotSpots: response.data.Result,
+                            isEmptyList: isEmptyList,
+                        });
+                        console.log(response, 'Contacts Address');
+                    },
+                    error => {
+                        console.log(error, 'getAsyncProfileSettingHotSpot');
+                    }
+                )
             }
         )
     }
@@ -191,7 +203,7 @@ class DashboardComponent extends Component {
         // console.log(nextProps,'componentWillReceiveProps');
         if (this.props.profileAccountSetting.payload.ProfileID !== nextProps.profileAccountSetting.payload.ProfileID) {
             console.log(nextProps, 'componentWillReceiveProps storyList', this.props.profileAccountSetting.payload.ProfileID, nextProps.profileAccountSetting.payload.ProfileID);
-            this.prepareDateFromAPI(nextProps.profileAccountSetting.payload.UserID);
+            this.prepareDateFromAPI(nextProps.profileAccountSetting.payload.UserID,nextProps.profileAccountSetting.payload.ProfileID);
         }
     }
 
@@ -224,7 +236,7 @@ class DashboardComponent extends Component {
     render() {
         const loader = <div className="loader">Loading ...</div>;
         // console.log(this.state.contactData, this.props.AddressID, 'in action story success ;) NIMA render');
-        const {isEmptyList, isLoading, profileReports, reports, columns} = this.state;
+        const {isEmptyList, isLoading, profileReports, reports, columns, hotSpots} = this.state;
 
         // const columns = [{
         //     Header: 'Name',
@@ -280,21 +292,135 @@ class DashboardComponent extends Component {
                                     hasButton={false}
                                     headerTitle={`My Dashboard`}
                                 />
+                                <div className="wrap mcb-wrap one  valign-top clearfix"
+                                     style={{margin: "0px auto"}}>
+                                    <div className="mcb-wrap-inner">
+
+                                        <div className="column mcb-column one-third column_column"
+                                             style={{margin: 1 + "% " + 1 + "%"}}>
+                                            <div className="column_attr align_center tkPanels">
+                                                <div
+                                                    className="image_frame image_item no_link scale-with-grid alignnone no_border">
+                                                    <div className="image_wrapper"><img className="scale-with-grid"
+                                                                                        src="tkImages/1_Discover_Gorgias.png"
+                                                                                        alt="" width="123"
+                                                                                        height="100"/></div>
+                                                </div>
+                                                <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
+                                                <h4 className="tkFont-Bold tkFont-Theme">Discover Shares</h4>
+                                                <p>
+                                                    {hotSpots.TotalShares}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className="column mcb-column one-third column_column"
+                                             style={{margin: 1 + "% " + 1 + "%"}}>
+                                            <div className="column_attr align_center tkPanels">
+                                                <div
+                                                    className="image_frame image_item no_link scale-with-grid alignnone no_border">
+                                                    <div className="image_wrapper"><img className="scale-with-grid"
+                                                                                        src="tkImages/2_StoryLand.png"
+                                                                                        alt="" width="123"
+                                                                                        height="100"/></div>
+                                                </div>
+                                                <hr className="no_line" style={{margin: 0 + "auto " + 10 + "px"}}/>
+                                                <h4 className="tkFont-Bold tkFont-Theme">Likes</h4>
+                                                <p>
+                                                    {hotSpots.TotalLikes}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className="column mcb-column one-third column_column"
+                                             style={{margin: 1 + "% " + 1 + "%"}}>
+                                            <div className="column_attr align_center tkPanels">
+                                                <div
+                                                    className="image_frame image_item no_link scale-with-grid alignnone no_border">
+                                                    <div className="image_wrapper"><img className="scale-with-grid"
+                                                                                        src="tkImages/3_Touch_For_Love.png"
+                                                                                        alt="" width="123"
+                                                                                        height="100"/></div>
+                                                </div>
+                                                <hr className="no_line" style={{margin: 0 + " auto" + 10 + "px"}}/>
+                                                <h4 className="tkFont-Bold tkFont-Theme">Engagements</h4>
+                                                <p>
+                                                    {hotSpots.TotalEngagements}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className="column mcb-column one-third column_column"
+                                             style={{margin: 1 + "% " + 1 + "%"}}>
+                                            <div className="column_attr align_center tkPanels">
+                                                <div
+                                                    className="image_frame image_item no_link scale-with-grid alignnone no_border">
+                                                    <div className="image_wrapper"><img className="scale-with-grid"
+                                                                                        src="tkImages/4_iFeel.png"
+                                                                                        alt="" width="123"
+                                                                                        height="100"/></div>
+                                                </div>
+                                                <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
+                                                <h4 className="tkFont-Bold tkFont-Theme">iFeel</h4>
+                                                <p>
+                                                    {hotSpots.TotalFeel}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className="column mcb-column one-third column_column"
+                                             style={{margin: 1 + "% " + 1 + "%"}}>
+                                            <div className="column_attr align_center tkPanels">
+                                                <div
+                                                    className="image_frame image_item no_link scale-with-grid alignnone no_border">
+                                                    <div className="image_wrapper"><img className="scale-with-grid"
+                                                                                        src="tkImages/5_StayOn.png"
+                                                                                        alt="" width="123"
+                                                                                        height="100"/></div>
+                                                </div>
+                                                <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
+                                                <h4 className="tkFont-Bold tkFont-Theme">Connections</h4>
+                                                <p>
+                                                    {hotSpots.TotalConnections}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className="column mcb-column one-third column_column"
+                                             style={{margin: 1 + "% " + 1 + "%"}}>
+                                            <div className="column_attr align_center tkPanels">
+                                                <div
+                                                    className="image_frame image_item no_link scale-with-grid alignnone no_border">
+                                                    <div className="image_wrapper"><img className="scale-with-grid"
+                                                                                        src="tkImages/6_Hotspot.png"
+                                                                                        alt="" width="123"
+                                                                                        height="100"/></div>
+                                                </div>
+                                                <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
+                                                <h4 className="tkFont-Bold tkFont-Theme">Hotspot</h4>
+                                                <p>
+                                                    {hotSpots.TotalViews}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
                                 <div className="column mcb-column one column_column">
                                     <div className="column_attr tkPanels clearfix">
                                         {/*<Gauge value={33} width={400} height={320}*/}
-                                               {/*label="This is my Gauge"/>*/}
+                                        {/*label="This is my Gauge"/>*/}
 
                                         {/*<List*/}
-                                            {/*isLoading={isLoading}*/}
-                                            {/*items={profileReports}*/}
-                                            {/*prepareListRow={this.prepareContactRow}*/}
-                                            {/*isEmptyList={isEmptyList}*/}
-                                            {/*emptyComponent={*/}
-                                                {/*<div>It is empty<br/><a className="button-love button"*/}
-                                                                        {/*href="admin/contact/new">Add New Contact</a>*/}
-                                                {/*</div>*/}
-                                            {/*}*/}
+                                        {/*isLoading={isLoading}*/}
+                                        {/*items={profileReports}*/}
+                                        {/*prepareListRow={this.prepareContactRow}*/}
+                                        {/*isEmptyList={isEmptyList}*/}
+                                        {/*emptyComponent={*/}
+                                        {/*<div>It is empty<br/><a className="button-love button"*/}
+                                        {/*href="admin/contact/new">Add New Contact</a>*/}
+                                        {/*</div>*/}
+                                        {/*}*/}
                                         {/*/>*/}
                                         <div>
                                             <div>
