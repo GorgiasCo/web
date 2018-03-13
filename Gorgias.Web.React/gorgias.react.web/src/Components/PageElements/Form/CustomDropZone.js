@@ -5,6 +5,7 @@ import React, {Component} from "react";
 import Dropzone from "react-dropzone";
 import httpRequest from "../../Global/HTTP/httpRequest";
 import uuid from 'uuid/v4';
+import ReactImageFallback from "react-image-fallback";
 
 
 export default class CustomDropZone extends React.Component {
@@ -15,7 +16,7 @@ export default class CustomDropZone extends React.Component {
             isUploaded: false,
             file: null,
         }
-        console.log(props,'CustomDropZone');
+        console.log(props, 'CustomDropZone');
     }
 
     prepareUploadPhoto = async (data) => {
@@ -75,6 +76,7 @@ export default class CustomDropZone extends React.Component {
                     multiple={false}
                     accept="image/jpeg, image/png, image/jpg"
                     className={`dropzoneCustom`}
+                    style={{border: this.props.prefix !== "hottest-" ? '1px solid #555555' : '0px'}}
                     onDrop={this.handleChange}
                 >
                     {this.props.value === '' ?
@@ -88,10 +90,30 @@ export default class CustomDropZone extends React.Component {
                                 "Try dropping some files here, or click to\n" +
                                 "                        select files to upload."}
                         </p> :
-                        <img
-                            src={this.props.value}
-                            style={{width: '100%'}}
-                        />
+                        <div>
+                            <ReactImageFallback
+                                src={this.props.prefix !== "hottest-" && file !== null ? file.preview : this.props.value}
+                                style={{
+                                    width: this.props.prefix === "hottest-" ? '100%' : '130px',
+                                    padding: this.props.prefix === "hottest-" ? '0px' : '11px',
+                                }}
+                                fallbackImage="tkImages/1_Discover_Gorgias.png"
+                                initialImage="tkImages/1_Discover_Gorgias.png"
+                                alt={isUploaded.toString()}
+                            />
+                            {this.props.prefix !== "hottest-" ?
+                                <p style={{
+                                    textAlign: 'center',
+                                    margin: 0,
+                                    fontSize: 17,
+                                }}>
+                                    {this.props.defaultCaption !== undefined ?
+                                        this.props.defaultCaption :
+                                        "Try dropping some files here, or click to\n" +
+                                        "                        select files to upload."}
+                                </p>
+                                : null}
+                        </div>
                     }
                 </Dropzone>
                 {!!this.props.error &&
@@ -100,7 +122,11 @@ export default class CustomDropZone extends React.Component {
                         {this.props.error}
                     </div>
                 )}
-                {isUploaded ? <h3>{this.props.uploadedCaption}</h3> : null}
+                {isUploaded ? <i style={{
+                    textAlign: 'center',
+                    color: 'red',
+                    padding: '3px 11px',
+                }}>{this.props.uploadedCaption}</i> : null}
             </div>
         );
     }

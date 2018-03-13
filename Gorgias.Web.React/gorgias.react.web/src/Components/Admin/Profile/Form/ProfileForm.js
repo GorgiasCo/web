@@ -186,6 +186,7 @@ const profileForm = props => {
                         isUploading={true}
                         prefix="profile-"
                         photoName={`profile-${values.ProfileID}.jpg`}
+                        value={`https://gorgiasasia.blob.core.windows.net/images/profile-${values.ProfileID}.jpg`}
                         photoType="profile"
                         defaultCaption={`Drop Profile Photo here`}
                         uploadedCaption={`uploaded wow`}
@@ -201,6 +202,7 @@ const profileForm = props => {
                         isUploading={true}
                         prefix="profile-"
                         photoName={`profile-web-${values.ProfileID}.jpg`}
+                        value={`https://gorgiasasia.blob.core.windows.net/images/profile-web-${values.ProfileID}.jpg`}
                         photoType="profile"
                         defaultCaption={`Drop Profile Web Photo here`}
                         uploadedCaption={`uploaded wow`}
@@ -218,8 +220,9 @@ const profileForm = props => {
                         onChange={setFieldValue}
                         onBlur={handleBlur}
                         isUploading={true}
+                        value={`https://gorgiasasia.blob.core.windows.net/images/profile-cover-${values.ProfileID}.jpg`}
                         prefix="profile-"
-                        photoName={`profile-web-${values.ProfileID}.jpg`}
+                        photoName={`profile-cover-${values.ProfileID}.jpg`}
                         photoType="profile"
                         defaultCaption={`Drop Profile Cover Photo here`}
                         uploadedCaption={`uploaded wow`}
@@ -229,7 +232,7 @@ const profileForm = props => {
                 right={
                     null
                 }
-                margin={95}
+                margin={100}
             />
 
             <div

@@ -148,12 +148,13 @@ const contactForm = props => {
             />
 
             <RowLayout
-                margin={95}
+                margin={100}
                 left={
                     <CustomDropZone
                         error={errors.AddressImage}
                         touched={touched.AddressImage}
                         valueName="AddressImage"
+                        value={`https://gorgiasasia.blob.core.windows.net/images/address-${values.AddressImage}`}
                         onChange={setFieldValue}
                         onBlur={setFieldTouched}
                         isUploading={false}

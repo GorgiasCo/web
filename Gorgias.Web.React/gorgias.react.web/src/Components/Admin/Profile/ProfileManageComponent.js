@@ -137,12 +137,12 @@ class ProfileManageComponent extends Component {
                                 />
                                 <div className="column mcb-column one column_column">
                                     <div className="column_attr tkPanels clearfix">
-                                        {/*<ProfileForm*/}
-                                            {/*optionsProfileTypes={optionsProfileTypes}*/}
-                                            {/*user={profile}*/}
-                                            {/*handleSubmit={this.handleSubmit}*/}
-                                        {/*/>*/}
-                                        {this.prepareForm(profile)}
+                                        <ProfileForm
+                                            optionsProfileTypes={optionsProfileTypes}
+                                            user={profile}
+                                            handleSubmit={this.handleSubmit}
+                                        />
+                                        {/*{this.prepareForm(profile)}*/}
                                         <br/>
                                     </div>
                                 </div>

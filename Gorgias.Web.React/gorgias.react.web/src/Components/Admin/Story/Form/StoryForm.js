@@ -70,9 +70,9 @@ const storyForm = props => {
                                                 className="button"
                                                 style={{
                                                     margin: '0px',
-                                                    overflow:'inherit',
+                                                    overflow: 'inherit',
                                                     border: '1px solid rgba(0, 0, 0, 0.07)',
-                                                    borderBottom:'0px',
+                                                    borderBottom: '0px',
                                                 }}
                                                 onClick={() => arrayHelpers.remove(index)}
                                             >
@@ -209,135 +209,144 @@ const storyForm = props => {
                 )}
             />
 
-            <RowLayout
-                left={
-                    <CustomAutocomplete
-                        valueName="category"
-                        valueKey="KeyName"
-                        KeyID="KeyID"
-                        KeyName="KeyName"
-                        value={values.category}
-                        onChange={setFieldValue}
-                        onBlur={setFieldTouched}
-                        url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"
-                    />
-                }
-                right={
-                    <CustomTextInput
-                        id="AlbumPublishDate"
-                        type="date"
-                        label="Publish in"
-                        placeholder="Enter your email"
-                        // error={touched.ProfileEmail && errors.ProfileEmail}
-                        value={values.AlbumPublishDate}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                    />
-                }
-                margin={100}
-            />
-
-            <RowLayout
-                left={
-                    <CustomSelect
-                        valueName="ContentRatingID"
-                        value={values.ContentRatingID}
-                        onChange={setFieldValue}
-                        onBlur={setFieldTouched}
-                        error={errors.ContentRatingID}
-                        touched={touched.ContentRatingID}
-                        disabled={false}
-                        matchProp="KeyID"
-                        valueKey="KeyID"
-                        labelKey="KeyName"
-                        label="Content Rating"
-                        options={props.storyOptions[2].SettingCollection}
-                    />
-                }
-                right={
-                    <CustomSelect
-                        valueName="AvailabilityID"
-                        value={values.AvailabilityID}
-                        onChange={setFieldValue}
-                        onBlur={setFieldTouched}
-                        error={errors.AvailabilityID}
-                        touched={touched.AvailabilityID}
-                        disabled={false}
-                        matchProp="KeyID"
-                        valueKey="KeyID"
-                        labelKey="KeyName"
-                        label="Expires in"
-                        options={props.storyOptions[3].SettingCollection}
-                    />
-                }
-            />
-
-            <RowLayout
-                left={
-                    <CustomSelect
-                        valueName="LanguageID"
-                        value={values.LanguageID}
-                        onChange={setFieldValue}
-                        onBlur={setFieldTouched}
-                        error={errors.LanguageID}
-                        touched={touched.LanguageID}
-                        disabled={false}
-                        matchProp="KeyID"
-                        valueKey="KeyID"
-                        labelKey="KeyName"
-                        label="Language"
-                        options={props.storyOptions[0].SettingCollection}
-                    />
-                }
-                right={
-                    <CustomSelect
-                        valueName="TopicID"
-                        value={values.TopicID}
-                        onChange={setFieldValue}
-                        onBlur={setFieldTouched}
-                        error={errors.TopicID}
-                        touched={touched.TopicID}
-                        disabled={false}
-                        matchProp="KeyID"
-                        valueKey="KeyID"
-                        labelKey="KeyName"
-                        label="Topic"
-                        options={props.storyOptions[1].SettingCollection}
-                    />
-                }
-            />
-
-            <RowLayout
-                left={
-                    <CustomTextInput
-                        id="AlbumHasComment"
-                        type="checkbox"
-                        label="Allow comment"
-                        // error={touched.ProfileEmail && errors.ProfileEmail}
-                        value={values.AlbumHasComment}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                    />
-                }
-                right={null}
-                margin={95}
-            />
-
             <div
-                style={{textAlign: 'right'}}>
+                style={{
+                    width: '70%',
+                    margin: '7px auto',
+                    marginTop: '14px',
+                }}>
 
-                <button
-                    type="button"
-                    className="reset"
-                    onClick={handleReset}
-                >
-                    Reset
-                </button>
+                <RowLayout
+                    left={
+                        <CustomAutocomplete
+                            label="Category"
+                            valueName="category"
+                            valueKey="KeyName"
+                            KeyID="KeyID"
+                            KeyName="KeyName"
+                            value={values.category}
+                            onChange={setFieldValue}
+                            onBlur={setFieldTouched}
+                            url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"
+                        />
+                    }
+                    right={
+                        <CustomTextInput
+                            id="AlbumPublishDate"
+                            type="date"
+                            label="Publish in"
+                            placeholder="Enter your email"
+                            // error={touched.ProfileEmail && errors.ProfileEmail}
+                            value={values.AlbumPublishDate}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                        />
+                    }
+                    margin={100}
+                />
 
-                <button type="submit" className={`submit`} disabled={isSubmitting}>
-                    Submit
-                </button>
+                <RowLayout
+                    left={
+                        <CustomSelect
+                            valueName="ContentRatingID"
+                            value={values.ContentRatingID}
+                            onChange={setFieldValue}
+                            onBlur={setFieldTouched}
+                            error={errors.ContentRatingID}
+                            touched={touched.ContentRatingID}
+                            disabled={false}
+                            matchProp="KeyID"
+                            valueKey="KeyID"
+                            labelKey="KeyName"
+                            label="Content Rating"
+                            options={props.storyOptions[2].SettingCollection}
+                        />
+                    }
+                    right={
+                        <CustomSelect
+                            valueName="AvailabilityID"
+                            value={values.AvailabilityID}
+                            onChange={setFieldValue}
+                            onBlur={setFieldTouched}
+                            error={errors.AvailabilityID}
+                            touched={touched.AvailabilityID}
+                            disabled={false}
+                            matchProp="KeyID"
+                            valueKey="KeyID"
+                            labelKey="KeyName"
+                            label="Expires in"
+                            options={props.storyOptions[3].SettingCollection}
+                        />
+                    }
+                />
 
+                <RowLayout
+                    left={
+                        <CustomSelect
+                            valueName="LanguageID"
+                            value={values.LanguageID}
+                            onChange={setFieldValue}
+                            onBlur={setFieldTouched}
+                            error={errors.LanguageID}
+                            touched={touched.LanguageID}
+                            disabled={false}
+                            matchProp="KeyID"
+                            valueKey="KeyID"
+                            labelKey="KeyName"
+                            label="Language"
+                            options={props.storyOptions[0].SettingCollection}
+                        />
+                    }
+                    right={
+                        <CustomSelect
+                            valueName="TopicID"
+                            value={values.TopicID}
+                            onChange={setFieldValue}
+                            onBlur={setFieldTouched}
+                            error={errors.TopicID}
+                            touched={touched.TopicID}
+                            disabled={false}
+                            matchProp="KeyID"
+                            valueKey="KeyID"
+                            labelKey="KeyName"
+                            label="Topic"
+                            options={props.storyOptions[1].SettingCollection}
+                        />
+                    }
+                />
+
+                <RowLayout
+                    left={
+                        <CustomTextInput
+                            id="AlbumHasComment"
+                            type="checkbox"
+                            label="Allow comment"
+                            // error={touched.ProfileEmail && errors.ProfileEmail}
+                            value={values.AlbumHasComment}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                        />
+                    }
+                    right={null}
+                    margin={95}
+                />
+
+                <div
+                    style={{textAlign: 'right'}}>
+
+                    <button
+                        type="button"
+                        className="reset"
+                        onClick={handleReset}
+                    >
+                        Reset
+                    </button>
+
+                    <button type="submit" className={`submit`} disabled={isSubmitting}>
+                        Submit
+                    </button>
+
+                </div>
             </div>
         </form>
     );

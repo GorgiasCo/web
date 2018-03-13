@@ -221,7 +221,7 @@ class ContactManageComponent extends Component {
 
     componentDidMount() {
         //this.props.getProfileAccounts(1016);
-        this.props.getProfileAccountSetting(1011);
+        //this.props.getProfileAccountSetting(1011);
         // this.loadItems(1);
         //this.props.getStoriesOLD(1);
         //this.loadItemsRedux(1011);
