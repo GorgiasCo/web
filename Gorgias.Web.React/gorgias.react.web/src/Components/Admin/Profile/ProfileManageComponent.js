@@ -132,8 +132,10 @@ class ProfileManageComponent extends Component {
                             <div className="mcb-wrap-inner">
                                 <AdminpageHeader
                                     isLoading={false}
-                                    hasButton={false}
+                                    hasButton={true}
                                     headerTitle={`My Profile`}
+                                    newButtonCaption={`back`}
+                                    newPageURL={`/admin/`}
                                 />
                                 <div className="column mcb-column one column_column">
                                     <div className="column_attr tkPanels clearfix">
