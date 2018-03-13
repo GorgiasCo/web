@@ -23,7 +23,7 @@ const ErrorMessage = ({name}) => (
         render={({form}) => {
             const error = getIn(form.errors, name);
             const touch = getIn(form.touched, name);
-            return touch && error ? error : null;
+            return touch && error ? <p className={`error`}>{error}</p> : null;
         }}
     />
 );
@@ -60,85 +60,106 @@ const storyForm = props => {
 
                         (<div>
                                 {values.Contents.map((content, index) => (
-                                        <div key={index}>
-
-                                            {content.ContentTypeID === 1 ?
-                                                <div>
-                                                    <Field name={`Contents.${index}.ContentURL`}
-                                                           render={({field, /* _form */}) =>
-                                                               <img {...field} src={field.value} style={{width: 200}}/>
-                                                           }/>
-                                                    <CustomDropZone
-                                                        error={errors.ContentURL}
-                                                        touched={touched.ContentURL}
-                                                        valueName={`Contents.${index}.ContentURL`}
-                                                        onChange={setFieldValue}
-                                                        onBlur={setFieldTouched}
-                                                        isUploading={true}
-                                                        prefix="hottest-"
-                                                        photoType="album"
-                                                    />
-                                                    <Field name={`Contents.${index}.ContentTitle`}
-                                                           component={CustomInputFieldComponent}/>
-                                                    <ErrorMessage name={`Contents.${index}.ContentTitle`}/>
-                                                </div>
-                                                : null
-                                            }
-
-                                            {content.ContentTypeID === 3 ?
-                                                <div>
-                                                    <Field name={`Contents.${index}.ContentTitle`}
-                                                           component={CustomInputFieldComponent}/>
-                                                    <ErrorMessage name={`Contents.${index}.ContentTitle`}/>
-                                                    <Field name={`Contents.${index}.ContentURL`}
-                                                           component={CustomTextAreaFieldComponent}/>
-                                                    <ErrorMessage name={`Contents.${index}.ContentURL`}/>
-                                                </div>
-                                                : null
-                                            }
-
-                                            {content.ContentTypeID === 10 ?
-                                                <div>
-                                                    Youtube
-                                                    <Field name={`Contents.${index}.ContentTitle`}
-                                                           component={CustomInputFieldComponent}/>
-                                                    <ErrorMessage name={`Contents.${index}.ContentTitle`}/>
-                                                    <Field name={`Contents.${index}.ContentURL`}
-                                                           component={CustomInputFieldComponent}/>
-                                                    <ErrorMessage name={`Contents.${index}.ContentURL`}/>
-                                                </div>
-                                                : null
-                                            }
-
-                                            {content.ContentTypeID !== 10 && content.ContentTypeID !== 3 && content.ContentTypeID !== 1 ?
-                                                <div>
-                                                    CTA
-                                                    <Field component="select" name={`Contents.${index}.ContentTitle`}>
-                                                        {
-                                                            contentTypes.map((contentType, index) => {
-                                                                return <option
-                                                                    value={contentType.ContentTypeID}>{contentType.ContentTypeName}</option>
-                                                            })
-                                                        }
-                                                    </Field>
-
-                                                    <Field name={`Contents.${index}.ContentURL`}
-                                                           component={CustomInputFieldComponent}/>
-                                                    <ErrorMessage name={`Contents.${index}.ContentURL`}/>
-                                                </div>
-                                                : null
-                                            }
-
+                                        <div key={index}
+                                             style={{
+                                                 width: '70%',
+                                                 margin: '7px auto',
+                                                 marginTop: '14px',
+                                             }}>
+                                            <a
+                                                className="button"
+                                                style={{
+                                                    margin: '0px',
+                                                    overflow:'inherit',
+                                                    border: '1px solid rgba(0, 0, 0, 0.07)',
+                                                    borderBottom:'0px',
+                                                }}
+                                                onClick={() => arrayHelpers.remove(index)}
+                                            >
+                                                X
+                                            </a>
                                             <div
-                                                style={{float: 'right', width: '100%', textAlign: 'right'}}>
-                                                {content.ContentTypeID}
-                                                <button
-                                                    type="button"
-                                                    className="button button-love"
-                                                    onClick={() => arrayHelpers.remove(index)}
-                                                >
-                                                    -
-                                                </button>
+                                                style={{
+                                                    width: '100%',
+                                                    margin: '0px auto',
+                                                    textAlign: 'center',
+                                                    padding: '7px',
+                                                    border: '1px solid rgba(0, 0, 0, 0.07)',
+                                                }}>
+
+
+                                                <div className={`story-section`}
+                                                     style={{textAlign: 'right'}}>
+
+                                                </div>
+                                                {content.ContentTypeID === 1 ?
+                                                    <div className={`story-section`}>
+                                                        <Field name={`Contents.${index}.ContentURL`}
+                                                               render={({field, /* _form */}) =>
+                                                                   <CustomDropZone
+                                                                       error={errors.ContentURL}
+                                                                       touched={touched.ContentURL}
+                                                                       valueName={`Contents.${index}.ContentURL`}
+                                                                       value={field.value}
+                                                                       onChange={setFieldValue}
+                                                                       onBlur={setFieldTouched}
+                                                                       isUploading={true}
+                                                                       prefix="hottest-"
+                                                                       photoType="album"
+                                                                   />
+                                                               }/>
+
+                                                        <Field name={`Contents.${index}.ContentTitle`}
+                                                               component={CustomInputFieldComponent}/>
+                                                        <ErrorMessage name={`Contents.${index}.ContentTitle`}/>
+                                                    </div>
+                                                    : null
+                                                }
+
+                                                {content.ContentTypeID === 3 ?
+                                                    <div className={`story-section`}>
+                                                        <Field name={`Contents.${index}.ContentTitle`}
+                                                               component={CustomInputFieldComponent}/>
+                                                        <ErrorMessage name={`Contents.${index}.ContentTitle`}/>
+                                                        <Field name={`Contents.${index}.ContentURL`}
+                                                               component={CustomTextAreaFieldComponent}/>
+                                                        <ErrorMessage name={`Contents.${index}.ContentURL`}/>
+                                                    </div>
+                                                    : null
+                                                }
+
+                                                {content.ContentTypeID === 10 ?
+                                                    <div className={`story-section`}>
+                                                        Youtube
+                                                        <Field name={`Contents.${index}.ContentTitle`}
+                                                               component={CustomInputFieldComponent}/>
+                                                        <ErrorMessage name={`Contents.${index}.ContentTitle`}/>
+                                                        <Field name={`Contents.${index}.ContentURL`}
+                                                               component={CustomInputFieldComponent}/>
+                                                        <ErrorMessage name={`Contents.${index}.ContentURL`}/>
+                                                    </div>
+                                                    : null
+                                                }
+
+                                                {content.ContentTypeID !== 10 && content.ContentTypeID !== 3 && content.ContentTypeID !== 1 ?
+                                                    <div className={`story-section`}>
+                                                        CTA
+                                                        <Field component="select" name={`Contents.${index}.ContentTitle`}>
+                                                            {
+                                                                contentTypes.map((contentType, index) => {
+                                                                    return <option
+                                                                        value={contentType.ContentTypeID}>{contentType.ContentTypeName}</option>
+                                                                })
+                                                            }
+                                                        </Field>
+
+                                                        <Field name={`Contents.${index}.ContentURL`}
+                                                               component={CustomInputFieldComponent}/>
+                                                        <ErrorMessage name={`Contents.${index}.ContentURL`}/>
+                                                    </div>
+                                                    : null
+                                                }
+
                                             </div>
                                         </div>
                                     )

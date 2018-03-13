@@ -19,12 +19,24 @@ background-size: cover;
     /*padding:13px 25px;*/
 /*}*/
 
+.error {
+    color: red;
+    font-style: italic;
+    text-align: left;
+}
+
+.story-section {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
 .dropzoneCustom {
     width: 100%;
-    border: #8a7e88 1px dotted;
+    border: #8a7e88 0px dotted;
     border-radius: 7px;
     text-align: center;
-    padding: 13px;
+    /*padding: 13px;*/
 }
 
 /* .center-box{

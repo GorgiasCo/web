@@ -15,6 +15,7 @@ export default class CustomDropZone extends React.Component {
             isUploaded: false,
             file: null,
         }
+        console.log(props,'CustomDropZone');
     }
 
     prepareUploadPhoto = async (data) => {
@@ -66,7 +67,7 @@ export default class CustomDropZone extends React.Component {
     render() {
         const {file, isUploaded} = this.state;
         return (
-            <div style={{margin: '1rem 0'}}>
+            <div style={{margin: '0'}}>
                 <label htmlFor="color">
                     {this.props.label}
                 </label>
@@ -76,7 +77,7 @@ export default class CustomDropZone extends React.Component {
                     className={`dropzoneCustom`}
                     onDrop={this.handleChange}
                 >
-                    {file === null ?
+                    {this.props.value === '' ?
                         <p style={{
                             textAlign: 'center',
                             margin: 42,
@@ -88,8 +89,8 @@ export default class CustomDropZone extends React.Component {
                                 "                        select files to upload."}
                         </p> :
                         <img
-                            src={file.preview}
-                            style={{width: 150, height: 130}}
+                            src={this.props.value}
+                            style={{width: '100%'}}
                         />
                     }
                 </Dropzone>
