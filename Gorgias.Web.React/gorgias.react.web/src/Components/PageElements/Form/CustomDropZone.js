@@ -53,7 +53,7 @@ export default class CustomDropZone extends React.Component {
                     }
                 )
             } else {
-                this.props.onChange(this.props.valueName, value[0].preview);
+                this.props.onChange(this.props.valueName, value[0]);
                 this.setState({isUploaded: true});
             }
         }

@@ -154,7 +154,7 @@ const contactForm = props => {
                         error={errors.AddressImage}
                         touched={touched.AddressImage}
                         valueName="AddressImage"
-                        value={`https://gorgiasasia.blob.core.windows.net/images/address-${values.AddressImage}`}
+                        value={`https://gorgiasasia.blob.core.windows.net/albums/address-${values.AddressID}.jpg`}
                         onChange={setFieldValue}
                         onBlur={setFieldTouched}
                         isUploading={false}

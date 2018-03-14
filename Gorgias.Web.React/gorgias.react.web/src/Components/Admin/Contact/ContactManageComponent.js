@@ -147,10 +147,10 @@ class ContactManageComponent extends Component {
     }
 
     handleSubmit = (values) => {
-        console.log(values, 'handleSubmit');
         values.AddressLocation = null;
         let addressImage = values.AddressImage;
         values.AddressImage = null;
+        console.log(values, 'handleSubmit address',addressImage);
         this.fromAddress(values.AddressAddress, API_KEY).then(
             response => {
                 const {lat, lng} = response.results[0].geometry.location;
