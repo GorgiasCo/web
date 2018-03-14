@@ -89,7 +89,7 @@ export default class AppProfileInfo extends React.Component {
                         loop={false}
                         margin={10}
                         nav={false}
-                        dots={false}
+                        dots={true}
                         autoplay={false}
                         autoplayTimeout={1000}
                         autoplayHoverPause={true}
@@ -136,14 +136,14 @@ export default class AppProfileInfo extends React.Component {
                                 items: 2,
                                 nav: false,
                                 loop: false,
-                                margin: 15,
+                                margin: 5,
                             },
 
                             1920: {
                                 items: 2,
                                 nav: false,
                                 loop: false,
-                                margin: 25,
+                                margin: 5,
                                 center: false,
                             },
 
@@ -151,7 +151,7 @@ export default class AppProfileInfo extends React.Component {
                                 items: 2,
                                 nav: false,
                                 loop: false,
-                                margin: 15,
+                                margin: 5,
                             }
                         }}
                     >

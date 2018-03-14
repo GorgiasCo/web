@@ -112,8 +112,30 @@ class StoryNewComponent extends Component {
     }
 
     handleSubmit = (data) => {
-
         console.log('onDrop ;)', data);
+        if(data.Contents[0] !== undefined && data.Contents[0].ContentTypeID === 1){
+
+            let newContents = data.Contents.map(el => {
+                if(el.ContentDimension === null)
+                    return Object.assign({}, el, {ContentDimension:'4545-4545', ContentID:0})
+                return el
+            });
+
+            data.Contents = newContents;
+
+            httpRequest.newAsyncStory('Update',data).then(
+                response => {
+                    console.log(response, 'story response Insert');
+                },
+                error => {
+                    console.log(error, 'story error Insert');
+                }
+            )
+        } else {
+            console.log('cant send without image header onDrop ;)', data);
+        }
+
+
         // var image = new Image();
         //
         // image.addEventListener('load', function () {

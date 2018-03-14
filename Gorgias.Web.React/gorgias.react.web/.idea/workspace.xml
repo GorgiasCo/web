@@ -18,41 +18,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AdminPageHeader.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/PageElements/AdminPageHeader/AdminPageHeader.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="26" column="54" lean-forward="false" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DashboardComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/Admin/Dashboard/DashboardComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
-              <caret line="479" column="80" lean-forward="false" selection-start-line="479" selection-start-column="80" selection-end-line="479" selection-end-column="80" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="3-WhyBecomeGorgias.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/MainSections/3-WhyBecomeGorgias.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1751">
-              <caret line="103" column="28" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="103" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="httpRequest.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Global/HTTP/httpRequest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="646">
+              <caret line="209" column="23" lean-forward="false" selection-start-line="209" selection-start-column="10" selection-end-line="209" selection-end-column="23" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -60,24 +30,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactManageComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/Admin/Contact/ContactManageComponent.js">
+      <file leaf-file-name="StoryNewComponent.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/StoryNewComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="152" column="49" lean-forward="true" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="49" />
-              <folding>
-                <element signature="e#88#127#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="389">
+              <caret line="119" column="91" lean-forward="false" selection-start-line="119" selection-start-column="91" selection-end-line="119" selection-end-column="91" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactForm.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Components/Admin/Contact/Form/ContactForm.js">
+      <file leaf-file-name="StoryForm.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/Form/StoryForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="156" column="80" lean-forward="false" selection-start-line="156" selection-start-column="80" selection-end-line="156" selection-end-column="80" />
-              <folding />
+            <state relative-caret-position="-3215">
+              <caret line="97" column="76" lean-forward="true" selection-start-line="97" selection-start-column="76" selection-end-line="97" selection-end-column="76" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#88#127#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,20 +56,20 @@
       <file leaf-file-name="CustomDropZone.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/PageElements/Form/CustomDropZone.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="55" column="66" lean-forward="false" selection-start-line="55" selection-start-column="66" selection-end-line="55" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppProfileInfo.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/AppStoreSections/AppProfileInfo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1173">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="488">
+              <caret line="53" column="122" lean-forward="false" selection-start-line="53" selection-start-column="122" selection-end-line="53" selection-end-column="122" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#44#83#0" expanded="true" />
+                <marker date="1521021264248" expanded="false" signature="2991:3000" ph="..." />
+                <marker date="1521021264248" expanded="true" signature="3046:3110" ph="..." />
+                <marker date="1521021264248" expanded="true" signature="3137:3267" ph="..." />
+                <marker date="1521021264248" expanded="true" signature="3534:3572" ph="..." />
+                <marker date="1521021264248" expanded="true" signature="4047:5467" ph="..." />
+                <marker date="1521021264248" expanded="true" signature="4096:4154" ph="..." />
+                <marker date="1521021264248" expanded="true" signature="4844:4890" ph="..." />
+                <marker date="1521021264248" expanded="false" signature="5629:5637" ph="..." />
+                <marker date="1521021264248" expanded="true" signature="5797:5827" ph="..." />
               </folding>
             </state>
           </provider>
@@ -116,7 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>valueKey</find>
       <find>Dropzone</find>
       <find>Autocomplete</find>
       <find>ui-bg_flat_0_aaaaaa_40x100.png</find>
@@ -146,6 +116,7 @@
       <find>isLoading</find>
       <find>1rem 0px</find>
       <find>uplo</find>
+      <find>Mobile/V2/Album/Story/Manage</find>
     </findStrings>
     <replaceStrings>
       <replace>https://</replace>
@@ -154,7 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Components/PageElements/List/List.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Dashboard/List/ContactRow.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Dashboard/List/DashboardRow.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Story/StoryRow.js" />
@@ -165,7 +135,6 @@
         <option value="$PROJECT_DIR$/src/Components/PageElements/Footer.js" />
         <option value="$PROJECT_DIR$/src/Components/AppStoreSections/AppProfileInfoContainer.js" />
         <option value="$PROJECT_DIR$/src/Components/AppStoreSections/1.0-CelebGrid-Appstore.js" />
-        <option value="$PROJECT_DIR$/src/Components/AppStoreSections/AppProfileInfo.js" />
         <option value="$PROJECT_DIR$/src/Components/Main.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/AdminPageHeader/index.js" />
@@ -175,7 +144,6 @@
         <option value="$PROJECT_DIR$/src/Components/PageElements/AdminPageHeader/AdminPageHeader.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/ContentManager/Form/ContentManagerForm.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomAsyncSelect.js" />
-        <option value="$PROJECT_DIR$/src/Components/Admin/Story/StoryNewComponent.js" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomAutocomplete.js" />
         <option value="$PROJECT_DIR$/src/Components/LoginSections/Login.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/ContentManager/List/ContentManagerRow.js" />
@@ -195,16 +163,19 @@
         <option value="$PROJECT_DIR$/src/Components/Admin/ContentManager/List/ContentManagerProfileRow.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Contact/ContactListComponent.js" />
         <option value="$PROJECT_DIR$/public/css/custom2.css" />
-        <option value="$PROJECT_DIR$/src/Components/Admin/Story/Form/StoryForm.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Profile/Form/ProfileForm.js" />
         <option value="$PROJECT_DIR$/public/css/musician.css" />
         <option value="$PROJECT_DIR$/src/Components/PageElements/AdminBurgerHeader.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Profile/ProfileManageComponent.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Dashboard/DashboardComponent.js" />
-        <option value="$PROJECT_DIR$/src/Components/Global/HTTP/httpRequest.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Contact/ContactManageComponent.js" />
-        <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomDropZone.js" />
         <option value="$PROJECT_DIR$/src/Components/Admin/Contact/Form/ContactForm.js" />
+        <option value="$PROJECT_DIR$/src/Components/AppStoreSections/AppProfileInfo.js" />
+        <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomTextInput.js" />
+        <option value="$PROJECT_DIR$/src/Components/Global/HTTP/httpRequest.js" />
+        <option value="$PROJECT_DIR$/src/Components/Admin/Story/Form/StoryForm.js" />
+        <option value="$PROJECT_DIR$/src/Components/PageElements/Form/CustomDropZone.js" />
+        <option value="$PROJECT_DIR$/src/Components/Admin/Story/StoryNewComponent.js" />
       </list>
     </option>
   </component>
@@ -308,7 +279,81 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="PageElements" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gorgias.react.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gorgias.react.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PageElements" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Form" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gorgias.react.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gorgias.react.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="AppStoreSections" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gorgias.react.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gorgias.react.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Story" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -556,12 +601,12 @@
       <workItem from="1520269091682" duration="18766000" />
       <workItem from="1520329460125" duration="11380000" />
       <workItem from="1520517175632" duration="17954000" />
-      <workItem from="1521009780624" duration="2781000" />
+      <workItem from="1521009780624" duration="8375000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="516104000" />
+    <option name="totallyTimeSpent" value="521698000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -627,14 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/StoryNewComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="272" column="47" lean-forward="false" selection-start-line="272" selection-start-column="47" selection-end-line="272" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/PageElements/Form/Label.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -660,14 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="80" column="32" lean-forward="false" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/PageElements/Form/CustomTextInput.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="28" column="20" lean-forward="false" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -844,13 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/PageElements/Form/CustomInputFieldComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/custom2.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -905,14 +927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/Form/StoryForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="106" column="80" lean-forward="false" selection-start-line="106" selection-start-column="79" selection-end-line="106" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/PageElements/AdminPageHeader/AdminPageHeader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -937,22 +951,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/AppStoreSections/AppProfileInfo.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Contact/Form/ContactForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1173">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="488">
+          <caret line="156" column="80" lean-forward="false" selection-start-line="156" selection-start-column="80" selection-end-line="156" selection-end-column="80" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Global/HTTP/httpRequest.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/AppStoreSections/AppProfileInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="91" column="34" lean-forward="false" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -962,6 +974,43 @@
         <state relative-caret-position="457">
           <caret line="152" column="49" lean-forward="true" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="49" />
           <folding>
+            <element signature="e#88#127#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/PageElements/Form/CustomTextInput.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="35" column="55" lean-forward="false" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Global/HTTP/httpRequest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="209" column="23" lean-forward="false" selection-start-line="209" selection-start-column="10" selection-end-line="209" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/PageElements/Form/CustomInputFieldComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/Form/StoryForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3215">
+          <caret line="97" column="76" lean-forward="true" selection-start-line="97" selection-start-column="76" selection-end-line="97" selection-end-column="76" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="e#88#127#0" expanded="true" />
           </folding>
         </state>
@@ -969,16 +1018,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/PageElements/Form/CustomDropZone.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="55" column="66" lean-forward="false" selection-start-line="55" selection-start-column="66" selection-end-line="55" selection-end-column="66" />
-          <folding />
+        <state relative-caret-position="488">
+          <caret line="53" column="122" lean-forward="false" selection-start-line="53" selection-start-column="122" selection-end-line="53" selection-end-column="122" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#44#83#0" expanded="true" />
+            <marker date="1521021264248" expanded="false" signature="2991:3000" ph="..." />
+            <marker date="1521021264248" expanded="true" signature="3046:3110" ph="..." />
+            <marker date="1521021264248" expanded="true" signature="3137:3267" ph="..." />
+            <marker date="1521021264248" expanded="true" signature="3534:3572" ph="..." />
+            <marker date="1521021264248" expanded="true" signature="4047:5467" ph="..." />
+            <marker date="1521021264248" expanded="true" signature="4096:4154" ph="..." />
+            <marker date="1521021264248" expanded="true" signature="4844:4890" ph="..." />
+            <marker date="1521021264248" expanded="false" signature="5629:5637" ph="..." />
+            <marker date="1521021264248" expanded="true" signature="5797:5827" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Contact/Form/ContactForm.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/Admin/Story/StoryNewComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="156" column="80" lean-forward="false" selection-start-line="156" selection-start-column="80" selection-end-line="156" selection-end-column="80" />
+        <state relative-caret-position="389">
+          <caret line="119" column="91" lean-forward="false" selection-start-line="119" selection-start-column="91" selection-end-line="119" selection-end-column="91" />
           <folding />
         </state>
       </provider>

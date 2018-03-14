@@ -5,11 +5,10 @@
  * Created by odenza on 19/02/2018.
  */
 import React, {Component} from "react";
-import {withFormik, Formik, Form, Field, FieldArray, getIn} from "formik";
+import {Field, FieldArray, getIn, withFormik} from "formik";
 import Yup from "yup";
 
 import CustomSelect from "../../../PageElements/Form/CustomSelect";
-import CustomAsyncSelect from "../../../PageElements/Form/CustomAsyncSelect";
 import CustomTextInput from "../../../PageElements/Form/CustomTextInput";
 import CustomInputFieldComponent from "../../../PageElements/Form/CustomInputFieldComponent";
 import CustomTextAreaFieldComponent from "../../../PageElements/Form/CustomTextAreaFieldComponent";
@@ -196,16 +195,16 @@ const storyForm = props => {
                             </div>
 
                         ) : (
-                            <div
-                                style={{textAlign: 'center'}}>
-                                <button
-                                    type="button"
-                                    onClick={() => arrayHelpers.insert(0, newContent)}
-                                >
-                                    Photo
-                                </button>
-                            </div>
-                        )
+                        <div
+                            style={{textAlign: 'center'}}>
+                            <button
+                                type="button"
+                                onClick={() => arrayHelpers.insert(0, newContent)}
+                            >
+                                Photo
+                            </button>
+                        </div>
+                    )
                 )}
             />
 
@@ -220,11 +219,11 @@ const storyForm = props => {
                     left={
                         <CustomAutocomplete
                             label="Category"
-                            valueName="category"
+                            valueName="Topic"
                             valueKey="KeyName"
                             KeyID="KeyID"
                             KeyName="KeyName"
-                            value={values.category}
+                            value={values.Topic !== null ? values.Topic : ''}
                             onChange={setFieldValue}
                             onBlur={setFieldTouched}
                             url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"
@@ -240,6 +239,7 @@ const storyForm = props => {
                             value={values.AlbumPublishDate}
                             onChange={handleChange}
                             onBlur={handleBlur}
+                            disabled={!isNew}
                         />
                     }
                     margin={100}
@@ -264,13 +264,13 @@ const storyForm = props => {
                     }
                     right={
                         <CustomSelect
-                            valueName="AvailabilityID"
-                            value={values.AvailabilityID}
+                            valueName="AlbumAvailability"
+                            value={values.AlbumAvailability}
                             onChange={setFieldValue}
                             onBlur={setFieldTouched}
-                            error={errors.AvailabilityID}
-                            touched={touched.AvailabilityID}
-                            disabled={false}
+                            error={errors.AlbumAvailability}
+                            touched={touched.AlbumAvailability}
+                            disabled={!isNew}
                             matchProp="KeyID"
                             valueKey="KeyID"
                             labelKey="KeyName"
@@ -283,15 +283,15 @@ const storyForm = props => {
                 <RowLayout
                     left={
                         <CustomSelect
-                            valueName="LanguageID"
-                            value={values.LanguageID}
+                            valueName="AlbumReadingLanguageCode"
+                            value={values.AlbumReadingLanguageCode}
                             onChange={setFieldValue}
                             onBlur={setFieldTouched}
-                            error={errors.LanguageID}
-                            touched={touched.LanguageID}
+                            error={errors.AlbumReadingLanguageCode}
+                            touched={touched.AlbumReadingLanguageCode}
                             disabled={false}
-                            matchProp="KeyID"
-                            valueKey="KeyID"
+                            matchProp="KeyExtra"
+                            valueKey="KeyExtra"
                             labelKey="KeyName"
                             label="Language"
                             options={props.storyOptions[0].SettingCollection}
@@ -299,12 +299,12 @@ const storyForm = props => {
                     }
                     right={
                         <CustomSelect
-                            valueName="TopicID"
-                            value={values.TopicID}
+                            valueName="CategoryID"
+                            value={values.CategoryID}
                             onChange={setFieldValue}
                             onBlur={setFieldTouched}
-                            error={errors.TopicID}
-                            touched={touched.TopicID}
+                            error={errors.CategoryID}
+                            touched={touched.CategoryID}
                             disabled={false}
                             matchProp="KeyID"
                             valueKey="KeyID"
@@ -354,6 +354,14 @@ const storyForm = props => {
 
 const formikEnhancer = withFormik({
     validationSchema: Yup.object().shape({
+        AlbumAvailability: Yup.number()
+            .required("expire need"),
+        CategoryID: Yup.number()
+            .required("CategoryID need"),
+        AlbumReadingLanguageCode: Yup.string()
+            .required("Language need"),
+        ContentRatingID: Yup.number()
+            .required("ContentRatingID need"),
         Contents: Yup.array()
             .of(
                 Yup.object().shape({

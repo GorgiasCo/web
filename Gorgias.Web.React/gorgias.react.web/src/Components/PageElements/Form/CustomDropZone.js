@@ -4,8 +4,9 @@
 import React, {Component} from "react";
 import Dropzone from "react-dropzone";
 import httpRequest from "../../Global/HTTP/httpRequest";
-import uuid from 'uuid/v4';
+import uuid from "uuid/v4";
 import ReactImageFallback from "react-image-fallback";
+import browserImageSize from 'browser-image-size';
 
 
 export default class CustomDropZone extends React.Component {
@@ -41,23 +42,33 @@ export default class CustomDropZone extends React.Component {
         // this is going to call setFieldValue and manually update values.topcis
         if (value !== null) {
             console.log(value, 'handleChange MySelect');
-            if (this.props.isUploading) {
-                this.prepareUploadPhoto(value[0]).then(
+
+            browserImageSize(value[0].preview)
+                .then(
                     response => {
-                        this.props.onChange(this.props.valueName, response.data.Result[0].FileUrl);
-                        this.setState({isUploaded: true});
-                        console.log(response, 'upload response ;)');
-                    },
-                    error => {
-                        console.log(error, 'upload error');
+                        let size = `${response.width}-${response.height}`;
+                        console.log(response, 'image size');
+                        if (this.props.isUploading) {
+                            this.prepareUploadPhoto(value[0]).then(
+                                response => {
+                                    this.props.onChange(this.props.valueName, `${response.data.Result[0].FileUrl}?${size}`);
+                                    this.setState({isUploaded: true});
+                                    console.log(response, 'upload response ;)');
+                                },
+                                error => {
+                                    console.log(error, 'upload error');
+                                }
+                            )
+                        } else {
+                            this.props.onChange(this.props.valueName, value[0]);
+                            this.setState({isUploaded: true});
+                        }
                     }
-                )
-            } else {
-                this.props.onChange(this.props.valueName, value[0]);
-                this.setState({isUploaded: true});
-            }
+                );
         }
         this.setState({file: value[0]})
+
+
     };
 
     handleBlur = () => {
