@@ -33,7 +33,6 @@ const CustomTextInput = ({
                 className="text-input"
                 type={type}
                 value={value !== null ? value : ''}
-                checked={value !== null ? value : false}
                 onChange={onChange}
                 {...props}
             />

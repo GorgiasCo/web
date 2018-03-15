@@ -84,7 +84,7 @@ class ProfileManageComponent extends Component {
         console.log(nextProps, 'componentWillReceiveProps profile', this.props.profileAccountSetting.payload.ProfileID, nextProps.profileAccountSetting.payload.ProfileID);
         if (this.props.profileAccountSetting.payload.ProfileID !== nextProps.profileAccountSetting.payload.ProfileID) {
             console.log(nextProps, 'componentWillReceiveProps storyList', this.props.profileAccountSetting.payload.ProfileID, nextProps.profileAccountSetting.payload.ProfileID);
-            // this.setState({isLoading: true,profile:null,});
+            this.setState({isLoading: true,profile:null,});
             let profile = {
                 ProfileID: nextProps.profileAccountSetting.payload.ProfileID,
                 ProfileEmail: nextProps.profileAccountSetting.payload.ProfileEmail,//'yaser2us@gmail.com',

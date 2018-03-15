@@ -29,7 +29,7 @@ const profileForm = props => {
         arrayHelpers
     } = props;
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} enableReinitialize={true}>
 
             <RowLayout
                 left={

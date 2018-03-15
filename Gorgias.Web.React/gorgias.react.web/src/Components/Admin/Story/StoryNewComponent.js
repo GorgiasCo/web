@@ -16,6 +16,7 @@ import StoryForm from "./Form/";
 import CustomGoogleMap from "../../PageElements/Form/CustomGoogleMap";
 import httpRequest from "../../Global/HTTP/httpRequest";
 import AdminpageHeader from "../../PageElements/AdminPageHeader";
+import dateFormat from "dateformat";
 
 const optionsProfileTypes = [
     {value: 1, label: 'Food'},
@@ -32,7 +33,7 @@ let newContent = {
     ContentGeoLocation: null,
     ContentDimension: null,
     ContentTypeID: 1,
-    ContentID: null,
+    ContentID: 0,
 }
 
 let newTextContent = {
@@ -41,7 +42,7 @@ let newTextContent = {
     ContentGeoLocation: null,
     ContentDimension: null,
     ContentTypeID: 3,
-    ContentID: null,
+    ContentID: 0,
 }
 
 let newYotubeContent = {
@@ -50,7 +51,7 @@ let newYotubeContent = {
     ContentGeoLocation: null,
     ContentDimension: null,
     ContentTypeID: 10,
-    ContentID: null,
+    ContentID: 0,
 }
 
 let newCTAContent = {
@@ -59,7 +60,7 @@ let newCTAContent = {
     ContentGeoLocation: null,
     ContentDimension: null,
     ContentTypeID: 0,
-    ContentID: null,
+    ContentID: 0,
 }
 
 class StoryNewComponent extends Component {
@@ -93,7 +94,8 @@ class StoryNewComponent extends Component {
                 ContentURL: "https://gorgiasasia.blob.core.windows.net/images/content-20161106233839-pic(4).jpg",
                 ContentGeoLocation: null,
                 ContentDimension: "800-600",
-                ContentTypeID: 1
+                ContentTypeID: 1,
+                ContentID: 0,
             }]
         };
 
@@ -112,25 +114,49 @@ class StoryNewComponent extends Component {
     }
 
     handleSubmit = (data) => {
-        console.log('onDrop ;)', data);
+        const regex = /[?&](\d+)-(\d+)/;
         if(data.Contents[0] !== undefined && data.Contents[0].ContentTypeID === 1){
 
-            let newContents = data.Contents.map(el => {
+            data.Contents = data.Contents.map(el => {
                 if(el.ContentDimension === null)
-                    return Object.assign({}, el, {ContentDimension:'4545-4545', ContentID:0})
+                    if(el.ContentTypeID === 1){
+                        let dimension = regex.exec(el.ContentURL);
+                        console.log(dimension,el.ContentURL,'dimenssion');
+                        return Object.assign({}, el, {ContentDimension:`${dimension[1]}-${dimension[2]}`, ContentID:0})
+                    }
                 return el
             });
 
-            data.Contents = newContents;
+            console.log('onDrop ;)', data);
+            data.AlbumName = data.Contents[0].ContentTitle;
+            data.AlbumCover = data.Contents[0].ContentURL;
+            data.AlbumStatus = true;
 
-            httpRequest.newAsyncStory('Update',data).then(
-                response => {
-                    console.log(response, 'story response Insert');
-                },
-                error => {
-                    console.log(error, 'story error Insert');
-                }
-            )
+            if(this.state.isNew){
+                data.AlbumView = 0;
+                data.AlbumDatePublish = dateFormat(data.AlbumDatePublish, "UTC:yyyy-mm-dd'T'HH:MM:ss");
+
+                // console.log(data.AlbumDatePublish,dateFormat(data.AlbumDatePublish, "UTC:yyyy-mm-dd'T'HH:MM:ss"), 'new Date');
+                httpRequest.newAsyncStory('Insert',data).then(
+                    response => {
+                        console.log(response, 'story response Insert');
+                    },
+                    error => {
+                        console.log(error, 'story error Insert');
+                    }
+                )
+            } else {
+                data.AlbumDatePublish = this.state.story.AlbumDatePublish;
+                httpRequest.newAsyncStory('Update',data).then(
+                    response => {
+                        console.log(response, 'story response Insert');
+                    },
+                    error => {
+                        console.log(error, 'story error Insert');
+                    }
+                )
+            }
+            // Topic: {CategoryName: data.Category.value, CategoryID: data.Category.valueID},
         } else {
             console.log('cant send without image header onDrop ;)', data);
         }

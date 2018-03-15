@@ -15,6 +15,8 @@ import CustomTextAreaFieldComponent from "../../../PageElements/Form/CustomTextA
 import CustomDropZone from "../../../PageElements/Form/CustomDropZone";
 import CustomAutocomplete from "../../../PageElements/Form/CustomAutocomplete";
 import RowLayout from "../../../PageElements/Form/RowLayout";
+import dateFormat from "dateformat";
+import Dropzone from "react-dropzone";
 
 const ErrorMessage = ({name}) => (
     <Field
@@ -50,6 +52,7 @@ const storyForm = props => {
         contentTypes,
         storyOptions,
     } = props;
+    let dropZone;
     return (
         <form onSubmit={handleSubmit}>
             <FieldArray
@@ -166,6 +169,24 @@ const storyForm = props => {
 
                                 <div
                                     style={{textAlign: 'center'}}>
+                                    <div>
+                                        <Dropzone ref={(node) => { dropZone = node; }} onDrop={(accepted, rejected) => {
+                                            console.log(accepted,'files haha');
+                                            let arr = [];
+                                            accepted.map((file, index) => {
+                                                let content = newContent;
+                                                content.ContentURL = file.preview;
+                                                console.log(content, 'insert content bulk ;)', values.Contents.length + index);
+                                                arr.push(content);
+                                                arrayHelpers.insert(values.Contents.length + index, content);
+                                            });
+                                        }}>
+                                            <p>Drop files here.</p>
+                                        </Dropzone>
+                                        <button type="button" onClick={() => { dropZone.open() }}>
+                                            Open File Dialog
+                                        </button>
+                                    </div>
                                     <button
                                         type="button"
                                         onClick={() => arrayHelpers.insert(values.Contents.length, newContent)}
@@ -208,6 +229,8 @@ const storyForm = props => {
                 )}
             />
 
+
+
             <div
                 style={{
                     width: '70%',
@@ -226,17 +249,17 @@ const storyForm = props => {
                             value={values.Topic !== null ? values.Topic : ''}
                             onChange={setFieldValue}
                             onBlur={setFieldTouched}
-                            url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"
+                            url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Categories/Search/"
                         />
                     }
                     right={
                         <CustomTextInput
-                            id="AlbumPublishDate"
+                            id="AlbumDatePublish"
                             type="date"
                             label="Publish in"
                             placeholder="Enter your email"
-                            // error={touched.ProfileEmail && errors.ProfileEmail}
-                            value={values.AlbumPublishDate}
+                            // error={touched.ProfileEmail && errors.ProfileEmail}values.AlbumDatePublish
+                            value={dateFormat(values.AlbumDatePublish, "yyyy-mm-dd")}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             disabled={!isNew}
@@ -325,6 +348,7 @@ const storyForm = props => {
                             value={values.AlbumHasComment}
                             onChange={handleChange}
                             onBlur={handleBlur}
+                            checked={values.AlbumHasComment !== null ? values.AlbumHasComment : false}
                         />
                     }
                     right={null}
@@ -446,6 +470,7 @@ const formikEnhancer = withFormik({
         props.handleSubmit(payload);
     },
     displayName: 'ProfileForm',
+    enableReinitialize: true,
 });
 
 const StoryForm = formikEnhancer(storyForm);
