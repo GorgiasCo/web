@@ -24,12 +24,12 @@ export default class CustomAutocomplete extends React.Component {
         };
     }
 
-    handleChange = value => {
+    handleChange = (value, item) => {
         // this is going to call setFieldValue and manually update values.topcis
         if (value !== null) {
-            console.log(value[this.props.valueKey], '22 CustomAutocomplete', value);
+            console.log(item, '22 CustomAutocomplete', value);
             // this.setState({input: value});
-            this.props.onChange(this.props.valueName, value.value);
+            this.props.onChange(this.props.valueName, {CategoryName:value.value, CategoryID: null});
         }
     };
 
@@ -91,7 +91,7 @@ export default class CustomAutocomplete extends React.Component {
                     }
                     value={this.props.value}
                     onChange={e => this.getContributors(e.target.value)}
-                    onSelect={value => this.handleChange({value})}
+                    onSelect={(value, item) => this.handleChange({value, item})}
                 />
                 {/*<Select.Async*/}
                 {/*id="color"*/}

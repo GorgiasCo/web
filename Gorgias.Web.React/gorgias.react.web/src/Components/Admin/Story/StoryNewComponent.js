@@ -13,7 +13,6 @@ import * as profileAction from "../../Stores/profile/action";
 import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
 import StoryForm from "./Form/";
-import CustomGoogleMap from "../../PageElements/Form/CustomGoogleMap";
 import httpRequest from "../../Global/HTTP/httpRequest";
 import AdminpageHeader from "../../PageElements/AdminPageHeader";
 import dateFormat from "dateformat";
@@ -115,14 +114,17 @@ class StoryNewComponent extends Component {
 
     handleSubmit = (data) => {
         const regex = /[?&](\d+)-(\d+)/;
-        if(data.Contents[0] !== undefined && data.Contents[0].ContentTypeID === 1){
+        if (data.Contents[0] !== undefined && data.Contents[0].ContentTypeID === 1) {
 
             data.Contents = data.Contents.map(el => {
-                if(el.ContentDimension === null)
-                    if(el.ContentTypeID === 1){
+                if (el.ContentDimension === null)
+                    if (el.ContentTypeID === 1) {
                         let dimension = regex.exec(el.ContentURL);
-                        console.log(dimension,el.ContentURL,'dimenssion');
-                        return Object.assign({}, el, {ContentDimension:`${dimension[1]}-${dimension[2]}`, ContentID:0})
+                        console.log(dimension, el.ContentURL, 'dimenssion');
+                        return Object.assign({}, el, {
+                            ContentDimension: `${dimension[1]}-${dimension[2]}`,
+                            ContentID: 0
+                        })
                     }
                 return el
             });
@@ -131,13 +133,16 @@ class StoryNewComponent extends Component {
             data.AlbumName = data.Contents[0].ContentTitle;
             data.AlbumCover = data.Contents[0].ContentURL;
             data.AlbumStatus = true;
+            data.CategoryID = data.CategoryID !== undefined ? data.CategoryID : 29;
+            // data.Topic = data.Topic !== undefined ? { CategoryName: data.Topic, CategoryID: null } : null;
+            // data.Topic = data.Topic !== undefined ? { CategoryName: data.Topic, CategoryID: null } : null;
 
-            if(this.state.isNew){
+            if (this.state.isNew) {
                 data.AlbumView = 0;
                 data.AlbumDatePublish = dateFormat(data.AlbumDatePublish, "UTC:yyyy-mm-dd'T'HH:MM:ss");
 
                 // console.log(data.AlbumDatePublish,dateFormat(data.AlbumDatePublish, "UTC:yyyy-mm-dd'T'HH:MM:ss"), 'new Date');
-                httpRequest.newAsyncStory('Insert',data).then(
+                httpRequest.newAsyncStory('Insert', data).then(
                     response => {
                         console.log(response, 'story response Insert');
                     },
@@ -147,7 +152,7 @@ class StoryNewComponent extends Component {
                 )
             } else {
                 data.AlbumDatePublish = this.state.story.AlbumDatePublish;
-                httpRequest.newAsyncStory('Update',data).then(
+                httpRequest.newAsyncStory('Update', data).then(
                     response => {
                         console.log(response, 'story response Insert');
                     },
@@ -210,28 +215,94 @@ class StoryNewComponent extends Component {
         //console.log(this.state.filterData,'filterData',  this.props.profileAccountSetting);
     }
 
+    prepareAvailability = (data, canAll = false) => {
+        var item = data.KeyID;
+        console.log(data, 'Availability');
+
+        if (data.KeyExtra !== null && canAll === false) {
+            return null;
+        }
+
+        let hours = (item / (60)).toFixed(0);
+
+        let days = (item / (60 * 24)).toFixed(0);
+        let result = null;
+
+        if (item < 60) {
+            result = item > 1 ? item + ' mins' : item + ' min';
+        } else if (hours < 24) {
+            result = hours > 1 ? hours + ' hours' : hours + ' hour';
+        } else {
+            result = days > 1 ? days + ' days' : days + ' day';
+        }
+        return {KeyName: result, KeyID: data.KeyID, KeyExtra: data.KeyExtra};
+    }
+
     componentWillMount() {
         httpRequest.getAsyncStorySettings(this.props.profileAccountSetting.payload.ProfileID, 13, this.props.profileAccountSetting.payload.ProfileIsConfirmed).then(
             response => {
                 console.log(response, 'getAsyncStorySettings')
                 let storySetting = response.data.Result;
 
+                storySetting[1].SettingCollection = [{
+                    KeyName: "None",
+                    KeyID: null
+                }, ...storySetting[1].SettingCollection];
+
                 httpRequest.getAsyncContentTypes(3).then(
                     response => {
-                        console.log(response,'getAsyncContentTypes');
+                        console.log(response, 'getAsyncContentTypes');
                         let contentTypes = response.data.Result;
 
                         if (this.props.AlbumID.toLowerCase() === 'new') {
+
+                            let newAvailability = [];
+
+                            storySetting[3].SettingCollection.forEach((item) => {
+                                let result = this.prepareAvailability(item);
+                                if (result !== null) {
+                                    newAvailability.push(result);
+                                }
+                            });
+
+                            storySetting[3].SettingCollection = newAvailability;
+                            console.log(storySetting[3].SettingCollection, 'storySetting[3].SettingCollection');
+
+                            if(this.props.stories.length > 0){
+                                let latestStory = this.props.stories[0];
+                                let newStory = this.state.story;
+                                newStory.CategoryID = latestStory.CategoryID;
+                                // newStory.CategoryName = latestStory.CategoryName;
+                                newStory.AlbumAvailability = latestStory.AlbumAvailability;
+                                newStory.AlbumReadingLanguageCode = latestStory.AlbumReadingLanguageCode;
+                                newStory.ContentRatingID = latestStory.ContentRatingID;
+                                newStory.AlbumHasComment = latestStory.AlbumHasComment;
+
+                                console.log(latestStory, 'Latest Stories', newStory);
+                            }
+
                             this.setState({
                                 isLoading: false,
                                 isNew: true,
                                 storySetting: storySetting,
                                 contentTypes: contentTypes,
-                            })
+                            });
                         } else {
+
+                            let newAvailability = [];
+
+                            storySetting[3].SettingCollection.forEach((item) => {
+                                let result = this.prepareAvailability(item,true);
+                                newAvailability.push(result);
+                            });
+
+                            storySetting[3].SettingCollection = newAvailability;
+                            console.log(storySetting[3].SettingCollection, 'storySetting[3].SettingCollection');
+
                             httpRequest.getAsyncStoryForEdit(this.props.AlbumID, this.state.story.ProfileID).then(
                                 response => {
                                     console.log(response.data.Result, 'getStory ;)');
+
                                     this.setState({
                                         story: response.data.Result,
                                         isLoading: false,
@@ -248,7 +319,7 @@ class StoryNewComponent extends Component {
 
                     },
                     error => {
-                        console.log(error,'getAsyncContentTypes');
+                        console.log(error, 'getAsyncContentTypes');
                     }
                 )
             },

@@ -169,24 +169,24 @@ const storyForm = props => {
 
                                 <div
                                     style={{textAlign: 'center'}}>
-                                    <div>
-                                        <Dropzone ref={(node) => { dropZone = node; }} onDrop={(accepted, rejected) => {
-                                            console.log(accepted,'files haha');
-                                            let arr = [];
-                                            accepted.map((file, index) => {
-                                                let content = newContent;
-                                                content.ContentURL = file.preview;
-                                                console.log(content, 'insert content bulk ;)', values.Contents.length + index);
-                                                arr.push(content);
-                                                arrayHelpers.insert(values.Contents.length + index, content);
-                                            });
-                                        }}>
-                                            <p>Drop files here.</p>
-                                        </Dropzone>
-                                        <button type="button" onClick={() => { dropZone.open() }}>
-                                            Open File Dialog
-                                        </button>
-                                    </div>
+                                    {/*<div>*/}
+                                        {/*<Dropzone ref={(node) => { dropZone = node; }} onDrop={(accepted, rejected) => {*/}
+                                            {/*console.log(accepted,'files haha');*/}
+                                            {/*let arr = [];*/}
+                                            {/*accepted.map((file, index) => {*/}
+                                                {/*let content = newContent;*/}
+                                                {/*content.ContentURL = file.preview;*/}
+                                                {/*console.log(content, 'insert content bulk ;)', values.Contents.length + index);*/}
+                                                {/*arr.push(content);*/}
+                                                {/*arrayHelpers.insert(values.Contents.length + index, content);*/}
+                                            {/*});*/}
+                                        {/*}}>*/}
+                                            {/*<p>Drop files here.</p>*/}
+                                        {/*</Dropzone>*/}
+                                        {/*<button type="button" onClick={() => { dropZone.open() }}>*/}
+                                            {/*Open File Dialog*/}
+                                        {/*</button>*/}
+                                    {/*</div>*/}
                                     <button
                                         type="button"
                                         onClick={() => arrayHelpers.insert(values.Contents.length, newContent)}
@@ -246,7 +246,7 @@ const storyForm = props => {
                             valueKey="KeyName"
                             KeyID="KeyID"
                             KeyName="KeyName"
-                            value={values.Topic !== null ? values.Topic : ''}
+                            value={values.Topic !== null ? values.Topic.CategoryName : ''}
                             onChange={setFieldValue}
                             onBlur={setFieldTouched}
                             url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Categories/Search/"
@@ -380,8 +380,6 @@ const formikEnhancer = withFormik({
     validationSchema: Yup.object().shape({
         AlbumAvailability: Yup.number()
             .required("expire need"),
-        CategoryID: Yup.number()
-            .required("CategoryID need"),
         AlbumReadingLanguageCode: Yup.string()
             .required("Language need"),
         ContentRatingID: Yup.number()
