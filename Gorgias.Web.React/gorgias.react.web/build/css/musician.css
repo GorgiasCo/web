@@ -1160,7 +1160,7 @@ body:not(.template-slider) #Header_wrapper {
 	border-top-color: #dce2e3;
 }
 #Footer {
-	background-color: #dce2e3;
+	background-color: rgba(0,0,0,0.7);
 }
 body, ul.timeline_items, .icon_box a .desc, .icon_box a:hover .desc, .feature_list ul li a, .list_item a, .list_item a:hover, .widget_recent_entries ul li a, .flat_box a, .flat_box a:hover, .story_box .desc, .content_slider.carouselul li a .title, .content_slider.flat.description ul li .desc, .content_slider.flat.description ul li a .desc, .post-nav.minimal a i {
 	color: #626262;
@@ -1234,11 +1234,15 @@ a.button_theme, a.tp-button.button_theme, button, input[type="submit"], input[ty
 	color: #fff;
 }
 .button-stroke a.button.button_theme:not(.action_button), .button-stroke a.button.button_theme:not(.action_button), .button-stroke a.button.button_theme .button_icon i, .button-stroke a.tp-button.button_theme, .button-stroke button, .button-stroke input[type="submit"], .button-stroke input[type="reset"], .button-stroke input[type="button"] {
+	/*border-color: #ff0088;*/
+	/*color: #FFF !important;*/
+
+	background-color: #ff0088 !important;
+	color: #ffffff !important;
 	border-color: #ff0088;
-	color: #FFF !important;
 }
 .button-stroke a.button.button_theme:hover, .button-stroke a.tp-button.button_theme:hover, .button-stroke button:hover, .button-stroke input[type="submit"]:hover, .button-stroke input[type="reset"]:hover, .button-stroke input[type="button"]:hover {
-	background-color: #ff0088 !important;
+	background-color: #ffffff !important;
 	color: black !important;
 	border-color:#ff0088;
 }
@@ -1247,6 +1251,47 @@ a.button_theme, a.tp-button.button_theme, button, input[type="submit"], input[ty
     color: black !important;
     border-color: #ff0088;
 }
+
+button.submit {
+	background-color: #8fae1b !important;
+	color: #ffffff !important;
+	border-color: #8fae1b;
+}
+
+button.submit:hover {
+	background-color: #ffffff !important;
+	color: #8fae1b !important;
+	border-color: #8fae1b;
+}
+
+button.reset {
+	background-color: #8a7e88 !important;
+	color: #ffffff !important;
+	border-color: #8a7e88;
+}
+
+button.reset:hover {
+	background-color: #ffffff !important;
+	color: #8a7e88 !important;
+	border-color: #8a7e88;
+}
+
+button.back {
+	background-color: #9C9C9C !important;
+	color: #ffffff !important;
+	border-color: #9C9C9C;
+}
+
+button.back:hover {
+	background-color: #ffffff !important;
+	color: #9C9C9C !important;
+	border-color: #9C9C9C;
+}
+
+button.button-no-margin {
+	margin: 0;
+}
+
 a.mfn-link {
 	color: #656B6F;
 }
@@ -1382,12 +1427,14 @@ a.mfn-link-6:before {
 }
 #Subheader ul.breadcrumbs li, #Subheader ul.breadcrumbs li a {
 	color: rgba(255, 255, 255, 0.6);
+	font-size: 9px;
 }
 #Footer, #Footer .widget_recent_entries ul li a {
-	color: #848c8e;
+	color: #ffffff;
+	font-size: 14px;
 }
 #Footer a {
-	color: #989ea1;
+	color: #172025;
 }
 #Footer a:hover {
 	color: #767b7e;
@@ -1532,11 +1579,24 @@ body.table-hover:not(.woocommerce-page) table tr:hover td {
 .pricing-box-box.pricing-box-featured {
 	background: #ff334b;
 }
+input[role="combobox"],
 input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea, .woocommerce .quantity input.qty {
-	color: #919597;
+	color: #000000;
 	background-color: rgba(230, 234, 235, 1);
 	border-color: #919394;
+	width: 100%;
+	border-radius: 3px;
 }
+
+input[role="combobox"]{
+	padding: .5rem;
+	font-size: 16px;
+	width: 97%;
+	display: block;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+
 input[type="date"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus {
 	color: #111619;
 	background-color: rgba(230, 234, 235, 1) !important;
@@ -2338,6 +2398,7 @@ p.flv_align_right, div.flv_align_right {
 #reveal .bm-menu {
 	padding: 2.5em 1.5em 0;
 	font-size: 1.15em;
+    background: url(https://gorgiasasia.blob.core.windows.net/images/profile-1011.jpg);
 }
 #bubble .bm-cross,
 #push .bm-cross {
