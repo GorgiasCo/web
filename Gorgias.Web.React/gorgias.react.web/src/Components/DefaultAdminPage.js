@@ -86,7 +86,7 @@ class DefaultAdminPage extends Component {
                 break;
             case "StoryManage":
                 return (
-                    <StoryListComponent />
+                    <StoryListComponent {...this.props}/>
                 )
                 break;
             case "StoryNew":
@@ -96,7 +96,7 @@ class DefaultAdminPage extends Component {
                 break;
             case "ProfileManage":
                 return (
-                    <ProfileManage/>
+                    <ProfileManage {...this.props}/>
                 )
                 break;
             case "ContactForm":
@@ -106,7 +106,7 @@ class DefaultAdminPage extends Component {
                 break;
             case "ContactList":
                 return (
-                    <ContactListComponent/>
+                    <ContactListComponent {...this.props}/>
                 )
                 break;
             case "ContentManagerList":

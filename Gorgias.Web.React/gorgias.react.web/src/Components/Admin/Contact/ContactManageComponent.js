@@ -164,20 +164,20 @@ class ContactManageComponent extends Component {
                                 this.prepareUploadPhoto(addressImage, values.AddressID).then(
                                     response => {
                                         console.log(response,'address image uploaded ;)');
-                                        toast.success("Success Notification !" + response, {
-                                            position: toast.POSITION.TOP_CENTER
+                                        toast.success("Success Notification !", {
+                                            position: toast.POSITION.TOP_CENTER,
+                                            onClose: this.redirectToMainPage,
                                         });
-                                        this.redirectToMainPage();
                                     },
                                     error => {
                                         console.log(error,'address error image uploaded ;)');
                                     }
                                 );
                             } else {
-                                toast.success("Success Notification !" + response, {
-                                    position: toast.POSITION.TOP_CENTER
+                                toast.success("Success Notification !", {
+                                    position: toast.POSITION.TOP_CENTER,
+                                    onClose: this.redirectToMainPage,
                                 });
-                                this.redirectToMainPage();
                             }
                         },
                         error => {
@@ -193,17 +193,17 @@ class ContactManageComponent extends Component {
                             if(addressImage !== null){
                                 this.prepareUploadPhoto(addressImage, response.data.Result.AddressID).then(
                                     response => {
-                                        toast.success("Success Notification !" + response, {
-                                            position: toast.POSITION.TOP_CENTER
+                                        toast.success("Success Notification !", {
+                                            position: toast.POSITION.TOP_CENTER,
+                                            onClose: this.redirectToMainPage,
                                         });
-                                        this.redirectToMainPage();
                                     }
                                 );
                             } else {
-                                toast.success("Success Notification !" + response, {
-                                    position: toast.POSITION.TOP_CENTER
+                                toast.success("Success Notification !", {
+                                    position: toast.POSITION.TOP_CENTER,
+                                    onClose: this.redirectToMainPage,
                                 });
-                                this.redirectToMainPage();
                             }
                         },
                         error => {

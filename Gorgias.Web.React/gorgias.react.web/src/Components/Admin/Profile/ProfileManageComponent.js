@@ -19,6 +19,7 @@ import CustomInputFieldComponent from "../../PageElements/Form/CustomInputFieldC
 import CustomDropZone from "../../PageElements/Form/CustomDropZone";
 import ProfileForm from "./Form/";
 import AdminpageHeader from "../../PageElements/AdminPageHeader";
+import {toast, ToastContainer} from "react-toastify";
 
 const optionsProfileTypes = [
     {value: 1, label: 'Food'},
@@ -108,6 +109,14 @@ class ProfileManageComponent extends Component {
 
     handleSubmit = (data) => {
         console.log(data, 'handleSubmit profile Form');
+        toast.success("Success!", {
+            position: toast.POSITION.TOP_CENTER,
+            onClose: this.return,
+        });
+    }
+
+    return = () => {
+        this.props.router.history.push('/admin/');
     }
 
     prepareForm = (data) => {
@@ -127,6 +136,7 @@ class ProfileManageComponent extends Component {
         return (
             !isLoading ?
                 <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
+                    <ToastContainer closeButton={false}/>
                     <div className="section_wrapper mcb-section-inner">
                         <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                             <div className="mcb-wrap-inner">

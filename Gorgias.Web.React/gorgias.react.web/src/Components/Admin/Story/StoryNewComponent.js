@@ -16,6 +16,7 @@ import StoryForm from "./Form/";
 import httpRequest from "../../Global/HTTP/httpRequest";
 import AdminpageHeader from "../../PageElements/AdminPageHeader";
 import dateFormat from "dateformat";
+import {toast, ToastContainer} from "react-toastify";
 
 const optionsProfileTypes = [
     {value: 1, label: 'Food'},
@@ -112,19 +113,26 @@ class StoryNewComponent extends Component {
         console.log(this.props.AlbumID, 'AlbumID', newAlbumData);
     }
 
+    return = () => {
+        this.props.router.history.push('/admin/story');
+    }
+
     handleSubmit = (data) => {
         const regex = /[?&](\d+)-(\d+)/;
         if (data.Contents[0] !== undefined && data.Contents[0].ContentTypeID === 1) {
 
             data.Contents = data.Contents.map(el => {
-                if (el.ContentDimension === null)
+                // if (el.ContentDimension === null)
                     if (el.ContentTypeID === 1) {
                         let dimension = regex.exec(el.ContentURL);
-                        console.log(dimension, el.ContentURL, 'dimenssion');
-                        return Object.assign({}, el, {
-                            ContentDimension: `${dimension[1]}-${dimension[2]}`,
-                            ContentID: 0
-                        })
+                        if(dimension !== null){
+                            console.log(dimension, el.ContentURL, 'dimenssion', el.ContentURL.split('?')[0]);
+                            return Object.assign({}, el, {
+                                ContentDimension: `${dimension[1]}-${dimension[2]}`,
+                                ContentID: el.ContentID > 0 ? el.ContentID : 0,
+                                ContentURL: el.ContentURL.split('?')[0],
+                            })
+                        }
                     }
                 return el
             });
@@ -145,6 +153,10 @@ class StoryNewComponent extends Component {
                 httpRequest.newAsyncStory('Insert', data).then(
                     response => {
                         console.log(response, 'story response Insert');
+                        toast.success("Success!", {
+                            position: toast.POSITION.TOP_CENTER,
+                            onClose: this.return,
+                        });
                     },
                     error => {
                         console.log(error, 'story error Insert');
@@ -155,6 +167,10 @@ class StoryNewComponent extends Component {
                 httpRequest.newAsyncStory('Update', data).then(
                     response => {
                         console.log(response, 'story response Insert');
+                        toast.success("Success!", {
+                            position: toast.POSITION.TOP_CENTER,
+                            onClose: this.return,
+                        });
                     },
                     error => {
                         console.log(error, 'story error Insert');
@@ -377,6 +393,7 @@ class StoryNewComponent extends Component {
         return (
             !isLoading ?
                 <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
+                    <ToastContainer closeButton={false}/>
                     <div className="section_wrapper mcb-section-inner">
                         <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
                             <div className="mcb-wrap-inner">
