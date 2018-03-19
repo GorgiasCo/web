@@ -11,6 +11,7 @@ import CustomTextInput from "../../../PageElements/Form/CustomTextInput";
 import CustomInputFieldComponent from "../../../PageElements/Form/CustomInputFieldComponent";
 import CustomDropZone from "../../../PageElements/Form/CustomDropZone";
 import RowLayout from "../../../PageElements/Form/RowLayout";
+import dateFormat from "dateformat";
 
 const profileForm = props => {
     const {
@@ -29,7 +30,7 @@ const profileForm = props => {
         arrayHelpers
     } = props;
     return (
-        <form onSubmit={handleSubmit} enableReinitialize={true}>
+        <form onSubmit={handleSubmit}>
 
             <RowLayout
                 left={
@@ -57,36 +58,6 @@ const profileForm = props => {
                     />
                 }
             />
-
-
-            <RowLayout
-                left={
-                    <CustomTextInput
-                        id="ProfileDescription"
-                        type="text"
-                        label="Description"
-                        placeholder="long bio"
-                        error={touched.ProfileDescription && errors.ProfileDescription}
-                        value={values.ProfileDescription}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                    />
-                }
-                right={
-                    <CustomTextInput
-                        id="ProfileShortDescription"
-                        type="text"
-                        label="Short Description"
-                        placeholder="Bio"
-                        error={touched.ProfileShortDescription && errors.ProfileShortDescription}
-                        value={values.ProfileShortDescription}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                    />
-                }
-                margin={100}
-            />
-
 
             <RowLayout
                 left={
@@ -119,42 +90,43 @@ const profileForm = props => {
 
             <RowLayout
                 left={
-                    <CustomSelect
-                        valueName="SubscriptionTypeID"
-                        value={values.SubscriptionTypeID}
-                        onChange={setFieldValue}
-                        onBlur={setFieldTouched}
-                        error={errors.SubscriptionTypeID}
-                        touched={touched.SubscriptionTypeID}
-                        disabled={false}
-                        matchProp="value"
-                        valueKey="value"
-                        labelKey="label"
-                        label="Subscription"
-                        options={props.optionsProfileTypes}
+                    <CustomTextInput
+                        id="ProfileBirthday"
+                        type="date"
+                        label="Birthday"
+                        placeholder="Enter your birthday"
+                        error={touched.ProfileBirthday && errors.ProfileBirthday}
+                        value={dateFormat(values.ProfileBirthday, "yyyy-mm-dd")}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     />
                 }
                 right={
-                    <CustomSelect
-                        valueName="ThemeID"
-                        value={values.ThemeID}
-                        onChange={setFieldValue}
-                        onBlur={setFieldTouched}
-                        error={errors.ThemeID}
-                        touched={touched.ThemeID}
-                        disabled={false}
-                        matchProp="value"
-                        valueKey="value"
-                        labelKey="label"
-                        label="Theme"
-                        options={props.optionsProfileTypes}
-                    />
+                    null
                 }
+                margin={100}
             />
 
             <RowLayout
                 left={
                     <CustomAsyncSelect
+                        valueName="IndustryID"
+                        value={values.IndustryID}
+                        onChange={setFieldValue}
+                        onBlur={setFieldTouched}
+                        error={errors.IndustryID}
+                        touched={touched.IndustryID}
+                        disabled={false}
+                        isSingleValue = {false}
+                        matchProp="KeyID"
+                        valueKey="KeyID"
+                        labelKey="KeyName"
+                        label="Industry"
+                        url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/v2/Industries/"
+                    />
+                }
+                right={
+                    <CustomSelect
                         valueName="ProfileTypeID"
                         value={values.ProfileTypeID}
                         onChange={setFieldValue}
@@ -165,8 +137,24 @@ const profileForm = props => {
                         matchProp="KeyID"
                         valueKey="KeyID"
                         labelKey="KeyName"
-                        label="Topics"
-                        url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"
+                        label="Profile Type"
+                        options={props.optionsProfileTypes}
+                    />
+                }
+            />
+
+            <RowLayout
+                left={
+                    <CustomTextInput
+                        id="ProfileShortDescription"
+                        type="text"
+                        label="Short Description"
+                        placeholder="Bio"
+                        error={touched.ProfileShortDescription && errors.ProfileShortDescription}
+                        value={values.ProfileShortDescription}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        isTextArea={true}
                     />
                 }
                 right={
@@ -174,6 +162,32 @@ const profileForm = props => {
                 }
                 margin={100}
             />
+
+
+
+            {/*<RowLayout*/}
+                {/*left={*/}
+                    {/*<CustomAsyncSelect*/}
+                        {/*valueName="ProfileTypeIIID"*/}
+                        {/*value={values.ProfileTypeIIID}*/}
+                        {/*onChange={setFieldValue}*/}
+                        {/*onBlur={setFieldTouched}*/}
+                        {/*error={errors.ProfileTypeIIID}*/}
+                        {/*touched={touched.ProfileTypeIIID}*/}
+                        {/*disabled={false}*/}
+                        {/*isSingleValue = {false}*/}
+                        {/*matchProp="KeyID"*/}
+                        {/*valueKey="KeyID"*/}
+                        {/*labelKey="KeyName"*/}
+                        {/*label="Topics"*/}
+                        {/*url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Countries/"*/}
+                    {/*/>*/}
+                {/*}*/}
+                {/*right={*/}
+                    {/*null*/}
+                {/*}*/}
+                {/*margin={100}*/}
+            {/*/>*/}
 
             <RowLayout
                 left={
@@ -271,7 +285,7 @@ const formikEnhancer = withFormik({
             .min(70, "C'mon, your name is longer than that"),
         ProfileShortDescription: Yup.string()
             .min(70, "C'mon, your name is longer than that"),
-        SubscriptionTypeID: Yup.number()
+        ProfileTypeID: Yup.number()
             .required('Subscription is required'),
         ProfilePhoto: Yup.string()
             .required('where is the photo'),

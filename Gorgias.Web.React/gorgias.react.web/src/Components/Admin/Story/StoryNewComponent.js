@@ -153,10 +153,34 @@ class StoryNewComponent extends Component {
                 httpRequest.newAsyncStory('Insert', data).then(
                     response => {
                         console.log(response, 'story response Insert');
-                        toast.success("Success!", {
-                            position: toast.POSITION.TOP_CENTER,
-                            onClose: this.return,
-                        });
+
+                        let notificationData = {
+                            body: this.props.profileAccountSetting.payload.ProfileFullname + " has published new story",
+                            title: "New Story",
+                            albumid: response.data.Result.AlbumID,
+                            ProfileFullname: this.props.profileAccountSetting.payload.ProfileFullname,
+                            channelid: "ch" + this.props.profileAccountSetting.payload.ProfileID,
+                            ProfileID: this.props.profileAccountSetting.payload.ProfileID,
+                            //NotificationType: 'Story',
+                            //canValidate: false,
+                        };
+
+                        httpRequest.postAsyncStoryNotification(notificationData).then(
+                            response => {
+                                console.log(response, 'story response Insert');
+                                toast.success("Success!", {
+                                    position: toast.POSITION.TOP_CENTER,
+                                    onClose: this.return,
+                                });
+                            },
+                            error => {
+                                console.log(error, 'story error Insert');
+                            }
+                        )
+                        // toast.success("Success!", {
+                        //     position: toast.POSITION.TOP_CENTER,
+                        //     onClose: this.return,
+                        // });
                     },
                     error => {
                         console.log(error, 'story error Insert');
@@ -167,10 +191,30 @@ class StoryNewComponent extends Component {
                 httpRequest.newAsyncStory('Update', data).then(
                     response => {
                         console.log(response, 'story response Insert');
-                        toast.success("Success!", {
-                            position: toast.POSITION.TOP_CENTER,
-                            onClose: this.return,
-                        });
+
+                        let notificationData = {
+                            body: this.props.profileAccountSetting.payload.ProfileFullname + " has updated old story",
+                            title: "Updated Story",
+                            albumid: response.data.Result.AlbumID,
+                            ProfileFullname: this.props.profileAccountSetting.payload.ProfileFullname,
+                            channelid: "ch" + this.props.profileAccountSetting.payload.ProfileID,
+                            ProfileID: this.props.profileAccountSetting.payload.ProfileID,
+                            //NotificationType: 'Story',
+                            //canValidate: false,
+                        };
+
+                        httpRequest.postAsyncStoryNotification(notificationData).then(
+                            response => {
+                                console.log(response, 'story response Insert');
+                                toast.success("Success!", {
+                                    position: toast.POSITION.TOP_CENTER,
+                                    onClose: this.return,
+                                });
+                            },
+                            error => {
+                                console.log(error, 'story error Insert');
+                            }
+                        )
                     },
                     error => {
                         console.log(error, 'story error Insert');
@@ -255,6 +299,27 @@ class StoryNewComponent extends Component {
     }
 
     componentWillMount() {
+
+        let notificationData = {
+            body: this.props.profileAccountSetting.payload.ProfileFullname + " has published new story",
+            title: "New Story",
+            albumid: 3903,
+            ProfileFullname: this.props.profileAccountSetting.payload.ProfileFullname,
+            channelid: "ch" + this.props.profileAccountSetting.payload.ProfileID,
+            ProfileID: this.props.profileAccountSetting.payload.ProfileID,
+            //NotificationType: 'Story',
+            //canValidate: false,
+        };
+
+        httpRequest.postAsyncStoryNotification(notificationData).then(
+            response => {
+                console.log(response, 'story response notification');
+            },
+            error => {
+                console.log(error, 'story error notification');
+            }
+        )
+
         httpRequest.getAsyncStorySettings(this.props.profileAccountSetting.payload.ProfileID, 13, this.props.profileAccountSetting.payload.ProfileIsConfirmed).then(
             response => {
                 console.log(response, 'getAsyncStorySettings')

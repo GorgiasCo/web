@@ -18,8 +18,17 @@ export default class CustomAsyncSelect extends React.Component {
         // this is going to call setFieldValue and manually update values.topcis
         if (value !== null) {
             console.log(value[this.props.valueKey], 'handleChange MySelect');
-            this.props.onChange(this.props.valueName, value[this.props.valueKey]);
-            this.setState({selectedItem: value})
+
+            if(this.props.isSingleValue === undefined){
+                this.props.onChange(this.props.valueName, value[this.props.valueKey]);
+                this.setState({selectedItem: value})
+            } else {
+                this.props.onChange(this.props.valueName, {valueKey: value[this.props.valueKey], labelKey: value[this.props.labelKey]});
+                this.setState({selectedItem: {valueKey: value[this.props.valueKey], labelKey: value[this.props.labelKey]}})
+            }
+
+            // this.props.onChange(this.props.valueName, value[this.props.valueKey]);
+            // this.setState({selectedItem: value})
         }
     };
 
@@ -32,6 +41,13 @@ export default class CustomAsyncSelect extends React.Component {
         // if(input === ''){
         //     return;
         // }
+
+        let selectedInput = input;
+        if(this.props.isSingleValue !== undefined){
+            selectedInput = input.valueKey
+        }
+
+
         const url = this.props.url + input;
 
         const token = localStorage.getItem("token");
@@ -76,7 +92,8 @@ export default class CustomAsyncSelect extends React.Component {
                     loadOptions={this.getContributors}
                     onChange={this.handleChange}
                     onBlur={this.handleBlur}
-                    value={this.props.value}
+                    // value={this.props.value}
+                    value={this.props.isSingleValue === undefined ? this.props.value : this.props.value.valueKey}
                     valueKey={this.props.valueKey}
                     labelKey={this.props.labelKey}
                     matchProp={this.props.matchProp}

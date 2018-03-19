@@ -5,30 +5,20 @@ import React, {Component} from "react";
 import * as storyAction from "../../Stores/story/action";
 import * as profileAction from "../../Stores/profile/action";
 import {connect} from "react-redux";
-import {withFormik, Formik, Form, Field, FieldArray} from "formik";
-import Yup from "yup";
-import classnames from "classnames";
-import Select from "react-select";
 import "react-select/dist/react-select.css";
-import axios from "axios";
-import Dropzone from "react-dropzone";
-import CustomSelect from "../../PageElements/Form/CustomSelect";
-import CustomAsyncSelect from "../../PageElements/Form/CustomAsyncSelect";
-import CustomTextInput from "../../PageElements/Form/CustomTextInput";
-import CustomInputFieldComponent from "../../PageElements/Form/CustomInputFieldComponent";
-import CustomDropZone from "../../PageElements/Form/CustomDropZone";
 import ProfileForm from "./Form/";
 import AdminpageHeader from "../../PageElements/AdminPageHeader";
-import {toast, ToastContainer} from "react-toastify";
+import {ToastContainer} from "react-toastify";
+import httpRequest from "../../Global/HTTP/httpRequest";
 
-const optionsProfileTypes = [
-    {value: 1, label: 'Food'},
-    {value: 2, label: 'Being Fabulous'},
-    {value: 3, label: 'Ken Wheeler'},
-    {value: 4, label: 'ReasonML'},
-    {value: 5, label: 'Unicorns'},
-    {value: 6, label: 'Kittens'},
-];
+// const optionsProfileTypes = [
+//     {value: 1, label: 'Food'},
+//     {value: 2, label: 'Being Fabulous'},
+//     {value: 3, label: 'Ken Wheeler'},
+//     {value: 4, label: 'ReasonML'},
+//     {value: 5, label: 'Unicorns'},
+//     {value: 6, label: 'Kittens'},
+// ];
 
 
 class ProfileManageComponent extends Component {
@@ -42,11 +32,20 @@ class ProfileManageComponent extends Component {
             ProfileFullnameEnglish: props.profileAccountSetting.payload.ProfileFullnameEnglish,//'Yasser EN',
             ProfileDescription: props.profileAccountSetting.payload.ProfileDescription,//'',
             ProfileShortDescription: props.profileAccountSetting.payload.ProfileShortDescription,//'',
-            ProfileURL: props.profileAccountSetting.payload.ProfileURL,//'siti',
+            ProfileURL: props.profileAccountSetting.payload.profileURL,//'siti',
             ProfileTypeID: props.profileAccountSetting.payload.ProfileTypeID,//5,
-            SubscriptionTypeID: undefined,
-            ThemeID: undefined,
-            ProfilePhoto: "https://gorgiasasia.blob.core.windows.net/images/content-20161106233839-pic(4).jpg"
+            CityID: props.profileAccountSetting.payload.CityID,
+            // IndustryID: props.profileAccountSetting.payload.IndustryID,
+            ProfileBirthday: props.profileAccountSetting.payload.ProfileBirthday,
+            ProfileLanguageApp: props.profileAccountSetting.payload.ProfileLanguageApp,
+            ProfilePassword: props.profileAccountSetting.payload.ProfilePassword,
+            // IndustryName: props.profileAccountSetting.payload.IndustryName,
+            IndustryID: {
+                valueKey: props.profileAccountSetting.payload.IndustryID,
+                labelKey: props.profileAccountSetting.payload.IndustryName
+            },
+            ProfilePhoto: "https://gorgiasasia.blob.core.windows.net/images/content-20161106233839-pic(4).jpg",
+            optionsProfileTypes: null,
         }
 
         this.state = {
@@ -54,7 +53,7 @@ class ProfileManageComponent extends Component {
             hasMoreItems: true,
             nextHref: null,
             profile: profile,
-            isLoading: false,
+            isLoading: true,
         };
     }
 
@@ -63,6 +62,21 @@ class ProfileManageComponent extends Component {
         //this.props.getStoriesOLD(1);
         //this.loadItemsRedux(1011);
         //console.log(this.state.filterData,'filterData',  this.props.profileAccountSetting);
+    }
+
+    componentWillMount() {
+        httpRequest.getProfileTypes().then(
+            response => {
+                console.log(response, 'response getProfileTypes');
+                this.setState({
+                    optionsProfileTypes: response.data.Result,
+                    isLoading: false,
+                });
+            },
+            error => {
+                console.log(error, 'error getProfileTypes');
+            }
+        )
     }
 
     // shouldComponentUpdate(nextProps, nextState) {
@@ -85,7 +99,7 @@ class ProfileManageComponent extends Component {
         console.log(nextProps, 'componentWillReceiveProps profile', this.props.profileAccountSetting.payload.ProfileID, nextProps.profileAccountSetting.payload.ProfileID);
         if (this.props.profileAccountSetting.payload.ProfileID !== nextProps.profileAccountSetting.payload.ProfileID) {
             console.log(nextProps, 'componentWillReceiveProps storyList', this.props.profileAccountSetting.payload.ProfileID, nextProps.profileAccountSetting.payload.ProfileID);
-            this.setState({isLoading: true,profile:null,});
+            this.setState({isLoading: true, profile: null,});
             let profile = {
                 ProfileID: nextProps.profileAccountSetting.payload.ProfileID,
                 ProfileEmail: nextProps.profileAccountSetting.payload.ProfileEmail,//'yaser2us@gmail.com',
@@ -93,11 +107,17 @@ class ProfileManageComponent extends Component {
                 ProfileFullnameEnglish: nextProps.profileAccountSetting.payload.ProfileFullnameEnglish,//'Yasser EN',
                 ProfileDescription: nextProps.profileAccountSetting.payload.ProfileDescription,//'',
                 ProfileShortDescription: nextProps.profileAccountSetting.payload.ProfileShortDescription,//'',
-                ProfileURL: nextProps.profileAccountSetting.payload.ProfileURL,//'siti',
+                ProfileURL: nextProps.profileAccountSetting.payload.profileURL,//'siti',
                 ProfileTypeID: nextProps.profileAccountSetting.payload.ProfileTypeID,//5,
-                SubscriptionTypeID: undefined,
-                ThemeID: undefined,
-                ProfilePhoto: "https://gorgiasasia.blob.core.windows.net/images/content-20161106233839-pic(4).jpg"
+                CityID: nextProps.profileAccountSetting.payload.CityID,
+                ProfileBirthday: nextProps.profileAccountSetting.payload.ProfileBirthday,
+                ProfileLanguageApp: nextProps.profileAccountSetting.payload.ProfileLanguageApp,
+                ProfilePassword: nextProps.profileAccountSetting.payload.ProfilePassword,
+                IndustryID: {
+                    valueKey: nextProps.profileAccountSetting.payload.IndustryID,
+                    labelKey: nextProps.profileAccountSetting.payload.IndustryName
+                },
+                ProfilePhoto: `https://gorgiasasia.blob.core.windows.net/images/profile-${nextProps.profileAccountSetting.payload.ProfileID}.jpg`,
             };
             this.setState({
                 profile: profile,
@@ -109,20 +129,60 @@ class ProfileManageComponent extends Component {
 
     handleSubmit = (data) => {
         console.log(data, 'handleSubmit profile Form');
-        toast.success("Success!", {
-            position: toast.POSITION.TOP_CENTER,
-            onClose: this.return,
-        });
-    }
+
+        let registerData = {
+            ProfileFullname: data.ProfileFullname,
+            ProfileFullnameEnglish: data.ProfileFullnameEnglish,
+            ProfileTypeID: data.ProfileTypeID,
+            CityID: data.CityID,
+            IndustryID: data.IndustryID.valueKey,
+            IndustryName: data.IndustryID.labelKey,
+            ProfileShortDescription: data.ProfileShortDescription,
+            ProfileBirthday: data.ProfileBirthday,
+            ProfileEmail: data.ProfileEmail,
+            ProfilePassword: data.ProfilePassword,
+            ProfileID: data.ProfileID,
+            ProfileLanguageApp: 'en',
+            isFirstRegistration: true,
+        };
+
+        console.log(registerData, 'registerData');
+
+        httpRequest.postAsyncUpdateProfileRegistration(registerData).then(
+            response => {
+                console.log(response, 'response postAsyncUpdateProfileRegistration', this.props.profileAccountSetting);
+
+                let newProfileAccountSetting = this.props.profileAccountSetting;
+                newProfileAccountSetting.payload.ProfileFullname = data.ProfileFullname;
+                newProfileAccountSetting.payload.ProfileFullnameEnglish = data.ProfileFullnameEnglish;
+                newProfileAccountSetting.payload.ProfileTypeID = data.ProfileTypeID;
+                newProfileAccountSetting.payload.CityID = data.CityID;
+                newProfileAccountSetting.payload.IndustryID = data.IndustryID.valueKey;
+                newProfileAccountSetting.payload.IndustryName = data.IndustryID.labelKey;
+                newProfileAccountSetting.payload.ProfileShortDescription = data.ProfileShortDescription;
+                newProfileAccountSetting.payload.ProfileBirthday = data.ProfileBirthday;
+
+                this.props.setProfileAccountSetting(newProfileAccountSetting.payload);
+            },
+            error => {
+                console.log(error, 'response postAsyncUpdateProfileRegistration');
+            }
+        )
+
+        // toast.success("Success!", {
+        //     position: toast.POSITION.TOP_CENTER,
+        //     onClose: this.return,
+        // });
+    };
 
     return = () => {
         this.props.router.history.push('/admin/');
-    }
+    };
 
     prepareForm = (data) => {
         console.log('prepareForm', data);
-        return  <ProfileForm
-            optionsProfileTypes={optionsProfileTypes}
+        return <ProfileForm
+            optionsProfileTypes={this.state.optionsProfileTypes}
             user={data}
             handleSubmit={this.handleSubmit}
         />
@@ -130,7 +190,7 @@ class ProfileManageComponent extends Component {
 
     render() {
         const loader = <div className="loader">Loading ...</div>;
-        const {isLoading, profile} = this.state;
+        const {isLoading, profile, optionsProfileTypes} = this.state;
         console.log(profile, 'render profile changed ;)', isLoading);
 
         return (
@@ -154,8 +214,6 @@ class ProfileManageComponent extends Component {
                                             user={profile}
                                             handleSubmit={this.handleSubmit}
                                         />
-                                        {/*{this.prepareForm(profile)}*/}
-                                        <br/>
                                     </div>
                                 </div>
                             </div>
@@ -185,7 +243,8 @@ const mapDispatchToProps = (dispatch) => {
         getStories: filteringData => dispatch(storyAction.getStories(filteringData)),
         getStoriesOLD: page => dispatch(storyAction.getStoriesOLD(page)),
         getCategories: profileID => dispatch(storyAction.getCategories(profileID)),
-        getProfileAccountSetting: profileID => dispatch(profileAction.getProfileAccountSetting(profileID))
+        getProfileAccountSetting: profileID => dispatch(profileAction.getProfileAccountSetting(profileID)),
+        setProfileAccountSetting: data => dispatch(profileAction.setProfileAccountSetting(data)),
     }
 };
 

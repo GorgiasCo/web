@@ -9,7 +9,11 @@ export default class CustomSelect extends React.Component {
         // this is going to call setFieldValue and manually update values.topcis
         if (value !== null) {
             console.log(value[this.props.valueKey], 'handleChange MySelect');
-            this.props.onChange(this.props.valueName, value[this.props.valueKey]);
+            if(this.props.isSingleValue === undefined){
+                this.props.onChange(this.props.valueName, value[this.props.valueKey]);
+            } else {
+                this.props.onChange(this.props.valueName, {valueKey: value[this.props.valueKey], labelKey: value[this.props.labelKey]});
+            }
         }
     };
 
@@ -30,7 +34,7 @@ export default class CustomSelect extends React.Component {
                     multi={false}
                     onChange={this.handleChange}
                     onBlur={this.handleBlur}
-                    value={this.props.value}
+                    value={this.props.isSingleValue === undefined ? this.props.value : this.props.value.valueKey}
                     valueKey={this.props.valueKey}
                     labelKey={this.props.labelKey}
                     matchProp={this.props.matchProp}

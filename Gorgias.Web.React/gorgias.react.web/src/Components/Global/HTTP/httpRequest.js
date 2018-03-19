@@ -3,8 +3,8 @@
  */
 import axios from "axios";
 
-const BASE_URL_V2 = 'https://gorgiasapp-v4.azurewebsites.net/api/';
-// const BASE_URL_V2 = 'http://localhost:43587/api/';
+// const BASE_URL_V2 = 'https://gorgiasapp-v4.azurewebsites.net/api/';
+const BASE_URL_V2 = 'http://localhost:43587/api/';
 let languageCode = 'en';
 class HttpRequest {
 
@@ -113,6 +113,7 @@ class HttpRequest {
     Album_Story_Edit_Endpoint = `${BASE_URL_V2}Mobile/V2/Album/Story/Edit/`;
     Album_Story_Latest_Mini_Profile_Endpoint = `${BASE_URL_V2}Mobile/V2/Albums/Filter/Profile/`;
     Album_Story_Create_Update_Endpoint = `${BASE_URL_V2}Mobile/V2/Album/Story/Manage/`;
+    Album_Story_Notification_Endpoint = `${BASE_URL_V2}Web/Notification/V2/`;
 
 
     //Account/Register/Mobile/V2
@@ -195,6 +196,10 @@ class HttpRequest {
         return await this.postAsyncHTTPV2(this.ContentManager_Insert_Endpoint, data);
     }
 
+    async postAsyncStoryNotification(data) {
+        return await this.postAsyncHTTPV2(this.Album_Story_Notification_Endpoint, data);
+    }
+
     async getAsyncAddressTypes() {
         return await this.getAsyncHTTP(this.AddressTypes_Endpoints);
     }
@@ -237,8 +242,8 @@ class HttpRequest {
         this.postHTTP(this.Update_Profile_Activity_Endpoint, cbSuccess, cbError, data);
     }
 
-    postUpdateProfileRegistration(data, cbSuccess, cbError) {
-        this.postHTTP(this.Update_Profile_Registration_Endpoint, cbSuccess, cbError, data);
+    async postAsyncUpdateProfileRegistration(data) {
+        return this.postAsyncHTTPV2(this.Update_Profile_Registration_Endpoint, data);
     }
 
     //Reading_Languages_Update_Endpoint
@@ -278,6 +283,10 @@ class HttpRequest {
 
     getProfileTypes(cbSuccess, cbError) {
         this.getHTTP(this.Profile_Types_Endpoint, cbSuccess, cbError);
+    }
+
+    async getProfileTypes() {
+        return this.getAsyncHTTP(this.Profile_Types_Endpoint);
     }
 
     //Story_Settings_Endpoint Profile_Bookmark_Endpoint

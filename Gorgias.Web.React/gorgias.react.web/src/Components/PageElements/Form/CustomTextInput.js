@@ -7,15 +7,16 @@ import InputFeedback from "./InputFeedback";
 import classnames from "classnames";
 
 const CustomTextInput = ({
-    type,
-    id,
-    label,
-    error,
-    value,
-    onChange,
-    className,
-    ...props
-}) => {
+                             type,
+                             id,
+                             label,
+                             error,
+                             value,
+                             onChange,
+                             className,
+                             isTextArea = false,
+                             ...props
+                         }) => {
     const classes = classnames(
         'input-group',
         {
@@ -28,14 +29,25 @@ const CustomTextInput = ({
             <Label htmlFor={id} error={error}>
                 {label}
             </Label>
-            <input
-                id={id}
-                className="text-input"
-                type={type}
-                value={value !== null ? value : ''}
-                onChange={onChange}
-                {...props}
-            />
+            {!isTextArea ?
+                <input
+                    id={id}
+                    className="text-input"
+                    type={type}
+                    value={value !== null ? value : ''}
+                    onChange={onChange}
+                    {...props}
+                /> :
+                <textarea
+                    rows="4"
+                    cols="50"
+                    id={id}
+                    className="text-input"
+                    value={value !== null ? value : ''}
+                    onChange={onChange}
+                    {...props}
+                />
+            }
             <InputFeedback error={error}/>
         </div>
     );
