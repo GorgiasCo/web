@@ -344,7 +344,7 @@ const storyForm = props => {
                         <CustomTextInput
                             id="AlbumHasComment"
                             type="checkbox"
-                            label="Allow comment"
+                            label="Allow Review"
                             // error={touched.ProfileEmail && errors.ProfileEmail}
                             value={values.AlbumHasComment}
                             onChange={handleChange}
@@ -368,7 +368,7 @@ const storyForm = props => {
                     </button>
 
                     <button type="submit" className={`submit`} disabled={isSubmitting}>
-                        Submit
+                        Publish Story
                     </button>
 
                 </div>

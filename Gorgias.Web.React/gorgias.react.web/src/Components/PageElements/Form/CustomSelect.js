@@ -26,7 +26,7 @@ export default class CustomSelect extends React.Component {
         return (
             <div style={{margin: '1rem 0'}}>
                 <label htmlFor="color">
-                    {this.props.label}
+                    <i>{this.props.label}</i>
                 </label>
                 <Select
                     id="color"

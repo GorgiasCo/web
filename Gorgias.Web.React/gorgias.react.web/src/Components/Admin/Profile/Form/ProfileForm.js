@@ -121,7 +121,7 @@ const profileForm = props => {
                         matchProp="KeyID"
                         valueKey="KeyID"
                         labelKey="KeyName"
-                        label="Industry"
+                        label="Profession"
                         url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/v2/Industries/"
                     />
                 }
@@ -148,7 +148,7 @@ const profileForm = props => {
                     <CustomTextInput
                         id="ProfileShortDescription"
                         type="text"
-                        label="Short Description"
+                        label="Bio"
                         placeholder="Bio"
                         error={touched.ProfileShortDescription && errors.ProfileShortDescription}
                         value={values.ProfileShortDescription}

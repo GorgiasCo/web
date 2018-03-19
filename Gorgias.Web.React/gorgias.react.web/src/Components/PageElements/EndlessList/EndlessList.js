@@ -28,7 +28,7 @@ class EndlessList extends React.Component {
 
     render() {
         console.log('infinity render ;)');
-        const loader = <div className="loader">Loading ...</div>;
+        const loader = <div className="loaderEndless">Loading ...</div>;
 
         const {isLoading, items, itemsExtra, keyID, keyName, onPress, prepareListRow, useWindow, hasMore} = this.props;
 

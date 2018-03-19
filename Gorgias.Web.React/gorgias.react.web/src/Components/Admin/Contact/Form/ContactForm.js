@@ -36,8 +36,8 @@ const contactForm = props => {
                     <CustomTextInput
                         id="AddressName"
                         type="text"
-                        label="AddressName"
-                        placeholder="John"
+                        label="Location Name"
+                        placeholder="Gorgias Office"
                         error={touched.AddressName && errors.AddressName}
                         value={values.AddressName}
                         onChange={handleChange}
@@ -48,8 +48,8 @@ const contactForm = props => {
                     <CustomTextInput
                         id="AddressTel"
                         type="text"
-                        label="AddressTel"
-                        placeholder="Doe"
+                        label="Tel"
+                        placeholder="Tel"
                         error={touched.AddressTel && errors.AddressTel}
                         value={values.AddressTel}
                         onChange={handleChange}
@@ -63,8 +63,8 @@ const contactForm = props => {
                     <CustomTextInput
                         id="AddressFax"
                         type="text"
-                        label="AddressFax"
-                        placeholder="AddressFax"
+                        label="Fax"
+                        placeholder="Fax"
                         error={touched.AddressFax && errors.AddressFax}
                         value={values.AddressFax}
                         onChange={handleChange}
@@ -75,8 +75,8 @@ const contactForm = props => {
                     <CustomTextInput
                         id="AddressZipCode"
                         type="text"
-                        label="AddressZipCode"
-                        placeholder="AddressZipCode"
+                        label="ZipCode"
+                        placeholder="ZipCode"
                         error={touched.AddressZipCode && errors.AddressZipCode}
                         value={values.AddressZipCode}
                         onChange={handleChange}
@@ -91,8 +91,8 @@ const contactForm = props => {
                     <CustomTextInput
                         id="AddressEmail"
                         type="email"
-                        label="AddressEmail"
-                        placeholder="Bio"
+                        label="Email"
+                        placeholder="Email"
                         error={touched.AddressEmail && errors.AddressEmail}
                         value={values.AddressEmail}
                         onChange={handleChange}
@@ -102,8 +102,8 @@ const contactForm = props => {
                     <CustomTextInput
                         id="AddressAddress"
                         type="text"
-                        label="AddressAddress"
-                        placeholder="AddressAddress"
+                        label="Address"
+                        placeholder="Address"
                         error={touched.AddressAddress && errors.AddressAddress}
                         value={values.AddressAddress}
                         onChange={handleChange}
@@ -125,7 +125,7 @@ const contactForm = props => {
                         matchProp="AddressTypeID"
                         valueKey="AddressTypeID"
                         labelKey="AddressTypeName"
-                        label="AddressTypeID"
+                        label="Location Type"
                         options={props.optionsProfileTypes}
                     />
                 }
@@ -141,7 +141,7 @@ const contactForm = props => {
                         matchProp="KeyID"
                         valueKey="KeyID"
                         labelKey="KeyName"
-                        label="CityID"
+                        label="Country"
                         url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Cities/"
                     />
                 }
@@ -159,7 +159,6 @@ const contactForm = props => {
                         onBlur={setFieldTouched}
                         isUploading={false}
                     />
-
                 }
                 right={null}
             />

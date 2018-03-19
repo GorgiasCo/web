@@ -10,7 +10,7 @@ const Label = ({
                }) => {
     return (
         <label className="label" {...props}>
-            {children}
+            <i>{children}</i>
         </label>
     );
 };
