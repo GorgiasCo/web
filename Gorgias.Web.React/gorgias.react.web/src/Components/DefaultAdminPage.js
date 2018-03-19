@@ -58,6 +58,7 @@ class DefaultAdminPage extends Component {
     }
 
     prepareContainer = () => {
+        let result = null;
         switch (this.props.containerName) {
             case "about":
                 return (
@@ -85,51 +86,61 @@ class DefaultAdminPage extends Component {
                 )
                 break;
             case "StoryManage":
-                return (
-                    <StoryListComponent {...this.props}/>
-                )
+                result = <StoryListComponent {...this.props}/>;
+                // return (
+                //     <StoryListComponent {...this.props}/>
+                // )
                 break;
             case "StoryNew":
-                return (
-                    <StoryNew AlbumID={this.props.match.params.AlbumID} {...this.props}/>
-                )
+                result = <StoryNew AlbumID={this.props.match.params.AlbumID} {...this.props}/>;
+                // return (
+                //     <StoryNew AlbumID={this.props.match.params.AlbumID} {...this.props}/>
+                // )
                 break;
             case "ProfileManage":
-                return (
-                    <ProfileManage {...this.props}/>
-                )
+                result = <ProfileManage {...this.props}/>;
+                // return (
+                //     <ProfileManage {...this.props}/>
+                // )
                 break;
             case "ContactForm":
-                return (
-                    <ContactManageComponent AddressID={this.props.match.params.AddressID} {...this.props}/>
-                )
+                result = <ContactManageComponent AddressID={this.props.match.params.AddressID} {...this.props}/>;
+                // return (
+                //     <ContactManageComponent AddressID={this.props.match.params.AddressID} {...this.props}/>
+                // )
                 break;
             case "ContactList":
-                return (
-                    <ContactListComponent {...this.props}/>
-                )
+                result = <ContactListComponent {...this.props}/>;
+                // return (
+                //     <ContactListComponent {...this.props}/>
+                // )
                 break;
             case "ContentManagerList":
-                return (
-                    <ContentManagerListComponent {...this.props}/>
-                )
+                result = <ContentManagerListComponent {...this.props}/>;
+                // return (
+                //     <ContentManagerListComponent {...this.props}/>
+                // )
                 break;
             case "FollowerList":
-                return (
-                    <FollowerListComponent {...this.props}/>
-                )
+                result = <FollowerListComponent {...this.props}/>;
+                // return (
+                //     <FollowerListComponent {...this.props}/>
+                // )
                 break;
             case "Dashboard":
-                return (
-                    <DashboardComponent {...this.props}/>
-                )
+                result = <DashboardComponent {...this.props}/>;
+                // return (
+                //     <DashboardComponent {...this.props}/>
+                // )
                 break;
             default:
-                return (
-                    <Content/>
-                )
+                result = <Content/>;
+                // return (
+                //     <Content/>
+                // )
                 break;
         }
+        return result;
     }
 
     prepareProfileAccounts = (event) => {

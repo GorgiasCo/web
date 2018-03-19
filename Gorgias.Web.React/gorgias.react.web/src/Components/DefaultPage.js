@@ -43,38 +43,46 @@ class DefaultPage extends Component {
     }
 
     prepareContainer = () => {
+        let result = null;
         switch (this.props.containerName) {
             case "about":
-                return (
-                    <ContentAbout/>
-                )
+                result = <ContentAbout/>;
+                // return (
+                //     <ContentAbout/>
+                // )
                 break;
             case "store":
-                return (
-                    <ContentAppstore/>
-                )
+                result = <ContentAppstore/>;
+                // return (
+                //     <ContentAppstore/>
+                // )
                 break;
             case "terms":
-                return (
-                    <ContentTerms/>
-                )
+                result = <ContentTerms/>;
+                // return (
+                //     <ContentTerms/>
+                // )
                 break;
             case "contact":
-                return (
-                    <ContentContact/>
-                )
+                result = <ContentContact/>;
+                // return (
+                //     <ContentContact/>
+                // )
                 break;
             case "test":
-                return (
-                    <ContentTest/>
-                )
+                result = <ContentContact/>;
+                // return (
+                //     <ContentContact/>
+                // )
                 break;
             default:
-                return (
-                    <Content/>
-                )
+                result = <Content/>;
+                // return (
+                //     <Content/>
+                // )
                 break;
         }
+        return result;
     }
 
     render() {
