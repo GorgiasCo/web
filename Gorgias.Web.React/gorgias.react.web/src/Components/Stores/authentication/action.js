@@ -75,18 +75,24 @@ export const authentication = credential => async dispatch => {
             }
         })
             .then(response => {
-                let loginData = {data: response.data, isAuthenticated: true};
                 console.log(response.data,'after login data');
                 localStorage.setItem('token', response.data.access_token);
+                let newData = response.data;
+                newData.ProfileIsConfirmed = (response.data.ProfileIsConfirmed === "True");
+                let loginData = {data: newData, isAuthenticated: true};
                 dispatch(login(loginData));
-                dispatch(profileAction.setProfileAccountSetting(response.data));
+                dispatch(profileAction.setProfileAccountSetting(newData));
             })
             .catch(error => {
                 if (error.status === 200) {
-                    let loginData = {data: error.data, isAuthenticated: true};
                     localStorage.setItem('token', error.data.access_token);
+                    let newData = error.data;
+                    newData.ProfileIsConfirmed = (error.data.ProfileIsConfirmed === "True");
+                    let loginData = {data: newData, isAuthenticated: true};
                     dispatch(login(loginData));
-                    dispatch(profileAction.setProfileAccountSetting(error.data));
+                    dispatch(profileAction.setProfileAccountSetting(newData));
+                    // dispatch(login(loginData));
+                    // dispatch(profileAction.setProfileAccountSetting(error.data));
                 } else {
                     console.log(error, 'loginError');
                     dispatch(logout());

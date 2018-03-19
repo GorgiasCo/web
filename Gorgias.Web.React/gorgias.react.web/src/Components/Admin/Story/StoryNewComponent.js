@@ -481,6 +481,7 @@ class StoryNewComponent extends Component {
                                             newTextContent={newTextContent}
                                             newYotubeContent={newYotubeContent}
                                             newCTAContent={newCTAContent}
+                                            ProfileIsConfirmed={this.props.profileAccountSetting.payload.ProfileIsConfirmed}
                                             user={this.state.story}
                                             // user={{
                                             //     ProfileEmail: 'yaser2us@gmail.com',

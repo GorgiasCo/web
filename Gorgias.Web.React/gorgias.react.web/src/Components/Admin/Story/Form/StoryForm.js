@@ -10,13 +10,12 @@ import Yup from "yup";
 
 import CustomSelect from "../../../PageElements/Form/CustomSelect";
 import CustomTextInput from "../../../PageElements/Form/CustomTextInput";
+import CustomAutocomplete from "../../../PageElements/Form/CustomAutocomplete";
 import CustomInputFieldComponent from "../../../PageElements/Form/CustomInputFieldComponent";
 import CustomTextAreaFieldComponent from "../../../PageElements/Form/CustomTextAreaFieldComponent";
 import CustomDropZone from "../../../PageElements/Form/CustomDropZone";
-import CustomAutocomplete from "../../../PageElements/Form/CustomAutocomplete";
 import RowLayout from "../../../PageElements/Form/RowLayout";
 import dateFormat from "dateformat";
-import Dropzone from "react-dropzone";
 
 const ErrorMessage = ({name}) => (
     <Field
@@ -51,6 +50,7 @@ const storyForm = props => {
         isNew,
         contentTypes,
         storyOptions,
+        ProfileIsConfirmed,
     } = props;
     let dropZone;
     return (
@@ -170,22 +170,22 @@ const storyForm = props => {
                                 <div
                                     style={{textAlign: 'center'}}>
                                     {/*<div>*/}
-                                        {/*<Dropzone ref={(node) => { dropZone = node; }} onDrop={(accepted, rejected) => {*/}
-                                            {/*console.log(accepted,'files haha');*/}
-                                            {/*let arr = [];*/}
-                                            {/*accepted.map((file, index) => {*/}
-                                                {/*let content = newContent;*/}
-                                                {/*content.ContentURL = file.preview;*/}
-                                                {/*console.log(content, 'insert content bulk ;)', values.Contents.length + index);*/}
-                                                {/*arr.push(content);*/}
-                                                {/*arrayHelpers.insert(values.Contents.length + index, content);*/}
-                                            {/*});*/}
-                                        {/*}}>*/}
-                                            {/*<p>Drop files here.</p>*/}
-                                        {/*</Dropzone>*/}
-                                        {/*<button type="button" onClick={() => { dropZone.open() }}>*/}
-                                            {/*Open File Dialog*/}
-                                        {/*</button>*/}
+                                    {/*<Dropzone ref={(node) => { dropZone = node; }} onDrop={(accepted, rejected) => {*/}
+                                    {/*console.log(accepted,'files haha');*/}
+                                    {/*let arr = [];*/}
+                                    {/*accepted.map((file, index) => {*/}
+                                    {/*let content = newContent;*/}
+                                    {/*content.ContentURL = file.preview;*/}
+                                    {/*console.log(content, 'insert content bulk ;)', values.Contents.length + index);*/}
+                                    {/*arr.push(content);*/}
+                                    {/*arrayHelpers.insert(values.Contents.length + index, content);*/}
+                                    {/*});*/}
+                                    {/*}}>*/}
+                                    {/*<p>Drop files here.</p>*/}
+                                    {/*</Dropzone>*/}
+                                    {/*<button type="button" onClick={() => { dropZone.open() }}>*/}
+                                    {/*Open File Dialog*/}
+                                    {/*</button>*/}
                                     {/*</div>*/}
                                     <button
                                         type="button"
@@ -230,7 +230,6 @@ const storyForm = props => {
             />
 
 
-
             <div
                 style={{
                     width: '70%',
@@ -240,17 +239,19 @@ const storyForm = props => {
 
                 <RowLayout
                     left={
-                        <CustomAutocomplete
-                            label="Category"
-                            valueName="Topic"
-                            valueKey="KeyName"
-                            KeyID="KeyID"
-                            KeyName="KeyName"
-                            value={values.Topic !== null ? values.Topic.CategoryName : ''}
-                            onChange={setFieldValue}
-                            onBlur={setFieldTouched}
-                            url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Categories/Search/"
-                        />
+                        ProfileIsConfirmed ?
+                            <CustomAutocomplete
+                                label="Category"
+                                valueName="Topic"
+                                valueKey="KeyName"
+                                KeyID="KeyID"
+                                KeyName="KeyName"
+                                value={values.Topic !== null ? values.Topic.CategoryName : ''}
+                                onChange={setFieldValue}
+                                onBlur={setFieldTouched}
+                                url="https://gorgiasapp-v4.azurewebsites.net/api/Mobile/V2/Categories/Search/"
+                            />
+                            : null
                     }
                     right={
                         <CustomTextInput
@@ -373,7 +374,8 @@ const storyForm = props => {
                 </div>
             </div>
         </form>
-    );
+    )
+        ;
 };
 
 const formikEnhancer = withFormik({
