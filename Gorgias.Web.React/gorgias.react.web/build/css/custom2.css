@@ -9,15 +9,15 @@ background-size: cover;
     height: 66px;
 }
 
-/*.loader{*/
-    /*width: 100vw;*/
-    /*height: 100vh;*/
-    /*text-align: center;*/
-    /*font-style: italic;*/
-    /*margin-top: 20%;*/
-    /*color: #ff0088;*/
-    /*padding:13px 25px;*/
-/*}*/
+.loader{
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    font-style: italic;
+    margin-top: 20%;
+    color: #ff0088;
+    padding:13px 25px;
+}
 
 .error {
     color: red;

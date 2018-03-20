@@ -220,7 +220,7 @@ const storyForm = props => {
                             style={{textAlign: 'center'}}>
                             <button
                                 type="button"
-                                onClick={() => arrayHelpers.insert(0, newContent)}
+                                onClick={() => arrayHelpers.insert(values.Contents.length, newContent)}
                             >
                                 Photo
                             </button>

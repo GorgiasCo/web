@@ -55,7 +55,7 @@ export default class Footer extends React.Component {
                                 </p>
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                     <NavLink to={"/login"} activeClassName={"activee"}>
-                                        <span>Forget Password</span>
+                                        <span>Control Panel</span>
                                     </NavLink>
                                 </p>
                             </aside>

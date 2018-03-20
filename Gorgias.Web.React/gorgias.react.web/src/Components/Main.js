@@ -49,7 +49,7 @@ export default class MainPage extends Component {
             <Router onUpdate={() => window.scrollTo(0, 0)}>
                 <div>
                     {/*<Route exact path="/" component={AuthenticationProvider(DefaultPage)} data={{containerName:"contact", hasFooter:true}}/>*/}
-                    <Route exact path="/" component={() => <ComposedComponent containerName=""  hasFooter={true} />}/>
+                    <Route exact path="/" component={() => <DefaultPage containerName=""  hasFooter={true} />}/>
                     <Route exact path="/login" component={LoginComponent}/>
                     <Route path="/account/reset/:id" component={(props) => <AccountContent {...props} accountType="reset"/>}/>
                     <Route exact path="/account/forget" component={() => <AccountContent accountType="forget"/>}/>

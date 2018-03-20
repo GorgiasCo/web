@@ -8,8 +8,8 @@ import {connect} from "react-redux";
 import "react-select/dist/react-select.css";
 import ProfileForm from "./Form/";
 import AdminpageHeader from "../../PageElements/AdminPageHeader";
-import {ToastContainer} from "react-toastify";
 import httpRequest from "../../Global/HTTP/httpRequest";
+import {toast, ToastContainer} from "react-toastify";
 
 // const optionsProfileTypes = [
 //     {value: 1, label: 'Food'},
@@ -163,16 +163,17 @@ class ProfileManageComponent extends Component {
                 newProfileAccountSetting.payload.ProfileBirthday = data.ProfileBirthday;
 
                 this.props.setProfileAccountSetting(newProfileAccountSetting.payload);
+                toast.success("Success!", {
+                    position: toast.POSITION.TOP_CENTER,
+                    onClose: this.return,
+                });
             },
             error => {
                 console.log(error, 'response postAsyncUpdateProfileRegistration');
             }
         )
 
-        // toast.success("Success!", {
-        //     position: toast.POSITION.TOP_CENTER,
-        //     onClose: this.return,
-        // });
+
     };
 
     return = () => {

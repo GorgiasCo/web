@@ -385,15 +385,15 @@ class Header extends React.Component {
                                                             <li>
                                                                 <a href="/admin/" className="close"><span>Profile</span></a>
                                                             </li> : null}
-                                                        <li>
-                                                            {/*<a href="#Featured" className="close"><span>Featured</span></a>*/}
-                                                            {!this.props.authentication.isAuthenticated ?
-                                                                <a onClick={this.authenticationLogin}
-                                                                   className="close"><span>Login</span></a> :
-                                                                <a onClick={this.authenticationLogout}
-                                                                   className="close"><span>Logout</span></a>
-                                                            }
-                                                        </li>
+                                                        {/*<li>*/}
+                                                            {/*/!*<a href="#Featured" className="close"><span>Featured</span></a>*!/*/}
+                                                            {/*{!this.props.authentication.isAuthenticated ?*/}
+                                                                {/*<a onClick={this.authenticationLogin}*/}
+                                                                   {/*className="close"><span>Login</span></a> :*/}
+                                                                {/*<a onClick={this.authenticationLogout}*/}
+                                                                   {/*className="close"><span>Logout</span></a>*/}
+                                                            {/*}*/}
+                                                        {/*</li>*/}
 
                                                         <li>
                                                             <a href="#Stories"

@@ -89,14 +89,7 @@ class StoryNewComponent extends Component {
             ContentRatingID: undefined,
             AlbumParentID: null,
             Topic: null,
-            Contents: [{
-                ContentTitle: "hello WOW from fiddler4 h6",
-                ContentURL: "https://gorgiasasia.blob.core.windows.net/images/content-20161106233839-pic(4).jpg",
-                ContentGeoLocation: null,
-                ContentDimension: "800-600",
-                ContentTypeID: 1,
-                ContentID: 0,
-            }]
+            Contents: []
         };
 
         this.state = {

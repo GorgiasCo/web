@@ -214,9 +214,9 @@ const profileForm = props => {
                         onChange={setFieldValue}
                         onBlur={handleBlur}
                         isUploading={true}
-                        prefix="profile-"
-                        photoName={`profile-web-${values.ProfileID}.jpg`}
-                        value={`https://gorgiasasia.blob.core.windows.net/images/profile-web-${values.ProfileID}.jpg`}
+                        prefix="mobile-"
+                        photoName={`mobile-${values.ProfileID}`}
+                        value={`https://gorgiasasia.blob.core.windows.net/images/mobile-${values.ProfileID}`}
                         photoType="profile"
                         defaultCaption={`Drop Profile Web Photo here`}
                         uploadedCaption={`uploaded wow`}
@@ -234,9 +234,9 @@ const profileForm = props => {
                         onChange={setFieldValue}
                         onBlur={handleBlur}
                         isUploading={true}
-                        value={`https://gorgiasasia.blob.core.windows.net/images/profile-cover-${values.ProfileID}.jpg`}
-                        prefix="profile-"
-                        photoName={`profile-cover-${values.ProfileID}.jpg`}
+                        value={`https://gorgiasasia.blob.core.windows.net/images/mobileprofile-${values.ProfileID}`}
+                        prefix="mobileprofile-"
+                        photoName={`mobileprofile-${values.ProfileID}`}
                         photoType="profile"
                         defaultCaption={`Drop Profile Cover Photo here`}
                         uploadedCaption={`uploaded wow`}

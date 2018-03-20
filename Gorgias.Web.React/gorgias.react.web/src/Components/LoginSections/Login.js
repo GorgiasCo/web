@@ -7,8 +7,8 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "yaser2us@gmail.com",
-            password: "cy830404",
+            username: "",
+            password: "",
         };
         console.log(this.context, 'this.context login');
     }
