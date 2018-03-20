@@ -1,8 +1,9 @@
 import React from "react";
 import {slide as Menu} from "react-burger-menu";
-import {confirmAlert} from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
-import List from "../PageElements/List/List";
+import {confirmAlert} from "react-confirm-alert"; // Import
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+import Coursol from "../PageElements/Coursol";
+import List from "../PageElements/List/";
 import ContentManagerProfileRow from "../Admin/ContentManager/List/ContentManagerProfileRow";
 
 
@@ -12,13 +13,26 @@ export default class AdminBurgerHeader extends React.Component {
         confirmAlert({
             customUI: ({onClose}) => {
                 return (
-                    <div className='custom-ui' style={{textAlign: 'center'}}>
-                        <List
+                    <div className='custom-ui' style={{textAlign: 'center',}}>
+                        <div
+                            style={{
+                                margin: 1 + "% " + 1 + "%",
+                                width:'90%',
+                                overflow:'both',
+                                height:'400px'
+                            }}>
+                            {/*<Coursol*/}
+                                {/*items={this.props.prepareProfileAccountLists.payload}*/}
+                                {/*dots={true}*/}
+                                {/*renderCoursolItem={(item) => this.prepareContentManagerProfileRow(item, onClose)}*/}
+                            {/*/>*/}
+                            <List
                             isLoading={false}
                             items={this.props.prepareProfileAccountLists.payload}
                             prepareListRow={(item) => this.prepareContentManagerProfileRow(item, onClose)}
-                        />
-                        <button className={`reset`} onClick={onClose}>close</button>
+                            />
+                            <button className={`reset`} onClick={onClose}>close</button>
+                        </div>
                     </div>
                 )
             }
@@ -36,7 +50,8 @@ export default class AdminBurgerHeader extends React.Component {
                          borderTopLeftRadius: 15, borderTopRightRadius: 15,
                          borderBottomLeftRadius: 15,
                      }}/>
-                <a id="home" className="menu-item" href="/admin/">Home</a>
+                <a id="home" className="menu-item" href="/">Home</a>
+                <a id="Dashboard" className="menu-item" href="/admin/">Dashboard</a>
                 <a id="profile" className="menu-item" href="/admin/profile">Profile</a>
                 <a id="story" className="menu-item" href="/admin/story">Story</a>
                 <a id="contact" className="menu-item" href="/admin/contact">Contact</a>

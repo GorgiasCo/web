@@ -9,6 +9,7 @@
  */
 import axios from 'axios'
 import * as profileAction from '../profile/action';
+import httpRequest from '../../Global/HTTP/httpRequest';
 
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
@@ -67,7 +68,7 @@ export const authentication = credential => async dispatch => {
 
         axios({
             method: 'post',
-            url: 'https://gorgiasapp-v3.azurewebsites.net/' + 'token',
+            url: `${httpRequest.BASE_SERVER_URL_V2}token`,
             data: data,
             headers: {
                 'Content-type': 'application/x-www-form-urlencoded',

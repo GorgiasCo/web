@@ -44,7 +44,7 @@ export default class Footer extends React.Component {
                                 <hr/>
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>
                                     <NavLink to={"/store"} activeClassName={"activee"}>
-                                        <span>Iconic Ap Store</span>
+                                        <span>iconicAp Store</span>
                                     </NavLink>
                                 </p>
                                 <p className="tkFont1" style={{fontWeight: 'bold'}}>

@@ -43,6 +43,7 @@ class DefaultPage extends Component {
     }
 
     prepareContainer = () => {
+        console.log(this.props.containerName,'this.props.containerName');
         let result = null;
         switch (this.props.containerName) {
             case "about":

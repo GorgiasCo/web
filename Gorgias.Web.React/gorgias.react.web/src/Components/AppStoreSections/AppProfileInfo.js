@@ -27,10 +27,10 @@ export default class AppProfileInfo extends React.Component {
         //console.log('app profile', this.props, this.props.match.params.id);
     }
 
-    componentDidUpdate(prevProps, prevState) {
-
-        console.log('componentDidUpdate');
-    }
+    // componentDidUpdate(prevProps, prevState) {
+    //
+    //     console.log('componentDidUpdate');
+    // }
 
     _handleClick() {
         if (!window.navigator.standalone || window.innerHeight > 61 || !window.matchMedia('(display-mode: standalone)').matches) {
@@ -161,41 +161,46 @@ export default class AppProfileInfo extends React.Component {
                     <hr/>
                     <div className="column mcb-column one-second column_column"
                          style={{float: "none", textAlign: "center", margin: "0px auto"}}>
-                        <p style={{marginTop: "20px"}}>
-                            Scan the code!
-                        </p>
-                        <img className="tk-AppAvatarImg qrCode" style={{left: 0}}
-                             src="https://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg"
-                             width="150" height="150"/>
-                        <input type="submit" id="submit" value="GET APP" className="tkFont-Bold"
-                               style={{width: "100%"}}/>
+                        {/*<p style={{marginTop: "20px"}}>*/}
+                            {/*Scan the code!*/}
+                        {/*</p>*/}
+                        {/*<img className="tk-AppAvatarImg qrCode" style={{left: 0}}*/}
+                             {/*src="https://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg"*/}
+                             {/*width="150" height="150"/>*/}
+                        <a href={`/app/${this.props.data.ProfileURL}/${this.props.data.ProfileID}`}
+                           target="_blank"
+                           className="button tkFont-Bold"
+                           style={{width: "100%"}}>Get APP</a>
+
+                        {/*<input type="submit" id="submit" value="GET APP" className="tkFont-Bold"*/}
+                               {/*style={{width: "100%"}}/>*/}
                     </div>
                 </div> : null
         );
     }
 
-    renderInstructions() {
-        return (
-            <label className="login-label tkFont1 tkFont-Form"
-                   style={{textAlign: "center", width: 245 + "px"}}>
-                {isAndroid ?
-                    <p>Android, To add this app, open the browser option menu
-                        <img
-                            src="tkImages/android-home-gorgias.png"
-                            width="20"/>
-                        and tap on Add to homescreen.
-                    </p> :
-                    <p>
-                        The mmenu can be accessed by pressing the menu hardware button
-                        if your device has one, or by tapping the top right menu
-                        icon <img
-                        src="tkImages/android-home-gorgias.png"
-                        width="20"/>
-                    </p>
-                }
-            </label>
-        );
-    }
+    // renderInstructions() {
+    //     return (
+    //         <label className="login-label tkFont1 tkFont-Form"
+    //                style={{textAlign: "center", width: 245 + "px"}}>
+    //             {isAndroid ?
+    //                 <p>Android, To add this app, open the browser option menu
+    //                     <img
+    //                         src="tkImages/android-home-gorgias.png"
+    //                         width="20"/>
+    //                     and tap on Add to homescreen.
+    //                 </p> :
+    //                 <p>
+    //                     The mmenu can be accessed by pressing the menu hardware button
+    //                     if your device has one, or by tapping the top right menu
+    //                     icon <img
+    //                     src="tkImages/android-home-gorgias.png"
+    //                     width="20"/>
+    //                 </p>
+    //             }
+    //         </label>
+    //     );
+    // }
 
     render() {
         return this.renderMiniProfile();

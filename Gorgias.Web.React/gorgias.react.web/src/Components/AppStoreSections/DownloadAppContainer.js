@@ -22,9 +22,9 @@ export default class DownloadAppContainer extends React.Component {
             <div>
                 <div className="goBack">
                     <i className="icon-left-thin"></i>
-                    <NavLink exact to={"/"}><span>Back to Gorgias</span></NavLink>
+                    <NavLink exact to={"/store"}><span>Back to Gorgias</span></NavLink>
                 </div>
-                {this.props.match.params.pid == undefined ?
+                {this.props.match.params.pid === undefined ?
                     <AppProfile profileURL={this.props.match.params.id}/> :
                     <AppProfile profileURL={this.props.match.params.id} profileID={this.props.match.params.pid}/>
                 }

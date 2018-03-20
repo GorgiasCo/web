@@ -55,7 +55,7 @@ let newYotubeContent = {
 }
 
 let newCTAContent = {
-    ContentTitle: '',
+    ContentTitle: 'newCTAContentnewCTAContentnewCTAContentnewCTAContentnewCTAContentnewCTAContentnewCTAContentnewCTAContent',
     ContentURL: '',
     ContentGeoLocation: null,
     ContentDimension: null,
@@ -131,10 +131,14 @@ class StoryNewComponent extends Component {
                                 ContentDimension: `${dimension[1]}-${dimension[2]}`,
                                 ContentID: el.ContentID > 0 ? el.ContentID : 0,
                                 ContentURL: el.ContentURL.split('?')[0],
+                                ContentTypeID:  parseInt(el.ContentTypeID),
                             })
                         }
                     }
-                return el
+                return Object.assign({}, el, {
+                    ContentTypeID:  parseInt(el.ContentTypeID),
+                })
+                // return el
             });
 
             console.log('onDrop ;)', data);

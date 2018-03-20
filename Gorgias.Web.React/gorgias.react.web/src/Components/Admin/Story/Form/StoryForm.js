@@ -146,7 +146,7 @@ const storyForm = props => {
                                                 {content.ContentTypeID !== 10 && content.ContentTypeID !== 3 && content.ContentTypeID !== 1 ?
                                                     <div className={`story-section`}>
                                                         CTA
-                                                        <Field component="select" name={`Contents.${index}.ContentTitle`}>
+                                                        <Field component="select" name={`Contents.${index}.ContentTypeID`}>
                                                             {
                                                                 contentTypes.map((contentType, index) => {
                                                                     return <option
