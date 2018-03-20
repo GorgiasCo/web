@@ -3,8 +3,8 @@
  */
 import axios from "axios";
 
-// const BASE_URL_V2 = 'https://gorgiasapp-v4.azurewebsites.net/api/';
-const BASE_URL_V2 = 'http://localhost:43587/api/';
+const BASE_URL_V2 = 'https://gorgiasapp-v4.azurewebsites.net/api/';
+// const BASE_URL_V2 = 'http://localhost:43587/api/';
 let languageCode = 'en';
 class HttpRequest {
 
@@ -44,8 +44,8 @@ class HttpRequest {
         this.getCategories = this.getCategories.bind(this);
     }
 
-    // BASE_SERVER_URL_V2 = 'https://gorgiasapp-v4.azurewebsites.net/';
-    BASE_SERVER_URL_V2 = 'http://localhost:43587/';
+    BASE_SERVER_URL_V2 = 'https://gorgiasapp-v4.azurewebsites.net/';
+    // BASE_SERVER_URL_V2 = 'http://localhost:43587/';
 
     Image_Store_URL_V2 = 'https://gorgiasasia.blob.core.windows.net/albums/';
 
