@@ -436,6 +436,10 @@ class HttpRequest {
         this.postHTTP(this.Profile_Update_Fullname_Endpoint, cbSuccess, cbError, data);
     }
 
+    postNotificationStory(data){
+        return this.postAsyncHTTPV2Notification(data);
+    }
+
     getHTTP(url, cbSuccess, cbError) {
         // fetch(url, {
         //     headers: {
@@ -538,6 +542,23 @@ class HttpRequest {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                     'Accept-Language': languageCode,
+                    ...headers
+                }
+            }
+        )
+    }
+
+    async postAsyncHTTPV2Notification(data) {
+
+        let headers = {'Authorization': `key=AAAAH1qDRKw:APA91bHX1I5ohgU4_gm42LmgFf7Gem_7gxq0-TlXYXptzXGnpBj4i9pw2o7Um3CUqT03YUN0HwmqgtdHqWCYhMh8LZUAX0jSHja4GJYnNebGo8B_i5Q4IzZaY1wk6F52XSM3u-OA6FHo`};
+
+        return await axios(
+            {
+                method: 'post',
+                url: 'https://fcm.googleapis.com/fcm/send',
+                data: data,
+                headers: {
+                    'Content-Type': 'application/json',
                     ...headers
                 }
             }

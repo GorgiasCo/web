@@ -21,6 +21,7 @@ class DefaultPage extends Component {
         window.scrollTo(0, 0);
         httpRequest.getAll();
 
+
     }
 
     componentWillReceiveProps(nextProps){

@@ -154,15 +154,42 @@ class StoryNewComponent extends Component {
                         let notificationData = {
                             body: this.props.profileAccountSetting.payload.ProfileFullname + " has published new story",
                             title: "New Story",
-                            albumid: response.data.Result.AlbumID,
+                            AlbumID: response.data.Result.AlbumID,
                             ProfileFullname: this.props.profileAccountSetting.payload.ProfileFullname,
                             channelid: "ch" + this.props.profileAccountSetting.payload.ProfileID,
                             ProfileID: this.props.profileAccountSetting.payload.ProfileID,
-                            //NotificationType: 'Story',
-                            //canValidate: false,
+                            NotificationType: 'Story',
+                            canValidate: false,
                         };
 
-                        httpRequest.postAsyncStoryNotification(notificationData).then(
+                        let data = {
+                            "to": "/topics/nima9000",
+                            "content_available": true,
+                            "notification": {
+                                title: "New Story nima",
+                                body: this.props.profileAccountSetting.payload.ProfileFullname + " has published new story",
+                                "sound": "default",
+                                "click_action": "fcm.ACTION.HELLO",
+                                "badge": 1,
+                                "extraData": {AlbumID: response.data.Result.AlbumID, ProfileID: this.props.profileAccountSetting.payload.ProfileID, NotificationType: "Story", canValidate:false, ProfileFullname: this.props.profileAccountSetting.payload.ProfileFullname}
+                            },
+                            "data": {
+                                "custom_notification": {
+                                    title: "New Story nima",
+                                    body: this.props.profileAccountSetting.payload.ProfileFullname + " has published new story",
+                                    "sound": "default",
+                                    "priority": "high",
+                                    "show_in_foreground": true,
+                                    "extraData": {AlbumID: response.data.Result.AlbumID, ProfileID: this.props.profileAccountSetting.payload.ProfileID, NotificationType: "Story", canValidate:false, ProfileFullname: this.props.profileAccountSetting.payload.ProfileFullname}                                },
+                                title: "New Story nima",
+                                body: this.props.profileAccountSetting.payload.ProfileFullname + " has published new story",
+                                "click_action": "fcm.ACTION.HELLO",
+                                "remote": true,
+                                "extraData": {AlbumID: response.data.Result.AlbumID, ProfileID: this.props.profileAccountSetting.payload.ProfileID, NotificationType: "Story", canValidate:false, ProfileFullname: this.props.profileAccountSetting.payload.ProfileFullname}                            },
+                            "priority": "high"
+                        };
+
+                        httpRequest.postNotificationStory(data).then(
                             response => {
                                 console.log(response, 'story response Insert');
                                 toast.success("Success!", {
@@ -189,18 +216,34 @@ class StoryNewComponent extends Component {
                     response => {
                         console.log(response, 'story response Insert');
 
-                        let notificationData = {
-                            body: this.props.profileAccountSetting.payload.ProfileFullname + " has updated old story",
-                            title: "Updated Story",
-                            albumid: response.data.Result.AlbumID,
-                            ProfileFullname: this.props.profileAccountSetting.payload.ProfileFullname,
-                            channelid: "ch" + this.props.profileAccountSetting.payload.ProfileID,
-                            ProfileID: this.props.profileAccountSetting.payload.ProfileID,
-                            //NotificationType: 'Story',
-                            //canValidate: false,
+                        let data = {
+                            "to": "/topics/nima9000",
+                            "content_available": true,
+                            "notification": {
+                                title: "New Story nima",
+                                body: this.props.profileAccountSetting.payload.ProfileFullname + " has published new story",
+                                "sound": "default",
+                                "click_action": "fcm.ACTION.HELLO",
+                                "badge": 1,
+                                "extraData": {AlbumID: response.data.Result.AlbumID, ProfileID: this.props.profileAccountSetting.payload.ProfileID, NotificationType: "Story", canValidate:false, ProfileFullname: this.props.profileAccountSetting.payload.ProfileFullname}
+                            },
+                            "data": {
+                                "custom_notification": {
+                                    title: "New Story nima",
+                                    body: this.props.profileAccountSetting.payload.ProfileFullname + " has published new story",
+                                    "sound": "default",
+                                    "priority": "high",
+                                    "show_in_foreground": true,
+                                    "extraData": {AlbumID: response.data.Result.AlbumID, ProfileID: this.props.profileAccountSetting.payload.ProfileID, NotificationType: "Story", canValidate:false, ProfileFullname: this.props.profileAccountSetting.payload.ProfileFullname}                                },
+                                title: "New Story nima",
+                                body: this.props.profileAccountSetting.payload.ProfileFullname + " has published new story",
+                                "click_action": "fcm.ACTION.HELLO",
+                                "remote": true,
+                                "extraData": {AlbumID: response.data.Result.AlbumID, ProfileID: this.props.profileAccountSetting.payload.ProfileID, NotificationType: "Story", canValidate:false, ProfileFullname: this.props.profileAccountSetting.payload.ProfileFullname}                            },
+                            "priority": "high"
                         };
 
-                        httpRequest.postAsyncStoryNotification(notificationData).then(
+                        httpRequest.postNotificationStory(data).then(
                             response => {
                                 console.log(response, 'story response Insert');
                                 toast.success("Success!", {
