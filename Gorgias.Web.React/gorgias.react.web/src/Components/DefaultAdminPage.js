@@ -36,9 +36,11 @@ class DefaultAdminPage extends Component {
 
     componentWillMount() {
         //To ensure page is begining at top ;)
-        console.log(this.props, 'defaultAdmin', this.props.profileAccountSetting.payload);
-        if(this.props.profileAccountSetting.payload.userUserID !== undefined){
-            this.props.getProfileAccounts(this.props.profileAccountSetting.payload.userUserID);
+        console.log(this.props, 'defaultAdmin wowowowowowowowow', this.props.profileAccountSetting.payload);
+        if(this.props.profileAccountSetting.payload !== undefined){
+            if(this.props.profileAccounts.payload !== undefined){
+                this.props.getProfileAccounts(this.props.profileAccountSetting.payload.UserID);
+            }
         }
         window.scrollTo(0, 0);
     }
@@ -159,6 +161,7 @@ class DefaultAdminPage extends Component {
 
     render() {
         return (
+            this.props.profileAccountSetting.payload !== undefined ?
             <div>
                 <AdminBurgerHeader
                     logout={this.props.logout}
@@ -173,7 +176,7 @@ class DefaultAdminPage extends Component {
                     {this.prepareContainer()}
                     <MiniFooter/>
                 </div>
-            </div>
+            </div> : null
         );
     }
 }
