@@ -83,6 +83,7 @@ export const authentication = credential => async dispatch => {
                 let loginData = {data: newData, isAuthenticated: true};
                 dispatch(login(loginData));
                 dispatch(profileAction.setProfileAccountSetting(newData));
+                dispatch(profileAction.getProfileAccounts(newData.UserID));
             })
             .catch(error => {
                 if (error.status === 200) {
@@ -92,6 +93,7 @@ export const authentication = credential => async dispatch => {
                     let loginData = {data: newData, isAuthenticated: true};
                     dispatch(login(loginData));
                     dispatch(profileAction.setProfileAccountSetting(newData));
+                    dispatch(profileAction.getProfileAccounts(newData.UserID));
                     // dispatch(login(loginData));
                     // dispatch(profileAction.setProfileAccountSetting(error.data));
                 } else {

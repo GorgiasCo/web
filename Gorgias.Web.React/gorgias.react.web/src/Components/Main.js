@@ -7,6 +7,7 @@ import DefaultAdminPage from "./DefaultAdminPage";
 import AuthenticationProvider from "./PageElements/authenticationProvider";
 
 import {browserHistory, BrowserRouter as Router, Route} from "react-router-dom";
+// import { I18n, Trans } from 'react-i18next';
 
 // import {
 //     HashRouter as Router,

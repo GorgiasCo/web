@@ -24,6 +24,8 @@ import {connect} from "react-redux";
 import * as todoActions from "./Stores/ToDo/Action";
 import * as authenticationAction from "./Stores/authentication/action";
 import * as profileAction from "./Stores/profile/action";
+import strings from "./Global/Languages";
+import detectBrowserLanguage from 'detect-browser-language'
 
 class DefaultAdminPage extends Component {
 
@@ -36,10 +38,10 @@ class DefaultAdminPage extends Component {
 
     componentWillMount() {
         //To ensure page is begining at top ;)
-        console.log(this.props, 'defaultAdmin wowowowowowowowow', this.props.profileAccountSetting.payload);
         if(this.props.profileAccountSetting.payload !== undefined){
             if(this.props.profileAccounts.payload !== undefined){
-                this.props.getProfileAccounts(this.props.profileAccountSetting.payload.UserID);
+                console.log(this.props, 'defaultAdmin wowowowowowowowow', this.props.profileAccountSetting.payload);
+                // this.props.getProfileAccounts(this.props.profileAccountSetting.payload.UserID);
             }
         }
         window.scrollTo(0, 0);
@@ -159,6 +161,12 @@ class DefaultAdminPage extends Component {
         event.preventDefault();
     }
 
+    changeLanguage = languageCode => {
+        strings.setLanguage(languageCode);
+        console.log(strings.getAvailableLanguages(),'languages wow');
+        this.setState({});
+    }
+
     render() {
         return (
             this.props.profileAccountSetting.payload !== undefined ?
@@ -173,6 +181,8 @@ class DefaultAdminPage extends Component {
                     router={this.props.router}
                 />
                 <div id="Wrapper">
+                    {strings.how}{detectBrowserLanguage()}
+                    <button onClick={()=> this.changeLanguage('it')}>Language la</button>
                     {this.prepareContainer()}
                     <MiniFooter/>
                 </div>
