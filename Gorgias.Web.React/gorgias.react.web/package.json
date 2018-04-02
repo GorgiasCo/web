@@ -12,6 +12,7 @@
     "google-map-react": "^0.27.0",
     "jquery": "^3.2.1",
     "material-ui": "^1.0.0-beta.39",
+    "material-ui-icons": "^1.0.0-beta.36",
     "query-string": "^5.0.1",
     "react": "^16.2.0",
     "react-autocomplete": "^1.8.1",

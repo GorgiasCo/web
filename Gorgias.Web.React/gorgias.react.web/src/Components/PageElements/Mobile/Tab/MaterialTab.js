@@ -5,6 +5,7 @@ import AppBar from 'material-ui/AppBar';
 import Tabs, {Tab} from 'material-ui/Tabs';
 import Typography from 'material-ui/Typography';
 import PropTypes from 'prop-types';
+import MaterialToolbar from "../Toolbar";
 
 function TabContainer({children, dir}) {
     return (
@@ -46,6 +47,7 @@ class MaterialTab extends React.Component {
         return (
             <div className={classes.root}>
                 <AppBar position="static" color="default">
+                    <MaterialToolbar />
                     <Tabs
                         value={this.state.value}
                         onChange={this.handleChange}
@@ -55,7 +57,7 @@ class MaterialTab extends React.Component {
                     >
                         {tabs.map(
                             (item) => {
-                                return <Tab label={item.header}/>;
+                                return <Tab key={item.header} label={item.header}/>;
                             }
                         )}
                     </Tabs>
@@ -67,7 +69,7 @@ class MaterialTab extends React.Component {
                 >
                     {tabs.map(
                         (item) => {
-                            return  <TabContainer dir={theme.direction}>{item.container}</TabContainer>;
+                            return  <TabContainer key={item.header} dir={theme.direction}>{item.container}</TabContainer>;
                         }
                     )}
                 </SwipeableViews>

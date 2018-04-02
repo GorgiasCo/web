@@ -6,9 +6,9 @@ import PropTypes from "prop-types";
 
 const StoryRow = ({data}) => (
 
-    <div className="column mcb-column one-third column_column" style={{margin: 1 + "% " + 1 + "%"}}>
+    <div key={data.AlbumID+'d'} className="column mcb-column one-third column_column" style={{margin: 1 + "% " + 1 + "%"}}>
 
-        <li key={data.AlbumID} className="floatr tklist content_slider_li" style={{float: "left"}}>
+        <li className="floatr tklist content_slider_li" style={{float: "left"}}>
 
             <img width="287" height="339" className="tk fit2" src={data.cdnAlbumCover} alt={data.ProfileFullname}
                  style={{borderRadius: "9px"}}/>
