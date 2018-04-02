@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Button from 'material-ui/Button';
 
 const CustomButton = ({
                           newPageURL,
@@ -10,12 +11,18 @@ const CustomButton = ({
     return (
         isButton ?
             <form noValidate action={newPageURL}>
-                <button
-                    className={`button ${className}`}
+                <Button
+                    variant="raised"
+                    color="primary"
                     {...props}
                 >
                     {buttonCaption}
-                </button>
+                </Button>
+                {/*<button*/}
+                    {/*className={`button ${className}`}*/}
+                    {/*{...props}*/}
+                {/*>*/}
+                {/*</button>*/}
             </form> :
             <a href={newPageURL}
                className={`button ${className}`}

@@ -5,6 +5,7 @@ import React, {Component} from "react";
 import Label from "./Label";
 import InputFeedback from "./InputFeedback";
 import classnames from "classnames";
+import TextField from 'material-ui/TextField';
 
 const CustomTextInput = ({
                              type,
@@ -30,14 +31,26 @@ const CustomTextInput = ({
                 {label}
             </Label>
             {!isTextArea ?
-                <input
+                <TextField
                     id={id}
                     className="text-input"
                     type={type}
                     value={value !== null ? value : ''}
                     onChange={onChange}
+                    margin="normal"
+                    label={label}
+                    placeholder="Placeholder"
                     {...props}
-                /> :
+                />
+                // <input
+                //     id={id}
+                //     className="text-input"
+                //     type={type}
+                //     value={value !== null ? value : ''}
+                //     onChange={onChange}
+                //     {...props}
+                // />
+                :
                 <textarea
                     rows="4"
                     cols="50"

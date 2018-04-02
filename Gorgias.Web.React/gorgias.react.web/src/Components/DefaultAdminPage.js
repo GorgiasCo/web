@@ -190,7 +190,6 @@ class DefaultAdminPage extends Component {
         );
     }
 }
-
 // const mapStateToProps = (state, ownProps) => {
 //     //console.log(state, 'mapStateToProps default admin');
 //     return {

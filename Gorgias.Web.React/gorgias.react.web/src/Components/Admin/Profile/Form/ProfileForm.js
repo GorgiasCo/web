@@ -12,6 +12,7 @@ import CustomInputFieldComponent from "../../../PageElements/Form/CustomInputFie
 import CustomDropZone from "../../../PageElements/Form/CustomDropZone";
 import RowLayout from "../../../PageElements/Form/RowLayout";
 import dateFormat from "dateformat";
+import Button from 'material-ui/Button';
 
 const profileForm = props => {
     const {
@@ -251,20 +252,30 @@ const profileForm = props => {
 
             <div
                 style={{textAlign: 'right'}}>
-                <button
+                <Button
                     type="button"
                     className="reset"
                     onClick={handleReset}
                 >
                     Reset
-                </button>
-                <button
+                </Button>
+
+                <Button
                     type="submit"
+                    variant="raised"
+                    color="primary"
                     disabled={isSubmitting}
-                    className="submit"
                 >
                     Submit
-                </button>
+                </Button>
+
+                {/*<button*/}
+                    {/*type="submit"*/}
+                    {/*disabled={isSubmitting}*/}
+                    {/*className="submit"*/}
+                {/*>*/}
+                    {/*Submit*/}
+                {/*</button>*/}
             </div>
         </form>
     );

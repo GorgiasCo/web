@@ -4,6 +4,7 @@ import DownloadAppContainer from "./AppStoreSections/DownloadAppContainer";
 import AppProfileInfoContainer from "./AppStoreSections/AppProfileInfoContainer";
 import DefaultPage from "./DefaultPage";
 import DefaultAdminPage from "./DefaultAdminPage";
+import DefaultMobilePage from "./DefaultMobilePage";
 import AuthenticationProvider from "./PageElements/authenticationProvider";
 
 import {browserHistory, BrowserRouter as Router, Route} from "react-router-dom";
@@ -51,6 +52,7 @@ export default class MainPage extends Component {
                 <div>
                     {/*<Route exact path="/" component={AuthenticationProvider(DefaultPage)} data={{containerName:"contact", hasFooter:true}}/>*/}
                     <Route exact path="/" component={() => <DefaultPage containerName=""  hasFooter={true} />}/>
+                    <Route exact path="/mobile" component={() => <DefaultMobilePage containerName=""  hasFooter={false} />}/>
                     <Route exact path="/login" component={LoginComponent}/>
                     <Route path="/account/reset/:id" component={(props) => <AccountContent {...props} accountType="reset"/>}/>
                     <Route exact path="/account/forget" component={() => <AccountContent accountType="forget"/>}/>
