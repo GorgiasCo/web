@@ -25,7 +25,7 @@ import * as todoActions from "./Stores/ToDo/Action";
 import * as authenticationAction from "./Stores/authentication/action";
 import * as profileAction from "./Stores/profile/action";
 import strings from "./Global/Languages";
-import detectBrowserLanguage from 'detect-browser-language'
+// import detectBrowserLanguage from 'detect-browser-language'
 
 class DefaultAdminPage extends Component {
 
@@ -181,7 +181,7 @@ class DefaultAdminPage extends Component {
                     router={this.props.router}
                 />
                 <div id="Wrapper">
-                    {strings.how}{detectBrowserLanguage()}
+                    {strings.how}
                     <button onClick={()=> this.changeLanguage('it')}>Language la</button>
                     {this.prepareContainer()}
                     <MiniFooter/>
