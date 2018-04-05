@@ -209,7 +209,7 @@ class ProfileManageComponent extends Component {
                                     newPageURL={`/admin/`}
                                 />
                                 <div className="column mcb-column one column_column">
-                                    <div className="column_attr tkPanels clearfix">
+                                    <div className="column_attr card-block-rounded  clearfix">
                                         <ProfileForm
                                             optionsProfileTypes={optionsProfileTypes}
                                             user={profile}

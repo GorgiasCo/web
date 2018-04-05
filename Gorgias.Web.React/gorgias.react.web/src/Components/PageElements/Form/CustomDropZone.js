@@ -87,7 +87,7 @@ export default class CustomDropZone extends React.Component {
                     multiple={false}
                     accept="image/jpeg, image/png, image/jpg"
                     className={`dropzoneCustom`}
-                    style={{border: this.props.prefix !== "hottest-" ? '1px solid #555555' : '0px'}}
+                    style={{border: this.props.prefix !== "hottest-" ? '1px solid #e1e1e1' : '0px'}}
                     onDrop={this.handleChange}
                 >
                     {this.props.value === '' ?

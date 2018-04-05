@@ -1,0 +1,85 @@
+/* 2018 Css style --by TK */
+
+
+.card-block-rounded {
+    background-color: white;
+    padding: 8%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 0px #555;
+    font-size: smaller;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card-block-rounded:hover {
+    box-shadow: 5px 5px 30px 0 rgba(0,0,0,0.2);
+}
+
+.table-container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  padding-bottom: 0;
+  padding-top: 0%;
+  background-color: #eee;
+  margin-top: 2%;
+}
+
+.tabs {
+  margin: 20px 1px -10px 1px;
+}
+
+.table-header {
+  background-color: #eee;
+  border-radius: 13px 13px 0 0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 0 10px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.table-options {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    width: 50%;
+}
+
+.searchh input[type=text] {
+    width: 70px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    
+}
+
+.searchh input[type=text]:focus {
+    width: 100%;
+}
+
+/*form inputs*/
+
+input[role="combobox"],
+input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea, .woocommerce .quantity input.qty {
+	color: #000000;
+  background-color: white;
+  border-color: #e1e1e1;
+	width: 100%;
+	border-radius: 3px!important;
+}
+
+input[type="date"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus,
+input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus {
+	color: #111619;
+	background-color: #eee !important;
+	/*border-color: #111619;*/
+	border-color: #aaa;
+}

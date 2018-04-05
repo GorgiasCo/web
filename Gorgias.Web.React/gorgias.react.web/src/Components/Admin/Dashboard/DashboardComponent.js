@@ -298,7 +298,7 @@ class DashboardComponent extends Component {
 
                                         <div className="column mcb-column one-third column_column"
                                              style={{margin: 1 + "% " + 1 + "%"}}>
-                                            <div className="column_attr align_center tkPanels">
+                                            <div className="column_attr align_center card-block-rounded ">
                                                 <div
                                                     className="image_frame image_item no_link scale-with-grid alignnone no_border">
                                                     <div className="image_wrapper"><img className="scale-with-grid"
@@ -316,7 +316,7 @@ class DashboardComponent extends Component {
 
                                         <div className="column mcb-column one-third column_column"
                                              style={{margin: 1 + "% " + 1 + "%"}}>
-                                            <div className="column_attr align_center tkPanels">
+                                            <div className="column_attr align_center card-block-rounded">
                                                 <div
                                                     className="image_frame image_item no_link scale-with-grid alignnone no_border">
                                                     <div className="image_wrapper"><img className="scale-with-grid"
@@ -334,7 +334,7 @@ class DashboardComponent extends Component {
 
                                         <div className="column mcb-column one-third column_column"
                                              style={{margin: 1 + "% " + 1 + "%"}}>
-                                            <div className="column_attr align_center tkPanels">
+                                            <div className="column_attr align_center card-block-rounded ">
                                                 <div
                                                     className="image_frame image_item no_link scale-with-grid alignnone no_border">
                                                     <div className="image_wrapper"><img className="scale-with-grid"
@@ -352,7 +352,7 @@ class DashboardComponent extends Component {
 
                                         <div className="column mcb-column one-third column_column"
                                              style={{margin: 1 + "% " + 1 + "%"}}>
-                                            <div className="column_attr align_center tkPanels">
+                                            <div className="column_attr align_center card-block-rounded ">
                                                 <div
                                                     className="image_frame image_item no_link scale-with-grid alignnone no_border">
                                                     <div className="image_wrapper"><img className="scale-with-grid"
@@ -370,7 +370,7 @@ class DashboardComponent extends Component {
 
                                         <div className="column mcb-column one-third column_column"
                                              style={{margin: 1 + "% " + 1 + "%"}}>
-                                            <div className="column_attr align_center tkPanels">
+                                            <div className="column_attr align_center card-block-rounded ">
                                                 <div
                                                     className="image_frame image_item no_link scale-with-grid alignnone no_border">
                                                     <div className="image_wrapper"><img className="scale-with-grid"
@@ -388,7 +388,7 @@ class DashboardComponent extends Component {
 
                                         <div className="column mcb-column one-third column_column"
                                              style={{margin: 1 + "% " + 1 + "%"}}>
-                                            <div className="column_attr align_center tkPanels">
+                                            <div className="column_attr align_center card-block-rounded ">
                                                 <div
                                                     className="image_frame image_item no_link scale-with-grid alignnone no_border">
                                                     <div className="image_wrapper"><img className="scale-with-grid"
@@ -407,7 +407,7 @@ class DashboardComponent extends Component {
                                     </div>
                                 </div>
                                 <div className="column mcb-column one column_column">
-                                    <div className="column_attr tkPanels clearfix">
+                                    <div className="column_attr clearfix">
                                         {/*<Gauge value={33} width={400} height={320}*/}
                                         {/*label="This is my Gauge"/>*/}
 
@@ -423,22 +423,30 @@ class DashboardComponent extends Component {
                                         {/*}*/}
                                         {/*/>*/}
                                         <div>
-                                            <div>
-                                                <button onClick={() => this.prepareColumns(1)}>
+                                            <div className ="table-header">
+                                                <button className="tabs" onClick={() => this.prepareColumns(1)}>
                                                     Now
                                                 </button>
-                                                <button onClick={() => this.prepareColumns(2)}>
+                                                <button className="tabs" onClick={() => this.prepareColumns(2)}>
                                                     Total
                                                 </button>
-                                                <button onClick={() => this.prepareColumns(0)}>
+                                                <button className="tabs" onClick={() => this.prepareColumns(0)}>
                                                     Overall
                                                 </button>
+
+                                                <form className="table-options searchh">
+                                                  {/* <i class="icon-search"></i> */}
+                                                  <input type="text" name="search" placeholder="Search.."/>
+                                                </form>
+
+
                                             </div>
                                             <ReactTable
                                                 data={profileReports}
                                                 columns={columns}
                                                 showPagination={false}
-                                                defaultPageSize={10}
+                                                defaultPageSize={4}
+                                                style = {{backgroundColor:"white"}}
                                             />
                                         </div>
                                     </div>
