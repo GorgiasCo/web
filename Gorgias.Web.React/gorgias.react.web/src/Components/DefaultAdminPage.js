@@ -181,8 +181,23 @@ class DefaultAdminPage extends Component {
                     router={this.props.router}
                 />
                 <div id="Wrapper">
-                    {strings.how}
-                    <button onClick={()=> this.changeLanguage('it')}>Language la</button>
+                      <div className="container">
+                          <div className="column one" style={{margin:"0"}}>
+                              <div className="top_bar_left clearfix" style={{float:"left", width:"100px"}}>
+                                <p style={{float:"left", width:"200px", marginTop:"10px"}}>{strings.how}</p>
+
+                              </div>
+                              <div className="top_bar_right" style={{float:"right"}}>
+                                  <div className="top_bar_right_wrapper">
+                                      <a id="search_button" href="#">
+                                      	<i className="icon-search-fine"></i>
+                                      </a>
+                                      <button onClick={()=> this.changeLanguage('it')}>Language la</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
                     {this.prepareContainer()}
                     <MiniFooter/>
                 </div>

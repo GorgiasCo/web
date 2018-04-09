@@ -11,12 +11,10 @@ const RowLayout = ({
     return (
         <div
             style={{float: 'left', width: '100%', marginBottom: 13,}}>
-            <div
-                style={{float: 'left', width: `${margin}%`, marginBottom: 13,}}>
+            <div className="column mcb-column one-second column_column">
                 {left}
             </div>
-            <div
-                style={{float: 'right', width: `${margin}%`, marginBottom: 13,}}>
+            <div class="column mcb-column one-second column_column">
                 {right}
             </div>
         </div>

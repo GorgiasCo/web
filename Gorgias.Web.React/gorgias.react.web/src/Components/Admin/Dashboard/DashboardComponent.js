@@ -26,6 +26,7 @@ import {interpolateRgb} from "d3-interpolate";
 import LiquidFillGauge from "react-liquid-gauge";
 import Gauge from "react-svg-gauge";
 import AdminpageHeader from "../../PageElements/AdminPageHeader";
+import Button from 'material-ui/Button';
 
 class DashboardComponent extends Component {
     startColor = '#6495ed'; // cornflowerblue
@@ -422,25 +423,36 @@ class DashboardComponent extends Component {
                                         {/*</div>*/}
                                         {/*}*/}
                                         {/*/>*/}
-                                        <div>
-                                            <div className ="table-header">
-                                                <button className="tabs" onClick={() => this.prepareColumns(1)}>
-                                                    Now
-                                                </button>
-                                                <button className="tabs" onClick={() => this.prepareColumns(2)}>
-                                                    Total
-                                                </button>
-                                                <button className="tabs" onClick={() => this.prepareColumns(0)}>
-                                                    Overall
-                                                </button>
+                                        <div className ="table-header">
+                                          <div className="wrap mcb-wrap one  valign-top clearfix">
+                                            <div className="wrap mcb-wrap-inner" style={{marginTop:"15px"}}>
+                                                <div className="column mcb-column one-second column_column">
+                                                  <form >
+                                                    {/* <i class="icon-search"></i> */}
+                                                    <div class="pagination">
+                                                      <a href="">&laquo;</a>
+                                                      <a href="">&raquo;</a>
+                                                    </div>
+                                                    <input type="text" name="search" placeholder="Search.." style={{float:"right", width:"50%" }}/>
 
-                                                <form className="table-options searchh">
-                                                  {/* <i class="icon-search"></i> */}
-                                                  <input type="text" name="search" placeholder="Search.."/>
-                                                </form>
+                                                  </form>
+                                                </div>
 
+                                                <div className="column mcb-column one-second column_column">
+                                                  <Button className="tabs" onClick={() => this.prepareColumns(1)}>
+                                                      Now
+                                                  </Button>
+                                                  <Button className="tabs" size="small" onClick={() => this.prepareColumns(2)}>
+                                                      Total
+                                                  </Button>
+                                                  <Button className="tabs" onClick={() => this.prepareColumns(0)}>
+                                                      Overall
+                                                  </Button>
+                                                </div>
 
                                             </div>
+                                          </div>
+
                                             <ReactTable
                                                 data={profileReports}
                                                 columns={columns}
