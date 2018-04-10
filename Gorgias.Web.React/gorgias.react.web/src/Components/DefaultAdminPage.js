@@ -181,7 +181,7 @@ class DefaultAdminPage extends Component {
                     router={this.props.router}
                 />
                 <div id="Wrapper">
-                  <div className="Dashboard-header-wrapper">
+                  <div className="dashboard-header-top-bar-wrapper">
                       <div className="container">
                           <div className="column one" style={{margin:"0"}}>
                               <div className="top_bar_left clearfix" style={{float:"left", width:"100px"}}>

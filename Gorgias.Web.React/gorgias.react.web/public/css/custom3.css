@@ -126,8 +126,8 @@ input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus 
 
 /* DASHBOARD */
 
-.Dashboard-header-wrapper {
-  background-color:"#f5f5f5";
+.dashboard-header-top-bar-wrapper {
+  background-color:#f5f5f5;
 }
 
 .admin-date-time-summary {
@@ -137,4 +137,9 @@ input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus 
 
 .admin-date-time-summary p {
   font-size: 10px;
+}
+
+.dashboard-charts-container {
+  height: 300px;
+  background-color:lightblue;
 }

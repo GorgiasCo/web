@@ -283,16 +283,19 @@ class DashboardComponent extends Component {
 
         return (
             !isLoading ?
-                <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 150 + "px"}}>
+                <div className="section mcb-section tkSection-padding bg-color-1" style={{paddingTop: 10 + "px"}}>
                     <ToastContainer closeButton={false}/>
                     <div className="section_wrapper mcb-section-inner">
-                        <div className="wrap mcb-wrap one  valign-top clearfix tkAutoAlignCenter">
+                      <AdminpageHeader
+                          isLoading={false}
+                          hasButton={false}
+                          headerTitle={`My Dashboard`}
+                      />
+                        <div className="wrap mcb-wrap one dashboard-charts-container">
+                        </div>
+                        <div className="wrap mcb-wrap one  valign-top clearfix"> {/*removed tkAutoAlignCenter*/}
                             <div className="mcb-wrap-inner">
-                                <AdminpageHeader
-                                    isLoading={false}
-                                    hasButton={false}
-                                    headerTitle={`My Dashboard`}
-                                />
+
                                 <div className="wrap mcb-wrap one  valign-top clearfix"
                                      style={{margin: "0px auto"}}>
                                     <div className="mcb-wrap-inner">
@@ -426,16 +429,27 @@ class DashboardComponent extends Component {
                                         <div className ="table-header">
                                           <div className="wrap mcb-wrap one  valign-top clearfix">
                                             <div className="wrap mcb-wrap-inner" style={{marginTop:"15px"}}>
-                                                <div className="column mcb-column one-second column_column">
-                                                  <form >
-                                                    {/* <i class="icon-search"></i> */}
-                                                    <div class="pagination">
-                                                      <a href="">&laquo;</a>
-                                                      <a href="">&raquo;</a>
-                                                    </div>
-                                                    <input type="text" name="search" placeholder="Search.." style={{float:"right", width:"50%" }}/>
+                                                <div className="column mcb-column one column_column">
+                                                  <div className="column mcb-column one-second column_column"  style={{float:"left"}}>User referal list</div>
+                                                  <div className="column mcb-column one-second column_column">
+                                                    <form >
+                                                      {/* <i class="icon-search"></i> */}
+                                                      <div class="pagination" style={{float:"right"}}>
+                                                        <a href="">&laquo;</a>
+                                                        <a href="">&raquo;</a>
+                                                      </div>
+                                                      <select name="cars" style={{width:"80px", float:"right"}}>
+                                                        <option value="volvo">Volvo XC90</option>
+                                                        <option value="saab">Saab 95</option>
+                                                        <option value="mercedes">Mercedes SLK</option>
+                                                        <option value="audi">Audi TT</option>
+                                                      </select>
 
-                                                  </form>
+                                                      <input type="text" name="search" placeholder="Search.." style={{float:"right", width:"200px" }}/>
+
+                                                    </form>
+                                                  </div>
+
                                                 </div>
 
                                                 <div className="column mcb-column one-second column_column">
