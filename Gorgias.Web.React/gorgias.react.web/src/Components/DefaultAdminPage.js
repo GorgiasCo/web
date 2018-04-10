@@ -181,12 +181,14 @@ class DefaultAdminPage extends Component {
                     router={this.props.router}
                 />
                 <div id="Wrapper">
+                  <div className="Dashboard-header-wrapper">
                       <div className="container">
                           <div className="column one" style={{margin:"0"}}>
                               <div className="top_bar_left clearfix" style={{float:"left", width:"100px"}}>
                                 <p style={{float:"left", width:"200px", marginTop:"10px"}}>{strings.how}</p>
 
                               </div>
+
                               <div className="top_bar_right" style={{float:"right"}}>
                                   <div className="top_bar_right_wrapper">
                                       <a id="search_button" href="#">
@@ -195,9 +197,16 @@ class DefaultAdminPage extends Component {
                                       <button onClick={()=> this.changeLanguage('it')}>Language la</button>
                                   </div>
                               </div>
+
+                              <div class="column one-third column_column admin-date-time-summary">
+                                  <h5>Date &amp; Time</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur </p>
+                              </div>
+
                           </div>
                       </div>
-
+                      <hr style={{width:"90%", marginBottom:"0px"}}/>
+                  </div>
                     {this.prepareContainer()}
                     <MiniFooter/>
                 </div>

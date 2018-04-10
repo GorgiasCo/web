@@ -121,3 +121,20 @@ input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus 
 	/*border-color: #111619;*/
 	border-color: #aaa;
 }
+
+
+
+/* DASHBOARD */
+
+.Dashboard-header-wrapper {
+  background-color:"#f5f5f5";
+}
+
+.admin-date-time-summary {
+  margin: 10px auto 0;
+  float: none;
+}
+
+.admin-date-time-summary p {
+  font-size: 10px;
+}
