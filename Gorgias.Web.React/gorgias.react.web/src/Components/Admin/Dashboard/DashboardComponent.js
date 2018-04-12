@@ -408,6 +408,165 @@ class DashboardComponent extends Component {
                                             </div>
                                         </div>
 
+                                        {/*test*/}
+
+                                        {/*test1*/}
+                                        <div className="column mcb-column one-fourth column_column"
+                                             style={{margin: 1 + "% " + 1 + "%"}}>
+                                            <div className="column_attr align_center card-block-rounded widget-chart">
+                                                {/*
+                                                  <div
+                                                    className="image_frame image_item no_link scale-with-grid alignnone no_border">
+                                                    <div className="image_wrapper"><img className="scale-with-grid"
+                                                                                        src="tkImages/4_iFeel.png"
+                                                                                        alt="" width="123"
+                                                                                        height="100"/></div>
+                                                </div>
+                                                <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
+
+                                                */}
+                                                <h4 className="tkFont-Bold tkFont-Theme">test1</h4>
+                                                <p>
+                                                    {hotSpots.TotalFeel}
+                                                     <br/>
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                                    incididunt ut labore et dolore magna aliqua. awrar d tempor incididunt ut labuaa
+                                                </p>
+                                            </div>
+                                        </div>
+                                        {/*test2*/}
+                                        <div className="column mcb-column one-fourth column_column"
+                                             style={{margin: 1 + "% " + 1 + "%"}}>
+                                            <div className="column_attr align_center card-block-rounded widget-chart">
+
+                                                <h4 className="tkFont-Bold tkFont-Theme">test2</h4>
+                                                  <div className="column mcb-column one-second column_column">
+                                                      <h6>Stats 1</h6>
+                                                      <p>{hotSpots.TotalFeel}</p>
+                                                  </div>
+                                                  <div className="column mcb-column one-second column_column">
+                                                      <h6>Stats 2</h6>
+                                                      <p>{hotSpots.TotalFeel}</p>
+                                                  </div>
+                                              </div>
+                                        </div>
+                                        {/*test3*/}
+                                        <div className="column mcb-column one-fourth column_column"
+                                             style={{margin: 1 + "% " + 1 + "%"}}>
+                                            <div className="column_attr align_center card-block-rounded widget-chart">
+
+                                                  <div className="column mcb-column one column_column stats-column">
+                                                      <h6 className="tkFont-Bold tkFont-Theme">test3</h6>
+                                                      <p>{hotSpots.TotalFeel}</p>
+                                                  </div>
+                                                  <div className="column mcb-column one-second column_column stats-column">
+                                                      <h6>Stats 1</h6>
+                                                      <p>{hotSpots.TotalFeel}</p>
+                                                  </div>
+                                                  <div className="column mcb-column one-second column_column stats-column">
+                                                      <h6>Stats 2</h6>
+                                                      <p>{hotSpots.TotalFeel}</p>
+                                                  </div>
+                                                  <div className="column mcb-column one-second column_column stats-column">
+                                                      <h6>Profit</h6>
+                                                      <p>{hotSpots.TotalFeel}</p>
+                                                  </div>
+                                                  <div className="column mcb-column one-second column_column stats-column">
+                                                      <h6>Revenue</h6>
+                                                      <p>{hotSpots.TotalFeel}</p>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                        {/*test4*/}
+                                        <div className="column mcb-column one-fourth column_column"
+                                             style={{margin: 1 + "% " + 1 + "%"}}>
+                                            <div className="column_attr align_center card-block-rounded widget-chart">
+
+                                                  <div className="column mcb-column one column_column stats-column">
+                                                      <h6 className="tkFont-Bold tkFont-Theme">test4c</h6>
+                                                      <p>{hotSpots.TotalFeel}</p>
+                                                  </div>
+                                                  <div className="stats-column left">
+                                                      <h6>Stats 1</h6>
+                                                      <p>{hotSpots.TotalFeel}</p>
+                                                  </div>
+                                                  <div className="stats-column right">
+                                                      <h6>Stats 2</h6>
+                                                      <p>{hotSpots.TotalFeel}</p>
+                                                  </div>
+                                                  <div className="stats-column left">
+                                                      <h6>Stats 3</h6>
+                                                      <p>{hotSpots.TotalFeel}</p>
+                                                  </div>
+                                                  <div className="stats-column right">
+                                                      <h6>Stats 4</h6>
+                                                      <p>{hotSpots.TotalFeel}</p>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                        {/*test*/}
+                                        <div className="column mcb-column one-second column_column"
+                                             style={{margin: 1 + "% " + 1 + "%"}}>
+                                            <div className="column_attr align_center card-block-rounded widget-chart">
+
+                                                  <div className="column mcb-column one column_column stats-column">
+                                                      <h6 className="tkFont-Bold tkFont-Theme">test long</h6>
+                                                      <p>{hotSpots.TotalFeel}</p>
+                                                  </div>
+                                                  <div style={{backgroundColor:"skyblue",height: "145px", margin:"15px auto"}}>
+
+                                                  </div>
+                                                  <div>
+                                                    <div className="stats-column">
+                                                        <h6>Stats 1</h6>
+                                                        <p>{hotSpots.TotalFeel}</p>
+                                                    </div>
+                                                    <div className="stats-column">
+                                                        <h6>Stats 2</h6>
+                                                        <p>{hotSpots.TotalFeel}</p>
+                                                    </div>
+                                                    <div className="stats-column">
+                                                        <h6>Stats 3</h6>
+                                                        <p>{hotSpots.TotalFeel}</p>
+                                                    </div>
+                                                    <div className="stats-column">
+                                                        <h6>Stats 4</h6>
+                                                        <p>{hotSpots.TotalFeel}</p>
+                                                    </div>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                        {/*test*/}
+                                        <div className="column mcb-column one-fourth column_column"
+                                             style={{margin: 1 + "% " + 1 + "%"}}>
+                                            <div className="column_attr align_center card-block-rounded widget-chart">
+                                                {/*
+                                                  <div
+                                                    className="image_frame image_item no_link scale-with-grid alignnone no_border">
+                                                    <div className="image_wrapper"><img className="scale-with-grid"
+                                                                                        src="tkImages/4_iFeel.png"
+                                                                                        alt="" width="123"
+                                                                                        height="100"/></div>
+                                                </div>
+                                                <hr className="no_line" style={{margin: 0 + " auto " + 10 + "px"}}/>
+
+                                                */}
+                                                <h4 className="tkFont-Bold tkFont-Theme">new2</h4>
+                                                <p>
+                                                    {hotSpots.TotalFeel}
+                                                     <br/>
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                                    incididunt ut labore et dolore magna aliqua. awrar d tempor incididunt ut labuaa
+                                                </p>
+                                            </div>
+                                        </div>
+
+{/*row new*/}
+
+
+
+                                        {/*end of new cards*/}
+
                                     </div>
                                 </div>
                                 <div className="column mcb-column one column_column">
@@ -439,10 +598,10 @@ class DashboardComponent extends Component {
                                                         <a href="">&raquo;</a>
                                                       </div>
                                                       <select name="cars" style={{width:"80px", float:"right"}}>
-                                                        <option value="volvo">Volvo XC90</option>
-                                                        <option value="saab">Saab 95</option>
-                                                        <option value="mercedes">Mercedes SLK</option>
-                                                        <option value="audi">Audi TT</option>
+                                                        <option value="item1">item1</option>
+                                                        <option value="item2">item2</option>
+                                                        <option value="item3">item3</option>
+                                                        <option value="item4">item4</option>
                                                       </select>
 
                                                       <input type="text" name="search" placeholder="Search.." style={{float:"right", width:"200px" }}/>
