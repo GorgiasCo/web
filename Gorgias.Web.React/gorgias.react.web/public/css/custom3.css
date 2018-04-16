@@ -1,5 +1,19 @@
 /* 2018 Css style --by TK */
 
+/*=============Fonts===========*/
+
+.highlights{
+  color: #ff0088;
+  font-weight: bold;
+}
+
+.fontStats-value {
+      color: grey;
+      font-weight: bold;
+      /* font-family: 'Poiret One', cursive; */
+}
+
+/*====== end of fonts==========*/
 
 .card-block-rounded {
     background-color: white;
@@ -24,30 +38,51 @@
 .card-block-rounded.widget-chart p {
   font-size: 9px;
   line-height: 15px;
+  margin-bottom: 5px;
 }
 
 .card-block-rounded.widget-chart .stats-column {
   margin-bottom: 0;
   display: inline-block;
-  padding: 0 8px;
+
 }
 
 .stats-column.inline {
   display: inline-block;
+  padding: 0 8px;
+}
+
+@media only screen and (max-width: 480px) {
+
+  .stats-column.inline {
+    display: inline-block;
+    width: 40%;
+  }
+  .column_attr.align_center.card-block-rounded.widget-chart.one-second {
+    height: 250px;
+  }
 }
 
 .card-block-rounded.widget-chart .stats-column h6 {
-  line-height: 6px;
-  margin-bottom: 10px;
+  line-height: 15px;
+  margin-bottom: 5px;
+}
+
+.stats-container {
+  margin: 0 auto;
+  position: relative;
+  width: 90%;
 }
 
 .stats-column.left{
   float: left;
   clear: left;
+  width: 48%;
 }
 .stats-column.right{
   float: right;
   clear: right;
+  width: 48%;
 }
 
 .table-container {
