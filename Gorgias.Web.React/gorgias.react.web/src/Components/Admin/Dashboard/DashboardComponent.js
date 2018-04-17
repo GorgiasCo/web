@@ -623,7 +623,7 @@ class DashboardComponent extends Component {
                                                   <div className="column mcb-column one-second column_column">
                                                     <form >
                                                       {/* <i class="icon-search"></i> */}
-                                                      <div class="pagination" style={{float:"right"}}>
+                                                      <div className="pagination" style={{float:"right"}}>
                                                         <a href="">&laquo;</a>
                                                         <a href="">&raquo;</a>
                                                       </div>

@@ -184,12 +184,12 @@ class DefaultAdminPage extends Component {
                   <div className="dashboard-header-top-bar-wrapper">
                       <div className="container">
                           <div className="column one" style={{margin:"0"}}>
-                              <div className="column one-third column_column" style={{float:"left", width:"100px"}}>
+                              <div className="column one-third column_column float-top-left" style={{float:"left", marginBottom:"0px"}}>
                                 <p style={{float:"left", width:"200px", marginTop:"10px"}}>{strings.how}</p>
 
                               </div>
 
-                              <div className="column one-third column_column" style={{float:"right"}}>
+                              <div className="column one-third column_column float-top-right" style={{float:"right",marginBottom:"0px"}}>
                                   <div className="top_bar_right_wrapper">
                                       <a id="search_button" href="#">
                                       	<i className="icon-search-fine"></i>

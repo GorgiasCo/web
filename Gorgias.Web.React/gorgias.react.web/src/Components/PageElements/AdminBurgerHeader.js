@@ -42,26 +42,39 @@ export default class AdminBurgerHeader extends React.Component {
     prepareMenu = () => {
         return (
             <Menu
-              width={ 100 }
+              width={ 120 }
               isOpen={true}
               customCrossIcon={false}
                styles={styles}>
                 <img onClick={this.prepareAccountProfilesModal}
                      src={this.props.profileAccountSetting.ProfileImage}
                      style={{
-                         width: 130, height: 130, display: '',
+                         width: "100%",
+                         /*height: 75,*/
+                         display: '',
                          borderBottomRightRadius: 15,
                          borderTopLeftRadius: 15, borderTopRightRadius: 15,
                          borderBottomLeftRadius: 15,
                      }}/>
-                <a id="home" className="menu-item" href="/">Home</a>
-                <a id="Dashboard" className="menu-item" href="/admin/">Dashboard</a>
-                <a id="profile" className="menu-item" href="/admin/profile">Profile</a>
-                <a id="story" className="menu-item" href="/admin/story">Story</a>
-                <a id="contact" className="menu-item" href="/admin/contact">Contact</a>
-                <a id="follower" className="menu-item" href="/admin/follower">Followers</a>
-                <a id="contentmanager" className="menu-item" href="/admin/content/manager">Content Managers</a>
-                <a id="contact" className="menu-item" onClick={this.props.logout}>logout</a>
+                <a id="home" className="menu-item font-hamburger-nav" href="/">
+                     <span><i className="icon-left-circled icon-larger "></i></span>Home</a>
+                <a id="Dashboard" className="menu-item font-hamburger-nav" href="/admin/">
+                  <span><i className="icon-desktop-line icon-larger "></i></span>Dashboard</a>
+                <a id="profile" className="menu-item font-hamburger-nav" href="/admin/profile">
+                  <span><i className="icon-user icon-larger "></i></span>Profile</a>
+                <a id="story" className="menu-item font-hamburger-nav" href="/admin/story">
+                  <span><i className="icon-docs icon-larger "></i></span>Story</a>
+                <a id="contact" className="menu-item font-hamburger-nav" href="/admin/contact">
+                  <span><i className="icon-call icon-larger "></i></span>Contact</a>
+                <a id="follower" className="menu-item font-hamburger-nav" href="/admin/follower">
+                  <span><i className="icon-users icon-larger "></i></span>Followers</a>
+                <a id="contentmanager" className="menu-item font-hamburger-nav" href="/admin/content/manager">
+                  <span><i className="icon-user-add icon-larger "></i></span>Content Managers</a>
+
+                <br></br>
+
+                <a id="contact" className="menu-item font-hamburger-nav" onClick={this.props.logout}>
+                  <span><i className="icon-back"></i></span>logout</a>
             </Menu>
         );
     };
@@ -131,7 +144,7 @@ var styles = {
     },
     bmItemList: {
         color: '#b8b7ad',
-        padding: '0.8em'
+        /*padding: '0.8em'*/
     },
     bmOverlay: {
         background: 'rgba(0, 0, 0, 0.3)'

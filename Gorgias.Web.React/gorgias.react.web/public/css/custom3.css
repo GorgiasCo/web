@@ -8,9 +8,24 @@
 }
 
 .fontStats-value {
-      color: grey;
-      font-weight: bold;
-      /* font-family: 'Poiret One', cursive; */
+  color: grey;
+  font-weight: bold;
+  /* font-family: 'Poiret One', cursive; */
+}
+
+.menu-item.font-hamburger-nav {
+  font-size: 12px;
+  line-height: 15px;
+  padding: 7px 0 7px 0;
+}
+
+a.menu-item.font-hamburger-nav:hover {
+  color: #ff71b3;
+  text-decoration: none;
+}
+
+.icon-larger {
+  font-size: 25px;
 }
 
 /*====== end of fonts==========*/
@@ -25,8 +40,18 @@
 
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 
+  .column.one-third.column_column.float-top-left{
+    float: left;
+    width: 48% !important;
+  }
+
+  .column.one-third.column_column.float-top-right{
+    float: right;
+    width: 48% !important;
+    clear: right;
+  }
 }
 
 /*========== end of Admin Top Header Bar ==============*/
