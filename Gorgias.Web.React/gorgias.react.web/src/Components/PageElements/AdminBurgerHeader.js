@@ -41,7 +41,11 @@ export default class AdminBurgerHeader extends React.Component {
 
     prepareMenu = () => {
         return (
-            <Menu customCrossIcon={false} styles={styles}>
+            <Menu
+              width={ 100 }
+              isOpen={true}
+              customCrossIcon={false}
+               styles={styles}>
                 <img onClick={this.prepareAccountProfilesModal}
                      src={this.props.profileAccountSetting.ProfileImage}
                      style={{

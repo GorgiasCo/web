@@ -184,12 +184,12 @@ class DefaultAdminPage extends Component {
                   <div className="dashboard-header-top-bar-wrapper">
                       <div className="container">
                           <div className="column one" style={{margin:"0"}}>
-                              <div className="top_bar_left clearfix" style={{float:"left", width:"100px"}}>
+                              <div className="column one-third column_column" style={{float:"left", width:"100px"}}>
                                 <p style={{float:"left", width:"200px", marginTop:"10px"}}>{strings.how}</p>
 
                               </div>
 
-                              <div className="top_bar_right" style={{float:"right"}}>
+                              <div className="column one-third column_column" style={{float:"right"}}>
                                   <div className="top_bar_right_wrapper">
                                       <a id="search_button" href="#">
                                       	<i className="icon-search-fine"></i>
@@ -198,8 +198,8 @@ class DefaultAdminPage extends Component {
                                   </div>
                               </div>
 
-                              <div class="column one-third column_column admin-date-time-summary">
-                                  <h5>Date &amp; Time</h5>
+                              <div className="column one-third column_column admin-date-time-summary">
+                                  <h5 style={{marginBottom:"10px"}}>Date &amp; Time</h5>
                                     <p>Lorem ipsum dolor sit amet, consectetur </p>
                               </div>
 
