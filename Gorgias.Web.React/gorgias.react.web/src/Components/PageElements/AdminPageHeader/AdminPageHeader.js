@@ -15,8 +15,8 @@ class AdminPageHeader extends React.Component {
                     <div className="column_attr clearfix">
                         <div
                             style={{float: 'left', marginRight: 7,}}>
-                            <h3
-                                style={{fontStyle: 'italic', marginTop:8}}>
+                            <h3 className="font-db-theme-2 "
+                                style={{marginTop:8}}>
                                 {headerTitle}
                             </h3>
                         </div>

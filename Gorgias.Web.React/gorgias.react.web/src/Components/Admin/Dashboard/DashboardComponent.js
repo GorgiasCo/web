@@ -437,9 +437,9 @@ class DashboardComponent extends Component {
                                         {/*test2*/}
                                         <div className="column mcb-column one-fourth column_column"
                                              style={{margin: 1 + "% " + 1 + "%"}}>
-                                            <div className="column_attr align_center card-block-rounded widget-chart">
+                                            <div className="column_attr align_center card-block-rounded widget-chart" style={{backgroundColor:"#ff0088"}}>
 
-                                                <h4 className="tkFont-Bold tkFont-Theme">test2</h4>
+                                                <h4 className="tkFont-Bold tkFont-Theme" style={{color:"#ffffff"}}>test2</h4>
                                                   <div className="column mcb-column one-second column_column">
                                                       <h6>Stats 1</h6>
                                                       <p>{hotSpots.TotalFeel}</p>
@@ -619,13 +619,13 @@ class DashboardComponent extends Component {
                                           <div className="wrap mcb-wrap one  valign-top clearfix">
                                             <div className="wrap mcb-wrap-inner" style={{marginTop:"15px"}}>
                                                 <div className="column mcb-column one column_column">
-                                                  <div className="column mcb-column one-second column_column"  style={{float:"left"}}>User referal list</div>
+                                                  <div className="column mcb-column one-second column_column"  style={{float:"left"}}><span className="font-db-theme bold">User referal List</span></div>
                                                   <div className="column mcb-column one-second column_column">
                                                     <form>
                                                       {/* <i class="icon-search"></i> */}
                                                       <div className="pagination" style={{float:"right"}}>
-                                                        <a href="">&laquo;</a>
-                                                        <a href="">&raquo;</a>
+                                                        <a href="">	&#60;</a>
+                                                        <a href="">	&#62;</a>
                                                       </div>
                                                       <select name="items" style={{width:"80px", float:"right",marginBottom:"10px"}}>
                                                         <option value="item1">item1</option>

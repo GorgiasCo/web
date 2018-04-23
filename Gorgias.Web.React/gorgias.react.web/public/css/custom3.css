@@ -2,6 +2,20 @@
 
 /*=============Fonts===========*/
 
+/*db = stands for "dashboard"   */
+
+.font-db-theme {
+  font-family: 'Poiret One', sans-serif;
+}
+
+.font-db-theme-2 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 .highlights{
   color: #ff0088;
   font-weight: bold;
@@ -32,7 +46,26 @@ a.menu-item.font-hamburger-nav:hover {
 /*====== end of fonts==========*/
 
 /*================ Admin Top Header Bar ================*/
+/* DASHBOARD */
 
+.dashboard-header-top-bar-wrapper {
+  background-color:#f5f5f5;
+}
+
+.admin-date-time-summary {
+  margin: 10px auto 0;
+  float: none;
+  text-align: center;
+}
+
+.admin-date-time-summary p {
+  font-size: 12px;
+}
+
+.dashboard-charts-container {
+  height: 300px;
+  background-color:lightblue;
+}
 .top_bar_right_wrapper {
   float: right;
 }
@@ -229,7 +262,7 @@ a.menu-item.font-hamburger-nav:hover {
   background-color: #eee;
   border-radius: 13px 13px 0 0;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  padding: 0 10px 25px;
+  padding: 0 10px 10px;
   margin-top: 10px;
   position: relative;
 }
@@ -323,28 +356,6 @@ input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus 
 	border-color: #aaa;
 }
 
-
-
-/* DASHBOARD */
-
-.dashboard-header-top-bar-wrapper {
-  background-color:#f5f5f5;
-}
-
-.admin-date-time-summary {
-  margin: 10px auto 0;
-  float: none;
-  text-align: center;
-}
-
-.admin-date-time-summary p {
-  font-size: 10px;
-}
-
-.dashboard-charts-container {
-  height: 300px;
-  background-color:lightblue;
-}
 
 
 
