@@ -35,4 +35,3 @@ export default class ContentManagerRow extends Component {
         );
     }
 }
-

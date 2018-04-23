@@ -621,34 +621,34 @@ class DashboardComponent extends Component {
                                                 <div className="column mcb-column one column_column">
                                                   <div className="column mcb-column one-second column_column"  style={{float:"left"}}>User referal list</div>
                                                   <div className="column mcb-column one-second column_column">
-                                                    <form >
+                                                    <form>
                                                       {/* <i class="icon-search"></i> */}
                                                       <div className="pagination" style={{float:"right"}}>
                                                         <a href="">&laquo;</a>
                                                         <a href="">&raquo;</a>
                                                       </div>
-                                                      <select name="cars" style={{width:"80px", float:"right"}}>
+                                                      <select name="items" style={{width:"80px", float:"right",marginBottom:"10px"}}>
                                                         <option value="item1">item1</option>
                                                         <option value="item2">item2</option>
                                                         <option value="item3">item3</option>
                                                         <option value="item4">item4</option>
                                                       </select>
 
-                                                      <input type="text" name="search" placeholder="Search.." style={{float:"right", width:"200px" }}/>
+                                                      <input type="text" className="dashboard-table-search-bar" name="search" placeholder="Search.." style={{float:"right", width:"200px", marginBottom:"10px"}}/>
 
                                                     </form>
                                                   </div>
 
                                                 </div>
 
-                                                <div className="column mcb-column one-second column_column">
-                                                  <Button className="tabs" onClick={() => this.prepareColumns(1)}>
+                                                <div className="column mcb-column one column_column">
+                                                  <Button className="tabs" size="small" onClick={() => this.prepareColumns(1)}>
                                                       Now
                                                   </Button>
                                                   <Button className="tabs" size="small" onClick={() => this.prepareColumns(2)}>
                                                       Total
                                                   </Button>
-                                                  <Button className="tabs" onClick={() => this.prepareColumns(0)}>
+                                                  <Button className="tabs" size="small" onClick={() => this.prepareColumns(0)}>
                                                       Overall
                                                   </Button>
                                                 </div>

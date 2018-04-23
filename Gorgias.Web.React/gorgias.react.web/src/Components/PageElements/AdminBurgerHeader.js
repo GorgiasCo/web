@@ -31,7 +31,7 @@ export default class AdminBurgerHeader extends React.Component {
                             items={this.props.prepareProfileAccountLists.payload}
                             prepareListRow={(item) => this.prepareContentManagerProfileRow(item, onClose)}
                             />
-                            <button className={`reset`} onClick={onClose}>close</button>
+                          <button className={`reset button-mini-x icon-cancel`} onClick={onClose}></button>
                         </div>
                     </div>
                 )

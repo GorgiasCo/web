@@ -13,7 +13,7 @@ export default class ContentManagerProfileRow extends Component {
         console.log('Content Manager Row')
         return (
             <div className="column mcb-column one-third column_column" style={{margin: 1 + "% " + 1 + "%"}}>
-                <div onClick={() => this.props.onPress(this.props.data)} className="column_attr align_center tkPanels">
+                <div onClick={() => this.props.onPress(this.props.data)} className="column_attr align_center card-block-rounded">
                     <div className="image_frame image_item no_link scale-with-grid alignnone no_border">
                         <div className="image_wrapper">
                             <ReactImageFallback
@@ -40,4 +40,3 @@ export default class ContentManagerProfileRow extends Component {
         );
     }
 }
-

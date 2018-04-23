@@ -38,9 +38,6 @@ a.menu-item.font-hamburger-nav:hover {
 }
 
 
-
-
-
 @media only screen and (max-width: 767px) {
 
   .column.one-third.column_column.float-top-left{
@@ -77,6 +74,9 @@ a.menu-item.font-hamburger-nav:hover {
   display: block;
   width: 100%;
   height: auto;
+  max-height: 65px;
+  object-fit: cover;
+  -o-object-fit: contain;
   transition: .5s ease;
   backface-visibility: hidden;
   /* border: 2px solid #7777771a;
@@ -108,12 +108,20 @@ a.menu-item.font-hamburger-nav:hover {
 
 }
 
+
 .text {
   /* background-color: #4CAF50; */
   color: white;
   font-size: 20px;
   padding: 25%;
 
+}
+
+.button-mini-x {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  padding: 0;
 }
 
 
@@ -196,6 +204,8 @@ a.menu-item.font-hamburger-nav:hover {
 
 /*=============== end of Cards ===========*/
 
+/*=============== end of Table ===========*/
+
 .table-container {
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -219,9 +229,13 @@ a.menu-item.font-hamburger-nav:hover {
   background-color: #eee;
   border-radius: 13px 13px 0 0;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  /* padding: 0 10px; */
+  padding: 0 10px 25px;
   margin-top: 10px;
   position: relative;
+}
+
+.table-header .column {
+  margin-bottom: 5px;
 }
 
 .table-options {
@@ -249,6 +263,13 @@ a.menu-item.font-hamburger-nav:hover {
 
 .searchh input[type=text]:focus {
     width: 100%;
+}
+
+@media only screen and (max-width: 480px) {
+  .dashboard-table-search-bar {
+    width: 100%!important;
+  }
+
 }
 
 /*------Pagination--------*/
@@ -281,7 +302,7 @@ a.menu-item.font-hamburger-nav:hover {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-
+/*=============== end of Table ===========*/
 /*------------------------------*/
 /*form inputs*/
 
