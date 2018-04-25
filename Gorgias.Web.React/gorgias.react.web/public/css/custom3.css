@@ -4,12 +4,19 @@
 
 /*db = stands for "dashboard"   */
 
-.font-db-theme {
+/*Poiret One*/
+.font-db-theme-1 {
   font-family: 'Poiret One', sans-serif;
 }
 
+/*Roboto*/
 .font-db-theme-2 {
   font-family: 'Roboto', sans-serif;
+}
+
+/*Rajdhani*/
+.font-db-theme-3 {
+  font-family: 'Rajdhani', sans-serif;
 }
 
 .bold {

@@ -200,9 +200,10 @@ class DefaultAdminPage extends Component {
 
                               <div className="column one-third column_column admin-date-time-summary">
                                   <div>
-                                    <span className="font-db-theme">02 March.&nbsp;</span>
-                                    <span className="font-db-theme bold">21:30</span>
-                                    <p className="font-db-theme">Lorem ipsum dolor sit amet, consectetur </p>
+                                    <span className="font-db-theme-1 icon-clock" style={{opacity:"0.6"}}></span>
+                                    <span className="font-db-theme-1">02 March.&nbsp;</span>
+                                    <span className="font-db-theme-1 bold">21:30</span>
+                                    <p className="font-db-theme-1">Lorem ipsum dolor sit amet, consectetur </p>
                                   </div>
                               </div>
 

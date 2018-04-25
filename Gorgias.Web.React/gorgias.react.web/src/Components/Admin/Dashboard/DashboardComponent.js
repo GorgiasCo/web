@@ -291,6 +291,7 @@ class DashboardComponent extends Component {
                           hasButton={false}
                           headerTitle={`My Dashboard`}
                       />
+                    <h2 className="font-db-theme-3 bold">Rm 800,970.000</h2>
                         <div className="wrap mcb-wrap one dashboard-charts-container">
                         </div>
                         <div className="wrap mcb-wrap one  valign-top clearfix"> {/*removed tkAutoAlignCenter*/}
@@ -546,7 +547,7 @@ class DashboardComponent extends Component {
                                             <div className="column_attr align_center card-block-rounded widget-chart">
                                                   <div className="stats-container">
                                                     <div className="stats-column left" style={{textAlign:"left"}}>
-                                                        <h6 className="tkFont-Bold">Deposit</h6>
+                                                        <h6 className="font-db-theme-3 bold">Deposit</h6>
                                                     </div>
                                                     <div className="stats-column right" style={{textAlign:"right"}}>
                                                         <p className="tkFont-Bold highlights">March <span className="fontStats-value">49%</span></p>
@@ -567,11 +568,11 @@ class DashboardComponent extends Component {
                                             <div className="column_attr align_center card-block-rounded widget-chart">
                                                   <div className="stats-container" style={{textAlign:"left"}}>
                                                       <div className="column mcb-column one column_column stats-column">
-                                                          <h6 className="tkFont-Bold">Profit</h6>
+                                                          <h6 className="font-db-theme-3 bold">Profit</h6>
                                                       </div>
                                                       <div className="column mcb-column one column_column stats-column">
                                                           <div style={{margin:"25px 0 50px 0"}}>
-                                                            <h6 className="tkFont-Bold" style={{fontSize:"20px"}}>RM 30 000</h6>
+                                                            <h6 className="font-db-theme-3 bold" style={{fontSize:"20px"}}>RM 30 000</h6>
                                                           </div>
                                                       </div>
                                                       <div className="stats-column left">
@@ -619,7 +620,7 @@ class DashboardComponent extends Component {
                                           <div className="wrap mcb-wrap one  valign-top clearfix">
                                             <div className="wrap mcb-wrap-inner" style={{marginTop:"15px"}}>
                                                 <div className="column mcb-column one column_column">
-                                                  <div className="column mcb-column one-second column_column"  style={{float:"left"}}><span className="font-db-theme bold">User referal List</span></div>
+                                                  <div className="column mcb-column one-second column_column"  style={{float:"left"}}><span className="font-db-theme-3 bold">User referal List</span></div>
                                                   <div className="column mcb-column one-second column_column">
                                                     <form>
                                                       {/* <i class="icon-search"></i> */}

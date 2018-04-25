@@ -11,11 +11,11 @@ class AdminPageHeader extends React.Component {
         return (
             !isLoading ?
                 <div
-                    className="column mcb-column one column_column">
+                    className="column mcb-column one column_column" style={{marginBottom:"5px"}}>
                     <div className="column_attr clearfix">
                         <div
                             style={{float: 'left', marginRight: 7,}}>
-                            <h3 className="font-db-theme-2 "
+                            <h3 className="font-db-theme-3 bold"
                                 style={{marginTop:8}}>
                                 {headerTitle}
                             </h3>
