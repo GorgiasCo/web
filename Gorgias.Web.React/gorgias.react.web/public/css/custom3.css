@@ -320,7 +320,7 @@ a.menu-item.font-hamburger-nav:hover {
 .pagination a {
     color: black;
     float: left;
-    padding: 8px 16px;
+    padding: 6px 14px;
     text-decoration: none;
     border: 1px solid #ddd;
 }
@@ -349,7 +349,7 @@ a.menu-item.font-hamburger-nav:hover {
 input[role="combobox"],
 input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea, .woocommerce .quantity input.qty {
 	color: #000000;
-  background-color: white;
+  background-color: #ffffff00;
   border-color: #e1e1e1;
 	width: 100%;
 	border-radius: 3px!important;
@@ -358,9 +358,9 @@ input[type="date"], input[type="email"], input[type="number"], input[type="passw
 input[type="date"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus,
 input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus {
 	color: #111619;
-	background-color: #eee !important;
+	background-color: #fffafd !important;
 	/*border-color: #111619;*/
-	border-color: #aaa;
+	border-color: #ff0088;
 }
 
 

@@ -409,7 +409,7 @@ class DashboardComponent extends Component {
                                             </div>
                                         </div>
 
-                                        {/*test*/}
+                                        {/*start of test cards*/}
 
                                         {/*test1*/}
                                         <div className="column mcb-column one-fourth column_column"
@@ -539,9 +539,7 @@ class DashboardComponent extends Component {
                                             </div>
                                         </div>
 
-{/*row test*/}
-{/*row 16/4/2018*/}
-                                        {/*test widget*/}
+                                        {/*test fake widget*/}
                                         <div className="column mcb-column one-fourth column_column"
                                              style={{margin: 1 + "% " + 1 + "%"}}>
                                             <div className="column_attr align_center card-block-rounded widget-chart">
@@ -595,8 +593,37 @@ class DashboardComponent extends Component {
                                             </div>
                                         </div>
 
+                                        {/*test widget*/}
+                                        <div className="column mcb-column one-fourth column_column"
+                                             style={{margin: 1 + "% " + 1 + "%"}}>
+                                            <div className="column_attr align_center card-block-rounded widget-chart">
+                                                  <div className="stats-container">
+                                                    <div className="stats-column left" style={{textAlign:"left"}}>
+                                                        <h6 className="font-db-theme-3 bold">Deposit</h6>
+                                                    </div>
+                                                    <div className="stats-column right" style={{textAlign:"right"}}>
+                                                        <p className="tkFont-Bold highlights">March <span className="fontStats-value">49%</span></p>
+                                                        <p>April <span className="fontStats-value">51%</span></p>
+                                                    </div>
 
-                                        {/*end of new cards*/}
+                                                    <div class="chart_box">
+                                                        <div class="chart" data-color="#2991d6" data-percent="42">
+                                                            <div class="num"> 42% </div>
+                                                                <canvas height="140" width="140"></canvas>
+                                                        </div>
+
+                                                        <p> Curabitur ipsum </p>
+                                                    </div>
+
+                                                  <div className="column mcb-column one column_column stats-column" style={{textAlign:"left"}}>
+                                                      <h6 className="tkFont-Bold tkFont-Theme"><span>&#36;</span> 30,000</h6>
+                                                      <p>{hotSpots.TotalFeel}</p>
+                                                  </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+
+                                        {/*end of new test cards*/}
 
                                     </div>
                                 </div>

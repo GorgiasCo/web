@@ -31,7 +31,7 @@ const CustomTextInput = ({
                 {label}
             </Label>
             {!isTextArea ?
-                <TextField
+                <TextField 
                     id={id}
                     className="text-input"
                     type={type}

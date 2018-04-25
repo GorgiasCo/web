@@ -14,7 +14,7 @@ const RowLayout = ({
             <div className="column mcb-column one-second column_column">
                 {left}
             </div>
-            <div class="column mcb-column one-second column_column">
+            <div className="column mcb-column one-second column_column">
                 {right}
             </div>
         </div>
