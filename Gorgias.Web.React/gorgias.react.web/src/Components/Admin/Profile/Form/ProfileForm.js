@@ -251,20 +251,23 @@ const profileForm = props => {
             />
 
             <div
-                style={{textAlign: 'right'}}>
+                style={{textAlign: 'center'}}>
                 <Button
                     type="button"
-                    className="reset"
+                    className="reset modern-button-grey font-db-theme-3 bold"
                     onClick={handleReset}
+                    style={{margin:"5px"}}
                 >
                     Reset
                 </Button>
 
                 <Button
                     type="submit"
+                    className="submit modern-button-pink font-db-theme-3 bold"
                     variant="raised"
                     color="primary"
                     disabled={isSubmitting}
+                    style={{margin:"5px"}}
                 >
                     Submit
                 </Button>

@@ -6,21 +6,21 @@
 
 /*Poiret One*/
 .font-db-theme-1 {
-  font-family: 'Poiret One', sans-serif;
+  font-family: 'Poiret One', sans-serif !important;
 }
 
 /*Roboto*/
 .font-db-theme-2 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif !important;
 }
 
 /*Rajdhani*/
 .font-db-theme-3 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Rajdhani', sans-serif !important;
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .highlights{
@@ -358,10 +358,40 @@ input[type="date"], input[type="email"], input[type="number"], input[type="passw
 input[type="date"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus,
 input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus {
 	color: #111619;
-	background-color: #fffafd !important;
-	/*border-color: #111619;*/
-	border-color: #ff0088;
+	background-color: #fff !important;
+	/*border-color: #111619;
+	border-color: #ff0088;*/
+
+  border-color: #007eff;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px rgba(0, 126, 255, 0.1);
+  outline: none;
 }
+
+.reset.modern-button-grey {
+    background: #e0e1e2 none!important;
+    color: rgba(0,0,0,.6)!important;
+    box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset!important;
+    border:0px;
+  }
+.reset.modern-button-grey:hover {
+    background-color: #cacbcd !important;
+    -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset!important;
+    box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset!important;
+    color: rgba(0,0,0,.8)!important;
+  }
+
+.submit.modern-button-pink {
+    background: #ff0088b3 none!important;
+    color: rgba(0,0,0,.6)!important;
+    box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset!important;
+    border:0px;
+  }
+.submit.modern-button-pink:hover {
+    background-color: #ff0088 !important;
+    -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset!important;
+    box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset!important;
+    color: rgba(0,0,0,.8)!important;
+  }
 
 
 
