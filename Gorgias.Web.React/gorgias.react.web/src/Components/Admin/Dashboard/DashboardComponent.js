@@ -301,6 +301,7 @@ class DashboardComponent extends Component {
                                      style={{margin: "0px auto"}}>
                                     <div className="mcb-wrap-inner">
 
+                                        {/*Original 6 cards*/}
                                         <div className="column mcb-column one-third column_column"
                                              style={{margin: 1 + "% " + 1 + "%"}}>
                                             <div className="column_attr align_center card-block-rounded ">
@@ -409,7 +410,7 @@ class DashboardComponent extends Component {
                                             </div>
                                         </div>
 
-                                        {/*start of test cards*/}
+                                      {/*start of test cards*/}
 
                                         {/*test1*/}
                                         <div className="column mcb-column one-fourth column_column"
@@ -480,7 +481,7 @@ class DashboardComponent extends Component {
                                                   </div>
                                             </div>
                                         </div>
-                                        {/*test4*/}
+                                        {/*test4 - no breakpoint, columns fixed position*/}
                                         <div className="column mcb-column one-fourth column_column"
                                              style={{margin: 1 + "% " + 1 + "%"}}>
                                             <div className="column_attr align_center card-block-rounded widget-chart">
@@ -538,8 +539,7 @@ class DashboardComponent extends Component {
                                                   </div>
                                             </div>
                                         </div>
-
-                                        {/*test fake widget*/}
+                                        {/*test demo widget*/}
                                         <div className="column mcb-column one-fourth column_column"
                                              style={{margin: 1 + "% " + 1 + "%"}}>
                                             <div className="column_attr align_center card-block-rounded widget-chart">
@@ -627,7 +627,7 @@ class DashboardComponent extends Component {
                                           */}
 
 
-                                        {/*end of new test cards*/}
+                                      {/*end of new test cards*/}
 
                                     </div>
                                 </div>

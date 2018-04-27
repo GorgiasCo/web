@@ -62,24 +62,23 @@ export default class AdminBurgerHeader extends React.Component {
                     </div>
                   </div>
 
-                <a id="Dashboard" className="menu-item font-hamburger-nav" href="/admin/">
-                  <span><i className="icon-desktop-line icon-larger "></i><br></br></span>Dashboard</a>
-                <a id="profile" className="menu-item font-hamburger-nav" href="/admin/profile">
-                  <span><i className="icon-user icon-larger "></i><br></br></span>Profile</a>
-                <a id="story" className="menu-item font-hamburger-nav" href="/admin/story">
-                  <span><i className="icon-docs icon-larger "></i><br></br></span>Story</a>
-                <a id="contact" className="menu-item font-hamburger-nav" href="/admin/contact">
-                  <span><i className="icon-call icon-larger "></i><br></br></span>Contact</a>
-                <a id="follower" className="menu-item font-hamburger-nav" href="/admin/follower">
-                  <span><i className="icon-users icon-larger "></i><br></br></span>Followers</a>
-                <a id="contentmanager" className="menu-item font-hamburger-nav" href="/admin/content/manager">
-                  <span><i className="icon-user-add icon-larger "></i><br></br></span>Content<br></br>Managers</a>
+                    <a id="Dashboard" className="menu-item font-hamburger-nav" href="/admin/">
+                      <span><i className="icon-desktop-line icon-larger "></i><br></br></span>Dashboard</a>
+                    <a id="profile" className="menu-item font-hamburger-nav" href="/admin/profile">
+                      <span><i className="icon-user icon-larger "></i><br></br></span>Profile</a>
+                    <a id="story" className="menu-item font-hamburger-nav" href="/admin/story">
+                      <span><i className="icon-docs icon-larger "></i><br></br></span>Story</a>
+                    <a id="contact" className="menu-item font-hamburger-nav" href="/admin/contact">
+                      <span><i className="icon-call icon-larger "></i><br></br></span>Contact</a>
+                    <a id="follower" className="menu-item font-hamburger-nav" href="/admin/follower">
+                      <span><i className="icon-users icon-larger "></i><br></br></span>Followers</a>
+                    <a id="contentmanager" className="menu-item font-hamburger-nav" href="/admin/content/manager">
+                      <span><i className="icon-user-add icon-larger "></i><br></br></span>Content<br></br>Managers</a>
 
+                    <br></br>
 
-                  <br></br>
-
-                <a id="home" className="menu-item font-hamburger-nav" href="/">
-                  <span><i className="icon-home icon-larger "></i><br></br></span>Home</a>
+                    <a id="home" className="menu-item font-hamburger-nav" href="/">
+                      <span><i className="icon-home icon-larger "></i><br></br></span>Home</a>
 
                 {/*<a id="contact" className="menu-item font-hamburger-nav" onClick={this.props.logout}>
                   <span><i className="icon-back"></i><br></br></span>logout</a>*/}
